@@ -7,18 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455092"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creación de una VM de Windows desde un disco especializado mediante PowerShell
 
 Cree una nueva VM asociando un disco administrado especializado como disco del SO. Un disco especializado es una copia del disco duro virtual (VHD) de una máquina virtual existente que contiene las cuentas de usuario, las aplicaciones y otros datos de estado de la máquina virtual original. 
-
-Cuando se usa un VHD especializado para crear una máquina virtual, la nueva máquina virtual conserva el nombre de equipo de la máquina virtual original. También se conserva otra información específica del equipo y, en algunos casos, esta información duplicada podría ocasionar problemas. Al copiar una máquina virtual, tenga en cuenta en qué tipo de información específica del equipo se basan las aplicaciones.
 
 Tiene varias opciones:
 * [Uso de un disco administrado existente](#option-1-use-an-existing-disk). Esta opción es útil si tiene una VM que no funciona correctamente. Puede eliminar la máquina virtual y, después, reutilizar el disco administrado para crear una nueva. 
@@ -28,6 +26,11 @@ Tiene varias opciones:
 También puede usar Azure Portal para [crear una nueva VM a partir de un VHD especializado](create-vm-specialized-portal.md).
 
 En este artículo se muestra cómo usar los discos administrados. Si tiene una implementación heredada que requiere el uso de una cuenta de almacenamiento, vea [Create a VM from a specialized VHD in a storage account](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized) (Creación de una máquina virtual a partir de un VHD especializado en una cuenta de almacenamiento).
+
+> [!IMPORTANT]
+> 
+> Cuando se usa un disco especializado para crear una máquina virtual, la nueva máquina virtual conserva el nombre de equipo de la máquina virtual original. También se conserva otra información específica del equipo (por ejemplo, el CMID) y, en algunos casos, esta información duplicada podría ocasionar problemas. Al copiar una máquina virtual, tenga en cuenta en qué tipo de información específica del equipo se basan las aplicaciones.  
+> Por lo tanto, no use un disco especializado si desea crear varias máquinas virtuales. En su lugar, para implementaciones más grandes, debe [crear una imagen](capture-image-resource.md) y, a continuación, [usarla para crear varias máquinas virtuales](create-vm-generalized-managed.md).
 
 Se recomienda limitar el número de implementaciones simultáneas a 20 máquinas virtuales desde una sola instantánea o VHD. 
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667748"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452225"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen1
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 admite la opción de activar un firewall y limitar el acc
 
 ![Configuración del firewall en Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Configuración del firewall en Data Lake Storage Gen1")
 
-Una vez habilitado el firewall, solo los servicios de Azure como HDInsight, Data Factory, Azure Synapse Analytics (anteriormente SQL Data Warehouse), etc., podrán acceder a Data Lake Storage Gen1. Debido a la traducción interna de direcciones de red que usa Azure, el firewall de Data Lake Storage Gen1 no admite la restricción de servicios concretos por IP y solo está diseñado para restringir puntos de conexión externos de Azure como, por ejemplo, los locales.
+Una vez habilitado el firewall, solo los servicios de Azure como HDInsight, Data Factory, Azure Synapse Analytics, etc., podrán acceder a Data Lake Storage Gen1. Debido a la traducción interna de direcciones de red que usa Azure, el firewall de Data Lake Storage Gen1 no admite la restricción de servicios concretos por IP y solo está diseñado para restringir puntos de conexión externos de Azure como, por ejemplo, los locales.
 
 ## <a name="performance-and-scale-considerations"></a>Consideraciones sobre rendimiento y escalado
 

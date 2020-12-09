@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e5e58f8592fcf8627870c3a574335bbe34394064
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901317"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452456"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -94,7 +94,7 @@ En el diagrama siguiente se ilustra la versión con redundancia de zona de la ar
 
 ## <a name="hyperscale-service-tier-availability"></a>Disponibilidad del nivel de servicio Hiperescala
 
-La arquitectura de nivel de servicio de hiperescala se describe en [Arquitectura de funciones distribuidas](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture) y solo está disponible actualmente para SQL Database, no para Instancia administrada de SQL.
+La arquitectura de nivel de servicio de hiperescala se describe en [Arquitectura de funciones distribuidas](./service-tier-hyperscale.md#distributed-functions-architecture) y solo está disponible actualmente para SQL Database, no para Instancia administrada de SQL.
 
 ![Arquitectura funcional de Hiperescala](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -102,17 +102,17 @@ El modelo de disponibilidad de Hiperescala incluye cuatro capas:
 
 - Una capa de proceso sin estado que ejecuta los procesos `sqlservr.exe` y que solo contiene datos transitorios y almacenados en caché, como la memoria caché RBPEX sin cobertura, TempDB, la base de datos modelo, etc. en la memoria SSD conectada, la memoria caché de planes, el grupo de búferes y el grupo de almacén de columnas en memoria. Esta capa sin estado incluye la réplica de proceso principal y, opcionalmente, un número de réplicas de proceso secundarias que pueden servir como destinos de conmutación por error.
 - Una capa de almacenamiento sin estado formada por servidores de páginas. Esta capa es el motor de almacenamiento distribuido para los procesos `sqlservr.exe` que se ejecutan en las réplicas de proceso. Cada servidor de páginas solo contiene datos transitorios y almacenados en caché, como la memoria caché de RBPEX de cobertura en la SSD conectada y las páginas de datos almacenadas en memoria caché. Cada servidor de páginas tiene un servidor de páginas emparejadas en una configuración activa-activa para proporcionar equilibrio de carga, redundancia y una alta disponibilidad.
-- Una capa de almacenamiento de registro de transacciones con estado formada por el nodo de proceso que ejecuta el proceso de servicio de registro, la zona de entrada del registro de transacciones y el almacenamiento a largo plazo del registro de transacciones. La zona de aterrizaje y el almacenamiento a largo plazo usan Azure Storage, que proporciona disponibilidad y [redundancia](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para el registro de transacciones, lo que garantiza la durabilidad de los datos para las transacciones confirmadas.
-- Una capa de almacenamiento de datos con estado con los archivos de base de datos (.mdf/.ndf) que se almacenan en Azure Storage y que los servidores de páginas actualizan. Esta capa utiliza las características de disponibilidad de datos y [redundancia](https://docs.microsoft.com/azure/storage/common/storage-redundancy) de Azure Storage. Garantiza que todas las páginas de un archivo de datos se conserven aunque se bloqueen los procesos de otras capas de la arquitectura de Hiperescala o si se produzca un error en los nodos de proceso.
+- Una capa de almacenamiento de registro de transacciones con estado formada por el nodo de proceso que ejecuta el proceso de servicio de registro, la zona de entrada del registro de transacciones y el almacenamiento a largo plazo del registro de transacciones. La zona de aterrizaje y el almacenamiento a largo plazo usan Azure Storage, que proporciona disponibilidad y [redundancia](../../storage/common/storage-redundancy.md) para el registro de transacciones, lo que garantiza la durabilidad de los datos para las transacciones confirmadas.
+- Una capa de almacenamiento de datos con estado con los archivos de base de datos (.mdf/.ndf) que se almacenan en Azure Storage y que los servidores de páginas actualizan. Esta capa utiliza las características de disponibilidad de datos y [redundancia](../../storage/common/storage-redundancy.md) de Azure Storage. Garantiza que todas las páginas de un archivo de datos se conserven aunque se bloqueen los procesos de otras capas de la arquitectura de Hiperescala o si se produzca un error en los nodos de proceso.
 
 Los nodos de proceso de todas las capas de Hiperescala se ejecutan en Azure Service Fabric, que controla el estado de cada nodo y realiza conmutaciones por error en los nodos correctos disponibles según sea necesario.
 
-Para más información sobre la alta disponibilidad en Hiperescala, consulte [Alta disponibilidad de base de datos en Hiperescala](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+Para más información sobre la alta disponibilidad en Hiperescala, consulte [Alta disponibilidad de base de datos en Hiperescala](./service-tier-hyperscale.md#database-high-availability-in-hyperscale).
 
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperación de base de datos acelerada (ADR)
 
-[Recuperación acelerada de la base de datos (ADR)](../accelerated-database-recovery.md) es una nueva característica del motor de base de datos que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración. ADR está disponible actualmente para Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics (anteriormente, SQL Data Warehouse).
+[Recuperación acelerada de la base de datos (ADR)](../accelerated-database-recovery.md) es una nueva característica del motor de base de datos que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración. ADR están disponible actualmente para Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics.
 
 ## <a name="testing-application-fault-resiliency"></a>Prueba de la resistencia a errores de la aplicación
 

@@ -1,6 +1,6 @@
 ---
-title: Tipos de datos de tabla en el grupo de SQL dedicado
-description: Recomendaciones para definir los tipos de datos de tabla en el grupo de SQL dedicado.
+title: Tipos de datos de tabla en un grupo de SQL dedicado (anteriormente SQL DW)
+description: Recomendaciones para definir tipos de datos de tabla en grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 01/06/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5bb1d10978171b93ee697b37ee9ac0702d3f898c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6526ae2c15bd53af69854309632c83fa65af8d85
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313069"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449690"
 ---
-# <a name="table-data-types-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tipos de datos de tabla para el grupo de SQL dedicado en Azure Synapse Analytics 
+# <a name="table-data-types-for-dedicated-sql-pool-formerly--sql-dw-in-azure-synapse-analytics"></a>Tipos de datos de tabla del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics 
 
 En este artículo se incluyen recomendaciones para definir los tipos de datos de tabla en el grupo de SQL dedicado.
 
 ## <a name="supported-data-types"></a>Tipos de datos admitidos
 
-El grupo de SQL dedicado admite los tipos de datos usados más comúnmente. Para obtener una lista de los tipos de datos admitidos, consulte [tipos de datos](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes) en la instrucción CREATE TABLE.
+El grupo de SQL dedicado (anteriormente SQL DW) admite los tipos de datos usados más comúnmente. Para obtener una lista de los tipos de datos admitidos, consulte [tipos de datos](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes) en la instrucción CREATE TABLE.
 
 ## <a name="minimize-row-length"></a>Minimizar la longitud de fila
 
@@ -51,7 +51,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="workarounds-for-unsupported-data-types"></a><a name="unsupported-data-types"></a>Soluciones alternativas para los tipos de datos no admitidos
 
-La lista siguiente muestra los tipos de datos que el grupo de SQL dedicado no admite, y proporciona alternativas útiles para los tipos de datos no admitidos.
+En la lista siguiente se muestran los tipos de datos que el grupo de SQL dedicado (anteriormente SQL DW) no admite, y proporciona alternativas útiles para los tipos de datos no admitidos.
 
 | Tipo de datos no admitido | Solución alternativa |
 | --- | --- |

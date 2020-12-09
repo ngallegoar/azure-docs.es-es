@@ -2,13 +2,13 @@
 title: Traslado de máquinas virtuales de Azure a una nueva suscripción o grupo de recursos
 description: Use Azure Resource Manager para trasladar máquinas virtuales a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 12/01/2020
+ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317113"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456312"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Guía del traslado de máquinas virtuales
 
@@ -19,8 +19,8 @@ En este artículo se describen los escenarios que actualmente no se admiten y lo
 Todavía no se admiten los siguientes escenarios:
 
 * No es posible trasladar Virtual Machine Scale Sets con equilibrador de carga o IP pública de SKU estándar.
-* Las máquinas virtuales creadas a partir de recursos de Marketplace con planes asociados no se pueden mover entre suscripciones. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
 * Las máquinas virtuales de una red virtual existente no se pueden mover a una suscripción nueva si no se van a mover todos los recursos de la red virtual.
+* Las máquinas virtuales creadas a partir de recursos de Marketplace con planes asociados no se pueden mover entre suscripciones. Para una posible solución alternativa, consulte [Máquinas virtuales con planes de marketplace](#virtual-machines-with-marketplace-plans).
 * Las máquinas virtuales de prioridad baja y los conjuntos de escalado de máquinas virtuales de prioridad baja no pueden moverse entre grupos de recursos o suscripciones.
 * Las máquinas virtuales de un conjunto de disponibilidad no se pueden mover individualmente.
 
@@ -35,6 +35,24 @@ az vm encryption disable --resource-group demoRG --name myVm1
 ```azurepowershell-interactive
 Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 ```
+
+## <a name="virtual-machines-with-marketplace-plans"></a>Virtual Machines con planes de marketplace
+
+Las máquinas virtuales creadas a partir de recursos de Marketplace con planes asociados no se pueden mover entre suscripciones. Para solucionar esta limitación, puede desaprovisionar la máquina virtual en la suscripción actual y volver a implementarla en la nueva suscripción. Los siguientes pasos le ayudarán a volver a crear la máquina virtual en la nueva suscripción. Sin embargo, es posible que no funcionen en todos los escenarios. Si el plan ya no está disponible en el marketplace, estos pasos no funcionarán.
+
+1. Copie la información sobre el plan.
+
+1. Clone el disco del sistema operativo en la suscripción de destino, o bien mueva el disco original después de eliminar la máquina virtual de la suscripción de origen.
+
+1. En la suscripción de destino, acepte los términos del marketplace para el plan. Para aceptar los términos, puede ejecutar el siguiente comando de PowerShell:
+
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
+
+   O bien, puede crear una nueva instancia de una máquina virtual con el plan mediante el portal. Puede eliminar la máquina virtual después de aceptar los términos de la nueva suscripción.
+
+1. En la suscripción de destino, vuelva a crear la máquina virtual del disco del sistema operativo clonado mediante PowerShell, la CLI o una plantilla de Azure Resource Manager. Incluya el plan de marketplace que está conectado al disco. La información sobre el plan debe coincidir con el plan que compró en la nueva suscripción.
 
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuales con Azure Backup
 

@@ -1,6 +1,6 @@
 ---
-title: Migración del grupo de SQL a Gen2
-description: Instrucciones para migrar un grupo de SQL a Gen2 y la programación de migración por región.
+title: Migración del grupo de SQL dedicado (anteriormente SQL DW) a Gen2
+description: Instrucciones para la migración de un grupo de SQL dedicado (anteriormente SQL DW) existente a Gen2 y la programación de la migración por región.
 services: synapse-analytics
 author: mlee3gsd
 ms.author: anjangsh
@@ -12,19 +12,19 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: eebde4470ba2635a5287cb3b0103fa49e0e243e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 512775369bd7787c6228c6d452be0e236ddf5cc2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441007"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456330"
 ---
-# <a name="upgrade-your-sql-pool-to-gen2"></a>Actualice el grupo de SQL a Gen2
+# <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>Actualización del grupo de SQL dedicado (anteriormente SQL DW) a Gen2
 
-Microsoft está ayudando a reducir el costo inicial de la ejecución de un grupo de SQL.  Ahora, hay disponibles para grupos de SQL niveles inferiores de proceso capaces de manejar consultas exigentes. Lea el anuncio completo sobre la [compatibilidad de niveles inferiores de proceso para Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). La nueva oferta está disponible en las regiones que se indican en la tabla siguiente. Para las regiones admitidas, los grupos de SQL de Gen1 existentes se pueden actualizar a Gen2 a través de uno de los siguientes métodos:
+Microsoft está ayudando a reducir el costo inicial de ejecutar un grupo de SQL dedicado (anteriormente SQL DW).  Ahora, hay disponibles niveles inferiores de proceso capaces de manejar consultas exigentes, para el grupo de SQL dedicado. Lea el anuncio completo sobre la [compatibilidad de niveles inferiores de proceso para Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). La nueva oferta está disponible en las regiones que se indican en la tabla siguiente. Para las regiones admitidas, el grupo de SQL dedicado de Gen1 existentes se pueden actualizar a Gen2 a través de uno de los siguientes métodos:
 
 - **El proceso de actualización automática:** las actualizaciones automáticas no se inician en cuanto el servicio está disponible en una región.  Cuando las actualizaciones automáticas se inician en una región específica, las actualizaciones individuales de almacenamiento de datos se llevarán a cabo durante la programación de mantenimiento seleccionada.
-- [**Actualización manual a Gen2:** ](#self-upgrade-to-gen2) puede controlar cuándo se debe actualizar mediante una actualización manual a Gen2. Si aún no se admite su región, puede realizar una restauración desde un punto de restauración directamente a una instancia de Gen2 en una región admitida.
+- [**Actualización manual a Gen2:**](#self-upgrade-to-gen2) puede controlar cuándo se debe actualizar mediante una actualización manual a Gen2. Si aún no se admite su región, puede realizar una restauración desde un punto de restauración directamente a una instancia de Gen2 en una región admitida.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Programación automatizada y tabla de disponibilidad de regiones
 
@@ -43,9 +43,9 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 
 ## <a name="automatic-upgrade-process"></a>Proceso de actualización automática
 
-En función del gráfico de disponibilidad anterior, programaremos actualizaciones automatizadas para las instancias de Gen1. Con el fin de evitar interrupciones inesperadas de la disponibilidad del grupo de SQL, se programarán las actualizaciones automatizadas durante la programación de mantenimiento. La capacidad de crear una instancia de Gen1 se deshabilitará en las regiones en las que se está llevando a cabo la actualización automática a Gen2. Gen1 dejará de utilizarse una vez que se hayan completado las actualizaciones automáticas. Para obtener más información sobre las programaciones, consulte [Vista de una programación de mantenimiento](maintenance-scheduling.md#view-a-maintenance-schedule).
+En función del gráfico de disponibilidad anterior, programaremos actualizaciones automatizadas para las instancias de Gen1. Con el fin de evitar interrupciones inesperadas de la disponibilidad del grupo de SQL dedicado (anteriormente SQL DW), se programarán las actualizaciones automatizadas durante la programación de mantenimiento. La capacidad de crear una instancia de Gen1 se deshabilitará en las regiones en las que se está llevando a cabo la actualización automática a Gen2. Gen1 dejará de utilizarse una vez que se hayan completado las actualizaciones automáticas. Para obtener más información sobre las programaciones, consulte [Vista de una programación de mantenimiento](maintenance-scheduling.md#view-a-maintenance-schedule).
 
-El proceso de actualización implicará una breve desconexión de aproximadamente 5 minutos, ya que tenemos que reiniciar el grupo de SQL.  Una vez reiniciado el grupo de SQL, estará totalmente disponible para usarse. Aun así, puede experimentar una degradación del rendimiento mientras continúa el proceso de actualización de los archivos de datos en segundo plano. El tiempo total de esta degradación del rendimiento variará en función del tamaño de los archivos de datos.
+El proceso de actualización implicará una breve desconexión de aproximadamente 5 minutos, ya que tenemos que reiniciar el grupo de SQL dedicado (anteriormente SQL DW).  Una vez reiniciado el grupo de SQL dedicado (anteriormente SQL DW), estará totalmente disponible para usarse. Aun así, puede experimentar una degradación del rendimiento mientras continúa el proceso de actualización de los archivos de datos en segundo plano. El tiempo total de esta degradación del rendimiento variará en función del tamaño de los archivos de datos.
 
 También puede acelerar el proceso de actualización de archivos de datos ejecutando [Alter Index rebuild](sql-data-warehouse-tables-index.md) en todas las tablas de almacén de columnas principales usando una clase de recurso y un SLO de mayor tamaño después del reinicio.
 
@@ -54,12 +54,12 @@ También puede acelerar el proceso de actualización de archivos de datos ejecut
 
 ## <a name="self-upgrade-to-gen2"></a>Actualización manual a Gen2
 
-Puede optar por realizar la actualización manual. Para ello, siga estos pasos en un grupo de SQL existente de Gen1. Si elige esta opción, debe completar la actualización manual antes de que comience el proceso de actualización automática en su región. Esto asegura que se evite cualquier riesgo de que las actualizaciones automáticas causen un conflicto.
+Puede optar por realizar la actualización manual. Para ello, siga estos pasos en un grupo de SQL dedicado (anteriormente SQL DW) existente de Gen1. Si elige esta opción, debe completar la actualización manual antes de que comience el proceso de actualización automática en su región. Esto asegura que se evite cualquier riesgo de que las actualizaciones automáticas causen un conflicto.
 
-Hay dos opciones a la hora de realizar una actualización manual.  Puede actualizar el grupo de SQL actual en contexto o puede restaurar un grupo de SQL de Gen1 en una instancia de Gen2.
+Hay dos opciones a la hora de realizar una actualización manual.  Puede actualizar el grupo de SQL dedicado (anteriormente SQL DW) actual en contexto, o bien puede restaurar un grupo de SQL dedicado (anteriormente SQL DW) de Gen1 en una instancia de Gen2.
 
-- [Actualización en contexto](upgrade-to-latest-generation.md): esta opción actualizará el grupo de SQL existente de Gen1 a Gen2. El proceso de actualización implicará una breve desconexión de aproximadamente 5 minutos, ya que tenemos que reiniciar el grupo de SQL.  Una vez reiniciado el grupo de SQL, estará totalmente disponible para usarse. Si experimenta problemas durante la actualización, cree una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) e indique que la posible causa es la "actualización a Gen2".
-- [Actualización desde un punto de restauración](sql-data-warehouse-restore-points.md): cree un punto de restauración definido por el usuario en el grupo de SQL actual de Gen1 y, a continuación, restaure directamente a una instancia de Gen2. El grupo de SQL de Gen1 existente permanecerá en su lugar. Una vez completada la restauración, el grupo de SQL de Gen2 estará totalmente disponible para usarse.  Una vez que haya ejecutado todos los procesos de prueba y validación en la instancia de Gen2 restaurada, se podrá eliminar la instancia original de Gen1.
+- [Actualización en contexto](upgrade-to-latest-generation.md): esta opción actualizará el grupo de SQL dedicado (anteriormente SQL DW) existente de Gen1 a Gen2. El proceso de actualización implicará una breve desconexión de aproximadamente 5 minutos, ya que tenemos que reiniciar el grupo de SQL dedicado (anteriormente SQL DW).  Una vez reiniciado, estará totalmente disponible para usarse. Si experimenta problemas durante la actualización, cree una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) e indique que la posible causa es la "actualización a Gen2".
+- [Actualización desde un punto de restauración](sql-data-warehouse-restore-points.md): cree un punto de restauración definido por el usuario en el grupo de SQL dedicado (anteriormente SQL DW) actual de Gen1 y, a continuación, restaure directamente a una instancia de Gen2. El grupo de SQL dedicado (anteriormente SQL DW) de Gen1 existente permanecerá en su lugar. Una vez completada la restauración, el grupo de SQL dedicado (anteriormente SQL DW) de Gen2 estará totalmente disponible para usarse.  Una vez que haya ejecutado todos los procesos de prueba y validación en la instancia de Gen2 restaurada, se podrá eliminar la instancia original de Gen1.
 
   - Paso 1: En Azure Portal, [cree un punto de restauración definido por el usuario](sql-data-warehouse-restore-active-paused-dw.md).
   - Paso 2: Al restaurar desde el punto de restauración definido por el usuario, establezca el nivel de rendimiento en el nivel de Gen2 que prefiera.
@@ -71,7 +71,7 @@ Para acelerar el proceso en segundo plano de migración de los datos, puede forz
 > [!NOTE]
 > Alter Index rebuild es una operación sin conexión y las tablas no estarán disponibles hasta que se complete la recompilación.
 
-Si experimenta problemas con el grupo de SQL, cree una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) e indique que la posible causa es la "actualización a Gen2".
+Si encuentra problemas con el grupo de SQL dedicado (anteriormente SQL DW), cree una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) e indique que la posible causa es la "actualización a Gen2".
 
 Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-generation.md).
 
@@ -89,12 +89,12 @@ Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-ge
 
 - A. Puede actualizar en contexto o desde un punto de restauración.
 
-  - La actualización en contexto provocará que, momentáneamente, se pause y reanude el grupo de SQL.  Un proceso en segundo plano seguirá ejecutándose mientras el grupo de SQL está en línea.  
+  - La actualización en contexto provocará que, momentáneamente se pause el grupo de SQL dedicado (anteriormente SQL DW) y que luego se reinicie.  Un proceso en segundo plano seguirá ejecutándose mientras el grupo de SQL dedicado (anteriormente SQL DW) está en línea.  
   - La actualización a través de un punto de restauración tarda más porque se realiza el proceso de restauración completa.
 
 **P: ¿Cuánto tiempo tarda la actualización automática?**
 
-- A. El tiempo de inactividad real de la actualización es solo el necesario para pausar y reanudar el servicio; es decir, entre 5 y 10 minutos. Tras este tiempo de inactividad breve, un proceso en segundo plano ejecutará una migración de almacenamiento. El período del proceso en segundo plano depende del tamaño del grupo de SQL.
+- A. El tiempo de inactividad real de la actualización es solo el necesario para pausar y reanudar el servicio; es decir, entre 5 y 10 minutos. Tras este tiempo de inactividad breve, un proceso en segundo plano ejecutará una migración de almacenamiento. El período de tiempo del proceso en segundo plano depende del tamaño del grupo de SQL dedicado (anteriormente SQL DW).
 
 **P: ¿Cuándo se llevará a cabo la actualización automática?**
 
@@ -110,7 +110,7 @@ Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-ge
 
 **P: ¿Puedo deshabilitar la copia de seguridad con redundancia geográfica?**
 
-- A. No. La copia de seguridad con redundancia geográfica es una característica empresarial que mantiene la disponibilidad del grupo de SQL en caso de que una región deje de estar disponible. Abra una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) si tiene más problemas.
+- A. No. La copia de seguridad con replicación geográfica es una característica empresarial que mantiene la disponibilidad del grupo de SQL dedicado (anteriormente SQL DW) en caso de que una región deje de estar disponible. Abra una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) si tiene más problemas.
 
 **P: ¿Hay alguna diferencia de sintaxis de T-SQL entre Gen1 y Gen2?**
 

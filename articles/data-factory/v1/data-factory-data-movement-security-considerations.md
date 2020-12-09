@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0da49a6f5299ef4e53b06acd5ce3fb838915a661
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e995cd8f300787a19934e9b9eeae1dea73e8576c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633933"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457092"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 
@@ -28,11 +28,11 @@ En este artículo se describe la infraestructura de seguridad básica que utiliz
 
 En una solución de Data Factory, se crean una o varias [canalizaciones](data-factory-create-pipelines.md)de datos. Una canalización es una agrupación lógica de actividades que realizan una tarea. Estas canalizaciones residen en la región donde se creó la factoría de datos. 
 
-Aunque Data Factory solamente está disponible en las regiones **Oeste de EE. UU.** , **Este de EE.UU.** y **Norte de Europa** , el servicio de movimiento de datos está disponible [globalmente en varias regiones](data-factory-data-movement-activities.md#global). El servicio de Data Factory garantiza que los datos no abandonan un área geográfica o región, a menos que se indique explícitamente al servicio que utilice una región alternativa si el servicio de movimiento de datos no se ha implementado todavía en esa región. 
+Aunque Data Factory solamente está disponible en las regiones **Oeste de EE. UU.** , **Este de EE.UU.** y **Norte de Europa**, el servicio de movimiento de datos está disponible [globalmente en varias regiones](data-factory-data-movement-activities.md#global). El servicio de Data Factory garantiza que los datos no abandonan un área geográfica o región, a menos que se indique explícitamente al servicio que utilice una región alternativa si el servicio de movimiento de datos no se ha implementado todavía en esa región. 
 
 Azure Data Factory en sí no almacena datos, excepto las credenciales de servicio vinculadas de los almacenes de datos en la nube, que se cifran mediante certificados. Permite crear flujos de trabajo controlados por datos para orquestar el movimiento de los datos entre los [almacenes de datos admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) y organizar el procesamiento de los datos mediante [servicios de proceso](data-factory-compute-linked-services.md) en otras regiones o en entornos locales. También permite [supervisar y administrar flujos de trabajo](data-factory-monitor-manage-pipelines.md) mediante mecanismos de programación y la interfaz de usuario.
 
-El movimiento de datos mediante Azure Data Factory tiene la **certificación** :
+El movimiento de datos mediante Azure Data Factory tiene la **certificación**:
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
@@ -42,26 +42,26 @@ Si está interesado en el cumplimiento de Azure y en cómo Azure protege su prop
 
 En este artículo, revisamos las consideraciones de seguridad en los dos escenarios de movimiento de datos siguientes: 
 
-- **Escenario de nube** : en este escenario, el origen y el destino son públicamente accesibles a través de Internet. Por ejemplo, los servicios de almacenamiento administrado en la nube, como Azure Storage, Azure Synapse Analytics (anteriormente, SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, los servicios de SaaS como Salesforce y los protocolos de web, como FTP y OData. [Aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) encontrará una lista integral de los orígenes de datos admitidos.
-- **Escenario híbrido** : en este escenario, el origen o el destino está detrás de un firewall o dentro de una red corporativa local, o el almacén de datos se encuentra en una red privada o virtual (normalmente, el origen) y no es accesible públicamente. Los servidores de base de datos hospedados en máquinas virtuales también se incluyen en este escenario.
+- **Escenario de nube**: en este escenario, el origen y el destino son públicamente accesibles a través de Internet. Por ejemplo, los servicios de almacenamiento administrado en la nube, como Azure Storage, Azure Synapse Analytics, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, los servicios SaaS como Salesforce y los protocolos web, como FTP y OData. [Aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) encontrará una lista integral de los orígenes de datos admitidos.
+- **Escenario híbrido**: en este escenario, el origen o el destino está detrás de un firewall o dentro de una red corporativa local, o el almacén de datos se encuentra en una red privada o virtual (normalmente, el origen) y no es accesible públicamente. Los servidores de base de datos hospedados en máquinas virtuales también se incluyen en este escenario.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Escenarios de nube
 ### <a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
-Azure Data Factory protege las credenciales del almacén de datos al **cifrarlos** con **certificados administrados por Microsoft** . Estos certificados se alternan cada **dos años** (lo cual incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una instancia de **Azure Storage administrada por los servicios de administración de Azure Data Factory** . Para más información acerca de la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../../storage/blobs/security-recommendations.md).
+Azure Data Factory protege las credenciales del almacén de datos al **cifrarlos** con **certificados administrados por Microsoft**. Estos certificados se alternan cada **dos años** (lo cual incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una instancia de **Azure Storage administrada por los servicios de administración de Azure Data Factory**. Para más información acerca de la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../../storage/blobs/security-recommendations.md).
 
 ### <a name="data-encryption-in-transit"></a>Cifrado de datos en tránsito
 Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las transferencias de datos entre los servicios de movimiento de datos de Data Factory y un almacén de datos en la nube se realizan a través del canal seguro HTTPS o TLS.
 
 > [!NOTE]
-> Todas las conexiones a **Azure SQL Database** y **Azure Synapse Analytics** requieren cifrado (SSL/TLS) siempre que haya datos en tránsito hacia y desde la base de datos. Al crear una canalización con un editor de JSON, agregue la propiedad **encryption** y establézcala en **true** en la **cadena de conexión** . Cuando se usa el [Asistente para copia](data-factory-azure-copy-wizard.md), el asistente establece esta propiedad de forma predeterminada. Para **Azure Storage** , puede usar **HTTPS** en la cadena de conexión.
+> Todas las conexiones a **Azure SQL Database** y **Azure Synapse Analytics** requieren cifrado (SSL/TLS) siempre que haya datos en tránsito hacia y desde la base de datos. Al crear una canalización con un editor de JSON, agregue la propiedad **encryption** y establézcala en **true** en la **cadena de conexión**. Cuando se usa el [Asistente para copia](data-factory-azure-copy-wizard.md), el asistente establece esta propiedad de forma predeterminada. Para **Azure Storage**, puede usar **HTTPS** en la cadena de conexión.
 
 ### <a name="data-encryption-at-rest"></a>Cifrado de datos en reposo
 Algunos almacenes de datos admiten el cifrado de datos en reposo. Se recomienda habilitar el mecanismo de cifrado de datos para estos almacenes. 
 
 #### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
-El Cifrado de datos transparente (TDE) de Azure Synapse Analytics ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para obtener más información, consulte [Proteger una base de datos en Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+El Cifrado de datos transparente (TDE) de Azure Synapse Analytics ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para obtener más información, consulte [Protección de una base de datos en Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Cifrado de datos transparente con Azure SQL Database). 
@@ -92,8 +92,8 @@ El **canal del comandos** permite la comunicación entre los servicios de movimi
 Las credenciales de los almacenes de datos locales no se almacenan en la nube, sino de manera local. Pueden establecerse de tres maneras distintas. 
 
 - Con **texto sin formato** (menos seguro) a través de HTTPS desde Azure Portal o el Asistente para copia. Las credenciales se pasan en texto sin formato a la puerta de enlace local.
-- Con la **biblioteca de criptografía de JavaScript del Asistente para copia** .
-- Con la **aplicación de administración de credenciales con un clic** . La aplicación de un clic se ejecuta en la máquina local con acceso a la puerta de enlace y establece las credenciales para el almacén de datos. Esta opción y la siguiente son las más seguras. La aplicación de administración de credenciales usa el puerto 8050 de la máquina con la puerta de enlace para una comunicación segura de manera predeterminada.  
+- Con la **biblioteca de criptografía de JavaScript del Asistente para copia**.
+- Con la **aplicación de administración de credenciales con un clic**. La aplicación de un clic se ejecuta en la máquina local con acceso a la puerta de enlace y establece las credenciales para el almacén de datos. Esta opción y la siguiente son las más seguras. La aplicación de administración de credenciales usa el puerto 8050 de la máquina con la puerta de enlace para una comunicación segura de manera predeterminada.  
 - Use el cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas que devuelve este cmdlet y agregarlas al elemento **EncryptedCredential** de **connectionString** en el archivo JSON que se usa con el cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) o en el fragmento JSON en el Editor de Data Factory del portal. Esta opción y la aplicación de un solo clic son las más seguras. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Cifrado basado en la biblioteca de criptografía de JavaScript
@@ -106,7 +106,7 @@ Puede iniciar la aplicación de administración de credenciales con un clic desd
   
 ![Puerto HTTPS para la puerta de enlace](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-Actualmente, Data Management Gateway utiliza un solo **certificado** . Este certificado se crea durante la instalación de la puerta de enlace (aplicable a las versiones de Data Management Gateway creadas desde noviembre de 2016 y la versión 2.4.xxxx.x o posteriores). Puede reemplazar este certificado por su propio certificado SSL/TLS. La aplicación de administración con un solo clic usa este certificado para la conexión segura a la máquina de puerta de enlace con el fin de establecer las credenciales del almacén de datos. Las credenciales del almacén de datos se almacenan localmente de manera segura gracias a la [DPAPI](/previous-versions/ms995355(v=msdn.10)) de Windows de la máquina con la puerta de enlace. 
+Actualmente, Data Management Gateway utiliza un solo **certificado**. Este certificado se crea durante la instalación de la puerta de enlace (aplicable a las versiones de Data Management Gateway creadas desde noviembre de 2016 y la versión 2.4.xxxx.x o posteriores). Puede reemplazar este certificado por su propio certificado SSL/TLS. La aplicación de administración con un solo clic usa este certificado para la conexión segura a la máquina de puerta de enlace con el fin de establecer las credenciales del almacén de datos. Las credenciales del almacén de datos se almacenan localmente de manera segura gracias a la [DPAPI](/previous-versions/ms995355(v=msdn.10)) de Windows de la máquina con la puerta de enlace. 
 
 > [!NOTE]
 > Las puertas de enlace instaladas antes de noviembre de 2016 y la versión 2.3.xxxx.x seguirán usando las credenciales cifradas y almacenadas en la nube. Aunque actualice la puerta de enlace a la versión más reciente, las credenciales no se migran a una máquina local.    
@@ -147,7 +147,7 @@ Las siguientes imágenes muestran el uso de Data Management Gateway para mover d
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para redes locales o privadas  
 En una empresa, se ejecuta un **firewall corporativo** en el enrutador central de la organización y el **firewall de Windows** se ejecuta como demonio en la máquina local con la puerta de enlace instalada. 
 
-En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos de dominio para el **firewall corporativo** .
+En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos de dominio para el **firewall corporativo**.
 
 | Nombres de dominio | Puertos de salida | Descripción |
 | ------------ | -------------- | ----------- | 
@@ -160,7 +160,7 @@ En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos d
 > [!NOTE] 
 > Puede que tenga que administrar puertos o dominios de filtrado en el nivel del firewall corporativo según los requisitos de los respectivos orígenes de datos. En esta tabla, Azure SQL Database, Azure Synapse Analytics y Azure Data Lake Store solo se usan a modo de ejemplo.   
 
-En la tabla siguiente se proporcionan los requisitos del **puerto de entrada** para el **firewall de Windows** .
+En la tabla siguiente se proporcionan los requisitos del **puerto de entrada** para el **firewall de Windows**.
 
 | Puertos de entrada | Descripción | 
 | ------------- | ----------- | 
@@ -185,7 +185,7 @@ Los siguientes almacenes de datos en la nube exigen la aprobación de las direcc
 **Respuesta:** Aún no se admite esta característica. Estamos trabajando en ello.
 
 **Pregunta:** ¿Cuáles son los requisitos de puerto para que funcione la puerta de enlace?
-**Respuesta:** La puerta de enlace hace conexiones basadas en HTTP para abrir Internet. Los **puertos de salida 80 y 443** deben estar abiertos para que la puerta de enlace establezca la conexión. Abra el **puerto de entrada 8050** solo en la máquina (no en el nivel del firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure Synapse Analytics como origen y destino, tendrá que abrir también el puerto **1433** . Para obtener más información, vea la sección [Configuraciones de firewall y filtrado de direcciones IP de puerta de enlace](#firewall-configurations-and-filtering-ip-address-of gateway). 
+**Respuesta:** La puerta de enlace hace conexiones basadas en HTTP para abrir Internet. Los **puertos de salida 80 y 443** deben estar abiertos para que la puerta de enlace establezca la conexión. Abra el **puerto de entrada 8050** solo en la máquina (no en el nivel del firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure Synapse Analytics como origen y destino, tendrá que abrir también el puerto **1433**. Para obtener más información, vea la sección [Configuraciones de firewall y filtrado de direcciones IP de puerta de enlace](#firewall-configurations-and-filtering-ip-address-of gateway). 
 
 **Pregunta:** ¿Cuáles son los certificados necesarios para la puerta de enlace?
 **Respuesta:** La puerta de enlace actual requiere un certificado que usa la aplicación de administración de credenciales para establecer las credenciales del almacén de datos de forma segura. Este certificado está autofirmado y se creó y configuró durante la instalación de la puerta de enlace. En su lugar, puede usar su propio certificado TLS/SSL. Para más información, consulte la sección sobre la [aplicación de administración de credenciales con un solo clic](#click-once-credentials-manager-app). 

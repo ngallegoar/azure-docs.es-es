@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780196"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459637"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Hiperescala es compatible con todas las cargas de trabajo de SQL Server, pero e
 
 Si actualmente está ejecutando consultas de análisis interactivas mediante SQL°Server como almacenamiento de datos, Hiperescala es una excelente opción porque se pueden hospedar almacenamientos de datos pequeños y medianos (desde unos pocos TB hasta 100 TB) a un menor costo y puede migrar sus cargas de trabajo del almacenamiento de datos de SQL Server a Hiperescala con el mínimo de cambios en el código T-SQL.
 
-Si va a ejecutar análisis de datos a gran escala con consultas complejas y tasas de ingesta sostenidas que superen los 100 MB/s o mediante almacenamiento de datos paralelos (PDW), Teradata o cualquier otro almacenamiento de datos con procesamiento paralelo masivo (MPP), Azure Synapse Analytics (anteriormente, SQL Data Warehouse) puede ser la mejor opción.
+Si va a ejecutar análisis de datos a gran escala con consultas complejas y tasas de ingesta sostenidas que superen los 100 MB/s o mediante el almacenamiento de datos paralelos (PDW), Teradata o cualquier otro almacenamiento de datos con procesamiento paralelo masivo (MPP), Azure Synapse Analytics puede ser la mejor opción.
   
 ## <a name="hyperscale-compute-questions"></a>Preguntas sobre el proceso de Hiperescala
 

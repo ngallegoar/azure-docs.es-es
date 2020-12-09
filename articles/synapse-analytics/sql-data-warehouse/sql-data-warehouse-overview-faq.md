@@ -1,6 +1,6 @@
 ---
-title: Preguntas frecuentes sobre Azure Synapse Analytics (anteriormente SQL DW)
-description: En este artículo se muestran las preguntas más frecuentes sobre Azure Synapse Analytics (anteriormente SQL DW) para clientes y desarrolladores.
+title: Preguntas frecuentes sobre el grupo de SQL dedicado (anteriormente SQL DW)
+description: En este artículo se muestran las preguntas más frecuentes sobre el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics de clientes y desarrolladores.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d1e2f82ecd80579d19f3a8793db64f6b8a17a440
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c8f8ae81f6f030245899ec82dbe16b29846dab23
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323608"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460512"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics (anteriormente SQL DW)
+# <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
 ## <a name="general"></a>General
 
@@ -27,11 +27,11 @@ A. Azure Synapse es un servicio de análisis que engloba el almacenamiento de da
 
 Q. ¿Qué ha pasado con Azure SQL Data Warehouse?
 
-A. Azure Synapse es Azure SQL Data Warehouse evolucionado. Hemos llevado el mismo almacenamiento de datos líder del sector a un nuevo nivel de rendimiento y funcionalidades. Puede seguir ejecutando las cargas de trabajo de almacenamiento de datos existentes en producción con Azure Synapse. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
+A. Azure Synapse es Azure SQL Data Warehouse evolucionado. Hemos llevado el mismo almacenamiento de datos líder del sector a un nuevo nivel de rendimiento y funcionalidades. Puede seguir ejecutando las cargas de trabajo de almacenamiento de datos existentes en producción con el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
 
-Q. ¿Qué es un grupo de SQL dedicado?
+Q. ¿Qué es el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics?
 
-A. Un grupo de SQL dedicado hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
+A. Un grupo de SQL dedicado (anteriormente SQL DW) hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
 
 Q. ¿Cómo puedo empezar a usar Azure Synapse?
 
@@ -49,7 +49,7 @@ Q. ¿Puedo conectar Power BI?
 
 A. Sí. Aunque Power BI admite la consulta directa con Azure Synapse, no se ha diseñado para administrar muchos usuarios ni datos en tiempo real. Para optimizar aún más el rendimiento de Power BI, considere la posibilidad de usar Power BI en Azure Analysis Services o la infraestructura como servicio de Analysis Services.
 
-Q. ¿Cuáles son los límites de capacidad de los grupos de SQL dedicados?
+Q. ¿Cuáles son los límites de capacidad de un grupo de SQL dedicado (anteriormente SQL DW)?
 
 A. Consulte nuestra página de [límites de capacidad](sql-data-warehouse-service-capacity-limits.md) actuales.
 
@@ -83,15 +83,15 @@ A. Se admiten muchas características. Las características que no se admiten se
 
 ## <a name="tooling-and-administration"></a>Administración y herramientas
 
-Q. ¿Admite el grupo de SQL dedicado las API de REST?
+Q. ¿Admite el grupo de SQL dedicado (anteriormente SQL DW) las API de REST?
 
-A. Sí. La mayoría de las funciones de REST que se pueden utilizar con SQL Database también están disponibles en un grupo de SQL dedicado. Puede encontrar información sobre las API en las páginas de documentación de REST o las [bases de datos](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+A. Sí. La mayoría de las funciones de REST que se pueden usar con SQL Database también están disponibles en un grupo de SQL dedicado (anteriormente SQL DW). Puede encontrar información sobre las API en las páginas de documentación de REST o las [bases de datos](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="loading"></a>Carga
 
 Q. ¿Qué controladores de cliente se admiten?
 
-A. La compatibilidad de los controladores con un grupo de SQL dedicado puede encontrarse en la página [Cadenas de conexión](../sql/connection-strings.md).
+A. La compatibilidad de los controladores con un grupo de SQL dedicado (anteriormente SQL DW) puede encontrarse en la página [Cadenas de conexión](sql-data-warehouse-connection-strings.md).
 
 P: ¿Qué formatos de archivo admite PolyBase?
 
@@ -107,8 +107,8 @@ A. No, PolyBase interactúa solo con los componentes de almacenamiento.
 
 P: ¿Puedo conectarlo a HDI?
 
-A. HDI puede usar ADLS o WASB como capa HDFS. Si tiene uno de los dos como capa HDFS, puede cargar datos en un grupo de SQL dedicado. Sin embargo, no se puede generar el cálculo de aplicación en la instancia HDI.
+A. HDI puede usar ADLS o WASB como capa HDFS. Si tiene uno de los dos como capa HDFS, puede cargar los datos en un grupo de SQL dedicado (anteriormente SQL DW). Sin embargo, no se puede generar el cálculo de aplicación en la instancia HDI.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre Azure Synapse, vea nuestra página [Introducción](sql-data-warehouse-overview-faq.md).
+Para obtener más información sobre el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse, consulte nuestra página [Información general](sql-data-warehouse-overview-what-is.md).

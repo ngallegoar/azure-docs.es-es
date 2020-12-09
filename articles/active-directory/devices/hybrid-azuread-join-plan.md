@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097310"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435764"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -56,7 +56,7 @@ La unión a Azure AD híbrido admite una amplia variedad de dispositivos Windows
 
 - Windows 10
 - Windows Server 2016
-  - **Nota** : Los clientes de las nubes nacionales de Azure necesitan la versión 1803.
+  - **Nota**: Los clientes de las nubes nacionales de Azure necesitan la versión 1803.
 - Windows Server 2019
 
 Para dispositivos que ejecutan el sistema operativo de escritorio Windows, las versiones admitidas se enumeran en el artículo [Información sobre la versión de Windows 10](/windows/release-information/). Como procedimiento recomendado, Microsoft recomienda actualizar a la versión más reciente de Windows 10.
@@ -83,7 +83,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 - El sistema operativo de Server Core no admite ningún tipo de registro de dispositivos.
 
 ### <a name="os-imaging-considerations"></a>Consideraciones sobre la creación de imágenes del SO
-- Si se basa en la herramienta de preparación del sistema (Sysprep) y utiliza para la instalación una imagen **anterior a Windows 10 1809** , asegúrese de que esa imagen no corresponde a un dispositivo que ya está registrado en Azure AD como unión a Azure AD híbrido.
+- Si se basa en la herramienta de preparación del sistema (Sysprep) y utiliza para la instalación una imagen **anterior a Windows 10 1809**, asegúrese de que esa imagen no corresponde a un dispositivo que ya está registrado en Azure AD como unión a Azure AD híbrido.
 
 - Si se basa en la instantánea de una máquina virtual (VM) para crear otras VM, asegúrese de que esa instantánea no sea de una VM que ya se haya registrado en Azure AD como unión a Azure AD híbrido.
 
@@ -105,6 +105,8 @@ Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Az
 - La unión a Azure AD híbrido es compatible con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. 
 
 - A partir de la versión 10 1903 de Windows, los TPM 1.2 no se usan con la unión de Azure AD híbrida, y los dispositivos que tengan esos TPM se considerarán como si no tuvieran un TPM.
+
+- Los cambios de UPN solo se admiten a partir de la actualización de 2004 de Windows 10. En el caso de los dispositivos anteriores a la actualización de 2004 de Windows 10, los usuarios tendrán problemas con el acceso condicional y el SSO en sus dispositivos. Para solucionar este problema, debe desunir el dispositivo de Azure AD (ejecutar "dsregcmd /leave" con privilegios elevados) y volver a realizar la unión (esto se produce automáticamente). Sin embargo, los usuarios que inicien sesión con Windows Hello para empresas no tendrán este problema.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Revisión de la validación controlada de la unión a Azure AD híbrido
 

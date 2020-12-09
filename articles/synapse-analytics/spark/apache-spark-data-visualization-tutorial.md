@@ -1,5 +1,5 @@
 ---
-title: Visualización de datos con Apache Spark
+title: Visualización de data con Apache Spark
 description: Cree visualizaciones de datos enriquecidas mediante Apache Spark y los cuadernos de Azure Synapse Analytics
 services: synapse-analytics
 author: midesa
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 820dd8b607f5ec2fdc44d25063e0a941f76237ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919248"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458772"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Análisis de datos con Apache Spark
 
@@ -99,7 +99,7 @@ Además de las opciones de gráficos integradas del Bloc de notas, también pued
 
 > [!Note]
 > 
-> De forma predeterminada, cada grupo de Apache Spark de Azure Synapse Analytics contiene un conjunto de bibliotecas predeterminadas y usadas con frecuencia. La lista completa de bibliotecas se puede ver en la documentación del [runtime de Azure Synapse](../spark/apache-spark-version-support.md). . Además, para que el código de terceros o de compilación local esté disponible para las aplicaciones, puede [instalar una biblioteca](../spark/apache-spark-azure-portal-add-libraries.md) en uno de los grupos de Spark (versión preliminar).
+> De forma predeterminada, cada grupo de Apache Spark de Azure Synapse Analytics contiene un conjunto de bibliotecas predeterminadas y usadas con frecuencia. La lista completa de bibliotecas se puede ver en la documentación del [runtime de Azure Synapse](../spark/apache-spark-version-support.md). en línea. Además, para que el código de terceros o de compilación local esté disponible para las aplicaciones, puede [instalar una biblioteca](../spark/apache-spark-azure-portal-add-libraries.md) en uno de los grupos de Spark.
 >
 
 1. Para que el desarrollo sea más fácil y menos costoso, se reducirá el conjunto de datos de la muestra. Usaremos la capacidad de muestreo de Apache Spark integrada. Además, tanto Seaborn como Matplotlib requieren un dataframe de Pandas o una matriz de NumPy. Para obtener un dataframe de Pandas, usaremos el comando ```toPandas()``` para convertir nuestro dataframe.

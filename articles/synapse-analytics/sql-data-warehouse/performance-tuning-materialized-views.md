@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478327"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460764"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
-Las vistas materializadas del grupo de Synapse SQL proporcionan un método con poco mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
+Las vistas materializadas del grupo de SQL en Azure Synapse proporcionan un método con poco mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
 
 ## <a name="materialized-views-vs-standard-views"></a>Vistas materializadas frente a vistas estándar
 
-El grupo de SQL admite vistas estándar y materializadas.  Ambas son tablas virtuales creadas con expresiones SELECT y se presentan a las consultas como tablas lógicas.  Las vistas encapsulan la complejidad del cálculo común de datos y agregan una capa de abstracción a los cambios en el cálculo, por lo que no es necesario volver a escribir las consultas.  
+El grupo de SQL en Azure Synapse admite vistas estándar y materializadas.  Ambas son tablas virtuales creadas con expresiones SELECT y se presentan a las consultas como tablas lógicas.  Las vistas encapsulan la complejidad del cálculo común de datos y agregan una capa de abstracción a los cambios en el cálculo, por lo que no es necesario volver a escribir las consultas.  
 
-Una vista estándar calcula sus datos cada vez que se utiliza la vista.  No hay datos almacenados en disco. Normalmente, los usuarios usan las vistas estándar como una herramienta que ayuda a organizar los objetos lógicos y las consultas de una base de datos.  Para utilizar una vista estándar, una consulta debe hacer referencia directa a ella.
+Una vista estándar calcula sus datos cada vez que se utiliza la vista.  No hay datos almacenados en disco. Normalmente, los usuarios usan las vistas estándar como una herramienta que ayuda a organizar los objetos lógicos y las consultas en un grupo de SQL.  Para utilizar una vista estándar, una consulta debe hacer referencia directa a ella.
 
 Una vista materializada calcula previamente, almacena y mantiene sus datos en el grupo de SQL como una tabla.  No es necesario volver a calcular cada vez que se utiliza una vista materializada.  Este es el motivo por el que las consultas que utilizan todos los datos o un subconjunto de ellos en vistas materializadas pueden tener un rendimiento más rápido.  Además, las consultas pueden usar una vista materializada sin hacer referencia directa a ella, por lo que no es necesario cambiar el código de la aplicación.  
 
@@ -79,7 +79,7 @@ En comparación con otras opciones de optimización, como el escalado y la admin
 
 **Necesidad de una estrategia de distribución de datos diferente para un rendimiento más rápido de las consultas**
 
-Synapse SQL es un sistema de procesamiento de consultas distribuidas.  Los datos de una tabla de SQL se distribuyen entre 60 nodos mediante una de estas tres [estrategias de distribución](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin o replicada).   
+Azure Synapse Analytics es un sistema de procesamiento de consultas distribuidas.  Los datos de una tabla de SQL se distribuyen entre 60 nodos mediante una de estas tres [estrategias de distribución](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin o replicada).   
 
 La distribución de datos se especifica en el momento de creación de la tabla y permanece sin cambios hasta que se elimina la tabla. Puesto que la vista materializada es una tabla virtual en disco, posibilita las distribuciones de datos hash y round_robin.  Los usuarios pueden elegir una distribución de datos diferente a la de las tablas base, que sea óptima para el rendimiento de las consultas que más utilizan las vistas.  
 
@@ -97,11 +97,11 @@ Evalúe estas recomendaciones teniendo en cuenta las necesidades de la carga de 
 
 **Tenga en cuenta el equilibrio entre consultas más rápidas y el costo**
 
-Para cada vista materializada, hay un costo de almacenamiento de datos y un costo por el mantenimiento de la vista.  A medida que cambian los datos en las tablas base, el tamaño de la vista materializada aumenta y su estructura física también cambia.  Para evitar la degradación del rendimiento de las consultas, el motor del grupo de SQL mantiene cada vista materializada por separado.  
+Para cada vista materializada, hay un costo de almacenamiento de datos y un costo por el mantenimiento de la vista.  A medida que cambian los datos en las tablas base, el tamaño de la vista materializada aumenta y su estructura física también cambia.  Para evitar la degradación del rendimiento de las consultas, el motor de SQL Analytics mantiene cada vista materializada por separado.  
 
 La carga de trabajo de mantenimiento es más alta cuando aumenta el número de vistas materializadas y de cambios de la tabla base.   Los usuarios deben comprobar si el costo producido por todas las vistas materializadas se puede compensar con la ganancia de rendimiento de las consultas.  
 
-Puede ejecutar esta consulta para obtener la lista de vistas materializadas de una base de datos:
+Puede ejecutar esta consulta para obtener la lista de vistas materializadas de un grupo de SQL:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -141,7 +141,7 @@ GROUP BY A, C
 
 **No todas las optimizaciones de rendimiento requieren cambios en las consultas**
 
-El optimizador del grupo de SQL puede utilizar automáticamente las vistas materializadas implementadas para mejorar el rendimiento de las consultas.  Esta compatibilidad se aplica de forma transparente a las consultas que no hacen referencia a las vistas y a las consultas que usan agregados no admitidos en la creación de vistas materializadas.  No se necesita ningún cambio en la consulta. Puede comprobar el plan de ejecución estimado de una consulta para confirmar si se usa una vista materializada.  
+El optimizador de SQL Analytics puede utilizar automáticamente las vistas materializadas implementadas para mejorar el rendimiento de las consultas.  Esta compatibilidad se aplica de forma transparente a las consultas que no hacen referencia a las vistas y a las consultas que usan agregados no admitidos en la creación de vistas materializadas.  No se necesita ningún cambio en la consulta. Puede comprobar el plan de ejecución estimado de una consulta para confirmar si se usa una vista materializada.  
 
 **Supervisión de vistas materializadas**
 
@@ -151,7 +151,7 @@ Para evitar la degradación del rendimiento de las consultas, se recomienda ejec
 
 **Vista materializada y almacenamiento en caché de conjuntos de resultados**
 
-Estas dos características se introducen en el grupo de SQL aproximadamente al mismo tiempo para el ajuste del rendimiento de las consultas.  El almacenamiento en caché de conjuntos de resultados se usa para obtener una alta simultaneidad y una respuesta rápida a consultas repetitivas sobre datos estáticos.  
+Estas dos características se introducen en SQL Analytics aproximadamente al mismo tiempo para el ajuste del rendimiento de las consultas.  El almacenamiento en caché de conjuntos de resultados se usa para obtener una alta simultaneidad y una respuesta rápida a consultas repetitivas sobre datos estáticos.  
 
 Para usar el resultado almacenado en caché, la forma de la consulta de solicitud de almacenamiento en caché debe coincidir con la consulta que generó la memoria caché.  Además, el resultado almacenado en caché debe ser de aplicación para toda la consulta.  
 

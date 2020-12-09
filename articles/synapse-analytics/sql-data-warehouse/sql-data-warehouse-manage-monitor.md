@@ -1,6 +1,6 @@
 ---
-title: Supervisión de la carga de trabajo de grupos de SQL mediante DMV
-description: Obtenga información sobre cómo supervisar la carga de trabajo de grupos SQL de Azure Synapse Analytics y la ejecución de consultas mediante DMV.
+title: Supervisión de la carga de trabajo del grupo de SQL dedicado mediante DMV
+description: Obtenga información sobre cómo supervisar la carga de trabajo del grupo de SQL dedicado de Azure Synapse Analytics y la ejecución de consultas mediante DMV.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1992c3d525fc1f5a098e1969887a752233d47990
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515736"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453806"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Supervisión de la carga de trabajo de grupos de SQL de Azure Synapse Analytics mediante DMV
+# <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Supervisión de la carga de trabajo del grupo de SQL dedicado de Azure Synapse Analytics mediante DMV
 
 En este artículo se describe cómo usar las vistas de administración dinámica (DMV) para supervisar la carga de trabajo e investigar la ejecución de la consulta en grupos de SQL.
 
@@ -100,10 +100,10 @@ ORDER BY step_index;
 
 Si un plan DSQL tarda más de lo esperado, es posible que sea un plan complejo con muchos pasos DSQL o con un solo paso que tarda mucho tiempo.  Si el plan tiene muchos pasos con varias operaciones de movimiento, considere la posibilidad de optimizar las distribuciones de la tabla para reducir el movimiento de datos. En el artículo [Distribución de tablas](sql-data-warehouse-tables-distribute.md) se explica por qué los datos deben moverse para resolver una consulta. En el artículo también se explican algunas estrategias de distribución para minimizar el movimiento de datos.
 
-Para investigar más detalles acerca de un solo paso, compruebe la columna *operation_type* del paso de consulta de larga ejecución y anote el valor de **Índice de pasos** :
+Para investigar más detalles acerca de un solo paso, compruebe la columna *operation_type* del paso de consulta de larga ejecución y anote el valor de **Índice de pasos**:
 
-* Vaya al paso 3 para **operaciones SQL** : OnOperation, RemoteOperation, ReturnOperation.
-* Vaya al paso 4 para **operaciones de movimiento de datos** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Vaya al paso 3 para **operaciones SQL**: OnOperation, RemoteOperation, ReturnOperation.
+* Vaya al paso 4 para **operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>PASO 3: Investigar SQL en las bases de datos distribuidas
 

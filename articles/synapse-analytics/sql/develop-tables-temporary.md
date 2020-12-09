@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06faa1da71331c299245a93af96166880e7732de
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305030"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451777"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tablas temporales en SQL de Synapse
 
 Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión en SQL de Synapse. 
 
-Los recursos tanto del grupo de SQL dedicado como del grupo de SQL sin servidor (versión preliminar) pueden utilizar tablas temporales. El grupo de SQL sin servidor tiene limitaciones que se tratan al final de este artículo. 
+Los recursos tanto del grupo de SQL dedicado como del grupo de SQL sin servidor pueden utilizar tablas temporales. El grupo de SQL sin servidor tiene limitaciones que se tratan al final de este artículo. 
 
 ## <a name="temporary-tables"></a>Tablas temporales
 
@@ -226,7 +226,7 @@ El grupo de SQL dedicado tiene algunas limitaciones de implementación para las 
 - No se pueden crear vistas en las tablas temporales.
 - Solo se pueden crear tablas temporales con distribución hash o round robin.  No se admite la distribución de tablas temporales replicadas. 
 
-## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>Tablas temporales en el grupo de SQL sin servidor (versión preliminar)
+## <a name="temporary-tables-in-serverless-sql-pool"></a>Tablas temporales en el grupo de SQL sin servidor
 
 Las tablas temporales en el grupo de SQL sin servidor son compatibles, pero su uso es limitado. No se pueden usar en consultas que tienen archivos como destino. 
 

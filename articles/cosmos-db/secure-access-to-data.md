@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7d50185169b22a136ce81bd3aebae235cf49498b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340913"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436630"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Protección del acceso a los datos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -123,9 +123,9 @@ Un recurso de permiso está asociado a un usuario y está asignado en el contene
 
 Si habilita los [registros de diagnóstico en solicitudes del plano de datos](cosmosdb-monitor-resource-logs.md), se registran las dos propiedades siguientes correspondientes al permiso:
 
-* **resourceTokenPermissionId** : esta propiedad indica el identificador del permiso del token de recurso que ha especificado. 
+* **resourceTokenPermissionId**: esta propiedad indica el identificador del permiso del token de recurso que ha especificado. 
 
-* **resourceTokenPermissionMode** : esta propiedad indica el modo de permiso que estableció al crear el token de recurso. El modo de permiso puede tener valores como "all" o "read".
+* **resourceTokenPermissionMode**: esta propiedad indica el modo de permiso que estableció al crear el token de recurso. El modo de permiso puede tener valores como "all" o "read".
 
 ### <a name="code-sample-to-create-permission"></a>Ejemplo de código para crear permisos
 
@@ -159,17 +159,17 @@ Para agregar acceso de lectura en la cuenta de Azure Cosmos DB a su cuenta de us
 
 1. Vaya a Azure Portal y seleccione su cuenta de Azure Cosmos DB.
 2. Haga clic en la pestaña **Control de acceso (IAM)** y, después, haga clic en **+ Add role assignment** (+ Agregar asignación de roles).
-3. En el panel **Add role assignment** (Agregar asignación de roles), en el cuadro **Rol** , seleccione **Rol de lector de la cuenta de Cosmos DB**.
-4. En el cuadro **Asignar acceso a** , seleccione **usuario de Azure AD, grupo o aplicación**.
+3. En el panel **Add role assignment** (Agregar asignación de roles), en el cuadro **Rol**, seleccione **Rol de lector de la cuenta de Cosmos DB**.
+4. En el cuadro **Asignar acceso a**, seleccione **usuario de Azure AD, grupo o aplicación**.
 5. Seleccione el usuario, el grupo o la aplicación en el directorio al que desea conceder acceso.  Puede buscar en el directorio con los nombres para mostrar, dirección de correo electrónico o identificadores de objeto.
     El usuario, el grupo o la aplicación seleccionados aparecen en la lista de los miembros seleccionados.
-6. Haga clic en **Save** (Guardar).
+6. Haga clic en **Save**(Guardar).
 
 La entidad ahora puede leer los recursos de Azure Cosmos DB.
 
 ## <a name="delete-or-export-user-data"></a>Eliminación o exportación de datos de usuario
 
-Azure Cosmos DB le permite buscar, seleccionar, modificar y eliminar cualquier dato personal ubicado en la base de datos o en colecciones. Azure Cosmos DB proporciona API para buscar y eliminar datos personales; sin embargo, es su responsabilidad usar las API y definir la lógica requerida para borrar los datos personales. Cada API multimodelo (SQL, MongoDB, Gremlin, Cassandra, Table) proporciona SDK de diferentes lenguajes que contienen métodos para buscar y eliminar datos personales. También puede habilitar la característica [período de vida (TTL)](time-to-live.md) para eliminar datos automáticamente después de un período especificado, sin incurrir en ningún costo adicional.
+Como servicio de base de datos, Azure Cosmos DB le permite buscar, seleccionar, modificar y eliminar los datos que se encuentran en la base de datos o en los contenedores. No obstante, es responsabilidad suya usar las API proporcionadas y definir la lógica necesaria para buscar y borrar datos personales, si es necesario. Cada API multimodelo (SQL, MongoDB, Gremlin, Cassandra, Table) proporciona SDK de diferentes lenguajes que contienen métodos para buscar y eliminar datos basados en predicados personalizados. También puede habilitar la característica [período de vida (TTL)](time-to-live.md) para eliminar datos automáticamente después de un período especificado, sin incurrir en ningún costo adicional.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

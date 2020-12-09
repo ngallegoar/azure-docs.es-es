@@ -1,6 +1,6 @@
 ---
-title: Procedimientos recomendados para los grupos de SQL sin servidor (versión preliminar)
-description: Recomendaciones y procedimientos recomendados para trabajar con grupos de SQL sin servidor (versión preliminar).
+title: Procedimientos recomendados para el grupo de SQL sin servidor
+description: Recomendaciones y procedimientos recomendados para trabajar con un grupo de SQL sin servidor.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638876"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457898"
 ---
-# <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Procedimientos recomendados para el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedimientos recomendados para el grupo de SQL sin servidor en Azure Synapse Analytics
 
-En este artículo, encontrará una colección de procedimientos recomendados para usar grupos de SQL sin servidor (versión preliminar). Un grupo de SQL sin servidor es un recurso de Azure Synapse Analytics.
+En este artículo, encontrará una colección de procedimientos recomendados para usar un grupo de SQL sin servidor. Un grupo de SQL sin servidor es un recurso de Azure Synapse Analytics.
 
 ## <a name="general-considerations"></a>Consideraciones generales
 
@@ -129,7 +129,7 @@ Puede usar el analizador optimizado para rendimiento al consultar archivos CSV. 
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Creación manual de estadísticas para archivos .csv
 
-El grupo de SQL sin servidor se basa en las estadísticas para generar planes de ejecución de consulta óptimos. Se crearán automáticamente estadísticas de las columnas de los archivos Parquet cuando sea necesario. En este momento, no se crean automáticamente para las columnas de los archivos .csv, por lo que debe crear manualmente estadísticas para las columnas que se usan en las consultas, especialmente las que se usan en DISTINCT, JOIN, WHERE, ORDER BY y GROUP BY. Para más información, consulte [Estadísticas en un grupo de SQL sin servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview).
+El grupo de SQL sin servidor se basa en las estadísticas para generar planes de ejecución de consulta óptimos. Se crearán automáticamente estadísticas de las columnas de los archivos Parquet cuando sea necesario. En este momento, no se crean automáticamente para las columnas de los archivos .csv, por lo que debe crear manualmente estadísticas para las columnas que se usan en las consultas, especialmente las que se usan en DISTINCT, JOIN, WHERE, ORDER BY y GROUP BY. Compruebe [las estadísticas en el grupo de SQL sin servidor] (develop-tables-statistics.md#statistics-in-serverless-sql-pool) para más información.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Uso de CETAS para mejorar el rendimiento de las consultas y las combinaciones
 

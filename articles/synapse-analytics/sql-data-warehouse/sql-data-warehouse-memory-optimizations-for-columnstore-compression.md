@@ -1,6 +1,6 @@
 ---
-title: Mejora en el rendimiento del índice de almacén de columnas
-description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas en cada grupo de filas.
+title: Mejora del rendimiento del índice de almacén de columnas para el grupo de SQL dedicado
+description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas en cada grupo de filas del grupo de SQL dedicado.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797775"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453721"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximización de la calidad del grupo de filas para los índices de almacén de columnas en el grupo de SQL dedicado 
 
 El número de filas de un grupo de filas determina la calidad del grupo de filas. Aumentar la memoria disponible puede maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.  Emplee estos métodos para mejorar las tasas de compresión y el rendimiento de las consultas de los índices de almacén de columnas.
 
@@ -99,7 +99,7 @@ La memoria máxima requerida para comprimir un grupo de filas es aproximadamente
 
 Las cadenas largas que se comprimen con un método de compresión diseñado para comprimir texto. Este método de compresión utiliza un *diccionario* para almacenar patrones de texto. El tamaño máximo de un diccionario es de 16 MB. Hay solo un diccionario para cada columna de cadena larga del grupo de filas.
 
-Para ver una discusión en profundidad sobre los requisitos de memoria del almacén de columnas, eche un vistazo al vídeo [Escalado de grupo de SQL de Synapse: configuración y directrices](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Para ver un análisis en profundidad de los requisitos de memoria del almacén de columnas, eche un vistazo al vídeo [Escalado de grupo de SQL dedicado: configuración y directrices](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Formas de reducir los requisitos de memoria
 
@@ -122,7 +122,7 @@ Requisitos de memoria adicionales para la compresión de cadenas:
 
 ### <a name="avoid-over-partitioning"></a>Evitar un exceso de particiones
 
-Los índices de almacén de columnas crean uno o varios grupos de filas por partición. Para al grupo de SQL en Azure Synapse Analytics, el número de particiones aumenta rápidamente porque los datos se distribuyen y cada distribución se particiona.
+Los índices de almacén de columnas crean uno o varios grupos de filas por partición. Para al grupo de SQL dedicado en Azure Synapse Analytics, el número de particiones aumenta rápidamente porque los datos se distribuyen y cada distribución se particiona.
 
 Si la tabla presenta demasiadas particiones, es posible que no haya un número de filas suficiente para llenar los grupos de filas. La falta de filas no crea presión de memoria durante la compresión. Pero genera grupos de filas que no logran el mejor rendimiento de las consultas del almacén de columnas.
 
@@ -165,4 +165,4 @@ A fin de incrementar la concesión de memoria para una consulta de carga, puede 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para descubrir más formas de mejorar el rendimiento del grupo de SQL, consulte el tema de [información general sobre rendimiento](cheat-sheet.md).
+Para descubrir más formas de mejorar el rendimiento del grupo de SQL dedicado, consulte [Información general sobre rendimiento](cheat-sheet.md).

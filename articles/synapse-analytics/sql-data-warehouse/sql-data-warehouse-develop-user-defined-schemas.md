@@ -1,25 +1,25 @@
 ---
 title: Uso de esquemas definidos por el usuario
-description: Sugerencias para el uso de esquemas definidos por el usuario T-SQL para el desarrollo de soluciones en el grupo de SQL de Synapse.
+description: Sugerencias para el uso de esquemas definidos por el usuario de T-SQL para el desarrollo de soluciones para grupos de SQL dedicados en Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fc5e035215e7cabd02861c6ee2498cadd1ef0534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213370"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460444"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Esquemas definidos por el usuario en el grupo de SQL de Synapse
-Este artículo se centra en proporcionar varias sugerencias para el uso de esquemas definidos por el usuario T-SQL para desarrollar soluciones en el grupo de SQL de Synapse.
+# <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Esquemas definidos por el usuario para grupos de SQL dedicados en Azure Synapse Analytics
+Este artículo se centra en proporcionar varias sugerencias para el uso de esquemas definidos por el usuario de T-SQL para desarrollar soluciones en el grupo de SQL dedicado.
 
 ## <a name="schemas-for-application-boundaries"></a>Esquemas para los límites de la aplicación
 
@@ -27,7 +27,7 @@ Los almacenamientos de datos tradicionales suelen utilizar bases de datos indepe
 
 Por ejemplo, un almacenamiento de datos de SQL Server tradicional podría incluir una base de datos provisional, una base de datos de almacenamiento de datos y algunas bases de datos data mart. En esta topología, cada base de datos funciona como una carga de trabajo y límite de seguridad de la arquitectura.
 
-Por el contrario, el grupo de SQL ejecuta la carga de trabajo completa del almacenamiento de datos dentro de una base de datos. No se permiten las combinaciones entre bases de datos. El grupo de SQL espera que todas las tablas que el almacenamiento utiliza se almacenen en una sola base de datos.
+Por el contrario, el grupo de SQL dedicado ejecuta la carga de trabajo completa del almacenamiento de datos dentro de una base de datos. No se permiten las combinaciones entre bases de datos. El grupo de SQL dedicado espera que todas las tablas que el almacenamiento utiliza se almacenen en una sola base de datos.
 
 > [!NOTE]
 > El grupo de SQL no admite ningún tipo de consultas entre bases de datos. En consecuencia, deben revisarse las implementaciones de almacenamiento de datos que utilizan este patrón.
@@ -37,11 +37,11 @@ Por el contrario, el grupo de SQL ejecuta la carga de trabajo completa del almac
 ## <a name="recommendations"></a>Recomendaciones
 A continuación se ofrecen recomendaciones para consolidar los límites de cargas de trabajo, seguridad, dominio y funcionales con esquemas definidos por el usuario:
 
-- Use una base de datos del grupo de SQL para ejecutar la carga de trabajo completa del almacenamiento de datos.
-- Consolide el entorno de almacenamiento de datos existente para utilizar una base de datos del grupo de SQL.
+- Use una base de datos de un grupo de SQL dedicado para ejecutar la carga de trabajo completa del almacenamiento de datos.
+- Consolide el entorno de almacenamiento de datos existente para utilizar una base de datos del grupo de SQL dedicado.
 - Utilice **esquemas definidos por el usuario** para proporcionar el límite implementado anteriormente con las bases de datos.
 
-Si los esquemas definidos por el usuario no se han utilizado anteriormente, comenzará desde cero. Utilice el nombre de la base de datos anterior como base para los esquemas definidos por el usuario en la base de datos del grupo de SQL.
+Si los esquemas definidos por el usuario no se han utilizado anteriormente, comenzará desde cero. Utilice el nombre de la base de datos anterior como base para los esquemas definidos por el usuario en la base de datos del grupo de SQL dedicado.
 
 Si ya se han utilizado los esquemas, tiene algunas opciones:
 
@@ -50,7 +50,7 @@ Si ya se han utilizado los esquemas, tiene algunas opciones:
 - Conservar los nombres de esquemas heredados mediante la implementación de vistas sobre la tabla en un esquema adicional para volver a crear la estructura del esquema anterior.
 
 > [!NOTE]
-> En la primera inspección, la opción 3 puede resultar la opción más atractiva. No obstante, el problema radica en los detalles. Las vistas son de solo lectura en el grupo de SQL. Cualquier modificación de datos o tablas tendría que realizarse según la tabla de base. La opción 3 también introduce una capa de vistas en el sistema. Desea incorporar algunas más a pesar de que ya utiliza vistas en la arquitectura.
+> En la primera inspección, la opción 3 puede resultar la opción más atractiva. No obstante, el problema radica en los detalles. Las vistas son de solo lectura en el grupo de SQL dedicado. Cualquier modificación de datos o tablas tendría que realizarse según la tabla de base. La opción 3 también introduce una capa de vistas en el sistema. Desea incorporar algunas más a pesar de que ya utiliza vistas en la arquitectura.
 > 
 > 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674633"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436069"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturación según uso de Marketplace
 
@@ -20,7 +20,7 @@ Las API de facturación según uso deben usarse cuando el publicador crea dimens
 
 Para obtener más información sobre cómo crear dimensiones de medición personalizadas para SaaS, consulte [Facturación según uso de SaaS](saas-metered-billing.md).
 
-Para obtener más información sobre cómo crear dimensiones de medición personalizadas para una oferta de aplicación de Azure con un plan de aplicación administrada, consulte la [sección de configuración técnica sobre cómo crear una nueva oferta de Azure Apps](create-new-azure-apps-offer.md#technical-configuration)).
+Para obtener más información sobre cómo crear dimensiones de medición personalizadas para una oferta aplicación de Azure con un plan de aplicaciones administradas, consulte [Configuración de las opciones de la oferta de la aplicación de Azure](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## <a name="enforcing-tls-12-note"></a>Nota sobre la aplicación de TLS 1.2
 
@@ -34,16 +34,16 @@ Solo se puede emitir un evento de uso durante cada hora de un día natural. Por 
 
 Solo se puede emitir un evento de uso durante cada hora de un día natural por recurso. Si se consume más de una unidad en una hora, acumule todas las unidades consumidas en la hora y, a continuación, proceda a su emisión en un solo evento. Los eventos de uso solo se pueden emitir durante las últimas 24 horas. Si emite un evento de uso en cualquier momento entre las 8:00 y las 8:59:59 (y se acepta) y envía un evento adicional durante el mismo día entre las 8:00 y las 8:59:59, se rechazará como duplicado.
 
-**POST** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
-*Parámetros de consulta* :
+*Parámetros de consulta*:
 
 | Parámetro | Recomendación          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 | | |
 
-*Encabezados de la solicitud* :
+*Encabezados de la solicitud*:
 
 | Content-type       | Use `application/json`  |
 | ------------------ | ---------------------------- |
@@ -149,13 +149,13 @@ La API de eventos de uso por lotes permite emitir a la vez eventos de uso para m
 
 **POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
-*Parámetros de consulta* :
+*Parámetros de consulta*:
 
 | Parámetro  | Recomendación     |
 | ---------- | -------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 
-*Encabezados de la solicitud* :
+*Encabezados de la solicitud*:
 
 | Content-type       | Use `application/json`       |
 | ------------------ | ------ |

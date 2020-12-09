@@ -1,30 +1,30 @@
 ---
 title: Asignación de variables
-description: En este artículo, encontrará sugerencias esenciales para asignar variables de T-SQL en el grupo de SQL.
+description: En este artículo, encontrará sugerencias esenciales para asignar variables de T-SQL para grupos de SQL dedicados en Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 87448ea737c11af13a52632e5bf4f67dc54d9ae3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213336"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459220"
 ---
-# <a name="assign-variables-in-synapse-sql-pool"></a>Asignación de variables en el grupo de SQL de Synapse
+# <a name="assign-variables-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Asignación de variables para grupos de SQL dedicados en Azure Synapse Analytics
 
-En este artículo, encontrará sugerencias esenciales para asignar variables de T-SQL en el grupo de SQL.
+En este artículo, encontrará sugerencias esenciales para asignar variables de T-SQL en el grupo de SQL dedicado.
 
 ## <a name="set-variables-with-declare"></a>Definición de variables con DECLARE
 
-Las variables de SQL se establecen en el grupo de SQL mediante las instrucciones `DECLARE` o `SET`. Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en el grupo de SQL.
+Las variables del grupo de SQL dedicado se establecen mediante las instrucciones `DECLARE` o `SET`. Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en el grupo de SQL.
 
 ```sql
 DECLARE @v  int = 0

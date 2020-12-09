@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782899"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445396"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>¿Qué es un servidor SQL lógico en Azure SQL Database y Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ En Azure SQL Database y Azure Synapse Analytics, un servidor es una construcció
 
 Un servidor es diferente a una instancia de SQL Server, con la que puede estar familiarizado en el mundo de los entornos locales. En concreto, no hay ninguna garantía relacionada con la ubicación de las bases de datos ni la base de datos de almacenamiento de datos con respecto al servidor que las administra. Además, ni Azure SQL Database ni Azure Synapse exponen ninguna característica ni acceso de nivel de instancia. En cambio, las bases de datos de instancia correspondientes a una instancia administrada están coubicadas físicamente, de la misma manera en que SQL Server las usa en entornos locales o máquinas virtuales.
 
-Al crear un servidor, proporciona una cuenta y una contraseña para iniciar sesión en el servidor con derechos administrativos para la base de datos maestra de dicho servidor y todas las bases de datos creadas en dicho servidor. Esta cuenta inicial es una cuenta de inicio de sesión de SQL. Azure SQL Database y Synapse Analytics admiten la autenticación de SQL y la autenticación de Azure Active Directory. Para obtener información sobre inicios de sesión y autenticación, vea [Administración de bases de datos e inicios de sesión en Azure SQL Database](logins-create-manage.md). La autenticación de Windows no es compatible.
+Al crear un servidor, proporciona una cuenta y una contraseña para iniciar sesión en el servidor con derechos administrativos para la base de datos maestra de dicho servidor y todas las bases de datos creadas en dicho servidor. Esta cuenta inicial es una cuenta de inicio de sesión de SQL. Azure SQL Database y Azure Synapse Analytics admiten la autenticación de SQL y la autenticación de Azure Active Directory. Para obtener información sobre inicios de sesión y autenticación, vea [Administración de bases de datos e inicios de sesión en Azure SQL Database](logins-create-manage.md). La autenticación de Windows no es compatible.
 
 Un servidor en SQL Database y Azure Synapse:
 
@@ -68,7 +68,7 @@ Para crear una instancia administrada, consulte [Creación de una instancia admi
 
 ### <a name="manage-an-existing-server"></a>Administración de un servidor existente
 
-Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de la base de datos, la página **Servidores SQL Server** o la página de **Todos los recursos** .
+Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de la base de datos, la página **Servidores SQL Server** o la página de **Todos los recursos**.
 
 Para administrar una base de datos existente, vaya a la página de **SQL Database** y haga clic en la base de datos que desea administrar. En la captura de pantalla siguiente se muestra cómo empezar a configurar un firewall de nivel de servidor para una base de datos desde la página de **información general** de una base de datos.
 

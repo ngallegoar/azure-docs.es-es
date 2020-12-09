@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554808"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437123"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning
 
@@ -47,7 +47,11 @@ La canalización usada en este artículo es una versión modificada de la canali
 
 ## <a name="create-a-pipeline-parameter"></a>Creación de un parámetro de canalización
 
-Cree parámetros de canalización para establecer variables de forma dinámica en tiempo de ejecución. En este ejemplo, cambiará la ruta de acceso a los datos de entrenamiento de un valor fijo a un parámetro, de modo que pueda volver a entrenar el modelo con datos diferentes.
+Los parámetros de canalización se usan para compilar canalizaciones versátiles que se pueden volver a enviar posteriormente con distintos valores de parámetros. En algunos escenarios comunes, se actualizan conjuntos de valores o algunos hiperparámetros para su reentrenamiento. Cree parámetros de canalización para establecer variables de forma dinámica en tiempo de ejecución. 
+
+Los parámetros de canalización se pueden agregar al origen de datos o a los parámetros de módulo en una canalización. Cuando se vuelve a enviar la canalización, se pueden especificar los valores de esos parámetros.
+
+En este ejemplo, cambiará la ruta de acceso a los datos de entrenamiento de un valor fijo a un parámetro, de modo que pueda volver a entrenar el modelo con datos diferentes. Igualmente, también puede agregar otros parámetros de módulo, como los parámetros de canalización, en función de su caso de uso.
 
 1. Seleccione el módulo **Importación de datos**.
 
@@ -60,31 +64,22 @@ Cree parámetros de canalización para establecer variables de forma dinámica e
 
 1. Mantenga el puntero sobre el campo **Path** (Ruta de acceso) y seleccione los puntos suspensivos que aparecen sobre el campo **Path** (Ruta de acceso).
 
-    ![Captura de pantalla que muestra cómo crear un parámetro de canalización](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. Seleccione **Add to pipeline parameter** (Agregar al parámetro de canalización).
 
 1. Proporcione un nombre de parámetro y un valor predeterminado.
 
-   > [!NOTE]
-   > Puede inspeccionar y editar los parámetros de canalización; para ello, seleccione el icono de engranaje de **Configuración** situado junto al título del borrador de la canalización. 
+   ![Captura de pantalla que muestra cómo crear un parámetro de canalización](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Seleccione **Guardar**.
 
+   > [!NOTE]
+   > También puede desasociar un parámetro de módulo del parámetro de canalización en el panel de detalles del módulo, de forma similar a cuando debe agregar parámetros de canalización.
+   >
+   > Puede inspeccionar y editar los parámetros de canalización; para ello, seleccione el icono de engranaje de **Configuración** situado junto al título del borrador de la canalización. 
+   >    - Después de realizar la desasociación, puede eliminar el parámetro de canalización en el panel **Configuración**.
+   >    - Asimismo, también puede agregar un parámetro de canalización en el panel **Configuración** y, a continuación, aplicarlo en algunos parámetros de módulo.
+
 1. Envíe la ejecución de la canalización.
-
-## <a name="find-a-trained-model"></a>Búsqueda de un modelo entrenado
-
-El diseñador guarda todas las salidas de la canalización, incluidos los modelos entrenados, en la cuenta de almacenamiento del área de trabajo predeterminada. También puede acceder a los modelos entrenados directamente en el diseñador:
-
-1. Espere a que finalice la ejecución de la canalización.
-1. Seleccione el módulo **Train Model** (Entrenar modelo).
-1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros).
-1. Puede encontrar el modelo en **Other outputs** (Otras salidas) junto con los registros de ejecución.
-1. Como alternativa, seleccione el icono **View output** (Ver salida). A partir de aquí, puede seguir las instrucciones del cuadro de diálogo para ir directamente al almacén de datos. 
-
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla que muestra cómo descargar el modelo entrenado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicación de una canalización de entrenamiento
 

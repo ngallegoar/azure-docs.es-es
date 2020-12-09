@@ -1,6 +1,6 @@
 ---
-title: Restauración de un grupo de SQL dedicado eliminado
-description: Guía paso a paso para la restauración de un grupo de SQL eliminado en Azure Synapse Analytics.
+title: Restauración de un grupo de SQL dedicado eliminado (anteriormente SQL DW)
+description: Guía paso a paso para la restauración de un grupo de SQL dedicado eliminado en Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -8,37 +8,37 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/29/2018
-ms.author: anjangsh
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 29edf6ebd451bf05fe24249eeacb416a70001d56
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7264791654bf1b646338f0d429930b63f0cc3a06
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313576"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449932"
 ---
-# <a name="restore-a-deleted-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restauración de un grupo de SQL dedicado eliminado en Azure Synapse Analytics
+# <a name="restore-a-deleted-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Restauración de un grupo de SQL dedicado (anteriormente SQL DW) eliminado en Azure Synapse Analytics
 
-En este artículo, aprenderá a restaurar un grupo de SQL dedicado mediante Azure Portal o PowerShell.
+En este artículo, aprenderá a restaurar un grupo de SQL dedicado (anteriormente SQL DW) mediante Azure Portal o PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Compruebe la capacidad DTU**. Cada grupo de SQL dedicado está hospedado en un [servidor SQL lógico](../../azure-sql/database/logical-servers.md) (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada.  Compruebe que el servidor tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Compruebe la capacidad DTU**. Cada grupo de SQL dedicado (anteriormente SQL DW) está hospedado en un [servidor SQL lógico](../../azure-sql/database/logical-servers.md) (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada.  Compruebe que el servidor tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Restauración de una base de datos de almacenamiento de datos eliminada mediante PowerShell
 
-Para restaurar una grupo de SQL dedicado eliminado, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Si también se ha eliminado el servidor correspondiente, la base de datos de almacenamiento de datos no se podrá restaurar.
+Para restaurar una grupo de SQL dedicado (anteriormente SQL DW) eliminado, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Si también se ha eliminado el servidor correspondiente, la base de datos de almacenamiento de datos no se podrá restaurar.
 
 1. Antes de empezar, asegúrese de [instalar Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Abra PowerShell.
 3. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
-4. Seleccione la suscripción que contiene el grupo de SQL dedicado eliminado que se va a restaurar.
+4. Seleccione la suscripción que contiene el grupo de SQL dedicado (anteriormente SQL DW) eliminado que se va a restaurar.
 5. Obtenga la base de datos de almacenamiento de datos eliminada específica.
-6. Restauración del grupo de SQL dedicado eliminado
-    1. Para restaurar el grupo de SQL dedicado eliminado en un servidor diferente, asegúrese de especificar el nombre del otro servidor.  Este servidor también puede estar en un grupo de recursos y una región diferentes.
+6. Restauración del grupo de SQL dedicado (anteriormente SQL DW) eliminado
+    1. Para restaurar el grupo de SQL dedicado (anteriormente SQL DW) eliminado en un servidor diferente, asegúrese de especificar el nombre del otro servidor.  Este servidor también puede estar en un grupo de recursos y una región diferentes.
     1. Para realizar la restauración en otra suscripción, use el botón [Mover](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) para mover el servidor a otra suscripción.
 7. Compruebe que la base de datos de almacenamiento de datos restaurada está en línea.
 8. Una vez finalizada la restauración, puede configurar la base de datos de almacenamiento de datos recuperada siguiendo la explicación que se proporciona en el apartado [Configuración de la base de datos después de realizar la recuperación](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
@@ -87,5 +87,5 @@ $RestoredDatabase.status
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Restauración de un grupo de SQL dedicado](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restauración desde una copia de seguridad geográfica para un grupo de SQL dedicado](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restauración de un grupo de SQL dedicado existente (anteriormente SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restauración desde una copia de seguridad geográfica para un grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-restore-from-geo-backup.md)

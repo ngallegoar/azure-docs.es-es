@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563065"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436613"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar Azure Sentinel con AWS CloudTrail
 
@@ -58,7 +58,7 @@ Debe tener permiso de escritura en el área de trabajo de Azure Sentinel.
 
     ![AWS4](./media/connect-aws/aws-4.png)
 
-1.  En **Attach permissions policy** (Asociar directiva de permisos), seleccione**AWSCloudTrailReadOnlyAccess**.
+1.  En **Attach permissions policy** (Asociar directiva de permisos), seleccione **AWSCloudTrailReadOnlyAccess**.
 
     ![AWS5](./media/connect-aws/aws-5.png)
 
@@ -80,11 +80,11 @@ Debe tener permiso de escritura en el área de trabajo de Azure Sentinel.
 
 1. Para usar el esquema correspondiente de Log Analytics con los eventos de AWS, busque **AWSCloudTrail**.
 
-
+    > [!IMPORTANT]
+    > A partir del 1 de diciembre de 2020, el campo **AwsRequestId** se ha reemplazado por el campo **AwsRequestId_** (tenga en cuenta el guion bajo agregado). Los datos del campo anterior **AwsRequestId** se conservarán hasta el final del período de retención de datos especificado por el cliente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar AWS CloudTrail con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
-

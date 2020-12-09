@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181342"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456493"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Instrucciones de diseño para el uso de tablas replicadas en un grupo de Synapse SQL
 
@@ -26,13 +26,13 @@ En este artículo se proporcionan recomendaciones para el diseño de tablas repl
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en el grupo de SQL.  Para obtener más información, consulte el artículo [Arquitectura](massively-parallel-processing-mpp-architecture.md).
+En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en el grupo de SQL.    Para obtener más información, consulte el artículo [Arquitectura](massively-parallel-processing-mpp-architecture.md).
 
-Como parte del diseño de tablas, comprenda tanto como sea posible sobre los datos y cómo se consultan los datos.  Por ejemplo, considere estas preguntas:
+Como parte del diseño de tablas, comprenda tanto como sea posible sobre los datos y cómo se consultan los datos.    Por ejemplo, considere estas preguntas:
 
 - ¿Qué tamaño tiene la tabla?
 - ¿Con qué frecuencia se actualiza la tabla?
-- ¿Tiene tablas de hechos y dimensiones en una base de datos de grupo de SQL?
+- ¿Dispongo de tablas de hechos y dimensiones en un grupo de SQL?
 
 ## <a name="what-is-a-replicated-table"></a>¿Qué es una tabla replicada?
 
@@ -51,8 +51,8 @@ Considere la posibilidad de usar una tabla replicada cuando:
 
 Es posible que las tablas replicadas no produzcan el mejor rendimiento de las consultas cuando:
 
-- La tabla tiene operaciones frecuentes de inserción, actualización y eliminación. Las operaciones de lenguaje de manipulación de datos (DML) requieren una recompilación de la tabla replicada. La recompilación puede provocar con frecuencia un rendimiento más lento.
-- La base de datos de grupo de SQL se escala con frecuencia. El escalado de una base de datos de grupo de SQL cambia el número de nodos de proceso, lo que produce una recompilación de la tabla replicada.
+- La tabla tiene operaciones frecuentes de inserción, actualización y eliminación.  Las operaciones de lenguaje de manipulación de datos (DML) requieren una recompilación de la tabla replicada.  La recompilación puede provocar con frecuencia un rendimiento más lento.
+- El grupo de SQL se escala con frecuencia. El escalado de un grupo de SQL cambia el número de nodos de proceso, lo que produce una recompilación de la tabla replicada.
 - La tabla tiene un gran número de columnas, pero las operaciones de datos normalmente solo tienen acceso a un número de columnas reducido. En este escenario, en lugar de replicar toda la tabla, podría ser más eficaz distribuir la tabla y después crear un índice en las columnas a las que se tiene acceso con frecuencia. Cuando una consulta necesita el movimiento de datos, el grupo de SQL solo mueve los datos de las columnas solicitadas.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usar tablas replicadas con predicados de consulta simples
@@ -174,8 +174,8 @@ Esta consulta usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id
   JOIN sys.pdw_table_distribution_properties p
     ON p.object_id = t.object_id

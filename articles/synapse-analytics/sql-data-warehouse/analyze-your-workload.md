@@ -1,6 +1,6 @@
 ---
-title: Análisis de la carga de trabajo
-description: Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure Synapse Analytics.
+title: Análisis de la carga de trabajo del grupo de SQL dedicado
+description: Técnicas para analizar la priorización del grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208406"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454529"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Análisis de la carga de trabajo en Azure Synapse Analytics
+# <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Análisis de la carga de trabajo para el grupo de SQL dedicado en Azure Synapse Analytics
 
-Técnicas para analizar la carga de trabajo de Synapse SQL en Azure Synapse Analytics. 
+Técnicas para analizar la carga de trabajo del grupo de SQL dedicado en Azure Synapse Analytics. 
 
 ## <a name="resource-classes"></a>Clases de recursos
 
-Synapse SQL proporciona clases de recursos para asignar los recursos del sistema a las consultas.  Para más información acerca de las clases de recursos, consulte [Clases de recursos y administración de cargas de trabajo](resource-classes-for-workload-management.md).  Las consultas esperarán si la clase de recursos asignada a una consulta necesita más recursos de los que están disponibles actualmente.
+El grupo de SQL dedicado proporciona clases de recursos para asignar los recursos del sistema a las consultas.  Para más información acerca de las clases de recursos, consulte [Clases de recursos y administración de cargas de trabajo](resource-classes-for-workload-management.md).  Las consultas esperarán si la clase de recursos asignada a una consulta necesita más recursos de los que están disponibles actualmente.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detección de consulta en cola y otras DMV
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL ofrece los siguientes tipos de espera:
+El grupo de SQL dedicado ofrece los siguientes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: se refiere a las consultas que residen fuera del marco del espacio de simultaneidad. Las funciones del sistema y las consultas DMV como `SELECT @@VERSION` son ejemplos de consultas locales.
 * **UserConcurrencyResourceType**: se refiere a las consultas que residen dentro del marco del espacio de simultaneidad. Las consultas en tablas de usuario final representan ejemplos que usarían este tipo de recurso.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Protección de una base de datos en Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, vea [Regeneración de índices para mejorar la calidad de los segmentos](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Protección de un grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-overview-manage-security.md). Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, vea [Regeneración de índices para mejorar la calidad de los segmentos](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

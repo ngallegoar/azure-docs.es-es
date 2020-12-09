@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de Synapse Studio (versión preliminar)
+title: Solución de problemas de Synapse Studio
 description: Solución de problemas de Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,18 +8,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a96709c7538bda6d6b338c29dc512902e9ca2c87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321030"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445839"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Solución de problemas de Azure Synapse Studio (versión preliminar)
+# <a name="azure-synapse-studio-troubleshooting"></a>Solución de problemas de Azure Synapse Studio
 
 En esta guía de solución de problemas se brindan instrucciones sobre la información que se debe proporcionar al abrir una incidencia de soporte técnico sobre problemas de conectividad de red. Con la información adecuada, posiblemente podamos resolver el problema con más rapidez.
 
-## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problema de conectividad del servicio del grupo de SQL sin servidor (versión preliminar)
+## <a name="serverless-sql-pool-service-connectivity-issue"></a>Problema de conectividad del servicio del grupo de SQL sin servidor
 
 ### <a name="symptom-1"></a>Síntoma 1
 
@@ -61,7 +61,7 @@ Busque el elemento cuya columna URL coincida con el siguiente patrón:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Donde [ *A* ] es el nombre del área de trabajo y "-ondemand" podría ser "-sqlod" y donde [ *B* ] debe ser un nombre de base de datos, como "master". Debería haber como máximo dos elementos con el mismo valor de dirección URL, pero distintos valores de método: OPTIONS y POST. Compruebe si estos dos elementos tienen "200" o "20x" en la columna de estado, donde "x" podría ser un dígito cualquiera.
+Donde [*A*] es el nombre del área de trabajo y "-ondemand" podría ser "-sqlod" y donde [*B*] debe ser un nombre de base de datos, como "master". Debería haber como máximo dos elementos con el mismo valor de dirección URL, pero distintos valores de método: OPTIONS y POST. Compruebe si estos dos elementos tienen "200" o "20x" en la columna de estado, donde "x" podría ser un dígito cualquiera.
 
 Si alguno de ellos tiene un valor distinto de "20x" y:
 

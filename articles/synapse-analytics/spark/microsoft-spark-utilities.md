@@ -1,6 +1,6 @@
 ---
-title: Introducción a las utilidades Spark para Microsoft
-description: Tutorial sobre el uso de MSSparkutils en los cuadernos de Azure Synapse Analytics.
+title: Introducción a las utilidades de Spark para Microsoft
+description: 'Tutorial: MSSparkutils en los cuadernos de Azure Synapse Analytics'
 author: ruxu
 services: synapse-analytics
 ms.service: synapse-analytics
@@ -10,14 +10,14 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 3c4e062393f9d75d478720041436c2e0f54485a3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: fee7e244e26a59a773a5d5c9c74e23acd4113ee6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795066"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446700"
 ---
-# <a name="introduction-of-microsoft-spark-utilities"></a>Introducción a las utilidades Spark para Microsoft
+# <a name="introduction-to-microsoft-spark-utilities"></a>Introducción a las utilidades de Spark para Microsoft
 
 Las utilidades de Spark para Microsoft (MSSparkUtils) son un paquete integrado que le ayuda a realizar las tareas más comunes con mayor facilidad. Puede usar MSSparkUtils para trabajar con sistemas de archivos, obtener variables de entorno y trabajar con secretos. MSSparkUtils está disponible en los cuadernos de `PySpark (Python)`, `Scala` y `.NET Spark (C#)`, así como en canalizaciones de Synapse.
 
@@ -879,6 +879,6 @@ Env.GetClusterId()
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) en Azure Synapse Analytics mediante herramientas web](../quickstart-apache-spark-notebook.md)
+- [Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web](../quickstart-apache-spark-notebook.md)
 - [Qué es Apache Spark en Azure Synapse Analytics](apache-spark-overview.md)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

@@ -1,16 +1,16 @@
 ---
 title: Regiones admitidas para el área de trabajo de Log Analytics vinculada
 description: En este artículo se describen las asignaciones de regiones admitidas entre una cuenta de Automation y un área de trabajo de Log Analytics en relación con ciertas características de Azure Automation.
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207332"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446962"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiones admitidas para el área de trabajo de Log Analytics vinculada
 
@@ -31,6 +31,7 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 |---|---|
 |**EE. UU.**||
 |EastUS<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|EastUS|
 |WestUS2|WestUS2|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
@@ -40,7 +41,7 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -48,11 +49,13 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 |SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> La asignación EastUS de las áreas de trabajo de Log Analytics a cuentas de Automation no es una asignación exacta de región a región, pero es la asignación correcta.
 
-<sup>2</sup> En esta región, solo se admite Update Management y otras características como Change Tracking e Inventario no están disponibles en este momento.
+<sup>2</sup> La asignación EastUS2 de las áreas de trabajo de Log Analytics a cuentas de Automation no es una asignación exacta de región a región, pero es la asignación correcta.
+
+<sup>3</sup> En esta región, solo se admite Update Management y otras características como Seguimiento de cambios e inventario, aunque no están disponibles en este momento.
 
 ## <a name="unlink-a-workspace"></a>Desvinculación de un área de trabajo
 
@@ -63,9 +66,9 @@ Con las características quitadas, puede seguir los pasos siguientes para desvin
 > [!NOTE]
 > Algunas características, que incluyen versiones anteriores de la solución de supervisión de Azure SQL, pueden haber creado recursos de Automation que puede que tengan que quitarse antes de desvincular el área de trabajo.
 
-1. En Azure Portal, abra su cuenta de Automation. En la página Cuenta de Automation, seleccione **Área de trabajo vinculada** en **Recursos relacionados** .
+1. En Azure Portal, abra su cuenta de Automation. En la página Cuenta de Automation, seleccione **Área de trabajo vinculada** en **Recursos relacionados**.
 
-2. En la página Desvincular área de trabajo, seleccione **Desvincular área de trabajo** . Se le mostrará un aviso para verificar que quiere continuar.
+2. En la página Desvincular área de trabajo, seleccione **Desvincular área de trabajo**. Se le mostrará un aviso para verificar que quiere continuar.
 
 3. Mientras Azure Automation desvincula la cuenta del área de trabajo de Log Analytics, puede hacer un seguimiento del progreso en la opción **Notificaciones** del menú.
 
@@ -82,11 +85,11 @@ Con las características quitadas, puede seguir los pasos siguientes para desvin
 
 También puede desvincular el área de trabajo de la cuenta de Automation en el área de trabajo.
 
-1. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados** .
-2. En la página Cuenta de Automation, seleccione **Desvincular cuenta** .
+1. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados**.
+2. En la página Cuenta de Automation, seleccione **Desvincular cuenta**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre Update Management en [Información general de Update Management](../update-management/update-mgmt-overview.md).
+* Obtenga información sobre Update Management en [Información general de Update Management](../update-management/overview.md).
 * Obtenga información sobre Change Tracking e Inventario en [Información general de Change Tracking e Inventario](../change-tracking/overview.md).
 * Obtenga información sobre Start/Stop VMs during off-hours en [Información general sobre Start/Stop VMs during off-hours](../automation-solution-vm-management.md).

@@ -1,6 +1,6 @@
 ---
 title: Vistas T-SQL con grupos de SQL
-description: Sugerencias para usar las vistas de T-SQL y desarrollar soluciones con un grupo de SQL dedicado y un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
+description: Sugerencias para usar las vistas de T-SQL y desarrollar soluciones con un grupo de SQL dedicado y un grupo de SQL sin servidor en Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5097c35d97e33ef2d6fa0be12c796bf7e4e06950
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6fb75257a86e9e46d6c180a2a38193adecb2b36a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685739"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451675"
 ---
-# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>Vistas de T-SQL con grupos de SQL dedicados y grupos de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>Vistas de T-SQL con grupos de SQL dedicados y grupos de SQL sin servidor en Azure Synapse Analytics
 
-En este artículo, encontrará sugerencias para usar las vistas de T-SQL y desarrollar soluciones con un grupo de SQL dedicado y un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
+En este artículo, encontrará sugerencias para usar las vistas de T-SQL y desarrollar soluciones con un grupo de SQL dedicado y un grupo de SQL sin servidor en Azure Synapse Analytics.
 
 ## <a name="why-use-views"></a>Razones para usar las vistas
 

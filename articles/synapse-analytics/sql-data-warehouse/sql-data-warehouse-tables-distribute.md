@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323614"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449705"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guía de diseño de tablas distribuidas mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Una tabla distribuida por hash distribuye filas de tabla entre todos los nodos d
 
 ![Tabla distribuida](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabla distribuida")  
 
-Como los valores idénticos siempre se distribuyen por hash a la misma distribución, el almacenamiento de datos tiene conocimiento integrado de las ubicaciones de las filas. En un grupo de SQL dedicado, este conocimiento se usa para minimizar el movimiento de datos durante las consultas, lo que mejora el rendimiento de estas.
+Como los valores idénticos siempre se distribuyen por hash a la misma distribución, SQL Analytics tiene conocimiento integrado de las ubicaciones de las filas. En un grupo de SQL dedicado, este conocimiento se usa para minimizar el movimiento de datos durante las consultas, lo que mejora el rendimiento de estas.
 
 Las tablas distribuidas por hash funcionan bien para las tablas de hechos de gran tamaño en un esquema de estrella. Pueden tener un gran número de filas y lograr aún así un alto rendimiento. Por supuesto, hay algunas consideraciones de diseño que le ayudarán a obtener el rendimiento que el sistema distribuido está diseñado para proporcionar. La elección de una columna de distribución óptima es una consideración de este tipo que se describe en este artículo.
 

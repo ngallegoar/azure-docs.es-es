@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: bf9cda37e0cc8186938a316c87bcc69a7a7370b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 848db19fe855e3ce171fe54c7962309fab977ed5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085287"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446348"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Ciclo de vida y directiva de soporte técnico del Explorador de Azure Storage
 
@@ -23,7 +23,7 @@ Este documento cubre el ciclo de vida y la directiva de soporte técnico del Exp
 
 Se publican versiones de Explorador de Azure Storage entre cuatro y seis veces al año. Microsoft también puede omitir esta programación para publicar correcciones de problemas críticos.
 
-El Explorador de Storage comprueba las actualizaciones cada hora y las descarga cuando están disponibles. Sin embargo, se requiere la aceptación del usuario para iniciar el proceso de instalación. Si los usuarios decide realizar la actualización en otro momento, pueden comprobar manualmente si hay actualizaciones. En Windows y Linux, los usuarios pueden comprobar si hay actualizaciones al seleccionar **Buscar actualizaciones** desde el menú **Ayuda**. En macOS, puede encontrar la opción**Buscar actualizaciones** en el **menú de aplicación**. Los usuarios también pueden ir directamente a la página de descarga del [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) para descargar e instalar la versión más reciente.
+El Explorador de Storage comprueba las actualizaciones cada hora y las descarga cuando están disponibles. Sin embargo, se requiere la aceptación del usuario para iniciar el proceso de instalación. Si los usuarios decide realizar la actualización en otro momento, pueden comprobar manualmente si hay actualizaciones. En Windows y Linux, los usuarios pueden comprobar si hay actualizaciones al seleccionar **Buscar actualizaciones** desde el menú **Ayuda**. En macOS, puede encontrar la opción **Buscar actualizaciones** en el **menú de aplicación**. Los usuarios también pueden ir directamente a la página de descarga del [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) para descargar e instalar la versión más reciente.
 
 Se recomienda usar siempre las versiones más recientes del Explorador de Storage. Si un problema impide que se actualice a la versión más reciente del Explorador de Storage, abra una incidencia en nuestro [GitHub](https://github.com/microsoft/AzureStorageExplorer).
 
@@ -41,6 +41,7 @@ En esta tabla se describe la fecha de lanzamiento y la fecha de finalización de
 
 | Versión del Explorador de Storage  | Fecha de la versión       | Fecha de finalización de soporte técnico |
 |:-------------------------:|:------------------:|:-------------------:|
+| v1.16.0                   | 10 de noviembre de 2020  | 10 de noviembre de 2021   |
 | v1.15.1                   | 2 de septiembre de 2020  | 2 de septiembre de 2021   |
 | v1.15.0                   | 27 de agosto de 2020    | 27 de agosto de 2021     |
 | v1.14.2                   | 16 de julio de 2020      | 16 de julio de 2021       |

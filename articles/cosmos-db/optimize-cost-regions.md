@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a559a51feafa310a4645282dc6368f520fc6b972
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097522"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459615"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimización del costo de varias regiones de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,14 +26,14 @@ En un sistema de escrituras en varias regiones, las RU disponibles netas para la
 
 ### <a name="example"></a>Ejemplo
 
-Imagine que tiene un contenedor en la región Oeste de EE. UU. configurado para las escrituras en una sola región, con un rendimiento aprovisionado de 10 000 RU/s y almacena 1 TB de datos este mes. Supongamos que agrega una región, Este de EE. UU., con el mismo almacenamiento y rendimiento, y que desea poder escribir en los contenedores de ambas regiones desde la aplicación. Su factura total mensual (suponiendo que un mes tiene 31 días) será:
+Imagine que tiene un contenedor en la región Oeste de EE. UU., configurado para las escrituras en una sola región, con un rendimiento aprovisionado de 10 000 RU/s y que almacena 0,5 TB de datos este mes. Supongamos que agrega una región, Este de EE. UU., con el mismo almacenamiento y rendimiento, y que desea poder escribir en los contenedores de ambas regiones desde la aplicación. Su nueva factura total mensual (suponiendo que un mes tiene 730 horas) será la siguiente:
 
 |**Elemento**|**Uso (mensual)**|**Tarifa**|**Costo mensual**|
 |----|----|----|----|
-|Factura del rendimiento para un contenedor en la región Oeste de EE. UU. (operaciones de escritura en una sola región) |10 000 RU/s * 24 horas * 31 días |0,008 USD por cada 100 RU/s por hora |584,06 USD |
-|Factura del rendimiento para un contenedor en 2 regiones: Oeste de EE. UU. y Este de EE. UU. (operaciones de escritura en varias regiones) |2 * 10 000 RU/s * 24 horas * 31 días|0,016 USD por cada 100 RU/s por hora |2336,26 USD |
-|Factura de almacenamiento por el contenedor en Oeste de EE. UU. |1 TB (o 1024 GB) |0,25 USD/GB |256 USD |
-|Factura de almacenamiento para 2 regiones: Oeste de EE. UU. y Este de EE. UU. |2 * 1 TB (o 3072 GB) |0,25 USD/GB |768 USD |
+|Factura del rendimiento para un contenedor en la región Oeste de EE. UU. (operaciones de escritura en una sola región) |10 000 RU/s * 730 horas |0,008 USD por cada 100 RU/s por hora |584 USD |
+|Factura del rendimiento para un contenedor en 2 regiones: Oeste de EE. UU. y Este de EE. UU. (operaciones de escritura en varias regiones) |2 * 10 000 RU/s * 730 horas |0,016 USD por cada 100 RU/s por hora |2336 USD |
+|Factura de almacenamiento por el contenedor en Oeste de EE. UU. |0,5 TB (o 512 GB) |0,25 USD/GB |128 USD |
+|Factura de almacenamiento para un contenedor de 2 regiones: Oeste de EE. UU. y Este de EE. UU. |2 * 0,5 TB (o 1024 GB) |0,25 USD/GB |256 USD |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Mejora del uso de la capacidad de proceso por región
 

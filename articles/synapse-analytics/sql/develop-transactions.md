@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323841"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451717"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Uso de transacciones con un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Como cabría esperar, un grupo de SQL dedicado admite transacciones como parte d
 
 ## <a name="transaction-isolation-levels"></a>Niveles de aislamiento de transacciones
 
-El grupo de SQL implementa transacciones ACID. El nivel de aislamiento de la compatibilidad transaccional se establece de forma predeterminada en READ UNCOMMITTED.  Para cambiarlo a READ COMMITTED SNAPSHOT ISOLATION, active la opción de base de datos READ_COMMITTED_SNAPSHOT de una base de datos de usuario cuando se conecte a la base de datos maestra.  
+El grupo de SQL dedicado implementa transacciones ACID. El nivel de aislamiento de la compatibilidad transaccional se establece de forma predeterminada en READ UNCOMMITTED.  Para cambiarlo a READ COMMITTED SNAPSHOT ISOLATION, active la opción de base de datos READ_COMMITTED_SNAPSHOT de una base de datos de usuario cuando se conecte a la base de datos maestra.  
 
 Una vez habilitada, todas las transacciones de esta base de datos se ejecutan en READ COMMITTED SNAPSHOT ISOLATION y no se respeta la opción de configuración READ UNCOMMITTED en el nivel de sesión. Consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) para obtener más información.
 
@@ -89,7 +89,7 @@ Para optimizar y minimizar la cantidad de datos que se escriben en el registro, 
 
 ## <a name="transaction-state"></a>Estado de las transacciones
 
-El grupo de SQL usa la función XACT_STATE() para notificar una transacción errónea con el valor -2. Este valor indica que la transacción no se ha realizado y que solo se marca para reversión.
+El grupo de SQL dedicado usa la función XACT_STATE() para notificar una transacción errónea con el valor -2. Este valor indica que la transacción no se ha realizado y que solo se marca para reversión.
 
 > [!NOTE]
 > El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar algunos errores en una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` produciría un error pero no forzaría una transacción a un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, el grupo de SQL dedicado no permite hacer esto. Si se produce un error dentro de una transacción del grupo de SQL dedicado, especificará automáticamente el estado -2 y no podrá realizar más instrucciones SELECT hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones de código.
@@ -193,7 +193,7 @@ THROW es la implementación más moderna para producir excepciones en el grupo d
 
 ## <a name="limitations"></a>Limitaciones
 
-El grupo de SQL tiene algunas otras restricciones relacionadas con las transacciones. Los pasos son los siguientes:
+El grupo de SQL dedicado tiene algunas otras restricciones relacionadas con las transacciones. Los pasos son los siguientes:
 
 * Transacciones no distribuidas
 * Transacciones anidadas no permitidas
@@ -204,4 +204,4 @@ El grupo de SQL tiene algunas otras restricciones relacionadas con las transacci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). También se proporcionan guías de procedimientos recomendados adicionales para un [grupo de SQL](best-practices-sql-pool.md) y un [grupo de SQL sin servidor (versión preliminar)](best-practices-sql-on-demand.md).
+Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). También se proporcionan guías de procedimientos recomendados adicionales para un [grupo de SQL dedicado](best-practices-sql-pool.md) y un [grupo de SQL sin servidor](best-practices-sql-on-demand.md).

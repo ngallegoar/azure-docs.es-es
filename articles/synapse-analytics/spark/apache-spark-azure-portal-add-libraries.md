@@ -1,5 +1,5 @@
 ---
-title: Administración de bibliotecas para Apache Spark en Azure Synapse Analytics
+title: Administración de bibliotecas para Apache Spark
 description: Obtenga información sobre cómo agregar y administrar bibliotecas que usa Apache Spark en Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 62610e1b86671021e66891ae232bacbd4b3e40ed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917132"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458811"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas para Apache Spark en Azure Synapse Analytics
 
-Las bibliotecas proporcionan código reutilizable que se puede incluir en los programas o proyectos. A fin de que el código de terceros o de compilación local esté disponible para las aplicaciones, puede instalar una biblioteca en uno de los grupos de Apache Spark sin servidor (versión preliminar). Una vez instalada una biblioteca para un grupo de Spark, está disponible para todas las sesiones que usan el mismo grupo. 
+Las bibliotecas proporcionan código reutilizable que se puede incluir en los programas o proyectos. A fin de que el código de terceros o de compilación local esté disponible para las aplicaciones, puede instalar una biblioteca en uno de los grupos de Apache Spark sin servidor. Una vez instalada una biblioteca para un grupo de Spark, está disponible para todas las sesiones que usan el mismo grupo. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 - Para instalar y actualizar las bibliotecas, debe tener los permisos de tipo **Colaborador de datos de Blob Storage** o **Propietario de datos de Blob Storage** en la cuenta de almacenamiento principal de tipo Gen2 que está vinculada al área de trabajo de Azure Synapse Analytics.
@@ -26,11 +26,11 @@ Las bibliotecas proporcionan código reutilizable que se puede incluir en los pr
 ## <a name="default-installation"></a>Instalación predeterminada
 Apache Spark en Azure Synapse Analytics tiene una instalación completa de Anaconda y otras bibliotecas adicionales. Puede encontrar la lista de bibliotecas completas en [Compatibilidad con las versiones de Apache Spark](apache-spark-version-support.md). 
 
-Cuando se inicie una instancia de Spark, estas bibliotecas se incluirán automáticamente. Se pueden agregar paquetes compilados personalizados y de Python adicionales en el nivel de grupo de Spark (versión preliminar).
+Cuando se inicie una instancia de Spark, estas bibliotecas se incluirán automáticamente. Se pueden agregar paquetes compilados personalizados y de Python adicionales en el nivel de grupo de Spark.
 
 
 ## <a name="manage-python-packages"></a>Administración de paquetes de Python
-Una vez que haya identificado las bibliotecas que le gustaría usar para la aplicación Spark, puede instalarlas en un grupo de Spark (versión preliminar). 
+Una vez que haya identificado las bibliotecas que le gustaría usar para la aplicación Spark, puede instalarlas en un grupo de Spark. 
 
  Se puede usar un archivo *requirements.txt* (salida del comando `pip freeze`) para actualizar el entorno virtual. Los paquetes que se enumeran en este archivo para su instalación o actualización se descargan desde PyPi cuando se inicia el grupo. Este archivo de requisitos se usa cada vez que se crea una instancia de Spark desde ese grupo de Spark.
 
@@ -54,7 +54,7 @@ alabaster==0.7.10
 Al desarrollar la aplicación Spark, puede que tenga que actualizar las bibliotecas existentes o instalar nuevas. Las bibliotecas se pueden actualizar durante o después de la creación del grupo.
 
 #### <a name="install-packages-during-pool-creation"></a>Instalación de paquetes durante la creación del grupo
-Para instalar las bibliotecas en un grupo de Spark (versión preliminar) durante la creación del grupo:
+Para instalar las bibliotecas en un grupo de Spark durante la creación del grupo:
    
 1. Navegue hasta el área de trabajo de Azure Synapse Analytics desde Azure Portal.
    
@@ -66,7 +66,7 @@ Para instalar las bibliotecas en un grupo de Spark (versión preliminar) durante
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Instalación de paquetes desde el área de trabajo de Synapse
-Para actualizar o agregar bibliotecas adicionales a un grupo de Spark (versión preliminar) desde el portal de Azure Synapse Analytics:
+Para actualizar o agregar bibliotecas adicionales a un grupo de Spark desde el portal de Azure Synapse Analytics:
 
 1.  Navegue hasta el área de trabajo de Azure Synapse Analytics desde Azure Portal.
    
@@ -79,7 +79,7 @@ Para actualizar o agregar bibliotecas adicionales a un grupo de Spark (versión 
     ![Adición de bibliotecas de Python en Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Instalación de paquetes desde Azure Portal
-Para instalar una biblioteca en un grupo de Spark (versión preliminar) directamente desde Azure Portal:
+Para instalar una biblioteca en un grupo de Spark directamente desde Azure Portal:
    
  1. Navegue hasta el área de trabajo de Azure Synapse Analytics desde Azure Portal.
    

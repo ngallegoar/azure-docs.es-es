@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Administración de procesos con Azure Functions'
-description: Cómo usar Azure Functions para administrar el proceso del grupo de SQL en Azure Synapse Analytics.
+description: Cómo usar Azure Functions para administrar el proceso del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022486"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448375"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Uso de Azure Functions para administrar recursos de proceso en el grupo de SQL de Azure Synapse Analytics
+# <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Uso de Azure Functions para administrar los recursos del proceso del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 
-Cómo usar Azure Functions para administrar los recursos de proceso para un grupo de SQL en Azure Synapse Analytics.
+Este tutorial usa Azure Functions para administrar los recursos del proceso del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 
-Para poder usar la aplicación Azure Function con el grupo de SQL, debe crear una [cuenta de la entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) con acceso de colaborador en la misma suscripción que la instancia del grupo de SQL.
+Para usar una aplicación de funciones de Azure con un grupo de SQL dedicado (anteriormente SQL DW), debe crear una [cuenta de entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). La cuenta de entidad de servicio necesita obtener acceso de colaborador en la misma suscripción que la instancia de grupo de SQL dedicado (anteriormente SQL DW).
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Implementación de la escala basada en el temporizador con una plantilla de Azure Resource Manager
 
 Para implementar la plantilla, necesitará la siguiente información:
 
-- Nombre del grupo de recursos donde se encuentra el grupo de SQL
-- Nombre del servidor en que se encuentra la instancia del grupo de SQL
-- Nombre de la instancia del grupo de SQL
+- Nombre del grupo de recursos en el que se encuentra su instancia del grupo de SQL dedicado (anteriormente SQL DW).
+- Nombre del servidor en el que se encuentra su instancia del grupo de SQL dedicado (anteriormente SQL DW).
+- Nombre de la instancia del grupo de SQL dedicado (anteriormente SQL DW).
 - Id. del inquilino (identificación de directorio) de Azure Active Directory
 - Id. de suscripción
 - Id. de aplicación de la entidad de servicio
@@ -48,13 +48,13 @@ Una vez implementada la plantilla, encontrará tres nuevos recursos: un plan gra
 
    ![Funciones que se implementan con la plantilla](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Seleccione *DWScaleDownTrigger* o *DWScaleUpTrigger* dependiendo de si desea cambiar el tiempo para reducir verticalmente o escalar horizontalmente. En el menú desplegable, seleccione Integrar.
+2. Seleccione *DWScaleDownTrigger* o *DWScaleUpTrigger* para escalar o reducir verticalmente. En el menú desplegable, seleccione Integrar.
 
    ![Seleccione Integrar por función](./media/manage-compute-with-azure-functions/select-integrate.png)
 
 3. En este momento, el valor mostrado debería indicar *%ScaleDownTime%* o *%ScaleUpTime%* . Estos valores indican que la programación se basa en los valores definidos en la [Configuración de la aplicación](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por ahora, puede omitir este valor y cambiar la programación para el momento que prefiera en función de los siguientes pasos.
 
-4. En el área de programación, agregue el tiempo de la expresión CRON que prefiera para reflejar la frecuencia con la que quiere que Azure Synapse Analytics se escale verticalmente.
+4. En el área de programación, agregue la expresión CRON que prefiera para reflejar la frecuencia con la que quiere que Azure Synapse Analytics se escale verticalmente.
 
    ![Cambiar la programación de la función](./media/manage-compute-with-azure-functions/change-schedule.png)
 
@@ -70,11 +70,11 @@ Una vez implementada la plantilla, encontrará tres nuevos recursos: un plan gra
 
 1. Vaya a Function App Service. Si ha implementado la plantilla con los valores predeterminados, este servicio debe denominarse *DWOperations*. Una vez se abre Function App, observará cinco funciones implementadas para Function App Service.
 
-2. Seleccione *DWScaleDownTrigger* o *DWScaleUpTrigger* dependiendo de si desea cambiar el valor del proceso para reducir verticalmente o escalar horizontalmente. Al seleccionar las funciones, el panel debe mostrar el archivo *index.js*.
+2. Seleccione *DWScaleDownTrigger* o *DWScaleUpTrigger* para escalar o reducir verticalmente el valor de proceso. Al seleccionar las funciones, el panel debe mostrar el archivo *index.js*.
 
    ![Cambiar el nivel de proceso del desencadenador de función](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. Cambie el valor de *ServiceLevelObjective* al nivel que desee y guarde. Este valor es el nivel de proceso al que la instancia de almacenamiento de datos escalará según la programación definida en la sección Integrar.
+3. Cambie el valor de *ServiceLevelObjective* al nivel que quiera y seleccione la opción de guardar. El valor *ServiceLevelObjective* es el nivel de proceso al que la instancia de almacenamiento de datos escalará según la programación definida en la sección Integrar.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Use la pausa o la reanudación en lugar de la escala
 
@@ -84,7 +84,7 @@ Actualmente, las funciones predeterminadas son *DWScaleDownTrigger* y *DWScaleUp
 
    ![Panel Funciones](./media/manage-compute-with-azure-functions/functions-pane.png)
 
-2. Haga clic en el control deslizante de alternancia para habilitar los desencadenadores que desee.
+2. Seleccione el control deslizante de alternancia para habilitar los desencadenadores que quiera.
 
 3. Navegue hasta las pestañas *Integrar* pestañas para cambiar la programación de los respectivos desencadenadores.
 
@@ -114,17 +114,17 @@ En este momento, hay solo dos funciones de escalado incluidas en la plantilla. C
 5. Establecer la variable de operación para el comportamiento deseado como se indica a continuación:
 
    ```JavaScript
-   // Resume the SQL pool instance
+   // Resume the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the SQL pool instance
+   // Pause the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600c
+   // Scale the dedicated SQL pool (formerly SQL DW)l instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600c"
@@ -169,4 +169,4 @@ Escalar horizontalmente a las 8 a. m. en DW1000c y reducir verticalmente una v
 
 Más información sobre la instancia de Azure Functions [desencadenada mediante temporizador](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Consulte el [repositorio de ejemplos](https://github.com/Microsoft/sql-data-warehouse-samples) del grupo de SQL.
+Consulte el [repositorio de muestras](https://github.com/Microsoft/sql-data-warehouse-samples) del grupo de SQL dedicado (anteriormente SQL DW).

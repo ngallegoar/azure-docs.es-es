@@ -1,20 +1,20 @@
 ---
 title: Funciones definidas por el usuario en plantillas
-description: Se describe cómo definir y usar funciones definidas por el usuario en una plantilla de Azure Resource Manager.
+description: Aquí se describe cómo definir y usar las funciones definidas por el usuario en una plantilla de Azure Resource Manager (plantilla de Resource Manager).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84672942"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436970"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funciones definidas por el usuario de la plantilla de Azure Resource Manager
+# <a name="user-defined-functions-in-arm-template"></a>Funciones definidas por el usuario en plantillas de Resource Manager
 
 Dentro de la plantilla, puede crear sus propias funciones. Estas funciones están disponibles para su uso en la plantilla. Las funciones definidas por el usuario son independientes de las [funciones de plantilla estándares](template-functions.md) que están disponibles automáticamente dentro de la plantilla. Cree sus propias funciones cuando tenga expresiones complicadas que se usen repetidamente en la plantilla.
 
-En este artículo se describe cómo agregar funciones definidas por el usuario a una plantilla de Azure Resource Manager.
+En este artículo se describe cómo agregar funciones definidas por el usuario a una plantilla de Azure Resource Manager (plantilla de Resource Manager).
 
 ## <a name="define-the-function"></a>Definición de la función
 
@@ -103,8 +103,7 @@ Al definir una función de usuario, hay algunas restricciones:
 * La función no puede usar la función [reference](template-functions-resource.md#reference) ni ninguna de las funciones [list](template-functions-resource.md#list).
 * Los parámetros de la función no pueden tener valores predeterminados.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre las propiedades disponibles para funciones definidas por el usuario, consulte [Información sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
-* Para obtener una lista de las funciones de plantilla disponibles, consulte [Funciones de la plantilla de Azure Resource Manager](template-functions.md).
+* Para obtener más información sobre las propiedades disponibles para funciones definidas por el usuario, consulte [Información sobre la estructura y la sintaxis de las plantillas de Resource Manager](template-syntax.md).
+* Para obtener una lista de las funciones de plantilla disponibles, consulte [Funciones de las plantillas de Resource Manager](template-functions.md).

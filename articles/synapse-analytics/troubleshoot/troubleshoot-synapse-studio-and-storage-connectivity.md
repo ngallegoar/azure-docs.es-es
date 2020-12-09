@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0b8a64d24242e6fb34c963b14429fdfee2398f62
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: cee6d030a9639a7203a32a3c0957733cecb1f8b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557466"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445327"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Solución de problemas de conectividad entre Azure Synapse Analytics Synapse Studio y el almacenamiento
 
-En Synapse Studio (versión preliminar), puede explorar los recursos de datos ubicados en el almacenamiento vinculado. Esta guía le ayudará a solucionar los problemas de conectividad que surjan al intentar acceder a los recursos de datos. 
+En Synapse Studio puede explorar los recursos de datos ubicados en el almacenamiento vinculado. Esta guía le ayudará a solucionar los problemas de conectividad que surjan al intentar acceder a los recursos de datos. 
 
 ## <a name="case-1-storage-account-lacks-proper-permissions"></a>Caso 1: faltan los permisos adecuados en la cuenta de almacenamiento
 

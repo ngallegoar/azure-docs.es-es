@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638859"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451799"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estadísticas en SQL de Synapse
 
-En este artículo se proporcionan recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas mediante los siguientes recursos de Synapse SQL: grupo de SQL dedicado y grupo de SQL sin servidor (versión preliminar).
+En este artículo se proporcionan recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas mediante los siguientes recursos de Synapse SQL: grupo de SQL dedicado y grupo de SQL sin servidor.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>Estadísticas del grupo de SQL dedicado
 
@@ -557,7 +557,7 @@ En comparación, `DBCC SHOW_STATISTICS()` se implementa de forma más estricta e
 - No se admite el error personalizado 2767.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>Estadísticas en el grupo de SQL sin servidor (versión preliminar)
+## <a name="statistics-in-serverless-sql-pool"></a>Estadísticas en el grupo de SQL sin servidor
 
 Las estadísticas se crean por cada columna concreta en un conjunto de datos determinado (ruta de acceso de almacenamiento).
 
@@ -566,7 +566,7 @@ Las estadísticas se crean por cada columna concreta en un conjunto de datos det
 
 ### <a name="why-use-statistics"></a>¿Por qué usar estadísticas?
 
-Cuanto más sepa el grupo de SQL sin servidor (versión preliminar) acerca de los datos, más rápido puede ejecutar consultas en ellos. La recopilación de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas. 
+Cuanto más sepa el grupo de SQL sin servidor acerca de los datos, más rápido puede ejecutar consultas en ellos. La recopilación de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas. 
 
 El optimizador de consultas del grupo de SQL sin servidor se basa en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente. 
 

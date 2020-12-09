@@ -1,24 +1,21 @@
 ---
-title: ¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
+title: ¿Qué es el almacén analítico de Azure Cosmos DB?
 description: Obtenga información sobre el almacén transaccional (basado en filas) y analítico (basado en columnas) de Azure Cosmos DB. Ventajas del almacén analítico, el impacto en el rendimiento de las cargas de trabajo a gran escala y la sincronización automática de datos desde el almacén transaccional al almacén analítico
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337413"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452851"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> El almacén analítico de Azure Cosmos DB se encuentra actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El almacén analítico de Azure Cosmos DB es un almacén de columnas completamente aislado para habilitar el análisis a gran escala en los datos operativos de su instancia de Azure Cosmos DB, sin que ello afecte a las cargas de trabajo transaccionales. 
 
@@ -36,7 +33,7 @@ Las canalizaciones ETL también se vuelven complejas al administrar las actualiz
 
 El almacén analítico de Azure Cosmos DB aborda los desafíos de complejidad y latencia que se presentan con las canalizaciones ETL tradicionales. El almacén analítico de Azure Cosmos DB puede sincronizar automáticamente los datos operativos en un almacén de columnas independiente. El formato del almacén de columnas es adecuado para las consultas analíticas a gran escala que se van a realizar de forma optimizada, lo que aumenta la latencia de estas.
 
-Con Azure Synapse Link, ahora puede compilar soluciones de HTAP sin ETL mediante la vinculación directa al almacén analítico de Azure Cosmos DB desde Synapse Analytics. Esto le permite ejecutar análisis a gran escala casi en tiempo real con los datos operativos.
+Con Azure Synapse Link, ahora puede compilar soluciones de HTAP sin ETL mediante la vinculación directa al almacén analítico de Azure Cosmos DB desde Azure Synapse Analytics. Esto le permite ejecutar análisis a gran escala casi en tiempo real con los datos operativos.
 
 ## <a name="features-of-analytical-store"></a>Características del almacén analítico 
 
@@ -181,10 +178,10 @@ La autenticación con el almacén analítico es igual que en un almacén transac
 
 El almacén analítico está optimizado para proporcionar escalabilidad, elasticidad y rendimiento para las cargas de trabajo analíticas sin depender de los runtimes de proceso. La tecnología de almacenamiento se administra automáticamente para optimizar las cargas de trabajo analíticas sin esfuerzo manual.
 
-Al desacoplar el sistema de almacenamiento analítico del sistema de proceso analítico, los datos en el almacén analítico de Azure Cosmos DB se pueden consultar simultáneamente desde los distintos runtimes analíticos admitidos por Azure Synapse Analytics. En la actualidad, Synapse Analytics admite Apache Spark y SQL sin servidor con el almacén analítico de Azure Cosmos DB.
+Al desacoplar el sistema de almacenamiento analítico del sistema de proceso analítico, los datos en el almacén analítico de Azure Cosmos DB se pueden consultar simultáneamente desde los distintos runtimes analíticos admitidos por Azure Synapse Analytics. En la actualidad, Azure Synapse Analytics admite Apache Spark y el grupo de SQL sin servidor con el almacén analítico de Azure Cosmos DB.
 
 > [!NOTE]
-> Solo puede leer desde el almacén analítico mediante el runtime de Synapse Analytics. Puede volver a escribir los datos en el almacén transaccional como capa de servicio.
+> Solo puede leer desde el almacén analítico mediante el tiempo de ejecución de Azure Synapse Analytics. Puede volver a escribir los datos en el almacén transaccional como capa de servicio.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Precios
 
@@ -194,10 +191,7 @@ El almacén analítico sigue un modelo de precios basado en el consumo, donde se
 
 * Operaciones de escritura analíticas: Sincronización totalmente administrada de las actualizaciones de datos operativos en el almacén analítico desde el almacén transaccional (sincronización automática).
 
-* Operaciones de lectura analíticas: operaciones de lectura realizadas en el almacén analítico desde Synapse Analytics Spark y los runtimes de SQL sin servidor.
-
-> [!NOTE]
-> El almacén analítico de Azure Cosmos DB está disponible actualmente en versión preliminar pública sin cargos.
+* Operaciones de lectura analíticas: operaciones de lectura realizadas en el almacén analítico desde los tiempos de ejecución del grupo de SQL sin servidor y el grupo de Spark de Azure Synapse Analytics.
 
 Los precios del almacén analítico son independientes del modelo de precios del almacén transaccional. No hay ningún concepto de RU aprovisionadas en el almacén analítico. Consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener información completa sobre el modelo de precios del almacén analítico.
 

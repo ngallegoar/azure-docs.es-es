@@ -7,33 +7,33 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 07/12/2019
-ms.author: anjangsh
+ms.date: 11/13/2020
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7496cedd127182482bccf97909cc0a0a4a78253f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4683bd84873506483209f4a0eb3751a1b163ed48
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313425"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449852"
 ---
 # <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restauración geográfica de un grupo de SQL dedicado en Azure Synapse Analytics
 
-En este artículo, aprenderá a restaurar el grupo de SQL dedicado desde una copia de seguridad geográfica mediante Azure Portal y PowerShell.
+En este artículo, aprenderá a restaurar el grupo de SQL dedicado (anteriormente SQL DW) desde una copia de seguridad geográfica mediante Azure Portal y PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Compruebe la capacidad DTU**. Cada grupo de SQL dedicado está hospedado en un [servidor SQL lógico](../../azure-sql/database/logical-servers.md) (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor SQL Server tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Compruebe la capacidad DTU**. Cada grupo de SQL dedicado (anteriormente SQL DW) está hospedado en un [servidor SQL lógico](../../azure-sql/database/logical-servers.md) (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor SQL Server tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Uso de PowerShell para restaurar desde una región geográfica de Azure
 
 Para realizar una restauración a partir de una copia de seguridad de replicación geográfica use el cmdlet [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 > [!NOTE]
-> Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000 **c** ) como parámetro opcional.
+> Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000 **c**) como parámetro opcional.
 >
 
 1. Antes de empezar, asegúrese de [instalar Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -74,28 +74,24 @@ La base de datos recuperada estará habilitada para TDE si la base de datos de o
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Uso de Azure Portal para restaurar desde una región geográfica de Azure
 
-Siga los pasos que se describen a continuación para restaurar un grupo de SQL dedicado desde una copia de seguridad geográfica:
+Siga los pasos que se describen a continuación para restaurar un grupo de SQL dedicado (anteriormente SQL DW) desde una copia de seguridad geográfica:
 
 1. Inicie sesión en su cuenta de [Azure Portal](https://portal.azure.com/).
-2. Haga clic en **+ Crear un recurso**.
+1. Busque **grupos de SQL dedicados (anteriormente SQL DW)** .
 
-   ![Nuevo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Nuevo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Haga clic en **Bases de datos** y, después, **Azure Synapse Analytics (anteriormente SQL DW)** .
-
-   ![Nuevo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
-
-4. Rellene la información solicitada en la pestaña **Aspectos básicos** y haga clic en **Siguiente: Configuración adicional**.
+1. Haga clic para agregar y rellenar la información solicitada en la pestaña **Aspectos básicos** y haga clic en **Siguiente: Configuración adicional**.
 
    ![Aspectos básicos](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. En el parámetro **Usar datos existentes** , haga clic en **Copia de seguridad** y luego seleccione la copia de seguridad adecuada en las opciones de desplazamiento. Haga clic en **Revisar y crear**.
+1. En el parámetro **Usar datos existentes**, haga clic en **Copia de seguridad** y luego seleccione la copia de seguridad adecuada en las opciones de desplazamiento. Haga clic en **Revisar y crear**.
 
    ![copia de seguridad](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-6. Una vez que se haya restaurado el almacenamiento de datos, compruebe que el estado es **En línea**.
+1. Una vez que se haya restaurado el almacenamiento de datos, compruebe que el estado es **En línea**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Restauración de un grupo de SQL dedicado](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restauración de un grupo de SQL dedicado eliminado](sql-data-warehouse-restore-deleted-dw.md)
+- [Restauración de un grupo de SQL dedicado existente (anteriormente SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restauración de un grupo de SQL dedicado eliminado (anteriormente SQL DW)](sql-data-warehouse-restore-deleted-dw.md)

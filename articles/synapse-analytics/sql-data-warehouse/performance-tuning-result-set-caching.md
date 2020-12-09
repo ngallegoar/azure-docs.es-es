@@ -1,6 +1,6 @@
 ---
 title: Ajuste del rendimiento con la copia en caché del conjunto de resultados
-description: Información general sobre la característica de almacenamiento en caché del conjunto de resultados para grupos de SQL de Synapse en Azure Synapse Analytics
+description: Información general sobre la característica de almacenamiento en caché del conjunto de resultados para el grupo de SQL dedicado en Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541288"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460769"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste del rendimiento con la copia en caché del conjunto de resultados
 
-Cuando se habilita el almacenamiento en caché del conjunto de resultados, Synapse SQL almacena automáticamente en caché los resultados de la consulta en la base de datos de usuario para usarlos de forma repetida.  Esto permite que las ejecuciones posteriores de la consulta obtengan los resultados directamente de la memoria caché persistente, por lo que no es necesario volver a realizar el proceso.   La copia en caché del conjunto de resultados mejora el rendimiento de las consultas y reduce la utilización de recursos de proceso.  Además, las consultas que usan conjuntos de resultados en la memoria caché no usan ningún espacio de simultaneidad y, por lo tanto, no cuentan para los límites de simultaneidad existentes. Por seguridad, los usuarios solo pueden acceder a los resultados en la memoria caché si tienen los mismos permisos de acceso a los datos que los usuarios que crearon estos resultados.  
+Cuando se habilita el almacenamiento en caché del conjunto de resultados, el grupo de SQL dedicado almacena automáticamente en caché los resultados de la consulta realizada en la base de datos de usuario para un uso repetido.  Esto permite que las ejecuciones posteriores de la consulta obtengan los resultados directamente de la memoria caché persistente, por lo que no es necesario volver a realizar el proceso.   La copia en caché del conjunto de resultados mejora el rendimiento de las consultas y reduce la utilización de recursos de proceso.  Además, las consultas que usan conjuntos de resultados en la memoria caché no usan ningún espacio de simultaneidad y, por lo tanto, no cuentan para los límites de simultaneidad existentes. Por seguridad, los usuarios solo pueden acceder a los resultados en la memoria caché si tienen los mismos permisos de acceso a los datos que los usuarios que crearon estos resultados.  
 
 ## <a name="key-commands"></a>Comandos clave
 
@@ -47,7 +47,7 @@ Una vez activada la copia en caché del conjunto de resultados de una base de da
 > - Si los datos de las columnas ORDER BY no son únicos, no se garantiza ningún orden de fila para las filas con los mismos valores en las columnas ORDER BY, con independencia de si el almacenamiento en caché del conjunto de resultados está habilitado o deshabilitado.
 
 > [!IMPORTANT]
-> Las operaciones para crear la caché del conjunto de resultados y recuperar datos de la caché se producen en el nodo de control de una instancia de grupo de SQL de Synapse.
+> Las operaciones para crear la caché del conjunto de resultados y recuperar datos de la caché se producen en el nodo de control de una instancia de grupo de SQL dedicado.
 > Cuando se activa el almacenamiento en caché de conjuntos de resultados, la ejecución de consultas que devuelven un conjunto de resultados grande (por ejemplo, > 1 GB) puede provocar una limitación elevada del nodo de control y ralentizar la respuesta de consulta general en la instancia.  Estas consultas se suelen usar durante la exploración de datos o las operaciones ETL. Para evitar el esfuerzo del nodo de control y los problemas de rendimiento, los usuarios deben desactivar el almacenamiento en caché de los conjuntos de resultados en la base de datos antes de ejecutar esos tipos de consultas.  
 
 Ejecute esta consulta por el tiempo que tardan las operaciones de almacenamiento en caché del conjunto de resultados para una consulta:
@@ -85,7 +85,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 El tamaño máximo de la memoria caché del conjunto de resultados es de 1 TB por base de datos.  Los resultados en caché se invalidan automáticamente cuando cambian los datos de la consulta subyacente.  
 
-Synapse SQL administra automáticamente la expulsión de la caché según la programación siguiente:
+El grupo de SQL dedicado administra automáticamente la expulsión de la caché según la programación siguiente:
 
 - Cada 48 horas si el conjunto de resultados no se ha usado o se ha invalidado.
 - Cuando la memoria caché del conjunto de resultados se aproxima al tamaño máximo.

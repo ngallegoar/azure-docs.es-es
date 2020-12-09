@@ -1,17 +1,17 @@
 ---
-title: 'Laboratorios de clase en Azure Lab Services: preguntas frecuentes| Microsoft Docs'
-description: En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre laboratorios de clase en Azure Lab Services.
+title: 'Laboratorios en Azure Lab Services: preguntas frecuentes| Microsoft Docs'
+description: En este artículo se ofrecen respuestas a las preguntas más frecuentes (P+F) sobre los laboratorios en Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443305"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437191"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratorios de clase en Azure Lab Services: preguntas frecuentes
-Obtenga respuestas a algunas de las preguntas más habituales sobre los laboratorios de clase en Azure Lab Services. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratorios clase en Azure Lab Services: preguntas más frecuentes (P+F)
+Obtenga respuestas a algunas de las preguntas más habituales sobre los laboratorios en Azure Lab Services. 
 
 ## <a name="quotas"></a>Cuotas
 
@@ -29,13 +29,14 @@ No. No todas las máquinas virtuales. Solo las máquinas virtuales que se asigna
 ## <a name="lab-accounts"></a>Cuentas de laboratorio
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>¿Por qué no puedo crear un laboratorio debido a la falta de disponibilidad del intervalo de direcciones? 
-Los laboratorios de clase pueden crear máquinas virtuales de laboratorio dentro de un intervalo de direcciones IP que se especifique al crear la cuenta de laboratorio en Azure Portal. Cuando se proporciona un intervalo de direcciones, cada laboratorio que se crea después de haber asignado 512 direcciones IP para las máquinas virtuales del laboratorio. El intervalo de direcciones de la cuenta de laboratorio debe ser lo suficientemente grande como para dar cabida a todos los laboratorios que se van a crear en la cuenta de laboratorio. 
+
+Los laboratorios pueden crear VM de laboratorio en un intervalo de direcciones IP que se especifiquen al crear la cuenta de laboratorio en Azure Portal. Cuando se proporciona un intervalo de direcciones, cada laboratorio que se crea después de haber asignado 512 direcciones IP para las máquinas virtuales del laboratorio. El intervalo de direcciones de la cuenta de laboratorio debe ser lo suficientemente grande como para dar cabida a todos los laboratorios que se van a crear en la cuenta de laboratorio. 
 
 Por ejemplo, si tiene un bloque de /19 - 10.0.0.0/19, este intervalo de direcciones abarca 8192 direcciones IP y 16 laboratorios (8192/512 = 16 laboratorios). En este caso, la creación del laboratorio 17 genera un error.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>¿Qué intervalos de puertos debo abrir en la configuración del firewall de mi organización para conectarme a las máquinas virtuales de laboratorio a través de RDP/SSH?
 
-Los puertos son: 49152–65535. Los laboratorios de clase se encuentran detrás de un equilibrador de carga. Cada laboratorio tiene una sola dirección IP pública y cada máquina virtual del laboratorio tiene un puerto único. 
+Los puertos son: 49152–65535. Los laboratorios se encuentran detrás de un equilibrador de carga. Cada laboratorio tiene una sola dirección IP pública y cada máquina virtual del laboratorio tiene un puerto único. 
 
 También puede ver la dirección IP privada de cada máquina virtual en la pestaña **Grupo de máquinas virtuales** de la página principal del laboratorio en Azure Portal. Si vuelve a publicar un laboratorio, la dirección IP pública del laboratorio no cambiará, pero la dirección IP privada y el número de puerto de cada máquina virtual del laboratorio pueden cambiar. Puede obtener más información en el artículo: [Configuración del firewall para Azure Lab Services](how-to-configure-firewall-settings.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Stream Analytics
-description: Sugerencias para usar Azure Stream Analytics con almacenamiento de datos en Azure Synapse para el desarrollo de soluciones.
+title: Uso de Azure Stream Analytics en un grupo de SQL dedicado
+description: Sugerencias para usar Azure Stream Analytics con un grupo de SQL dedicado en Azure Synapse para el desarrollo de soluciones en tiempo real.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 9/25/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 3ead3393218255808eb67983251fcf9f2561c82c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8fbe546beb1004214e544f8eb160884c0f64ef9e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020187"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458227"
 ---
-# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Uso de Azure Stream Analytics con Azure Synapse Analytics
+# <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Uso de Azure Stream Analytics con un grupo de SQL dedicado en Azure Synapse Analytics
 
 Azure Stream Analytics es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través el streaming de datos en la nube. Para aprender los conceptos básicos, lea [Introducción a Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Después puede aprender a crear una solución de extremo a extremo siguiendo el tutorial [Introducción al uso de Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-En este artículo, aprenderá a usar el almacenamiento de datos como receptor de salida para la ingesta de datos de alto rendimiento con trabajos de Azure Stream Analytics.
+En este artículo, aprenderá a usar el grupo de SQL dedicado como receptor de salida para la ingesta de datos de alto rendimiento con trabajos de Azure Stream Analytics.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -32,9 +32,9 @@ En este artículo, aprenderá a usar el almacenamiento de datos como receptor de
     2. Configuración e inicio de la aplicación del generador de eventos
     3. Aprovisionamiento de un trabajo de Stream Analytics
     4. Especificación de una consulta y entrada de trabajo
-* Grupo de SQL dedicado de Synapse para el almacenamiento de datos: para crear un almacenamiento de datos, siga los pasos descritos en [Inicio rápido: Creación de un almacenamiento de datos](create-data-warehouse-portal.md).
+* Grupo de SQL dedicado: para crear un nuevo grupo de SQL dedicado, siga los pasos descritos en [Inicio rápido: creación de un grupo de SQL dedicado](../quickstart-create-sql-pool-portal.md).
 
-## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Especificación de la salida de streaming para que apunte al almacenamiento de datos
+## <a name="specify-streaming-output-to-point-to-your-dedicated-sql-pool"></a>Especificación de la salida de streaming para que apunte al grupo de SQL dedicado
 
 ### <a name="step-1"></a>Paso 1
 
@@ -52,8 +52,8 @@ Escriba los siguientes valores:
 
 * *Alias de salida*: escriba un nombre descriptivo para esta salida de trabajo.
 * *Suscripción*:
-  * Si el almacenamiento de datos está en la misma suscripción que el trabajo de Stream Analytics, haga clic en ***Seleccionar Azure Synapse Analytics de las suscripciones** _.
-  _ Si el almacenamiento de datos está en otra suscripción, haga clic en Proporcionar configuración de Azure Synapse Analytics de forma manual.
+  * Si el grupo de SQL dedicado está en la misma suscripción que el trabajo de Stream Analytics, haga clic en ***Seleccionar Azure Synapse Analytics de las suscripciones** _.
+  _ Si el grupo de SQL dedicado está en otra suscripción, haga clic en Proporcionar configuración de Azure Synapse Analytics de forma manual.
 * *Base de datos*: Seleccione la base de datos de destino en la lista desplegable.
 * *Nombre de usuario*: especifique el nombre de usuario de una cuenta que tenga permisos de escritura para la base de datos.
 * *Contraseña*: proporcione la contraseña de la cuenta de usuario especificada.
@@ -64,7 +64,7 @@ Escriba los siguientes valores:
 
 ### <a name="step-4"></a>Paso 4
 
-Antes de poder ejecutar una prueba, deberá crear la tabla en el almacenamiento de datos.  Ejecute el siguiente script de creación de tabla con SQL Server Management Studio (SSMS) o la herramienta de consulta que prefiera.
+Antes de poder ejecutar una prueba, deberá crear la tabla en el grupo de SQL dedicado.  Ejecute el siguiente script de creación de tabla con SQL Server Management Studio (SSMS) o la herramienta de consulta que prefiera.
 
 ```sql
 CREATE TABLE SensorLog
@@ -123,4 +123,4 @@ Haga clic en el botón _ *_Iniciar_** en el panel Iniciar trabajo.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información general sobre la integración, consulte [Integrar otros servicios](sql-data-warehouse-overview-integrate.md).
-Para obtener más consejos de desarrollo, consulte [Diseño de decisiones y técnicas de codificación para almacenamientos de datos](sql-data-warehouse-overview-develop.md).
+Para más consejos de desarrollo, consulte [Decisiones de diseño y técnicas de codificación para el grupo de SQL dedicado](sql-data-warehouse-overview-develop.md).

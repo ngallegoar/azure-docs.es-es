@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705867"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453594"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Uso de MSAL en un entorno de nube nacional
 
@@ -49,13 +49,13 @@ Una vez decidido, debe tener en cuenta también dónde se realiza el registro de
 
 ### <a name="get-an-azure-government-subscription"></a>Obtener una suscripción a Azure Government
 
-Para obtener una suscripción a Azure Government, consulte [Administración y conexión a su suscripción en Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
+Para obtener una suscripción a Azure Government, consulte [Administración y conexión a su suscripción en Azure Government](../../azure-government/compare-azure-government-global-azure.md).
 
 Si no tiene una suscripción a Azure Government, cree una [cuenta gratuita](https://azure.microsoft.com/global-infrastructure/government/request/) antes de comenzar.
 
 Para obtener más información sobre el uso de una nube nacional con un lenguaje de programación determinado, elija la pestaña que coincida con su lenguaje:
 
-## <a name="net"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 Puede usar MSAL.NET para iniciar la sesión de los usuarios, adquirir tokens y llamar a la API de Microsoft Graph en nubes nacionales.
 
@@ -150,9 +150,9 @@ Para habilitar la aplicación MSAL para Python para nubes soberanas:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Para llamar a Microsoft Graph, se requiere una dirección URL de punto de conexión de Graph específica que dependa de la nube que esté usando. Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de raíz de servicio de Microsoft Graph y Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- La llamada a Microsoft Graph API requiere una dirección URL de punto de conexión específica de la nube que se está usando. Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de raíz de servicio de Microsoft Graph y Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    A continuación se muestra un ejemplo de un punto de conexión de Graph con el ámbito:
+    A continuación, se muestra un ejemplo de un punto de conexión de Microsoft Graph con el ámbito:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ Este es un ejemplo de autoridad:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Para llamar a Microsoft Graph, se requiere una dirección URL de punto de conexión de Graph específica que dependa de la nube que esté usando. Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de raíz de servicio de Microsoft Graph y Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- La llamada a Microsoft Graph API requiere una dirección URL de punto de conexión específica de la nube que se está usando. Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de raíz de servicio de Microsoft Graph y Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 A continuación se muestra un ejemplo de un punto de conexión de Graph con el ámbito:
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre:
+Consulte [Puntos de conexión de autenticación de nubes nacionales](authentication-national-cloud.md) para ver una lista de las direcciones URL de Azure Portal y los puntos de conexión de token para cada nube.
 
-- [Autenticación en nubes nacionales](authentication-national-cloud.md)
+Documentación de la nube nacional:
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Alemania](../../germany/index.yml)

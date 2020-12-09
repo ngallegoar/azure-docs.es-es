@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/27/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbd890117c78274392d5745e0563332371b404c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746397"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452577"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Uso de Synapse Studio para supervisar las ejecuciones de canalización del área de trabajo
 
-Con Azure Synapse Analytics, puede crear canalizaciones complejas que pueden automatizar e integrar el movimiento de datos, la transformación de datos y las actividades de proceso dentro de su solución. Puede crear y supervisar estas canalizaciones mediante Synapse Studio (versión preliminar).
+Con Azure Synapse Analytics, puede crear canalizaciones complejas que pueden automatizar e integrar el movimiento de datos, la transformación de datos y las actividades de proceso dentro de su solución. Puede crear y supervisar estas canalizaciones mediante Synapse Studio.
 
 En este artículo se explica cómo supervisar las ejecuciones de canalización, lo que le permite vigilar el estado más reciente, los problemas y el progreso de sus canalizaciones.
 
@@ -41,8 +41,6 @@ Seleccione **Ejecuciones de canalización** para ver la lista de ejecuciones de 
 Puede filtrar la lista de ejecuciones de canalización a las que le interesan. Los filtros en la parte superior de la pantalla le permiten especificar un campo por el que desea filtrar.
 
 Por ejemplo, puede filtrar la vista para ver solo las ejecuciones de canalización para la canalización denominada "holiday":
-
-![Botón de filtro](./media/common/filter-button.png)
 
 ![Filtro de ejemplo](./media/how-to-monitor-pipeline-runs/filter-example.png)
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ac2c9cb1710c4b4f67ba2aa06707d08cc45d4907
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129837"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459239"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Salida de Azure SQL Database desde Azure Stream Analytics
 
@@ -35,11 +35,11 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 |Heredación del esquema de partición| Opción para heredar el esquema de partición del paso de consulta anterior a fin de habilitar la topología completamente paralela con múltiples escritores en la tabla. Para obtener más información, vea [Salida de Azure Stream Analytics a Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Número máximo de lotes| Número máximo de registros recomendado para enviarse con cada transacción de inserción masiva.|
 
-Hay dos adaptadores que permiten la salida de Azure Stream Analytics a Azure Synapse Analytics (anteriormente SQL Data Warehouse): SQL Database y Azure Synapse. Se recomienda elegir el adaptador de Azure Synapse Analytics en lugar del adaptador de SQL Database si alguna de las condiciones siguientes es verdadera:
+Hay dos adaptadores que permiten la salida de Azure Stream Analytics a Azure Synapse Analytics: SQL Database y Azure Synapse. Se recomienda elegir el adaptador de Azure Synapse Analytics en lugar del adaptador de SQL Database si alguna de las condiciones siguientes es verdadera:
 
-* **Rendimiento** : Si el rendimiento esperado ahora o en el futuro es superior a 10 MB/s, use la opción de salida de Azure Synapse para mejorar el rendimiento.
+* **Rendimiento**: Si el rendimiento esperado ahora o en el futuro es superior a 10 MB/s, use la opción de salida de Azure Synapse para mejorar el rendimiento.
 
-* **Particiones de entrada** : Si tiene ocho o más particiones de entrada, use la opción de salida de Azure Synapse para mejorar la escalabilidad horizontal.
+* **Particiones de entrada**: Si tiene ocho o más particiones de entrada, use la opción de salida de Azure Synapse para mejorar la escalabilidad horizontal.
 
 ## <a name="partitioning"></a>Creación de particiones
 

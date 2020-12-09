@@ -7,42 +7,44 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: dd29b18dda46a00966a0e5adea7e06be8f43ad35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491263"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444943"
 ---
-# <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Monitor mediante Azure Data Explorer (versión preliminar)
-El clúster de proxy de Azure Data Explorer le permite realizar consultas entre productos entre Azure Data Explorer, áreas de trabajo de Log Analytics y aplicaciones clásicas de Application Insights en Azure Monitor. Puede asignar áreas de trabajo de Log Analytics en Azure Monitor o aplicaciones clásicas de Application Insights como clústeres de proxy. A continuación, puede consultar el clúster de proxy mediante las herramientas de Azure Data Explorer y referirse a él en una consulta entre clústeres. En este artículo se muestra cómo conectarse a un clúster de proxy, agregar un clúster de proxy a la interfaz de usuario web de Azure Data Explorer y ejecutar consultas con las áreas de trabajo de Log Analytics o las aplicaciones clásicas de Application Insights desde Azure Data Explorer.
+# <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Monitor con Azure Data Explorer (versión preliminar)
 
-En el diagrama siguiente se muestra el flujo del proxy de Azure Data Explorer:
+Azure Data Explorer admite las consultas entre los servicios Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview) y [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs). Asimismo, puede consultar el área de trabajo de Log Analytics/Application Insights mediante herramientas de Azure Data Explorer y hacer referencia a la misma en una consulta entre servicios. En este artículo se muestra cómo crear una consulta entre servicios y cómo agregar el área de trabajo de Log Analytics/Application Insights a la interfaz de usuario web de Azure Data Explorer.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-monitor-proxy-flow.png" alt-text="Flujo del proxy de Azure Data Explorer.":::
-
+Flujo de consultas entre servicios de Azure Data Explorer: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Flujo del proxy de Azure Data Explorer.":::
 
 > [!NOTE]
-> El proxy de Azure Data Explorer está en versión preliminar pública. [Conéctese al proxy](#connect-to-the-proxy) para habilitar la característica de proxy para los clústeres. 
+> * La capacidad de consultar los datos de Azure Monitor desde Azure Data Explorer, ya sea directamente desde las herramientas de cliente de Azure Data Explorer o indirectamente mediante la ejecución de una consulta en un clúster de Azure Data Explorer, está en su versión preliminar.
+>* Póngase en contacto con el equipo de [consultas entre servicios](mailto:adxproxy@microsoft.com) si tiene cualquier pregunta.
 
-## <a name="connect-to-the-proxy"></a>Conexión con el proxy
-Para conectar un área de trabajo de Log Analytics o una aplicación clásica de Application Insights, abra la [interfaz de usuario web de Azure Data Explorer](https://dataexplorer.azure.com/clusters). Compruebe que el clúster nativo de Azure Data Explorer (como el clúster *help* ) aparece en el menú izquierdo antes de conectarse al clúster de Log Analytics o de Application Insights.
+## <a name="add-a-log-analyticsapplication-insights-workspace-to-azure-data-explorer-client-tools"></a>Incorporación de un área de trabajo de Log Analytics/Application Insights a herramientas de cliente de Azure Data Explorer
+
+1. Compruebe que el clúster nativo de Azure Data Explorer (como el clúster *help*) aparece en el menú izquierdo antes de conectarse al clúster de Log Analytics o de Application Insights.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Clúster nativo de Azure Data Explorer.":::
 
-Haga clic en **Agregar clúster** y, luego, agregue la dirección URL del clúster de Log Analytics o de Application Insights en uno de estos formatos. 
-    
-* Para Log Analytics: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-* Para Application Insights: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+ En la interfaz de usuario de Azure Data Explorer (https://dataexplorer.azure.com/clusters), seleccione **Agregar clúster**.
 
-Haga clic en **Agregar** para establecer la conexión.
+2. En la ventana **Agregar clúster**, agregue la dirección URL al clúster de LA o AI.
+
+    * Para LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * Para AI: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+
+    * Seleccione **Agregar**.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Agregue el clúster.":::
  
-> [!NOTE]
-> Si agrega una conexión a más de un clúster de proxy, dé a cada uno un nombre diferente. En caso contrario, todos tendrán el mismo nombre en el panel izquierdo.
+>[!NOTE]
+>Si agrega una conexión a más de un área de trabajo de Log Analytics/Application Insights, asigne a cada una un nombre diferente. En caso contrario, todos tendrán el mismo nombre en el panel izquierdo.
 
-Una vez que se establece la conexión, el clúster de Log Analytics o de Application Insights aparecerá en el panel de la izquierda con el clúster nativo de Azure Data Explorer. 
+ Una vez que se establece la conexión, el área de trabajo de Log Analytics o de Application Insights aparecerá en el panel de la izquierda con el clúster nativo de Azure Data Explorer.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Clústeres de Log Analytics y de Azure Data Explorer.":::
  
@@ -51,30 +53,30 @@ Una vez que se establece la conexión, el clúster de Log Analytics o de Applica
 
 ## <a name="create-queries-using-azure-monitor-data"></a>Creación de consultas con datos de Azure Monitor
 
-Puede ejecutar las consultas usando herramientas de cliente que admitan consultas de Kusto, como: Kusto Explorer, interfaz de usuario web de Azure Data Explorer, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Jarvis, Lens y API REST.
+Puede ejecutar las consultas usando herramientas de cliente que admitan consultas de Kusto, como: Kusto Explorer, interfaz de usuario web de Azure Data Explorer, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Lens, API de REST.
 
 > [!NOTE]
-> La característica de proxy de Azure Data Explorer se usa solo para la recuperación de datos. Para más información, consulte el apartado [Compatibilidad con funciones](#function-supportability).
+> La capacidad de consulta entre servicios se usa solo para la recuperación de datos. Para más información, consulte el apartado [Compatibilidad con funciones](#function-supportability).
 
 > [!TIP]
-> * El nombre de la base de datos debe tener el mismo nombre que el recurso especificado en el clúster de proxy. Los nombres distinguen mayúsculas de minúsculas.
+> * El nombre de la base de datos debe tener el mismo nombre que el recurso especificado en la consulta entre servicios. Los nombres distinguen mayúsculas de minúsculas.
 > * En consultas entre clústeres, asegúrese de que la nomenclatura de las aplicaciones de Application Insights y las áreas de trabajo de Log Analytics sea correcta.
->     * Si los nombres contienen caracteres especiales, se sustituyen por codificación URL en el nombre del clúster del proxy. 
->     * Si los nombres incluyen caracteres que no cumplen las [reglas del nombre del identificador KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), se sustituyen por el carácter de guion **-** .
+> * Si los nombres contienen caracteres especiales, se sustituyen por la codificación URL de la consulta entre servicios.
+> * Si los nombres incluyen caracteres que no cumplen las [reglas del nombre del identificador KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), se sustituyen por el carácter de guion **-** .
 
-### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Consulta directa desde el clúster del proxy de Log Analytics o de Application Insights
+### <a name="direct-query-on-your-log-analytics-or-application-insights-workspaces-from-azure-data-explorer-client-tools"></a>Consulta directa en las áreas de trabajo de Log Analytics o Application Insights desde las herramientas de cliente de Azure Data Explorer
 
-Ejecute consultas en el clúster de Log Analytics o de Application Insights. Compruebe que el clúster está seleccionado en el panel izquierdo. 
+Ejecute consultas en las áreas de trabajo de Log Analytics o de Application Insights. Compruebe que el área de trabajo está seleccionada en el panel izquierdo.
  
 ```kusto
-Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
+Perf | take 10 // Demonstrate cross service query on the Log Analytics workspace
 ```
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Consulte el área de trabajo de Log Analytics.":::
 
-### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Consulta cruzada del clúster del proxy de Log Analytics o de Application Insights y el clúster nativo de Azure Data Explorer
+### <a name="cross-query-of-your-log-analytics-or-application-insights-and-the-azure-data-explorer-native-cluster"></a>Consulta cruzada de las instancias de Log Analytics o de Application Insights y el clúster nativo de Azure Data Explorer
 
-Al ejecutar consultas entre clústeres desde el proxy, compruebe que el clúster nativo de Azure Data Explorer está seleccionado en el panel izquierdo. En los ejemplos siguientes se muestra cómo combinar tablas de clúster de Azure Data Explorer mediante el operador [union](/azure/data-explorer/kusto/query/unionoperator) con un área de trabajo de Log Analytics.
+Al ejecutar consultas de servicios entre clústeres, compruebe que el clúster nativo de Azure Data Explorer está seleccionado en el panel izquierdo. En los ejemplos siguientes se muestra cómo combinar tablas de clúster de Azure Data Explorer mediante el operador [union](/azure/data-explorer/kusto/query/unionoperator) con un área de trabajo de Log Analytics.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
@@ -85,38 +87,38 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Usar el operador [`join`](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor), en lugar de la unión, puede requerir una [sugerencia](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) para ejecutarlo en un clúster nativo de Azure Data Explorer (y no en el proxy). 
+
+:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Consulta entre servicios desde Azure Data Explorer":::.
+
+Usar el [`join` operador](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator), en lugar de union, puede requerir una [`hint`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator#join-hints) para ejecutarla en un clúster nativo de Azure Data Explorer.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Combinación de datos desde un clúster de Azure Data Explorer de un inquilino con un recurso de Azure Monitor de otro inquilino
 
-Las consultas entre inquilinos no son compatibles con el proxy de Azure Data Explorer. Ha iniciado sesión en un solo inquilino para ejecutar la consulta que abarca ambos recursos.
+No se admiten las consultas entre inquilinos en los servicios. Ha iniciado sesión en un solo inquilino para ejecutar la consulta que abarca ambos recursos.
 
 Si el recurso de Azure Data Explorer está en el inquilino "A" y el área de trabajo de Log Analytics está en el inquilino "B", use uno de los dos métodos siguientes:
 
-- Azure Data Explorer permite agregar roles para entidades de seguridad de distintos inquilinos. Agregue su identificador de usuario en el inquilino "B" como usuario autorizado en el clúster de Azure Data Explorer. Compruebe que la propiedad *["TrustedExternalTenant"](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* del clúster de Azure Data Explorer contiene al inquilino "B". Ejecute la consulta cruzada completamente en el inquilino "B".
+1. Azure Data Explorer permite agregar roles para entidades de seguridad de distintos inquilinos. Agregue su identificador de usuario en el inquilino "B" como usuario autorizado en el clúster de Azure Data Explorer. Compruebe que la propiedad *["TrustedExternalTenant"](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* del clúster de Azure Data Explorer contiene al inquilino "B". Ejecute la consulta cruzada completamente en el inquilino "B".
 
-- Use [Lighthouse](/azure/lighthouse/) para proyectar el recurso de Azure Monitor en el inquilino "A".
-
+2. Use [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) para proyectar el recurso de Azure Monitor en el inquilino "A".
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Conexión a clústeres de Azure Data Explorer desde otros inquilinos
 
 Kusto Explorer inicia sesión automáticamente en el inquilino al que pertenece originalmente la cuenta de usuario. Para acceder a los recursos de otros inquilinos con la misma cuenta de usuario, se tiene que especificar explícitamente el valor de `tenantId` en la cadena de conexión: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=`**TenantId**
 
 ## <a name="function-supportability"></a>Compatibilidad con funciones
 
-El clúster de proxy de Azure Data Explorer admite funciones tanto para Log Analytics como para Application Insights. Esta funcionalidad permite que las consultas entre clústeres hagan referencia directamente a una función tabular de Azure Monitor.
-
-El proxy admite los siguientes comandos:
+Las consultas entre servicios de Azure Data Explorer admiten funciones tanto para Application Insights como para Log Analytics.
+Esta funcionalidad permite que las consultas entre clústeres hagan referencia directamente a una función tabular de Azure Monitor.
+Los siguientes comandos se admiten en la consulta entre servicios:
 
 * `.show functions`
 * `.show function {FunctionName}`
 * `.show database {DatabaseName} schema as json`
 
-En la imagen siguiente se muestra un ejemplo de cómo consultar una función tabular desde la interfaz de usuario web de Azure Data Explorer. Para usar la función, ejecute el nombre en la ventana Consulta.
+En la imagen siguiente se muestra un ejemplo de cómo consultar una función tabular desde la interfaz de usuario web de Azure Data Explorer.
+Para usar la función, ejecute el nombre en la ventana Consulta.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Consulta de una función tabular desde la interfaz de usuario web de Azure Data Explorer.":::
- 
-> [!NOTE]
-> Azure Monitor solo admite funciones tabulares, las que no admiten parámetros.
 
 ## <a name="additional-syntax-examples"></a>Ejemplos de sintaxis adicionales
 
@@ -124,7 +126,7 @@ Las opciones de sintaxis siguientes están disponibles cuando se llama a los cl�
 
 |Descripción de la sintaxis  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Base de datos dentro de un clúster que contiene solo el recurso definido en esta suscripción ( **recomendado para las consultas entre clústeres** ) |   clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
+| Base de datos dentro de un clúster que contiene solo el recurso definido en esta suscripción (**recomendado para las consultas entre clústeres**) |   clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
 | Clúster que contiene todas las aplicaciones o áreas de trabajo en esta suscripción    |     clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
 |Clúster que contiene todas las aplicaciones o áreas de trabajo de la suscripción y que son miembros de este grupo de recursos    |   clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
 |Clúster que contiene solo el recurso definido en esta suscripción      |    clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |

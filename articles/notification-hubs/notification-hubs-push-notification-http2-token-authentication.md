@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010637"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460472"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticación basada en token (HTTP/2) para APNs
 
@@ -78,7 +78,7 @@ Las credenciales basadas en token se componen de los siguientes campos:
 
 * **El identificador de la clave**: Identificador de la clave privada generada en el portal para Desarrolladores de Apple, por ejemplo, `2USFGKSKLT`.
 * **Identificador del equipo**: También se denomina "prefijo" o "Prefijo de aplicación." Este es el identificador de la organización en el portal para Desarrolladores de Apple, por ejemplo, `S4V3D7CHJR`.
-* **Identificador de agrupación**: También se denomina "Identificador de la aplicación." Este es el identificador de agrupación de la aplicación, por ejemplo, `com.example.myapp`. Tenga en cuenta que puede usar una clave para muchas aplicaciones. Este valor se asigna al encabezado HTTP `apns-topic` al enviar una notificación y se usa para apuntar a la aplicación específica. Tenga en cuenta que no puede establecer el valor de `apns-topic` explícitamente.
+* **Identificador de agrupación**: También se denomina "Id. de la aplicación". Este es el identificador de agrupación de la aplicación, por ejemplo, `com.example.myapp`. Tenga en cuenta que solo puede usar una clave para una aplicación. Este valor se asigna al encabezado HTTP `apns-topic` al enviar una notificación y se usa para apuntar a la aplicación específica. No puede establecer el valor de `apns-topic` explícitamente.
 * **Token**: También se denomina "clave" o "clave privada." Este se obtiene del archivo. P8 generado en el portal para Desarrolladores de Apple. La clave debe tener APNS habilitado (que se selecciona en el portal de Desarrolladores de Apple al generar la clave). El valor debe tener el encabezado PE/pie de página que se elimina cuando lo proporcione al NH Portal/API.
 * **Punto de conexión**: Este es un comando en la hoja del portal de Notification Hubs y un campo de cadena en la API. Los valores válidos son `https://api.development.push.apple.com:443/3/device` y `https://api.sandbox.push.apple.com:443/3/device`. Notification Hubs utiliza este valor para el entorno de producción o espacio aislado, para enviar notificaciones. Esto debe coincidir con el derecho `aps-environment` en la aplicación; de lo contrario, los tokens del dispositivo APNS generados no coinciden con el entorno y las notificaciones no se envían.
 

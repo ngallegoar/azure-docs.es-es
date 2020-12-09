@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841145"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452490"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Reglas de firewall de Azure SQL Database y Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Al crear un servidor en Azure SQL Database y Azure Synapse Analytics denominado *miServidorSQL*, por ejemplo, el firewall de nivel de servidor bloquea todo el acceso al punto de conexión público para el servidor (al que se puede acceder en *miServidorSQL.database.windows.net*). Para simplificar, se usa *SQL Database* para hacer referencia tanto a SQL Database como a Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+Al crear un servidor en Azure SQL Database y Azure Synapse Analytics denominado *miServidorSQL*, por ejemplo, el firewall de nivel de servidor bloquea todo el acceso al punto de conexión público para el servidor (al que se puede acceder en *miServidorSQL.database.windows.net*). Para simplificar, se usa *SQL Database* cuando se hace referencia tanto a SQL Database como a Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Este artículo *no* se aplica a *Instancia administrada de Azure SQL*. Para obtener información sobre la configuración de red, vea [Conexión de una aplicación a Instancia administrada de Azure SQL](../managed-instance/connect-application-instance.md).

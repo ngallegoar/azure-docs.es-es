@@ -1,30 +1,30 @@
 ---
-title: Procedimientos recomendados de carga de datos para el grupo de SQL de Synapse
-description: Recomendaciones y optimizaciones de rendimiento para cargar datos mediante el grupo de SQL de Synapse.
+title: Procedimientos recomendados para la carga de datos para un grupo de SQL dedicado
+description: Recomendaciones y optimizaciones del rendimiento para cargar datos mediante grupos de SQL dedicados en Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441228"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456301"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedimientos recomendados para cargar datos mediante el grupo de SQL de Synapse
+# <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedimientos recomendados para cargar datos mediante grupos de SQL dedicados en Azure Synapse Analytics
 
-En este artículo, conocerá las recomendaciones y las optimizaciones de rendimiento para cargar datos mediante el grupo de SQL.
+En este artículo, conocerá las recomendaciones y las optimizaciones de rendimiento para cargar datos mediante el grupo de SQL dedicado.
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparación de datos en Azure Storage
 
-Para minimizar la latencia, reubique la capa de almacenamiento y el grupo de SQL.
+Para minimizar la latencia, ubique conjuntamente la capa de almacenamiento y el grupo de SQL dedicado.
 
 Al exportar datos en formato de archivo ORC, pueden producirse errores de falta de memoria de Java con las columnas de texto grandes. Para resolver este problema, exporte solo un subconjunto de las columnas.
 
@@ -34,7 +34,7 @@ Dividir archivos comprimidos grandes en archivos comprimidos más pequeños.
 
 ## <a name="running-loads-with-enough-compute"></a>Ejecución de cargas con suficientes recursos de proceso
 
-Para una velocidad de carga más rápida, ejecute solo una carga de trabajo de cada vez. Si no es factible, ejecute un número mínimo de cargas al mismo tiempo. Si espera un trabajo de carga grande, considere la posibilidad de escalar verticalmente el grupo de SQL antes de la carga.
+Para una velocidad de carga más rápida, ejecute solo una carga de trabajo de cada vez. Si no es factible, ejecute un número mínimo de cargas al mismo tiempo. Si espera un trabajo de carga grande, considere la posibilidad de escalar verticalmente el grupo de SQL dedicado antes de la carga.
 
 Para ejecutar cargas con recursos de proceso adecuados, cree usuarios de carga designados para ejecutar cargas. Clasifique cada usuario de carga a un grupo de cargas de trabajo específico. Para ejecutar una carga, inicie sesión como uno de los usuarios de carga y, a continuación, ejecute la carga. La carga se ejecuta con el grupo de cargas de trabajo del usuario.  
 
@@ -47,10 +47,10 @@ En este ejemplo se crea un usuario de carga clasificado en un grupo de cargas de
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Conéctese al grupo de SQL y cree un usuario. El código siguiente da por supuesto que está conectado a la base de datos llamada mySampleDataWarehouse. Muestra cómo crear un usuario llamado cargador y concede al usuario permisos para crear tablas y cargar mediante la [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). A continuación, clasifica el usuario en el grupo de cargas de trabajo de DataLoads con un máximo de recursos. 
+Conéctese al grupo de SQL dedicado y cree un usuario. El código siguiente da por supuesto que está conectado a la base de datos llamada mySampleDataWarehouse. Muestra cómo crear un usuario llamado cargador y concede al usuario permisos para crear tablas y cargar mediante la [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). A continuación, clasifica el usuario en el grupo de cargas de trabajo de DataLoads con un máximo de recursos. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -76,7 +76,7 @@ Para ejecutar una carga con recursos para el grupo de cargas de trabajo de carga
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Posibilidad de que varios usuarios realicen cargas (PolyBase)
 
-A menudo, es necesario que varios usuarios puedan cargar datos en un grupo de SQL. La carga con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) requiere permisos de CONTROL en la base de datos.  El permiso CONTROL ofrece control de acceso a todos los esquemas.
+A menudo, es necesario que varios usuarios puedan cargar datos en un grupo de SQL dedicado. La carga con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) requiere permisos de CONTROL en la base de datos.  El permiso CONTROL ofrece control de acceso a todos los esquemas.
 
 Probablemente no desee que todos los usuarios de carga tengan control de acceso en todos los esquemas. Para limitar los permisos, use la instrucción DENY CONTROL.
 
@@ -91,9 +91,9 @@ User_A y user_B estarán ahora bloqueados en el esquema de los otros departament
 
 ## <a name="loading-to-a-staging-table"></a>Carga en una tabla de almacenamiento provisional
 
-Para lograr la velocidad de carga más rápida para mover datos a una tabla del grupo de SQL, cargue los datos en una tabla de almacenamiento provisional.  Definir la tabla de almacenamiento provisional como un montón y usar round robin para la opción de distribución.
+Para lograr la velocidad de carga más rápida para mover datos a una tabla del grupo de SQL dedicado, cargue los datos en una tabla de almacenamiento provisional.  Definir la tabla de almacenamiento provisional como un montón y usar round robin para la opción de distribución.
 
-Tenga en cuenta que la carga suele ser un proceso de dos pasos en el que primero se realiza la carga en una tabla de almacenamiento provisional y, luego, se insertan los datos en una tabla del grupo de SQL de producción. Si la tabla de producción utiliza una distribución hash, el tiempo total para cargar e insertar puede ser más rápido si define la tabla de almacenamiento provisional con la distribución hash.
+Tenga en cuenta que la carga suele ser un proceso de dos pasos en el que primero se realiza la carga en una tabla de almacenamiento provisional y, luego, se insertan los datos en una tabla del grupo de SQL dedicado de producción. Si la tabla de producción utiliza una distribución hash, el tiempo total para cargar e insertar puede ser más rápido si define la tabla de almacenamiento provisional con la distribución hash.
 
 Cargar la tabla de almacenamiento provisional lleva más tiempo, pero el segundo paso de insertar las filas en la tabla de producción no incurre en movimiento de datos a través de las distribuciones.
 
@@ -111,7 +111,7 @@ Si no hay memoria suficiente, es posible que el índice de almacén de columnas 
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumento del tamaño de lote al usar SqLBulkCopy API o bcp
 
-La carga con la instrucción COPY proporcionará el mayor rendimiento con el grupo de SQL. Si no puede usar COPY para la carga y debe usar [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), considere la posibilidad de aumentar el tamaño del lote para mejorar el rendimiento.
+La carga con la instrucción COPY proporcionará el mayor rendimiento con el grupo de SQL dedicado. Si no puede usar COPY para la carga y debe usar [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), considere la posibilidad de aumentar el tamaño del lote para mejorar el rendimiento.
 
 > [!TIP]
 > Un tamaño de lote entre 100 000 filas y 1 millón de filas es la línea de base recomendada para determinar la capacidad de tamaño de lote óptima.

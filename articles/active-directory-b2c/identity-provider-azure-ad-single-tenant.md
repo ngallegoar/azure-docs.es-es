@@ -12,12 +12,12 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4fa4b64c6519df90d5883e8c5760b3ed2ce0337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a079cfe155119a6afe8575767dd3e7c09a564f9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004466"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445621"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Para usar una cuenta de Azure Active Directory (Azure AD) como [proveedor de ide
 1. En **Id. de cliente**, escriba el identificador de aplicación que ha anotado anteriormente.
 1. En **Secreto de cliente**, escriba el secreto de cliente que ha anotado anteriormente.
 1. En **Ámbito**, escriba el valor de `openid profile`.
-1. Deje los valores predeterminados para **Tipo de respuesta**y **Modo de respuesta**.
+1. Deje los valores predeterminados para **Tipo de respuesta** y **Modo de respuesta**.
 1. (Opcional) En **Sugerencia de dominio**, escriba `contoso.com`. Para más información, consulte [Configuración de inicio de sesión directo con Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. En **Asignación de notificaciones del proveedor de identidades**, seleccione las siguientes notificaciones:
 
@@ -51,6 +51,6 @@ Para usar una cuenta de Azure Active Directory (Azure AD) como [proveedor de ide
     * **Nombre para mostrar**: *name*
     * **Nombre propio**: *given_name*
     * **Apellido**: *family_name*
-    * **Correo electrónico**: *unique_name*
+    * **Correo electrónico**: *preferred_username*
 
 1. Seleccione **Guardar**.

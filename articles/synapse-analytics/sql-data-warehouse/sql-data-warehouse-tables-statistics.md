@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d9349c5d1c4e6255dc0854537bb7e93e3e636ce8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: e7fc89dcc0e7938ea2958d5c804abe82e20f186d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321064"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447944"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estadísticas de tablas para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -72,7 +72,7 @@ Para evitar la degradación del rendimiento cuantificable, debe asegurarse de qu
 > [!NOTE]
 > La creación de estadísticas también se registrará en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) en un contexto de usuario diferente.
 
-Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_ <identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest):
+Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -101,7 +101,7 @@ No se trata de una pregunta que se pueda responder por la antigüedad de los dat
 
 No hay una vista de administración dinámica para determinar si los datos de la tabla han cambiado desde la última vez que se actualizaron las estadísticas.  Las dos consultas siguientes pueden ayudarle a determinar si las estadísticas están obsoletas.
 
-**Consulta 1** :  averiguar la diferencia entre el recuento de filas de las estadísticas ( **stats_row_count** ) y el recuento de filas real ( **actual_row_count** ). 
+**Consulta 1**:  averiguar la diferencia entre el recuento de filas de las estadísticas (**stats_row_count**) y el recuento de filas real (**actual_row_count**). 
 
 ```sql
 select 
@@ -150,7 +150,7 @@ on objIdsWithStats.object_id = actualRowCounts.object_id
 
 ```
 
-**Consulta 2** : averiguar la antigüedad de las estadísticas comprobando la última vez que se actualizaron las estadísticas en cada tabla. 
+**Consulta 2**: averiguar la antigüedad de las estadísticas comprobando la última vez que se actualizaron las estadísticas en cada tabla. 
 
 > [!NOTE]
 > Recuerde que, si hay un cambio material en la distribución de valores para una columna, debe actualizar las estadísticas independientemente de la última vez que se actualizaran.
@@ -214,7 +214,7 @@ Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadí
 
 Para crear estadísticas de una columna, especifique un nombre para el objeto de estadística y el nombre de la columna.
 
-Esta sintaxis utiliza todas las opciones predeterminadas. De manera predeterminada, al crear las estadísticas se muestrea el  **20 %** de la tabla.
+Esta sintaxis utiliza todas las opciones predeterminadas. De manera predeterminada, al crear las estadísticas se muestrea el **20 %** de la tabla.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -282,13 +282,13 @@ Para crear un objeto de estadísticas de varias columnas, use los ejemplos anter
 > [!NOTE]
 > El histograma, que se utiliza para calcular el número de filas en el resultado de la consulta, solo está disponible para la primera columna de la definición del objeto de estadísticas.
 
-En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub_category* :
+En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Dado que no hay una correlación entre *product\_category* y *product\_sub\_category* , un objeto de estadística de varias columnas puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
+Dado que no hay una correlación entre *product\_category* y *product\_sub\_category*, un objeto de estadística de varias columnas puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Creación de estadísticas en todas las columnas de una tabla
 
@@ -312,11 +312,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Utilizar un procedimiento almacenado para crear estadísticas de todas las columnas de una base de datos
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-sql-pool"></a>Utilizar un procedimiento almacenado para crear estadísticas de todas las columnas en un grupo de SQL.
 
-El grupo de SQL dedicado no tiene un procedimiento almacenado del sistema equivalente a sp_create_stats en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de la base de datos que ya no tienen estadísticas.
+El grupo de SQL dedicado no tiene un procedimiento almacenado del sistema equivalente a sp_create_stats en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de un grupo de SQL que no tienen estadísticas.
 
-El ejemplo siguiente le ayudará a empezar a trabajar con el diseño de la base de datos. Puede adaptarlo a sus necesidades.
+Gracias al ejemplo siguiente podrá empezar a trabajar con el diseño del grupo de SQL. Puede adaptarlo a sus necesidades.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]

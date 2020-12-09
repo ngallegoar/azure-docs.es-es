@@ -1,6 +1,6 @@
 ---
 title: Cuadernos de Synapse Studio
-description: En este artículo, aprenderá a crear y desarrollar cuadernos de Azure Synapse Studio (versión preliminar) para la preparación y visualización de datos.
+description: En este artículo, aprenderá a crear y desarrollar cuadernos de Azure Synapse Studio para la preparación y visualización de datos.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900914"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450864"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio (versión preliminar) en Azure Synapse Analytics
+# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio en Azure Synapse Analytics
 
-Un cuaderno de Synapse Studio (versión preliminar) es una interfaz web para crear archivos que contengan código activo, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. Los cuadernos también se usan ampliamente en la preparación de datos, la visualización de datos, el aprendizaje automático y otros escenarios de macrodatos.
+Un cuaderno de Synapse Studio es una interfaz web para crear archivos que contengan código activo, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. Los cuadernos también se usan ampliamente en la preparación de datos, la visualización de datos, el aprendizaje automático y otros escenarios de macrodatos.
 
 Con un cuaderno de Azure Synapse Studio, puede hacer lo siguiente:
 
@@ -495,7 +495,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 |Ejecutar la celda actual e insertar una a continuación | Alt+Entrar |
 |Seleccionar la celda anterior| Arriba |
 |Seleccionar la celda siguiente| Bajar |
-|Insertar una celda encima| A |
+|Insertar una celda encima| Un |
 |Insertar una celda debajo| B |
 |Extender las celdas seleccionadas encima| Mayús+Arriba |
 |Extender las celdas seleccionadas debajo| Mayús+Abajo|
@@ -515,7 +515,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 |Seleccionar la celda siguiente| Bajar |
 |Seleccionar celda anterior| K |
 |Seleccionar celda siguiente| J |
-|Insertar una celda encima| A |
+|Insertar una celda encima| Un |
 |Insertar una celda debajo| B |
 |Eliminar celdas seleccionadas| Mayús+D |
 |Cambiar al modo de edición| Escriba |
@@ -549,7 +549,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) en Azure Synapse Analytics mediante herramientas web](../quickstart-apache-spark-notebook.md)
+- [Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web](../quickstart-apache-spark-notebook.md)
 - [Qué es Apache Spark en Azure Synapse Analytics](apache-spark-overview.md)
 - [Uso de .NET para Apache Spark con Azure Synapse Analytics](spark-dotnet.md)
 - [Documentación de .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

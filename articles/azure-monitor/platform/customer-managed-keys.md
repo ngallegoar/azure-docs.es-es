@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 17648b9bc973285764bb0bd6242506122a043780
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000732"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454269"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -25,7 +25,7 @@ Se recomienda revisar la sección [Limitaciones y restricciones](#limitationsand
 
 Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren en reposo mediante claves administradas por Microsoft (MMK). Azure Monitor también proporciona una opción para el cifrado con su propia clave que se almacena en [Azure Key Vault](../../key-vault/general/overview.md) y le otorga el control para revocar el acceso a los datos en cualquier momento. El uso del cifrado de Azure Monitor es idéntico a la forma en que funciona el [cifrado de Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-La clave administrada por el cliente se entrega en clústeres de Log Analytics dedicados que proporcionan un mayor nivel de protección y control. Los datos ingeridos en clústeres dedicados se cifran dos veces: una en el nivel de servicio mediante claves administradas por Microsoft o claves administradas por el cliente, y otra en el nivel de infraestructura mediante dos algoritmos de cifrado y dos claves diferentes. El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [Caja de seguridad](#customer-lockbox-preview).
+La clave administrada por el cliente se entrega en clústeres de Log Analytics dedicados que proporcionan un mayor nivel de protección y control. Los datos ingeridos en clústeres dedicados se cifran dos veces: una en el nivel de servicio mediante claves administradas por Microsoft o claves administradas por el cliente, y otra en el nivel de infraestructura mediante dos algoritmos de cifrado y dos claves diferentes. El [doble cifrado](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [caja de seguridad](#customer-lockbox-preview).
 
 Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, con independencia de la configuración de la clave administrada por el cliente, pero el control sobre los datos de SSD se ciñe a la [revocación de claves](#key-revocation). Estamos trabajando para cifrar los datos de SSD con una clave administrada por el cliente en la primera mitad de 2021.
 
@@ -72,11 +72,27 @@ Se aplican las reglas siguientes:
 1. Concesión de permisos a la instancia de Key Vault
 1. Vinculación de áreas de trabajo de Log Analytics
 
-La configuración de la clave administrada por el cliente no se admite en Azure Portal y el aprovisionamiento se realiza mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), la [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) o solicitudes [REST](https://docs.microsoft.com/rest/api/loganalytics/).
+La configuración de la clave administrada por el cliente no se admite en Azure Portal y el aprovisionamiento se realiza mediante [PowerShell](/powershell/module/az.operationalinsights/), la [CLI](/cli/azure/monitor/log-analytics) o solicitudes [REST](/rest/api/loganalytics/).
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operaciones asincrónicas y comprobación de estado
 
-Algunos de los pasos de configuración se ejecutan de forma asincrónica porque no se pueden completar rápidamente. Cuando se utiliza REST, la respuesta devuelve inicialmente un código de estado HTTP 200 (Correcto) y un encabezado con la propiedad *Azure-AsyncOperation* cuando se acepta:
+Algunos de los pasos de configuración se ejecutan de forma asincrónica porque no se pueden completar rápidamente. El valor de `status` en la respuesta puede ser uno de las siguientes: "EnCurso", "Actualizando", "Eliminando", "Correcto" o "Incorrecto", incluido el código de error.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/D
+
+# <a name="rest"></a>[REST](#tab/rest)
+
+Cuando se utiliza REST, la respuesta devuelve inicialmente un código de estado HTTP 200 (Correcto) y un encabezado con la propiedad *Azure-AsyncOperation* cuando se acepta:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -87,7 +103,7 @@ GET https://management.azure.com/subscriptions/subscription-id/providers/microso
 Authorization: Bearer <token>
 ```
 
-El valor de `status` en la respuesta puede ser uno de las siguientes: "EnCurso", "Actualizando", "Eliminando", "Correcto" o "Incorrecto", incluido el código de error.
+---
 
 ### <a name="allowing-subscription"></a>Habilitación de la suscripción
 
@@ -107,7 +123,7 @@ Esta configuración puede actualizarse en Key Vault a través de la CLI y PowerS
 
 ### <a name="create-cluster"></a>Crear clúster
 
-Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 > [!IMPORTANT]
 > Copie y guarde la respuesta, ya que necesitará los detalles en los pasos siguientes.
@@ -137,16 +153,25 @@ Actualice KeyVaultProperties en el clúster con los detalles del identificador d
 
 Esta operación es asincrónica y puede tardar un tiempo en completarse.
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 ```azurecli
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -200,6 +225,8 @@ Una respuesta a la solicitud GET debe ser similar a la siguiente cuando se compl
 }
 ```
 
+---
+
 ### <a name="link-workspace-to-cluster"></a>Vinculación del área de trabajo al clúster
 
 Debe tener permisos de "escritura" en el área de trabajo y en el clúster para realizar esta operación, que incluye estas acciones:
@@ -212,7 +239,7 @@ Debe tener permisos de "escritura" en el área de trabajo y en el clúster para 
 
 Esta operación es asincrónica y puede tardar un tiempo en completarse.
 
-Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
 
 ## <a name="key-revocation"></a>Revocación de claves
 
@@ -250,15 +277,25 @@ Cuando traiga su propio almacenamiento (BYOS) y lo asocie a su área de trabajo,
 
 Vincule una cuenta de almacenamiento de *Consulta* con el área de trabajo. Las consultas de *búsquedas guardadas* se guardan en la cuenta de almacenamiento. 
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
@@ -276,21 +313,33 @@ Content-type: application/json
 }
 ```
 
+---
+
 Después de la configuración, se guardará en el almacenamiento cualquier nueva consulta de *búsqueda guardada*.
 
 **Configuración de BYOS para las consultas de alertas del registro**
 
 Vincule una cuenta de almacenamiento de *Alertas* con el área de trabajo. Las consultas de *alertas del registro* se guardan en la cuenta de almacenamiento. 
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
@@ -308,9 +357,12 @@ Content-type: application/json
 }
 ```
 
+---
+
 Después de la configuración, se guardará en el almacenamiento cualquier nueva consulta de alertas.
 
 ## <a name="customer-lockbox-preview"></a>Caja de seguridad del cliente (versión preliminar)
+
 Caja de seguridad le proporciona el control para aprobar o rechazar la solicitud de ingeniero de Microsoft para acceder a los datos durante una solicitud de soporte técnico.
 
 En Azure Monitor, tiene este control sobre los datos en las áreas de trabajo vinculadas al clúster dedicado de Log Analytics. El control Caja de seguridad se aplica a los datos almacenados en un clúster dedicado de Log Analytics en el que se mantiene aislado en las cuentas de almacenamiento del clúster en su suscripción protegida de Caja de seguridad.  
@@ -321,13 +373,23 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
 
 - **Obtención de todos los clústeres de un grupo de recursos**
   
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster list --resource-group "resource-group-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -369,15 +431,27 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
   }
   ```
 
+  ---
+
 - **Obtención de todos los clústeres de una suscripción**
+
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster list
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -388,17 +462,29 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
     
   La misma respuesta que para el "clúster de un grupo de recursos", pero en el ámbito de la suscripción.
 
+  ---
+
 - **Actualización de la *reserva de capacidad* en el clúster**
 
   Cuando cambie el volumen de datos en las áreas de trabajo vinculadas con el tiempo y desee actualizar el nivel de reserva de capacidad adecuadamente. Siga la [actualización del clúster](#update-cluster-with-key-identifier-details) y proporcione el valor de la nueva capacidad. Puede estar en el rango de 1000 a 3000 GB por día y en pasos de 100. Para un nivel superior a 3000 GB por día, comuníquese con su contacto de Microsoft para habilitarlo. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST, pero debe incluir la SKU:
+
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -413,6 +499,8 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
   }
   ```
 
+  ---
+
 - **Actualización de *billingType* en el clúster**
 
   La propiedad *billingType* determina la atribución de facturación para el clúster y sus datos:
@@ -420,6 +508,20 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
   - *Áreas de trabajo*: la facturación se atribuye a las suscripciones que hospedan las áreas de trabajo de forma proporcional
   
   Siga la [actualización del clúster](#update-cluster-with-key-identifier-details) y proporcione el nuevo valor de billingType. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST y debe incluir el *billingType*:
+
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+  N/D
+
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+  N/D
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -433,36 +535,67 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
   }
   ``` 
 
+  ---
+
 - **Desvinculación de un área de trabajo**
 
   Necesita permisos de "escritura" en el área de trabajo y en el clúster para realizar esta operación. Puede desvincular un área de trabajo del clúster en cualquier momento. Los nuevos datos ingeridos después de la operación de desvinculación se almacenan en el almacenamiento de Log Analytics y se cifran con la clave de Microsoft. Puede consultar los datos ingeridos en el área de trabajo antes y después de la desvinculación sin problemas, siempre que el clúster esté aprovisionado y configurado con la clave de Key Vault válida.
 
   Esta operación es asincrónica y puede tardar un tiempo en completarse.
 
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --name "cluster-name" --workspace-name "workspace-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
-  - **Comprobación del estado de vinculación del área de trabajo**
+  ---
+
+- **Comprobación del estado de vinculación del área de trabajo**
   
   Realice una operación Get en el área de trabajo y observe si la propiedad *clusterResourceId* presente en la respuesta en la sección *features*. Un área de trabajo vinculada tendrá la propiedad *clusterResourceId*.
+
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
+
+   ```rest
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  ---
 
 - **Eliminación del clúster**
 
@@ -470,18 +603,30 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
   
   La operación de desvinculación es asincrónica y puede tardar hasta 90 minutos en completarse.
 
+  # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
   ```
- 
+
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
+
+  ---
   
 - **Recuperación del clúster y los datos** 
   
@@ -511,6 +656,12 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
 
 - Se producirá un error en la vinculación del área de trabajo al clúster si está vinculada a otro clúster.
 
+- La caja de seguridad no está disponible actualmente en China. 
+
+- El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante una solicitud GET en el clúster. Observe el valor de la propiedad `"isDoubleEncryptionEnabled"`, que es `true` para los clústeres con el cifrado doble habilitado. 
+  - Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble. Agregue la propiedad `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud de REST.
+  - La configuración de cifrado doble no se puede cambiar después de crear el clúster.
+
 ## <a name="troubleshooting"></a>Solución de problemas
 
 - Comportamiento con la disponibilidad de Key Vault
@@ -538,15 +689,13 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
   1. Cuando se utiliza REST, copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la [comprobación del estado de operaciones asincrónicas](#asynchronous-operations-and-status-check).
   2. Envíe una solicitud GET al clúster o al área de trabajo y observe la respuesta. Por ejemplo, un área de trabajo desvinculada no tendrá el elemento *clusterResourceId* en la sección *features*.
 
-- El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020, que es cuando esta funcionalidad se encontraba en la región. Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster, pero con el cifrado doble deshabilitado. Una vez creado el clúster, no se puede habilitar ni deshabilitar. Para crear un clúster cuando el cifrado doble no se admite en la región, agregue `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud de REST.
-
 - Mensajes de error
   
   Creación de un clúster:
   -  400: El nombre del clúster no es válido. El nombre del clúster puede contener los caracteres a-z, A-Z, 0-9 y una longitud de 3 a 63.
   -  400: El cuerpo de la solicitud es NULL o tiene un formato incorrecto.
   -  400: El nombre de SKU no es válido. Establezca el nombre de SKU en capacityReservation.
-  -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de SKU en capacityReservation.
+  -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de la SKU en capacityReservation.
   -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 1000 o más en incrementos de 100 (GB).
   -  400: Capacity en la SKU no está en el rango. Debe ser 1000 como mínimo y hasta la capacidad máxima permitida que está disponible en "Uso y costos estimados" en el área de trabajo.
   -  400: Capacity está bloqueado durante 30 días. Se permite la reducción de la capacidad 30 días después de la actualización.

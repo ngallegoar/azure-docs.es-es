@@ -1,6 +1,6 @@
 ---
-title: Conectarse con SSMS
-description: Use SQL Server Management Studio (SSMS) para conectarse a un grupo de SQL dedicado en Azure Synapse Analytics.
+title: Conexión a un grupo de SQL dedicado (anteriormente SQL DW) con SSMS
+description: Use SQL Server Management Studio (SSMS) para conectarse a un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c2fab8f02f31897a2e3d38094b9bd365f8e921e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325333"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450474"
 ---
-# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Conectarse a un grupo de SQL dedicado en Azure Synapse Analytics con SQL Server Management Studio (SSMS)
+# <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Conexión a un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics con SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
@@ -28,17 +28,17 @@ ms.locfileid: "93325333"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Use SQL Server Management Studio (SSMS) para conectarse a un almacenamiento de datos de Azure Synapse y realizar consultas.
+Use SQL Server Management Studio (SSMS) para conectarse a un grupo de SQL dedicado (anteriormente SQL DW).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para utilizar este tutorial, necesitará:
 
-* Un grupo de SQL dedicado existente. Para crearlo, consulte [Creación de un grupo de SQL dedicado](create-data-warehouse-portal.md).
+* Un grupo de SQL dedicado existente. Para crearlo, consulte [Creación de un grupo de SQL dedicado (anteriormente SQL DW)](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) instalado. [Descargue SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de forma gratuita si aún no lo tiene.
-* El nombre del servidor SQL completo. Para encontrar esta información, vea [Conexión a un grupo de SQL dedicado](sql-data-warehouse-connect-overview.md).
+* El nombre del servidor SQL completo. Para encontrar esta información, vea [Grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-connect-overview.md).
 
-## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. Conexión al grupo de SQL dedicado
+## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. Conexión a un grupo de SQL dedicado (anteriormente SQL DW)
 
 1. Abra SSMS.
 2. Abra el Explorador de objetos al seleccionar **Archivo** > **Conectar Explorador de objetos**.

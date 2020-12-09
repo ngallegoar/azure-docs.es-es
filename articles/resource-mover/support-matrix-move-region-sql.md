@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 573d52b836aef36063dd288bf5a5016b98d220ef
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 22a7738c2d4d3cc02c03c233e0821f07b459dd94
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524137"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452092"
 ---
 # <a name="support-for-moving-azure-sql-resources-between-azure-regions"></a>Compatibilidad con el traslado de recursos de Azure SQL entre regiones de Azure
 
@@ -38,7 +38,7 @@ Los requisitos se resumen en la tabla siguiente.
 **Ajuste automático** | No compatible. | Solución alternativa: establezca la configuración de ajuste automático después del traslado. [Más información](../azure-sql/database/automatic-tuning-enable.md).
 **Alertas de base de datos** | No compatible. | Solución alternativa: Establezca alertas después del traslado. [Más información](../azure-sql/database/alerts-insights-configure-portal.md).
 **Base de datos de extensión de Azure SQL Server** | No compatible | Las bases de datos de extensión de SQL Server no se pueden mover con Resource Mover.
-**Azure Synapse Analytics** | No compatible | Synapse Analytics (anteriormente SQL Data Warehouse) no se puede mover con Resource Mover.
+**Azure Synapse Analytics** | No compatible | No se puede mover Azure Synapse Analytics con Resource Mover.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Intente [mover recursos de Azure SQL](tutorial-move-region-sql.md) a otra región con Resource Mover.

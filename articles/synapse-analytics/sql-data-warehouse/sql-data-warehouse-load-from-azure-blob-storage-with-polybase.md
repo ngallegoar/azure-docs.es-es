@@ -1,26 +1,26 @@
 ---
-title: Carga de datos de Contoso Retail en Synapse SQL
-description: Use los comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en SQL de Synapse.
+title: Carga de datos de Contoso Retail en grupos de SQL dedicados
+description: Use los comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en grupos de SQL dedicados.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbe61444404b16a09a1e0d2bdead72ac53a60744
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461704"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452885"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Carga de datos de Contoso Retail en Synapse SQL 
+# <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Carga de datos de Contoso Retail en grupos de SQL dedicados en Azure Synapse Analytics
 
-En este tutorial se aprende a usar comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en Synapse SQL.
+En este tutorial, aprenderá a usar comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en grupos de SQL dedicados.
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -30,11 +30,11 @@ En este tutorial, aprenderá lo siguiente:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para ejecutar este tutorial, necesita una cuenta de Azure que ya tenga una instancia de Synapse SQL. Si no tiene ningún almacenamiento de datos aprovisionado, consulte [Creación de un almacenamiento de datos y establecimiento de una regla de firewall a nivel de servidor](create-data-warehouse-portal.md).
+Para ejecutar este tutorial, necesita una cuenta de Azure que ya tenga una instancia de grupo de SQL dedicado. Si no tiene ningún almacenamiento de datos aprovisionado, consulte [Creación de un almacenamiento de datos y establecimiento de una regla de firewall a nivel de servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configuración del origen de datos
 
-PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones de objetos externos se almacenan en Synapse SQL. Los datos se almacenan externamente.
+PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones de objetos externos se almacenan en grupos de SQL dedicados. Los datos se almacenan externamente.
 
 ## <a name="create-a-credential"></a>Creación de una credencial
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optimización de compresión de almacén de columnas
 
-De forma predeterminada, Synapse SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen motivos diferentes por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas](sql-data-warehouse-tables-index.md).
+De manera predeterminada, los grupos de SQL dedicados almacenan la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen motivos diferentes por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas](sql-data-warehouse-tables-index.md).
 
 Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas.
 

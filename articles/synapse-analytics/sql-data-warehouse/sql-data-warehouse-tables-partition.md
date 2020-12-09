@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314509"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448031"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Creación de particiones de tablas en el grupo de SQL dedicado
 
@@ -30,7 +30,7 @@ La creación de particiones puede beneficiar el mantenimiento de datos y el rend
 
 ### <a name="benefits-to-loads"></a>Ventajas para las cargas
 
-La principal ventaja de la creación de particiones en el grupo de SQL dedicado es que se mejora la eficiencia y el rendimiento de la carga de datos mediante el uso de la eliminación, la conmutación y la combinación de particiones. En la mayoría de los casos, la creación de particiones de los datos se realiza en una columna de fecha que está estrechamente relacionada con el orden con el que se cargan los datos en la base de datos. Una de las mayores ventajas de utilizar particiones para mantener los datos es que se evita el registro de transacciones. Aunque la mera inserción, actualización o eliminación de datos puede ser el enfoque más sencillo, con un poco de esfuerzo, el uso de la creación de particiones durante el proceso de carga puede mejorar considerablemente el rendimiento.
+La principal ventaja de la creación de particiones en el grupo de SQL dedicado es que se mejora la eficiencia y el rendimiento de la carga de datos mediante el uso de la eliminación, la conmutación y la combinación de particiones. En la mayoría de los casos, la creación de particiones de los datos se realiza en una columna de fecha que está estrechamente relacionada con el orden con el que se cargan los datos en el grupo de SQL. Una de las mayores ventajas de utilizar particiones para mantener los datos es que se evita el registro de transacciones. Aunque la mera inserción, actualización o eliminación de datos puede ser el enfoque más sencillo, con un poco de esfuerzo, el uso de la creación de particiones durante el proceso de carga puede mejorar considerablemente el rendimiento.
 
 La conmutación de particiones se puede utilizar para quitar o reemplazar rápidamente cualquier sección de una tabla.  Por ejemplo, una tabla de datos de ventas podría contener datos solo de los últimos 36 meses. Al final de cada mes, el mes más antiguo de datos de ventas se elimina de la tabla.  Estos datos pueden eliminarse mediante el uso de una instrucción delete para eliminar los datos del mes más antiguo. 
 
@@ -48,7 +48,7 @@ Aunque la creación de particiones se puede usar para mejorar el rendimiento en 
 
 Para que la creación de particiones sea útil, es importante saber cuándo usarla y el número de particiones que se deben crear. No hay ninguna regla inamovible con respecto a cuántas particiones son demasiadas, depende de los datos y del número de particiones que se cargan de manera simultánea. Normalmente, un esquema de partición correcta tiene decenas o centenas de particiones, no miles.
 
-Al crear particiones en tablas de **almacén de columnas en clúster** , es importante considerar el número de filas que pertenece a cada partición. Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución. Antes de que se creen particiones, el grupo de SQL dedicado ya divide cada tabla en 60 bases de datos distribuidas. 
+Al crear particiones en tablas de **almacén de columnas en clúster**, es importante considerar el número de filas que pertenece a cada partición. Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución. Antes de que se creen particiones, el grupo de SQL dedicado ya divide cada tabla en 60 bases de datos distribuidas. 
 
 Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano. Usando este ejemplo, si la tabla de datos de ventas contenía 36 particiones mensuales, y dado que un grupo de SQL dedicado tiene 60 distribuciones, la tabla de datos de ventas debería contener 60 millones de filas por mes, o 2100 millones de filas cuando se rellenen todos los meses. Si una tabla contiene menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición. 
 
@@ -355,7 +355,7 @@ Para evitar que la definición de tabla se **oxide** en el sistema de control de
     DROP TABLE #partitions;
     ```
 
-Con este enfoque, el código de control de código fuente permanece estático y se permite que los valores del límite de creación de particiones sean dinámicos, de tal forma que evolucionan con la base de datos con el tiempo.
+Con este enfoque, el código de control de código fuente permanece estático y se permite que los valores del límite de creación de particiones sean dinámicos, de tal forma que evolucionan con el grupo de SQL con el tiempo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

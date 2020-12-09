@@ -1,26 +1,26 @@
 ---
 title: Tutorial sobre la carga de datos de Azure Data Lake Storage
-description: Use la instrucción COPY para cargar datos desde Azure Data Lake Storage para Synapse SQL.
+description: Use la instrucción COPY para cargar datos desde Azure Data Lake Storage para el grupo de SQL dedicado.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 06/07/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 73d19df546f2ff0e9e9180c94567bd334b44bedd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4886cf6c24e7e96676b9ca5e74b431685cd5a8bb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482815"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452865"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Carga de datos desde Azure Data Lake Storage para Synapse SQL
+# <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Carga de datos de Azure Data Lake Storage a un grupo de SQL dedicado en Azure Synapse Analytics
 
-En esta guía se indica cómo usar el [comando COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para cargar datos de Azure Data Lake Storage. Para obtener ejemplos rápidos sobre el uso de la instrucción COPY en todos los métodos de autenticación, consulte la siguiente documentación: [Carga de datos de forma segura mediante el uso de Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+En esta guía se indica cómo usar el [comando COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para cargar datos de Azure Data Lake Storage. Para obtener ejemplos rápidos sobre el uso de la instrucción COPY en todos los métodos de autenticación, consulte la siguiente documentación: [Carga de datos de forma segura mediante el uso de grupos de SQL dedicados](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
 
 > [!NOTE]  
 > Para proporcionar comentarios o informar de problemas sobre la instrucción COPY, envíe un mensaje de correo electrónico a la siguiente lista de distribución: sqldwcopypreview@service.microsoft.com.
@@ -38,12 +38,12 @@ Antes de completar este tutorial, descargue e instale la versión más reciente 
 
 Para ejecutar este tutorial, necesitará:
 
-* Un grupo de SQL. Consulte [Creación de un grupo de SQL y consulta de datos](create-data-warehouse-portal.md).
+* Un grupo de SQL dedicado. Consulte [Creación de un grupo de SQL dedicado y consulta de datos](create-data-warehouse-portal.md).
 * Una cuenta de Data Lake Storage. Consulte [Introducción a Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Para esta cuenta de almacenamiento, tendrá que configurar o especificar una de las siguientes credenciales para cargar: Una clave de cuenta de almacenamiento, una clave de firma de acceso compartido (SAS), un usuario de la aplicación de Azure Directory o un usuario de AAD que tenga el rol de Azure adecuado para la cuenta de almacenamiento.
 
 ## <a name="create-the-target-table"></a>Creación de la tabla de destino
 
-Conéctese al grupo de SQL y cree la tabla de destino en la que va a realizar la carga. En este ejemplo, vamos a crear una tabla de dimensiones de producto.
+Conéctese al grupo de SQL dedicado y cree la tabla de destino en la que va a realizar la carga. En este ejemplo, vamos a crear una tabla de dimensiones de producto.
 
 ```sql
 -- A: Create the target table
@@ -65,7 +65,7 @@ WITH
 
 ## <a name="create-the-copy-statement"></a>Creación de la instrucción COPY
 
-Conéctese al grupo de SQL y ejecute la instrucción COPY. Para obtener una lista completa de ejemplos, consulte la siguiente documentación: [Carga de datos de forma segura mediante el uso de Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+Conéctese al grupo de SQL dedicado y ejecute la instrucción COPY. Para obtener una lista completa de ejemplos, consulte la siguiente documentación: [Carga de datos de forma segura mediante el uso de grupos de SQL dedicados](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
 
 ```sql
 -- B: Create and execute the COPY statement

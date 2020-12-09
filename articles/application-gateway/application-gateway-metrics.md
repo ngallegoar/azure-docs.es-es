@@ -2,17 +2,17 @@
 title: Métricas de Azure Monitor para Application Gateway
 description: Obtenga información sobre cómo usar métricas para supervisar el rendimiento de la puerta de enlace de aplicaciones
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397746"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437072"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
@@ -40,7 +40,7 @@ Application Gateway proporciona varias métricas de temporización integradas re
 
   Intervalo de tiempo entre el inicio del establecimiento de una conexión con el servidor back-end y la recepción del primer byte del encabezado de la respuesta. 
 
-  Se aproxima a la suma de *Tiempo de conexión de back-end* , el tiempo que tarda la solicitud en alcanzar el back-end desde Application Gateway, el tiempo que tarda la aplicación de back-end en responder (el tiempo que el servidor tardó en generar contenido, y posiblemente capturar las consultas de la base de datos) y el tiempo que tarda el primer byte de la respuesta en llegar a Application Gateway desde el back-end.
+  Se aproxima a la suma de *Tiempo de conexión de back-end*, el tiempo que tarda la solicitud en alcanzar el back-end desde Application Gateway, el tiempo que tarda la aplicación de back-end en responder (el tiempo que el servidor tardó en generar contenido, y posiblemente capturar las consultas de la base de datos) y el tiempo que tarda el primer byte de la respuesta en llegar a Application Gateway desde el back-end.
 
 - **Tiempo de respuesta del último byte de back-end**
 
@@ -52,7 +52,7 @@ Application Gateway proporciona varias métricas de temporización integradas re
 
   Promedio de tiempo que se tarda en recibir y procesar una solicitud y en enviar la respuesta. 
 
-  Este es el intervalo desde el momento en que Application Gateway recibe el primer byte de la solicitud HTTP hasta el momento en que se envía el último byte de respuesta al cliente. Esto incluye el tiempo de procesamiento que tarda Application Gateway, el *Tiempo de respuesta del último byte de back-end* , el tiempo que tarda Application Gateway en enviar toda la respuesta y el *Cliente RTT*.
+  Este es el intervalo desde el momento en que Application Gateway recibe el primer byte de la solicitud HTTP hasta el momento en que se envía el último byte de respuesta al cliente. Esto incluye el tiempo de procesamiento que tarda Application Gateway, el *Tiempo de respuesta del último byte de back-end*, el tiempo que tarda Application Gateway en enviar toda la respuesta y el *Cliente RTT*.
 
 - **Cliente RTT**
 
@@ -62,9 +62,9 @@ Application Gateway proporciona varias métricas de temporización integradas re
 
 Estas métricas se pueden usar para determinar si la ralentización observada se debe a la red del cliente, al rendimiento de Application Gateway, a la red de back-end y la saturación de la pila TCP del servidor back-end, al rendimiento de la aplicación de back-end o al tamaño de archivo grande.
 
-Por ejemplo, si hay un pico en la tendencia de *Tiempo de respuesta del primer byte de back-end* , pero la tendencia de *Tiempo de conexión de back-end* es estable, se puede deducir que la latencia de Application Gateway al back-end y el tiempo necesario para establecer la conexión son estables, y el pico se debe a un aumento en el tiempo de respuesta de la aplicación de back-end. Por otro lado, si el pico en *Tiempo de respuesta del primer byte de back-end* se asocia a un pico correspondiente en *Tiempo de conexión de back-end* , se puede deducir que la red entre Application Gateway y el servidor back-end o la pila TCP del servidor back-end se han saturado. 
+Por ejemplo, si hay un pico en la tendencia de *Tiempo de respuesta del primer byte de back-end*, pero la tendencia de *Tiempo de conexión de back-end* es estable, se puede deducir que la latencia de Application Gateway al back-end y el tiempo necesario para establecer la conexión son estables, y el pico se debe a un aumento en el tiempo de respuesta de la aplicación de back-end. Por otro lado, si el pico en *Tiempo de respuesta del primer byte de back-end* se asocia a un pico correspondiente en *Tiempo de conexión de back-end*, se puede deducir que la red entre Application Gateway y el servidor back-end o la pila TCP del servidor back-end se han saturado. 
 
-Si observa un pico en *Tiempo de respuesta del último byte de back-end* , pero el *Tiempo de respuesta del primer byte de back-end* es estable, se puede deducir que el pico se debe a que se está solicitando un archivo más grande.
+Si observa un pico en *Tiempo de respuesta del último byte de back-end*, pero el *Tiempo de respuesta del primer byte de back-end* es estable, se puede deducir que el pico se debe a que se está solicitando un archivo más grande.
 
 Del mismo modo, si el *Tiempo total de Application Gateway* tiene un pico, pero el *Tiempo de respuesta del último byte de back-end* es estable, puede ser la señal de un cuello de botella de rendimiento en Application Gateway o de un cuello de botella en la red entre el cliente y Application Gateway. Además, si el *cliente RTT* también tiene un pico correspondiente, indica que la degradación se debe a la red entre el cliente y Application Gateway.
 
@@ -162,7 +162,7 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 - **Solicitudes con error**
 
-  Número de solicitudes que ha servido Application Gateway con códigos de error del servidor 5xx. Esto incluye los códigos 5xx generados desde Application Gateway, así como los códigos 5xx que se generan desde el back-end. El recuento de solicitudes puede filtrarse aún más para mostrar el recuento por cada combinación de configuración de grupo de back-end o http específica.
+  Número de solicitudes erróneas debido a problemas de conexión. Este recuento incluye las solicitudes que devolvieron algún error debido a que se superó el "tiempo de espera de la solicitud" de la configuración HTTP y las solicitudes que devolvieron algún error debido a problemas de conexión entre la puerta de enlace de aplicaciones y el back-end. Sin embargo, este recuento no incluye los errores que se hayan producido debido a que no hay ningún back-end correcto disponible. las respuestas 4xx y 5xx del back-end tampoco se consideran como parte de esta métrica.
 
 - **Estado de respuesta**
 
@@ -194,7 +194,7 @@ Para Application Gateway, están disponibles las métricas siguientes:
 
 ## <a name="metrics-visualization"></a>Visualización de las métricas
 
-Navegue a una instancia de Application Gateway y, en **Supervisión** , seleccione **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
+Navegue a una instancia de Application Gateway y, en **Supervisión**, seleccione **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
 
 En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para los últimos 30 minutos:
 
@@ -212,13 +212,13 @@ En el ejemplo siguiente, se explica paso a paso cómo crear una regla de alerta 
 
    ![Botón “Agregar alerta de métrica”][6]
 
-2. En la página **Agregar regla** , rellene las secciones de nombre, condición y notificación, y seleccione **Aceptar**.
+2. En la página **Agregar regla**, rellene las secciones de nombre, condición y notificación, y seleccione **Aceptar**.
 
-   * En el selector **Condición** , seleccione uno de los cuatro valores: **Mayor que** , **Mayor o igual que** , **Menor que** o **Menor o igual que**.
+   * En el selector **Condición**, seleccione uno de los cuatro valores: **Mayor que**, **Mayor o igual que**, **Menor que** o **Menor o igual que**.
 
-   * En el selector **Período** , seleccione un período de cinco minutos a seis horas.
+   * En el selector **Período**, seleccione un período de cinco minutos a seis horas.
 
-   * Al seleccionar **Lectores, colaboradores y propietarios de correo electrónico** , el correo electrónico puede ser dinámico según los usuarios que tengan acceso a ese recurso. De lo contrario, puede proporcionar una lista separada por comas de los usuarios en el cuadro de texto **Correos electrónicos de administrador adicionales**.
+   * Al seleccionar **Lectores, colaboradores y propietarios de correo electrónico**, el correo electrónico puede ser dinámico según los usuarios que tengan acceso a ese recurso. De lo contrario, puede proporcionar una lista separada por comas de los usuarios en el cuadro de texto **Correos electrónicos de administrador adicionales**.
 
    ![Página Agregar regla][7]
 

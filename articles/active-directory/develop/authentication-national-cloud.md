@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141506"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444811"
 ---
 # <a name="national-clouds"></a>Nubes nacionales
 
@@ -60,8 +60,8 @@ En la tabla siguiente se enumeran las direcciones URL base de los puntos de cone
 
 Puede realizar solicitudes a los puntos de conexión de autorización o token de Azure AD mediante la dirección URL base específica de la región pertinente. Por ejemplo, para Azure Alemania:
 
-  - El punto de conexión común de autorización es `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
-  - El punto de conexión común de token es `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
+- El punto de conexión común de autorización es `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+- El punto de conexión común de token es `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 En el caso de las aplicaciones de inquilino único, reemplace "common" en las direcciones URL anteriores por el identificador o el nombre del inquilino. Un ejemplo es `https://login.microsoftonline.de/contoso.com`.
 
@@ -76,9 +76,10 @@ Para aprender a compilar una aplicación mediante la plataforma de identidad de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre:
+Aprenda a usar la [Biblioteca de autenticación de Microsoft (MSAL) en un entorno de nube nacional](msal-national-cloud.md).
+
+Documentación de la nube nacional:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Alemania](../../germany/index.yml)
-- [Conceptos básicos sobre la autenticación de Azure AD](./authentication-vs-authorization.md)

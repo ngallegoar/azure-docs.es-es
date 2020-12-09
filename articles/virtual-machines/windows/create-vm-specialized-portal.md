@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a541dce94cc25958e3c3a6a058e015c8c5e3db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283255"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455128"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creación de una máquina virtual a partir de un VHD mediante Azure Portal
 
@@ -26,7 +26,10 @@ Hay varias maneras de crear una máquina virtual en Azure:
  
 - Puede crear una máquina virtual de Azure desde un VHD local mediante la carga del VHD local y su conexión a una nueva máquina virtual. Puede utilizar PowerShell u otra herramienta para cargar el VHD a una cuenta de almacenamiento y, a continuación, crear un disco administrado a partir del VHD. Para más información, consulte [Carga de un VHD especializado](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-No use un disco especializado si desea crear varias máquinas virtuales. En su lugar, para implementaciones más grandes, debe [crear una imagen](capture-image-resource.md) y, a continuación, [usarla para crear varias máquinas virtuales](create-vm-generalized-managed.md).
+> [!IMPORTANT]
+> 
+> Cuando se usa un disco especializado para crear una máquina virtual, la nueva máquina virtual conserva el nombre de equipo de la máquina virtual original. También se conserva otra información específica del equipo (por ejemplo, el CMID) y, en algunos casos, esta información duplicada podría ocasionar problemas. Al copiar una máquina virtual, tenga en cuenta en qué tipo de información específica del equipo se basan las aplicaciones.  
+> Por lo tanto, no use un disco especializado si desea crear varias máquinas virtuales. En su lugar, para implementaciones más grandes, debe [crear una imagen](capture-image-resource.md) y, a continuación, [usarla para crear varias máquinas virtuales](create-vm-generalized-managed.md).
 
 Se recomienda limitar el número de implementaciones simultáneas desde una sola instantánea o VHD a 20 máquinas virtuales. 
 
@@ -40,14 +43,14 @@ Cree una instantánea y, a continuación, cree un disco a partir de la instantá
 4. En el menú de la parte superior, seleccione **Crear instantánea**. 
 5. Escriba un **nombre** para la instantánea.
 6. Elija un **Grupo de recursos** para la instantánea. Puede usar un grupo de recursos existente o crear uno nuevo.
-7. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)** .
+7. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)**.
 8. Cuando haya terminado, seleccione **Crear** para crear la instantánea.
 9. Una vez creada la instantánea, seleccione **Crear un recurso** en el menú izquierdo.
 10. En el cuadro de búsqueda, escriba **disco administrado** y seleccione **Discos administrados** en la lista.
 11. En la página **Discos administrados**, seleccione **Crear**.
 12. Escriba un **Nombre** para el disco.
 13. Elija un **Grupo de recursos** para el disco. Puede usar un grupo de recursos existente o crear uno nuevo. Esta selección también se usará como el grupo de recursos donde crear la máquina virtual desde el disco.
-14. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)** .
+14. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)**.
 15. En **Tipo de origen**, asegúrese de que está seleccionada la opción **Instantánea**.
 16. En el desplegable **Instantánea de origen**, seleccione la instantánea que quiere usar.
 17. Realice cualquier otro ajuste que sea necesario y, a continuación, seleccione **Crear** para crear el disco.

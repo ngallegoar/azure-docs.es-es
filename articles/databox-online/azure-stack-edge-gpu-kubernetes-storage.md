@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899266"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448697"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Administración del almacenamiento de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU
 
@@ -41,7 +41,7 @@ Para entender cómo se administra el almacenamiento de Kubernetes, es preciso co
 
 El aprovisionamiento de almacenamiento puede ser estático o dinámico. En las siguientes secciones se analizan cada uno de estos tipos de aprovisionamiento.
 
-## <a name="staticprovisioning"></a>Aprovisionamiento estático
+## <a name="static-provisioning"></a>Aprovisionamiento estático
 
 Los administradores de clústeres de Kubernetes pueden aprovisionar el almacenamiento de forma estática. Para ello, pueden usar el back-end de almacenamiento basado en los sistemas de archivos SMB/NFS, o bien usar discos iSCSI que se conectan localmente a través de la red en un entorno local, o incluso usar Azure Files o discos de Azure en la nube. Este tipo de almacenamiento no se aprovisiona de manera predeterminada y los administradores de clústeres tienen que planear y administrar este aprovisionamiento. 
  
@@ -58,7 +58,7 @@ Tienen lugar los pasos siguientes:
 1. **Montaje de la PVC en el contenedor**: Una vez que la PVC esté enlazada al PV, puede montar esta PVC en una ruta de acceso del contenedor. Cuando la lógica de la aplicación en el contenedor lee o escribe en esta ruta de acceso, los datos se escriben en el almacenamiento SMB.
  
 
-## <a name="dynamicprovisioning"></a>Aprovisionamiento dinámico
+## <a name="dynamic-provisioning"></a>Aprovisionamiento dinámico
 
 Este es un diagrama que muestra cómo se consume el almacenamiento aprovisionado estáticamente en Kubernetes: 
 
@@ -104,6 +104,26 @@ spec:
 ```
 
 Para más información, consulte [Implementación de una aplicación con estado a través del aprovisionamiento estático en Azure Stack Edge Pro mediante kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+
+Para obtener acceso al mismo almacenamiento aprovisionado estáticamente, las opciones de montaje de volumen correspondientes para los enlaces de almacenamiento de IoT son las siguientes. El elemento `/home/input` es la ruta de acceso en la que se puede acceder al volumen del contenedor.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack Edge Pro también tiene una `StorageClass` integrada denominada `ase-node-local` que usa un almacenamiento en disco de datos conectado al nodo de Kubernetes. Esta `StorageClass` admite el aprovisionamiento dinámico. Puede crear una referencia a `StorageClass` en las aplicaciones del pod, y un PV se crea automáticamente. Para obtener más información, consulte [Panel de Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) para consultar por `ase-node-local StorageClass`.
 

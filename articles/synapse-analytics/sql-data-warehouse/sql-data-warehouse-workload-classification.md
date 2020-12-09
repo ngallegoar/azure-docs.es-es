@@ -1,6 +1,6 @@
 ---
-title: Clasificación de la carga de trabajo
-description: Instrucciones para usar la clasificación para administrar la simultaneidad, la importancia y los recursos de proceso de las consultas en Azure Synapse Analytics.
+title: Clasificación de la carga de trabajo en el grupo de SQL dedicado
+description: Instrucciones para usar la clasificación para administrar la simultaneidad de consulta, la importancia y los recursos de proceso del grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6b66b8a9fb3b5eb7dc78c00ba084e8609877dec7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf19e2d1674d0a0c2102280b28b5549505c1dfab
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323874"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447775"
 ---
-# <a name="azure-synapse-analytics-workload-classification"></a>Clasificación de la carga de trabajo de Azure Synapse Analytics
+# <a name="workload-classification-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Clasificación de la carga de trabajo para el grupo de SQL dedicado en Azure Synapse Analytics
 
 En este artículo se explica el proceso de clasificación de la carga de trabajo de asignar un grupo de cargas de trabajo y la importancia a las solicitudes entrantes con grupos de SQL dedicados en Azure Synapse.
 
@@ -36,7 +36,7 @@ No todas las instrucciones se clasifican, ya que no requieren recursos ni necesi
 
 ## <a name="classification-process"></a>Proceso de clasificación
 
-Hoy en día, la clasificación de grupos de SQL dedicados en Azure Synapse se logra mediante la asignación de usuarios a un rol que tiene una clase de recursos correspondiente asignada mediante [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Con esta funcionalidad, se limita la capacidad para caracterizar las consultas más allá de un inicio de sesión en una clase de recursos. Ahora hay un método más completo disponible para la clasificación mediante la sintaxis [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Con esta sintaxis, los usuarios de grupos de SQL dedicados pueden asignar importancia y el número de recursos del sistema que se asignan a una solicitud a través del parámetro `workload_group`.
+Hoy en día, la clasificación de grupos de SQL dedicados se logra mediante la asignación de usuarios a un rol que tiene una clase de recursos correspondiente asignada mediante [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Con esta funcionalidad, se limita la capacidad para caracterizar las consultas más allá de un inicio de sesión en una clase de recursos. Ahora hay un método más completo disponible para la clasificación mediante la sintaxis [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Con esta sintaxis, los usuarios de grupos de SQL dedicados pueden asignar importancia y el número de recursos del sistema que se asignan a una solicitud a través del parámetro `workload_group`.
 
 > [!NOTE]
 > La clasificación se evalúa en función de la solicitud. Varias solicitudes en una única sesión se pueden clasificar de forma diferente.

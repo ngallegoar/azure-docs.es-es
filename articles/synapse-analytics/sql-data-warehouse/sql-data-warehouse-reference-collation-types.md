@@ -1,6 +1,6 @@
 ---
 title: Tipos de intercalación de almacenamiento de datos
-description: Tipos de intercalación admitidos para un grupo de SQL dedicado en Azure Synapse Analytics.
+description: Tipos de intercalación admitidos para un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39b89f8d303c10eead63839420141a74d3d3c74c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305253"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452764"
 ---
-# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Compatibilidad de la intercalación de bases de datos en un grupo de SQL dedicado en Azure Synapse Analytics 
+# <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Compatibilidad de la intercalación de base de datos para un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics 
 
-La intercalación de bases de datos predeterminada se puede cambiar desde Azure Portal cuando se crea una base de datos del grupo de SQL dedicado. Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles.
+La intercalación de bases de datos predeterminada se puede cambiar desde Azure Portal cuando se crea un grupo de SQL dedicado (anteriormente SQL DW). Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles.
 
 Las intercalaciones proporcionan la configuración regional, la página de códigos, el criterio de ordenación y las reglas de distinción de caracteres para los tipos de datos basados en caracteres. Una vez que se han elegido estas opciones, todas las columnas y expresiones que requieren información de intercalación heredan la intercalación elegida de la configuración de base de datos. La herencia predeterminada se puede reemplazar si se indica explícitamente una intercalación diferente para un tipo de datos basado en caracteres.
 

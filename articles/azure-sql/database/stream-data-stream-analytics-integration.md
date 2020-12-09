@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: b796d6689db143cf59ae4ca0a180c2c7c317b7bd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36a96a1927aeedb5f841083241d487e0c61d6813
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789444"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454020"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmisión de datos en Azure SQL Database mediante la integración de Azure Stream Analytics (versión preliminar)
 
@@ -31,7 +31,7 @@ Ahora los usuarios pueden ingerir, procesar, ver y analizar datos de transmisió
 - Facilidad de uso adicional con vista previa de los datos: obtenga una vista previa de los datos entrantes desde el origen de eventos (Event Hub o IoT Hub) en el contexto de la tabla seleccionada
 
 > [!IMPORTANT]
-> Un trabajo de Azure Stream Analytics puede generar Azure SQL Database, Azure SQL Managed Instance o Azure Synapse Analytics (anteriormente, Azure SQL Data Warehouse). Para más información, vea [Salidas](../../stream-analytics/stream-analytics-define-outputs.md).
+> Un trabajo de Azure Stream Analytics puede generar salida en Azure SQL Database, Azure SQL Managed Instance o Azure Synapse Analytics. Para más información, vea [Salidas](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,17 +48,17 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. Para empezar a ingerir los datos de transmisión en esta base de datos, seleccione **Crear** , asigne un nombre al trabajo de transmisión y, después, seleccione **Siguiente: Entrada** .
+3. Para empezar a ingerir los datos de transmisión en esta base de datos, seleccione **Crear**, asigne un nombre al trabajo de transmisión y, después, seleccione **Siguiente: Entrada**.
 
     ![configuración de los aspectos básicos del trabajo de Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
 
-4. Escriba los detalles del origen del evento y, después, seleccione **Siguiente: Salida** .
+4. Escriba los detalles del origen del evento y, después, seleccione **Siguiente: Salida**.
 
-   - **Tipo de entrada** : Event Hub/IoT Hub
-   - **Alias de entrada** : escriba un nombre para identificar el origen del evento
-   - **Suscripción** : igual que la suscripción a Azure SQL Database
-   - **Espacio de nombres del centro de eventos** : nombre del espacio de nombres
-   - **Nombre del centro de eventos** : nombre del centro de eventos en el espacio de nombres seleccionado
+   - **Tipo de entrada**: Event Hub/IoT Hub
+   - **Alias de entrada**: escriba un nombre para identificar el origen del evento
+   - **Suscripción**: igual que la suscripción a Azure SQL Database
+   - **Espacio de nombres del centro de eventos**: nombre del espacio de nombres
+   - **Nombre del centro de eventos**: nombre del centro de eventos en el espacio de nombres seleccionado
    - **Nombre de directiva de centro de eventos** (de forma predeterminada se crea uno): proporcione un nombre de directiva
    - **Grupo de consumidores del Centro de eventos** (de forma predeterminada se crea uno): proporcione un nombre para el grupo de consumidores  
 
@@ -66,10 +66,10 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
      ![configuración de la salida del trabajo de Stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
-5. Seleccione la tabla en la que quiera ingerir los datos de transmisión. Cuando haya terminado, seleccione **Crear** .
+5. Seleccione la tabla en la que quiera ingerir los datos de transmisión. Cuando haya terminado, seleccione **Crear**.
 
-   - **Nombre de usuario** , **Contraseña** : escriba las credenciales para la autenticación de SQL Server. Seleccione **Validar** .
-   - **Tabla** : seleccione **Crear nueva** o **Usar existente** . En este flujo, se seleccionará **Crear** . Esto creará una tabla al iniciar el trabajo de Stream Analytics.
+   - **Nombre de usuario**, **Contraseña**: escriba las credenciales para la autenticación de SQL Server. Seleccione **Validar**.
+   - **Tabla**: seleccione **Crear nueva** o **Usar existente**. En este flujo, se seleccionará **Crear**. Esto creará una tabla al iniciar el trabajo de Stream Analytics.
 
      ![Creación del trabajo de Stream Analytics](./media/stream-data-stream-analytics-integration/create.png)
 
@@ -78,7 +78,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
    - La **Entrada** (origen del evento de entrada) desde la que se ingerirán los datos  
    - La **Salida** (tabla de salida) que almacenará los datos transformados
    - Una [consulta SAQL](../../stream-analytics/stream-analytics-stream-analytics-query-patterns.md) de ejemplo con la instrucción SELECT.
-   - **Vista previa de entrada** : muestra la instantánea de los datos entrantes más recientes del origen del evento de entrada.
+   - **Vista previa de entrada**: muestra la instantánea de los datos entrantes más recientes del origen del evento de entrada.
      - El tipo de serialización de los datos se detecta automáticamente (JSON o CSV). Puede cambiarlo manualmente a JSON, CSV o AVRO.
      - Puede obtener una vista previa de los datos de entrada en Formato de tabla o en Formato sin procesar.
      - Si los datos que aparecen no están actualizados, seleccione **Actualizar** para ver los eventos más recientes.
@@ -87,38 +87,38 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
      ![Consulta de prueba](./media/stream-data-stream-analytics-integration/test-query.png)
 
-   - **Resultados de la prueba** : seleccione **Consulta de prueba** y podrá ver los resultados de la consulta de streaming.
+   - **Resultados de la prueba**: seleccione **Consulta de prueba** y podrá ver los resultados de la consulta de streaming.
 
      ![Resultados de la prueba](./media/stream-data-stream-analytics-integration/test-results.png)
 
-   - **Esquema de resultados de la prueba** : muestra el esquema de los resultados de la consulta de streaming después de la prueba. Asegúrese de que el esquema de resultados de la prueba coincide con el esquema de salida.
+   - **Esquema de resultados de la prueba**: muestra el esquema de los resultados de la consulta de streaming después de la prueba. Asegúrese de que el esquema de resultados de la prueba coincide con el esquema de salida.
 
      ![Esquema de resultados de la prueba](./media/stream-data-stream-analytics-integration/test-results-schema.png)
 
-   - **Esquema de salida** : contiene el esquema de la tabla que ha seleccionado en el paso 5 (nueva o existente).
+   - **Esquema de salida**: contiene el esquema de la tabla que ha seleccionado en el paso 5 (nueva o existente).
 
       - Crear nuevo: si ha seleccionado esta opción en el paso 5, no verá el esquema hasta que inicie el trabajo de streaming. Al crear una tabla, seleccione el índice de tabla adecuado. Para más información sobre la indexación de tablas, vea [Índices agrupados y no agrupados descritos](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described/).
       - Usar existente: si ha seleccionado esta opción en el paso 5, verá el esquema de la tabla seleccionada.
 
-7. Cuando haya terminado de crear y probar la consulta, seleccione **Guardar consulta** . Seleccione **Iniciar el trabajo de Stream Analytics** para empezar a ingerir los datos transformados en la tabla SQL. Una vez que haya finalizado los campos siguientes, **inicie** el trabajo.
-   - **Hora de inicio de salida** : define la hora de la primera salida del trabajo.  
+7. Cuando haya terminado de crear y probar la consulta, seleccione **Guardar consulta**. Seleccione **Iniciar el trabajo de Stream Analytics** para empezar a ingerir los datos transformados en la tabla SQL. Una vez que haya finalizado los campos siguientes, **inicie** el trabajo.
+   - **Hora de inicio de salida**: define la hora de la primera salida del trabajo.  
      - Ahora: el trabajo se iniciará ahora y procesará los datos entrantes nuevos.
      - Personalizado: el trabajo se iniciará ahora pero procesará los datos a partir de un momento determinado (que puede ser pasado o futuro). Para más información, vea [Procedimientos para iniciar un trabajo de Azure Stream Analytics](../../stream-analytics/start-job.md).
-   - **Unidades de streaming** : Los precios de Azure Stream Analytics se basan en el número de unidades de streaming necesarias para procesar los datos en el servicio. Para más información, vea los [precios de Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/).
-   - **Control de errores de datos de salida** :  
+   - **Unidades de streaming**: Los precios de Azure Stream Analytics se basan en el número de unidades de streaming necesarias para procesar los datos en el servicio. Para más información, vea los [precios de Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/).
+   - **Control de errores de datos de salida**:  
      - Reintento: Si se produce un error, Azure Stream Analytics volverá a intentar la escritura del evento indefinidamente hasta que esta se realice correctamente. No hay ningún tiempo de expiración para los reintentos. En última instancia, el evento que se está reintentando bloqueará todos los eventos posteriores del procesamiento. Esta opción es la directiva de control de errores de salida predeterminada.
      - Quitar: Azure Stream Analytics anulará todos los eventos de salida que produzcan un error de conversión de datos. No se pueden recuperar los eventos anulados para volver a procesarlos más adelante. Todos los errores transitorios (por ejemplo, errores de red) se reintentan independientemente de la configuración de la directiva de control de errores de salida.
-   - **Configuración de salida de SQL Database** : Opción para heredar el esquema de partición del paso de consulta anterior a fin de habilitar la topología completamente paralela con múltiples escritores en la tabla. Para obtener más información, vea [Salida de Azure Stream Analytics a Azure SQL Database](../../stream-analytics/stream-analytics-sql-output-perf.md).
-   - **Número máximo de lotes** : Número máximo de registros recomendado para enviarse con cada transacción de inserción masiva.  
+   - **Configuración de salida de SQL Database**: Opción para heredar el esquema de partición del paso de consulta anterior a fin de habilitar la topología completamente paralela con múltiples escritores en la tabla. Para obtener más información, vea [Salida de Azure Stream Analytics a Azure SQL Database](../../stream-analytics/stream-analytics-sql-output-perf.md).
+   - **Número máximo de lotes**: Número máximo de registros recomendado para enviarse con cada transacción de inserción masiva.  
     Para más información sobre el control de errores de salida, vea [Directivas de errores de salida en Azure Stream Analytics](../../stream-analytics/stream-analytics-output-error-policy.md).  
 
      ![Inicio del trabajo](./media/stream-data-stream-analytics-integration/start-job.png)
 
 8. Una vez que haya iniciado el trabajo, verá el trabajo en ejecución en la lista y podrá realizar las acciones siguientes:
-   - **Iniciar o detener el trabajo** : si el trabajo está en ejecución, lo puede detener. Si el trabajo está detenido, lo puede iniciar.
-   - **Editar trabajo** : puede modificar la consulta. Si quiere realizar más cambios en el trabajo, agregar más entradas o salidas, y después abrirlo en Stream Analytics. La opción Editar está deshabilitada cuando el trabajo está en ejecución.
-   - **Vista previa de la tabla de salida** : puede obtener una vista previa de la tabla en el editor de consultas SQL.
-   - **Abrir en Stream Analytics** : abra el trabajo en Stream Analytics para ver, supervisar y depurar los detalles del trabajo.
+   - **Iniciar o detener el trabajo**: si el trabajo está en ejecución, lo puede detener. Si el trabajo está detenido, lo puede iniciar.
+   - **Editar trabajo**: puede modificar la consulta. Si quiere realizar más cambios en el trabajo, agregar más entradas o salidas, y después abrirlo en Stream Analytics. La opción Editar está deshabilitada cuando el trabajo está en ejecución.
+   - **Vista previa de la tabla de salida**: puede obtener una vista previa de la tabla en el editor de consultas SQL.
+   - **Abrir en Stream Analytics**: abra el trabajo en Stream Analytics para ver, supervisar y depurar los detalles del trabajo.
 
      ![Trabajos de Stream Analytics](./media/stream-data-stream-analytics-integration/jobs.png)
 

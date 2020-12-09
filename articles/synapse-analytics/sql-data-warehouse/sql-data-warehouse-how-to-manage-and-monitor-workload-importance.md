@@ -1,6 +1,6 @@
 ---
-title: Administración y supervisión de la importancia de la carga de trabajo
-description: Aprenda a administrar y supervisar la importancia del nivel de solicitud en Azure Synapse Analytics.
+title: Administración y supervisión de la importancia de la carga de trabajo en un grupo de SQL dedicado
+description: Aprenda a administrar y supervisar la importancia del nivel de solicitud en un grupo de SQL dedicado para Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211976"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459217"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Administración y supervisión de la importancia de la carga de trabajo en Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Administración y supervisión de la importancia de la carga de trabajo en un grupo de SQL dedicado para Azure Synapse Analytics
 
-Administre y supervise la importancia del nivel de solicitud de SQL de Synapse en Azure Synapse mediante vistas de catálogo y DMV.
+Administre y supervise la importancia del nivel de solicitud de un grupo de SQL dedicado en Azure Synapse mediante vistas de catálogo y DMV.
 
 ## <a name="monitor-importance"></a>Supervisión de la importancia
 

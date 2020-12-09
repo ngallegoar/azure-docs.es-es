@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfd51b0ed43badbc6a4882f619cb718952b0e85
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 39021fecb79f6b8e7536daad592378ed998760a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919125"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454349"
 ---
 # <a name="building-resilience-into-identity-and-access-management-with-azure-active-directory"></a>Aumento de la resistencia en la administración de identidad y acceso de clientes con Azure Active Directory
 
@@ -48,4 +48,4 @@ Para crear más resistencia en los sistemas, revise los artículos siguientes:
 
 * [Aumento de la resistencia IAM en las aplicaciones](resilience-app-development-overview.md)
 
-* [Aumento de la resistencia en los sistemas CIAM](resilience-b2c.md)
+* [Aumento de la resistencia de los sistemas de administración de identidad y acceso de clientes (CIAM)](resilience-b2c.md)

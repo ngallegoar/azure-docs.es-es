@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e911ad6bdf5a478d46e425f8700740ece56c6e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720544"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452664"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Carga de datos en entornos de almacenamiento para el análisis
 
-El proceso de ciencia de datos en equipos requiere que los datos se ingieran o se carguen de la manera más adecuada en cada fase. Entre los destinos de datos se incluyen Azure Blob Storage, las bases de datos Azure SQL Database, SQL Server en VM de Azure, HDInsight (Hadoop), Synapse Analytics y Azure Machine Learning. 
+El proceso de ciencia de datos en equipos requiere que los datos se ingieran o se carguen de la manera más adecuada en cada fase. Entre los destinos de datos se incluyen Azure Blob Storage, instancias de Azure SQL Database, SQL Server en VM de Azure, HDInsight (Hadoop), Azure Synapse Analytics y Azure Machine Learning. 
 
 En los artículos siguientes se describe cómo introducir datos en varios entornos de destino donde los datos se almacenan y se procesan.
 

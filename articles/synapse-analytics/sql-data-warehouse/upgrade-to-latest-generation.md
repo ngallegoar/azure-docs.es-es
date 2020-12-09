@@ -1,6 +1,6 @@
 ---
-title: Actualización a la última generación
-description: Actualice un grupo de SQL dedicado de Azure Synapse Analytics a la última generación de arquitectura de almacenamiento y hardware de Azure.
+title: Actualización a la última generación de un grupo de SQL dedicado (anteriormente SQL DW)
+description: Actualice un grupo de SQL dedicado (anteriormente SQL DW) de Azure Synapse Analytics a la última generación de arquitectura de almacenamiento y hardware de Azure.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,32 +11,32 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b025b26d505f99b3bc92e995fde9184a4cc26a4d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b5a9d1781bd0498ac6ad74439b1572c52e3c345a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309596"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459254"
 ---
-# <a name="optimize-performance-by-upgrading-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimización del rendimiento mediante la actualización del grupo de SQL dedicado en Azure Synapse Analytics
+# <a name="optimize-performance-by-upgrading-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Optimización del rendimiento mediante la actualización del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
-Actualice el grupo de SQL dedicado a la última generación de arquitectura de almacenamiento y hardware de Azure.
+Actualice el grupo de SQL dedicado (anteriormente SQL DW) a la última generación de arquitectura de almacenamiento y hardware de Azure.
 
 ## <a name="why-upgrade"></a>¿Por qué actualizar?
 
-Ahora puede actualizar sin problemas al grupo de SQL dedicado de nivel Gen2 optimizado para proceso en Azure Portal para las [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si su región no admite la actualización automática, puede actualizar a una región admitida o esperar a que la actualización automática esté disponible en su región. Actualice ahora para beneficiarse de la última generación de hardware de Azure y de la arquitectura de almacenamiento mejorada, como un rendimiento más rápido, mayor escalabilidad y un almacenamiento en columnas ilimitado.
+Ahora puede actualizar sin problemas al grupo de SQL dedicado (anteriormente SQL DW) de nivel Gen2 optimizado para proceso en Azure Portal para las [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si su región no admite la actualización automática, puede actualizar a una región admitida o esperar a que la actualización automática esté disponible en su región. Actualice ahora para beneficiarse de la última generación de hardware de Azure y de la arquitectura de almacenamiento mejorada, como un rendimiento más rápido, mayor escalabilidad y un almacenamiento en columnas ilimitado.
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 > [!IMPORTANT]
-> Esta actualización se aplica a los grupos de SQL dedicados de nivel Gen1 optimizado para proceso en [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
+> Esta actualización se aplica a los grupos de SQL dedicados (anteriormente SQL DW) de nivel Gen1 optimizados para proceso en [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 1. Compruebe si su [región](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) es compatible para la migración de GEN1 a GEN2. Tenga en cuenta las fechas de la migración automática. Para evitar conflictos con el proceso automatizado, planee la migración manual antes de la fecha de inicio del proceso automatizado.
 2. Si está en una región que aún no es compatible, continúe con la comprobación de la región que se va a agregar o [actualice mediante restauración](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) a una región compatible.
 3. Si la región es compatible, [realice la actualización en Azure Portal](#upgrade-in-a-supported-region-using-the-azure-portal).
-4. **Seleccione el nivel de rendimiento sugerido** para el grupo de SQL dedicado en función del nivel de rendimiento actual en el nivel Gen1 optimizado para proceso mediante la asignación siguiente:
+4. **Seleccione el nivel de rendimiento sugerido** para el grupo de SQL dedicado (anteriormente SQL DW) en función del nivel de rendimiento actual en el nivel Gen1 optimizado para proceso mediante la asignación siguiente:
 
    | Nivel Gen1 optimizado para proceso | Nivel Gen2 optimizado para proceso |
    | :-------------------------: | :-------------------------: |
@@ -59,18 +59,18 @@ Ahora puede actualizar sin problemas al grupo de SQL dedicado de nivel Gen2 opti
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Actualización en una región compatible mediante Azure Portal
 
 - La migración de Gen1 a Gen2 mediante Azure Portal es permanente. No hay ningún proceso para volver a Gen1.
-- El grupo de SQL dedicado debe estar en ejecución para migrar a Gen2.
+- El grupo de SQL dedicado (anteriormente SQL DW) debe estar en ejecución para migrar a Gen2.
 
 ### <a name="before-you-begin"></a>Antes de empezar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 - Inicie sesión en [Azure Portal](https://portal.azure.com/).
-- Compruebe que se está ejecutando el grupo de SQL dedicado para poder migrar a Gen2.
+- Compruebe que se está ejecutando el grupo de SQL dedicado (anteriormente SQL DW) para poder migrar a Gen2.
 
 ### <a name="powershell-upgrade-commands"></a>Comandos de actualización de PowerShell
 
-1. Si el grupo de SQL dedicado de nivel Gen1 optimizado para proceso que se va a actualizar se pausa, [reanude el grupo de SQL dedicado](pause-and-resume-compute-portal.md).
+1. Si el grupo de SQL dedicado (anteriormente SQL DW) de nivel Gen1 optimizado para proceso que se va a actualizar se ha pausado, [reanude el grupo de SQL dedicado (anteriormente SQL DW)](pause-and-resume-compute-portal.md).
 
 2. Prepárese para unos minutos de inactividad.
 
@@ -89,7 +89,7 @@ Ahora puede actualizar sin problemas al grupo de SQL dedicado de nivel Gen2 opti
    ```
 
    > [!NOTE]
-   > -RequestedServiceObjectiveName "DW300" cambiado a RequestedServiceObjectiveName "DW300 **c** "
+   > -RequestedServiceObjectiveName "DW300" cambiado a RequestedServiceObjectiveName "DW300 **c**"
    >
 
    Comando de T-SQL Gen1 original:
@@ -105,28 +105,28 @@ Ahora puede actualizar sin problemas al grupo de SQL dedicado de nivel Gen2 opti
    ```
 
    > [!NOTE]
-   > SERVICE_OBJECTIVE = 'DW300' cambiado a SERVICE_OBJECTIVE = 'DW300 **c** '
+   > SERVICE_OBJECTIVE = 'DW300' cambiado a SERVICE_OBJECTIVE = 'DW300 **c**'
 
 ## <a name="start-the-upgrade"></a>Iniciar la actualización
 
-1. Vaya al grupo de SQL dedicado de nivel Gen1 optimizado para proceso en Azure Portal. Si el grupo de SQL dedicado de nivel Gen1 optimizado para proceso que se va a actualizar se pausa, [reanude el grupo de SQL dedicado](pause-and-resume-compute-portal.md).
+1. Vaya al grupo de SQL dedicado (anteriormente SQL DW) de nivel Gen1 optimizado para proceso en Azure Portal. Si el grupo de SQL dedicado (anteriormente SQL DW) de nivel Gen1 optimizado para proceso que se va a actualizar se ha pausado, [reanude el grupo de SQL dedicado](pause-and-resume-compute-portal.md).
 2. Seleccione la tarjeta **Actualizar a Gen2** en la pestaña Tareas: ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > Si no aparece la tarjeta **Actualizar a Gen2** en la pestaña Tareas, su suscripción es de un tipo que tiene limitaciones en la región actual.
    > [Envíe una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) para que se apruebe la suscripción.
 
-3. Asegúrese de que la carga de trabajo ha terminado de ejecutarse y está en modo inactivo antes de actualizar. Experimentará tiempo de inactividad unos minutos antes de que el grupo de SQL dedicado vuelva a estar en línea como grupo de SQL dedicado de nivel Gen2 optimizado para proceso. **Seleccione Actualizar** :
+3. Asegúrese de que la carga de trabajo ha terminado de ejecutarse y está en modo inactivo antes de actualizar. Experimentará un tiempo de inactividad durante unos minutos antes de que el grupo de SQL dedicado (anteriormente SQL DW) vuelva a estar en línea como grupo de SQL dedicado (anteriormente SQL DW) de nivel Gen2 optimizado para proceso. **Seleccione Actualizar**:
 
    ![Upgrade_2](./media/upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 
-4. Para **supervisar la actualización** , compruebe el estado en Azure Portal:
+4. Para **supervisar la actualización**, compruebe el estado en Azure Portal:
 
    ![Upgrade3](./media/upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
    El primer paso del proceso de actualización recorre la operación de escalado ("Actualización: sin conexión") donde todas las sesiones se terminan y las conexiones se descartan.
 
-   El segundo paso del proceso de actualización es la migración de datos ("Actualización: en línea"). La migración de datos es un proceso en segundo plano lento y en línea. Durante este proceso, los datos en columnas se mueven lentamente desde la arquitectura de almacenamiento anterior hasta la nueva arquitectura de almacenamiento mediante una caché de SSD local. Durante este tiempo, el grupo de SQL dedicado estará en línea para consulta y carga. Los datos estarán disponibles para consulta tanto si se han migrado como si no. La migración de datos se produce a una velocidad variable, según el tamaño de los datos, el nivel de rendimiento y el número de segmentos del almacén de columnas.
+   El segundo paso del proceso de actualización es la migración de datos ("Actualización: en línea"). La migración de datos es un proceso en segundo plano lento y en línea. Durante este proceso, los datos en columnas se mueven lentamente desde la arquitectura de almacenamiento anterior hasta la nueva arquitectura de almacenamiento mediante una caché de SSD local. Durante este tiempo, el grupo de SQL dedicado (anteriormente SQL DW) estará en línea para consulta y carga. Los datos estarán disponibles para consulta tanto si se han migrado como si no. La migración de datos se produce a una velocidad variable, según el tamaño de los datos, el nivel de rendimiento y el número de segmentos del almacén de columnas.
 
 5. **Recomendación opcional:** Una vez completada la operación de escalado, puede acelerar el proceso en segundo plano de migración de datos. Puede forzar inmediatamente el movimiento de datos ejecutando [Alter Index rebuild](sql-data-warehouse-tables-index.md) en todas las tablas de almacén de columnas principales que consulte con una clase de recurso y un SLO de mayor tamaño. Esta operación es **sin conexión** en comparación con el proceso en segundo plano lento, que puede tardar horas en completarse según el número y tamaño de las tablas. Sin embargo, una vez que haya finalizado, la migración de datos será mucho más rápida debido a la nueva arquitectura de almacenamiento mejorada con grupos de filas de alta calidad.
 
@@ -184,7 +184,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Vaya al grupo de SQL dedicado para el que quiere crear un punto de restauración.
+2. Vaya al grupo de SQL dedicado (anteriormente SQL DW) para el que quiere crear un punto de restauración.
 
 3. En la parte superior de la sección de información general, seleccione **+ Nuevo punto de restauración**.
 
@@ -197,7 +197,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Uso de Azure Portal para restaurar una base de datos activa o en pausa
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Vaya al grupo de SQL dedicado desde el que desea restaurar.
+2. Vaya al grupo de SQL dedicado (anteriormente SQL DW) desde el que desea restaurar.
 3. En la parte superior de la sección de información general, seleccione **Restaurar**.
 
     ![ Introducción a la restauración](./media/upgrade-to-latest-generation/restoring_0.png)
@@ -213,7 +213,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 Para recuperar una base de datos, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 > [!NOTE]
-> Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000 **c** ) como parámetro opcional.
+> Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000 **c**) como parámetro opcional.
 
 1. Abra Windows PowerShell.
 2. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
@@ -246,4 +246,4 @@ Si experimenta problemas con el grupo de SQL dedicado, cree una [solicitud de so
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El grupo de SQL dedicado actualizado está en línea. Para aprovechar las ventajas de la arquitectura mejorada, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
+El grupo de SQL dedicado (anteriormente SQL DW) actualizado está en línea. Para aprovechar las ventajas de la arquitectura mejorada, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).

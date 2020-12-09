@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638821"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444526"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo
 
@@ -86,9 +86,9 @@ La ubicación del área de trabajo predeterminada depende de la región de Azure
 - En el caso de las máquinas virtuales de Australia, la ubicación del área de trabajo es Australia
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>¿Qué datos recopila el agente de Log Analytics?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>¿Qué eventos de seguridad recopila el agente de Log Analytics?
 
-Para obtener una lista completa de las aplicaciones y los servicios que supervisa el agente, consulte [¿Qué supervisa Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services)
+Para obtener una lista completa de los eventos de seguridad que recopila el agente, consulte [¿Qué tipos de eventos se almacenan en la configuración de eventos de seguridad "Común" y "Mínima"?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal)
 
 > [!IMPORTANT]
 > Tenga en cuenta que, para algunos servicios, como Azure Firewall, si ha habilitado el registro y ha elegido un recurso locuaz para registrar (por ejemplo, si configura el registro en *detallado*), puede que vea un impacto significativo en las necesidades de almacenamiento del área de trabajo de Log Analytics. 

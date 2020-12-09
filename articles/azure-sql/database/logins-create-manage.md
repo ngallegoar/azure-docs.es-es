@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 940ea0ac471604b22c64dc008eebd8b580121cf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782746"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452426"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorización del acceso de base de datos a SQL Database, Instancia administrada de SQL y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 En este artículo, aprenderá lo siguiente:
 
-- Opciones para configurar Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics (anteriormente, SQL Data Warehouse) a fin de permitir a los usuarios realizar tareas administrativas y acceder a los datos almacenados en esas bases de datos.
+- Opciones para configurar Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics a fin de permitir a los usuarios realizar tareas administrativas y acceder a los datos almacenados en esas bases de datos.
 - El acceso y autorización después de crear inicialmente un servidor.
 - Cómo agregar inicios de sesión y cuentas de usuario a la base de datos maestra y a las cuentas de usuario y, tras ello, conceder permisos administrativos a esas cuentas.
 - Cómo agregar cuentas de usuario a las bases de datos de usuario, estén asociadas a inicios de sesión o sean cuentas de usuario independientes.
@@ -46,7 +46,7 @@ Cuando un usuario intenta conectarse a una base de datos, proporciona una cuenta
 
   Con este método de autenticación, el usuario envía un nombre de cuenta de usuario y solicita que el servicio use la información de credenciales que hay almacenada en Azure Active Directory (Azure AD).
 
-**Inicios de sesión y usuarios** : una cuenta de usuario en una base de datos puede estar asociada a un inicio de sesión que está almacenado en la base de datos maestra, o bien puede ser un nombre de usuario que está almacenado en una base de datos individual.
+**Inicios de sesión y usuarios**: una cuenta de usuario en una base de datos puede estar asociada a un inicio de sesión que está almacenado en la base de datos maestra, o bien puede ser un nombre de usuario que está almacenado en una base de datos individual.
 
 - Un **inicio de sesión** es una cuenta individual en la base de datos maestra que se puede vincular a una cuenta de usuario en una o más bases de datos. Con un inicio de sesión, la información de credenciales de la cuenta de usuario se almacena en el propio inicio de sesión.
 - Una **cuenta de usuario** es una cuenta individual en una base de datos que puede estar vinculada a un inicio de sesión, si bien esto no es obligatorio. En el caso de una cuenta de usuario que no está vinculada a un inicio de sesión, la información de las credenciales se almacena con la cuenta de usuario.
@@ -55,7 +55,7 @@ La [**autorización**](security-overview.md#authorization) para acceder a los da
 
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Inicios de sesión y cuentas de usuario existentes después de crear una base de datos
 
-Al crear la primera implementación de Azure SQL, hay que especificar un inicio de sesión de administrador y una contraseña asociada a ese inicio de sesión. Esta cuenta administrativa se denomina **administrador del servidor** . Durante la implementación, se configuran los siguientes inicios de sesión y usuarios en las bases de datos maestra y de usuarios:
+Al crear la primera implementación de Azure SQL, hay que especificar un inicio de sesión de administrador y una contraseña asociada a ese inicio de sesión. Esta cuenta administrativa se denomina **administrador del servidor**. Durante la implementación, se configuran los siguientes inicios de sesión y usuarios en las bases de datos maestra y de usuarios:
 
 - Se crea un inicio de sesión de SQL con privilegios administrativos usando el nombre de inicio de sesión especificado. Un [inicio de sesión](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) es una cuenta de usuario individual para iniciar sesión en SQL Database, Instancia administrada de SQL y Azure Synapse.
 - A este inicio de sesión se le conceden permisos administrativos completos en todas las bases de datos, como una [entidad de seguridad de nivel de servidor](/sql/relational-databases/security/authentication-access/principals-database-engine). El inicio de sesión tiene todos los permisos disponibles y no puede ser limitado. En una instancia administrada de SQL, este inicio de sesión se agrega al [rol fijo de servidor sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) (este rol no existe en Azure SQL Database).
@@ -68,7 +68,7 @@ Para saber cuáles son las cuentas de administrador de una base de datos, abra A
 ![Captura de pantalla que resalta la opción de menú Propiedades.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> Una vez creado, el nombre de inicio de sesión de administrador no se puede cambiar. Para restablecer la contraseña del administrador del servidor, vaya a [Azure Portal](https://portal.azure.com), haga clic en **Servidores SQL Server** , seleccione el servidor en la lista y luego haga clic en **Restablecer contraseña** . Para restablecer la contraseña de la instancia administrada de SQL, vaya a Azure Portal, haga clic en la instancia y, después, en **Restablecer contraseña** . También puede usar PowerShell o la CLI de Azure.
+> Una vez creado, el nombre de inicio de sesión de administrador no se puede cambiar. Para restablecer la contraseña del administrador del servidor, vaya a [Azure Portal](https://portal.azure.com), haga clic en **Servidores SQL Server**, seleccione el servidor en la lista y luego haga clic en **Restablecer contraseña**. Para restablecer la contraseña de la instancia administrada de SQL, vaya a Azure Portal, haga clic en la instancia y, después, en **Restablecer contraseña**. También puede usar PowerShell o la CLI de Azure.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Creación de inicios de sesión y usuarios adicionales con permisos administrativos
 
@@ -137,7 +137,7 @@ Después de crear una cuenta de usuario en una base de datos, ya sea basada en u
 
 - **Roles fijos de base de datos**
 
-  Agregue la cuenta de usuario a un [rol fijo de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles). Existen nueve roles fijos de base de datos, cada uno con un conjunto definido de permisos. Los roles fijos de base de datos más comunes son: **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** y **db_denydatareader** . **db_owner** se usa habitualmente para conceder permiso completo solo a algunos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. Por ejemplo, el rol fijo de base de datos **db_datareader** concede acceso de lectura a todas las tablas de la base de datos, lo que es más de lo estrictamente necesario.
+  Agregue la cuenta de usuario a un [rol fijo de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles). Existen nueve roles fijos de base de datos, cada uno con un conjunto definido de permisos. Los roles fijos de base de datos más comunes son: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** y **db_denydatareader**. **db_owner** se usa habitualmente para conceder permiso completo solo a algunos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. Por ejemplo, el rol fijo de base de datos **db_datareader** concede acceso de lectura a todas las tablas de la base de datos, lo que es más de lo estrictamente necesario.
 
   - Para agregar un usuario a un rol fijo de base de datos:
 

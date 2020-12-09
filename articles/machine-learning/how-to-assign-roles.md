@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0719f2d9200741798c798aca4b4196812f1229c9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012966"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458447"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administración del acceso a un área de trabajo de Azure Machine Learning
 
@@ -27,7 +27,7 @@ En este artículo, obtendrá información sobre cómo administrar el acceso (aut
 >
 > * [Control del acceso a los recursos de clúster de Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Uso de Azure RBAC para la autorización de Kubernetes](../aks/manage-azure-rbac.md)
-> * [Uso de Azure RBAC para acceder a los datos de blob](/azure/storage/common/storage-auth-aad-rbac-portal)
+> * [Uso de Azure RBAC para acceder a los datos de blob](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!WARNING]
 > La aplicación de algunos roles puede limitar la funcionalidad de la interfaz de usuario en el Estudio de Azure Machine Learning para otros usuarios. Por ejemplo, si el rol de un usuario no tiene la capacidad de crear una instancia de proceso, la opción para crear una instancia de proceso no estará disponible en Estudio. Este comportamiento es el esperado y evita que el usuario intente realizar operaciones que devolverán un error de acceso denegado.
@@ -175,7 +175,7 @@ En la tabla siguiente se proporciona un resumen de las actividades de Azure Mach
 | Crear un clúster de proceso | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `/workspaces/computes/write` |
 | Crear una instancia de proceso | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `/workspaces/computes/write` |
 | Envío de cualquier tipo de ejecución | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publicación de un punto de conexión de canalización | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Publicación de canalizaciones y puntos de conexión | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Implementación de un modelo registrado en un recurso AKS/ACI | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Puntuación con un punto de conexión de AKS implementado | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permite: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (cuando no se usa la autenticación de Azure Active Directory) o `"/workspaces/read"` (cuando se usa la autenticación por tokens) |
 | Acceso al almacenamiento mediante cuadernos interactivos | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |

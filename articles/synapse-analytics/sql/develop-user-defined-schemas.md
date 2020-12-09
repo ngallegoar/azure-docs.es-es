@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5d167ef06e8319004a1f33bead29485b22abc3d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685790"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451692"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Esquemas definidos por el usuario en SQL de Synapse
 
@@ -27,7 +27,7 @@ La arquitectura de análisis tradicional suele usar bases de datos independiente
 En su lugar, SQL de Synapse ejecuta toda la carga de trabajo de análisis en una base de datos. No se permiten las combinaciones entre bases de datos. SQL de Synapse espera que todas las tablas usadas por el almacenamiento se almacenen en una sola base de datos.
 
 > [!NOTE]
-> Los grupos de SQL dedicados no admiten ningún tipo de consulta entre bases de datos. En consecuencia, deben revisarse las implementaciones de análisis que utilizan este patrón. Un grupo de SQL sin servidor (versión preliminar) admite las consultas entre bases de datos.
+> Los grupos de SQL dedicados no admiten ningún tipo de consulta entre bases de datos. En consecuencia, deben revisarse las implementaciones de análisis que utilizan este patrón. Un grupo de SQL sin servidor admite las consultas entre bases de datos.
 
 ## <a name="user-defined-schema-recommendations"></a>Recomendaciones para esquemas definidos por el usuario
 

@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 492d1370a228fc4fc80880102899c9207a514f57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541307"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447184"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configuración y envío de ejecuciones de entrenamiento
 
-En este artículo, aprenderá a configurar y enviar ejecuciones de Azure Machine Learning para entrenar los modelos.
+En este artículo, aprenderá a configurar y enviar ejecuciones de Azure Machine Learning para entrenar los modelos. Los fragmentos de código explican las partes clave de la configuración y el envío de un script de entrenamiento.  A continuación, use uno de los [cuadernos de ejemplo](#notebooks) para buscar ejemplos completos del trabajo de un extremo a otro.
 
 Al realizar el entrenamiento, es habitual comenzar en el equipo local y, a continuación, escalar horizontalmente a un clúster basado en la nube. Con Azure Machine Learning, puede ejecutar el script en varios destinos de proceso sin tener que cambiar el script de entrenamiento.
 
@@ -164,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Para más información, consulte [Integración de Git con Azure Machine Learning](concept-train-model-git-integration.md).
 
-## <a name="notebook-examples"></a>Ejemplos de cuadernos
+## <a name="notebook-examples"></a><a name="notebooks"></a>Ejemplos de cuadernos
 
 Consulte estos cuadernos para ver ejemplos de configuración de ejecuciones en diversos escenarios de aprendizaje:
 * [Cursos sobre diversos destinos de proceso](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)

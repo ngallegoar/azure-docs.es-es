@@ -1,6 +1,6 @@
 ---
-title: Authentication
-description: Aprenda sobre la autenticación en Azure Synapse Analytics mediante la autenticación de Azure Active Directory (AAD) o SQL Server.
+title: Autenticación de un grupo de SQL dedicado (anteriormente SQL DW)
+description: Obtenga información sobre la autenticación en el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics mediante la autenticación de Azure Active Directory (Azure AD) o SQL Server.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b5ca024046c5bc46fff756c55688d3ff0cfea1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206737"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451963"
 ---
-# <a name="authenticate-to-azure-synapse-analytics"></a>Autenticación en Azure Synapse Analytics
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Autenticación en un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
-Aprenda sobre la autenticación de Synapse SQL en Azure Synapse con la autenticación de Azure Active Directory (AAD) o SQL Server.
+Obtenga información sobre la autenticación en el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse mediante la autenticación de Azure Active Directory (Azure AD) o SQL Server.
 
-Para conectarse a un grupo de SQL, debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.  
+Para conectarse a un grupo de SQL dedicado (anteriormente SQL DW), debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.  
 
-Para más información sobre la seguridad y cómo habilitar las conexiones al almacenamiento de datos, consulte la [documentación sobre cómo proteger una base de datos](sql-data-warehouse-overview-manage-security.md).
+Para más información sobre la seguridad y cómo habilitar las conexiones con el grupo de SQL dedicado (anteriormente SQL DW), consulte la [documentación sobre cómo proteger una base de datos](sql-data-warehouse-overview-manage-security.md).
 
 ## <a name="sql-authentication"></a>Autenticación SQL
 
-Para conectarse al grupo de SQL, debe proporcionar la información siguiente:
+Para conectarse al grupo de SQL dedicado (anteriormente SQL DW), debe proporcionar la información siguiente:
 
 * Nombre de servidor completo
 * Especificar la autenticación de SQL
@@ -45,9 +45,9 @@ De forma predeterminada, la conexión se realiza a la base de datos *maestra* y 
 > [!NOTE]
 > La instrucción **USE MyDatabase;** de Transact-SQL no se admite para cambiar la base de datos de una conexión. Puede encontrar instrucciones sobre cómo conectarse a un grupo de SQL con SSDT en el artículo [Consulta con Visual Studio](sql-data-warehouse-query-visual-studio.md).
 
-## <a name="azure-active-directory-aad-authentication"></a>Autenticación de Azure Active Directory (AAD)
+## <a name="azure-active-directory-authentication"></a>Autenticación con Azure Active Directory
 
-La autenticación de [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) es un mecanismo que permite conectar con el grupo de SQL mediante identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure Active Directory puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración central de identificadores ofrece una ubicación única para administrar usuarios de Azure Synapse y simplifica la administración de permisos.
+La autenticación de [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) es un mecanismo que permite conectar con el grupo de SQL mediante identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure Active Directory puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de id. central ofrece un lugar único para administrar los usuarios del grupo de SQL dedicado (anteriormente SQL DW) y simplifica la administración de permisos.
 
 ### <a name="benefits"></a>Ventajas
 
