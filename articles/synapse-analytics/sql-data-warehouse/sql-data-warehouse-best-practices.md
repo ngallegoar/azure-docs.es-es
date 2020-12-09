@@ -1,6 +1,6 @@
 ---
-title: Procedimientos recomendados para el grupo de SQL de Synapse en Azure Synapse Analytics (anteriormente SQL DW)
-description: Recomendaciones y procedimientos recomendados para el desarrollo de soluciones para el grupo de SQL en Azure Synapse Analytics (anteriormente SQL DW).
+title: Procedimientos recomendados para el grupo de SQL dedicado (anteriormente SQL DW)
+description: Recomendaciones y procedimientos recomendados para el desarrollo de soluciones para el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489649"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462883"
 ---
-# <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Procedimientos recomendados para el grupo de SQL de Synapse en Azure Synapse Analytics (anteriormente SQL DW)
+# <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Procedimientos recomendados para el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
-Este artículo es una recopilación de procedimientos recomendados que le ayudará a conseguir un rendimiento óptimo de la implementación del [grupo de SQL](sql-data-warehouse-overview-what-is.md).  El propósito de este artículo es proporcionarle algunas instrucciones básicas y resaltar las áreas de atención importantes.  
+Este artículo es una recopilación de procedimientos recomendados que le ayudará a conseguir un rendimiento óptimo de la implementación del [grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-overview-what-is.md).  El propósito de este artículo es proporcionarle algunas instrucciones básicas y resaltar las áreas de atención importantes.  
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Menos costos gracias a las características de pausa y escalado
 
@@ -27,7 +27,7 @@ Para más información acerca de cómo reducir los costos mediante la pausa y el
 
 ## <a name="maintain-statistics"></a>Mantenimiento de estadísticas
 
-El grupo de SQL se puede configurar para detectar y crear estadísticas automáticamente con información de las columnas.  Los planes de consulta que crea el optimizador son igual de buenos que las estadísticas disponibles.  
+El grupo de SQL dedicado (anteriormente SQL DW) se puede configurar para detectar y crear estadísticas automáticamente con información de las columnas.  Los planes de consulta que crea el optimizador son igual de buenos que las estadísticas disponibles.  
 
 Se recomienda habilitar AUTO_CREATE_STATISTICS para las bases de datos y mantener actualizadas las estadísticas a diario o después de cada carga. Así, se asegurará de que las estadísticas de las columnas utilizadas en las consultas siempre estén actualizadas.
 
@@ -40,7 +40,7 @@ Consulte también [Administración de estadísticas en tablas](sql-data-warehous
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Uso de vistas de administración dinámica (DMV) para supervisar y optimizar las consultas
 
-El grupo de SQL tiene varias DMV que sirven para supervisar la ejecución de consultas.  En el artículo sobre supervisión de la carga de trabajo mediante DMV se detallan las instrucciones paso a paso para ver los detalles de una consulta en ejecución.  
+El grupo de SQL dedicado (anteriormente SQL DW) tiene varias DMV que sirven para supervisar la ejecución de consultas.  En el artículo sobre [Supervisión de la carga de trabajo mediante DMV](sql-data-warehouse-manage-monitor.md) se detallan las instrucciones paso a paso para ver los detalles de una consulta en ejecución.  
 
 Usar la opción LABEL con las consultas puede ayudar a encontrar rápidamente las consultas en estas DMV.
 
@@ -62,7 +62,7 @@ Consulte también [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Uso de PolyBase para cargar y exportar los datos rápidamente
 
-El grupo de SQL admite la carga y exportación de datos con varias herramientas, como Azure Data Factory, PolyBase y BCP.  Para pequeñas cantidades de datos donde el rendimiento no es clave, cualquier herramienta le sirve.  Sin embargo, para cargar o exportar grandes volúmenes de datos o si se necesita un rendimiento rápido, PolyBase es la mejor opción.  
+El grupo de SQL dedicado (anteriormente SQL DW) admite la carga y exportación de datos con varias herramientas, como Azure Data Factory, PolyBase y BCP.  Para pequeñas cantidades de datos donde el rendimiento no es clave, cualquier herramienta le sirve.  Sin embargo, para cargar o exportar grandes volúmenes de datos o si se necesita un rendimiento rápido, PolyBase es la mejor opción.  
 
 PolyBase está diseñado para aprovechar la naturaleza distribuida del sistema y cargará y exportará grandes cantidades de datos más rápido que cualquier otra herramienta.  Lo que haya cargado con PolyBase se ejecuta con la consulta CTAS o de selección.   
 
@@ -74,13 +74,13 @@ Azure Data Factory también admite cargas de PolyBase y puede lograr un rendimie
 > [!NOTE]
 > Con el fin de conseguir un mayor rendimiento al usar archivos de texto gzip, divídalos en 60 o más archivos para aumentar el paralelismo de la carga.  Para conseguir un rendimiento total más rápido, cargue los datos simultáneamente.
 
-Consulte también [Carga de datos](design-elt-data-loading.md), [Guía para el uso de PolyBase](guidance-for-loading-data.md), [Patrones y estrategias de carga de grupo de SQL](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Carga de datos con Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Movimiento de datos mediante Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [CREATE TABLE AS SELECT (CTAS)](sql-data-warehouse-develop-ctas.md).
+Consulte también [Carga de datos](design-elt-data-loading.md), [Guía para el uso de PolyBase](guidance-for-loading-data.md), [Patrones y estrategias de carga de grupo de SQL dedicado](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Carga de datos con Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Movimiento de datos mediante Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [CREATE TABLE AS SELECT (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Carga y consulta de tablas externas
 
 Aunque Polybase, también conocido ahora como tablas externas, puede ser la manera más rápida de cargar datos, no resulta óptimo para las consultas. Las tablas de Polybase solo admiten actualmente archivos de blobs de Azure y almacenamiento de Azure Data Lake Store. Estos archivos no tienen recursos de proceso que los respalde.  
 
-Como resultado, el grupo de SQL no puede descargar este trabajo y, por tanto, para leer los datos del archivo entero, tiene que cargarlo en tempdb.  Por lo tanto, si tiene varias consultas que van a consultar estos datos, es mejor cargarlos una vez que las consultas usen la tabla local.
+Como resultado, el grupo de SQL dedicado no puede descargar este trabajo y, por tanto, para leer los datos del archivo entero, tiene que cargarlo en tempdb.  Por lo tanto, si tiene varias consultas que van a consultar estos datos, es mejor cargarlos una vez que las consultas usen la tabla local.
 
 Consulte también [Guía para el uso de PolyBase](guidance-for-loading-data.md).
 
@@ -101,9 +101,9 @@ Consulte también [Información general de tablas](sql-data-warehouse-tables-ove
 
 ## <a name="do-not-over-partition"></a>Sin particiones excesivas
 
-Crear particiones de datos puede resultar eficaz para el mantenimiento de los datos mediante la modificación de particiones o exámenes de optimización, pero el exceso de particiones puede ralentizar las consultas.  A menudo una estrategia de creación de particiones con granularidad alta que puede funcionar bien en SQL Server, no funciona correctamente en el grupo de SQL.  
+Crear particiones de datos puede resultar eficaz para el mantenimiento de los datos mediante la modificación de particiones o exámenes de optimización, pero el exceso de particiones puede ralentizar las consultas.  A menudo una estrategia de creación de particiones con granularidad alta que puede funcionar bien en SQL Server, no funciona correctamente en el grupo de SQL dedicado (anteriormente SQL DW).  
 
-El exceso de particiones también puede reducir la eficacia de los índices de almacén de columnas agrupadas si cada partición tiene menos de 1 millón de filas.  Tenga en cuenta que, en segundo plano, el grupo de SQL particiona los datos automáticamente en 60 bases de datos, por lo que si crea una tabla con 100 particiones, se generan realmente 6000 particiones.  
+El exceso de particiones también puede reducir la eficacia de los índices de almacén de columnas agrupadas si cada partición tiene menos de 1 millón de filas.  Tenga en cuenta que, en segundo plano, el grupo de SQL dedicado particiona los datos automáticamente en 60 bases de datos, por lo que si crea una tabla con 100 particiones, se generan realmente 6000 particiones.  
 
 Cada carga de trabajo es diferente, por lo mejor es probar con las particiones para ver qué funciona mejor para la suya.  Considere la posibilidad de reducir la granularidad respecto a lo que le funcionaba en SQL Server.  Por ejemplo, puede usar particiones semanales o mensuales, en lugar de diarias.
 
@@ -145,13 +145,13 @@ Consulte también [Tablas temporales](sql-data-warehouse-tables-temporary.md), [
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimización de tablas de almacén de columnas agrupadas
 
-Los índices de almacén de columnas agrupadas son una de las maneras más eficaces para almacenar datos en el grupo de SQL.  De forma predeterminada, las tablas del grupo de SQL se crean como almacén de columnas agrupadas.  Para conseguir el máximo rendimiento de las consultas en las tablas de almacén de columnas, es importante la calidad de los segmentos.  
+Los índices de almacén de columnas en clúster son una de las maneras más eficaces de almacenar los datos en el grupo de SQL dedicado.  De forma predeterminada, las tablas del grupo de SQL dedicado se crean como almacén de columnas en clúster.  Para conseguir el máximo rendimiento de las consultas en las tablas de almacén de columnas, es importante la calidad de los segmentos.  
 
 Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  La calidad de segmento se puede medir por el número de filas de un grupo de filas comprimido.  Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) del artículo sobre [Indexación de tablas](sql-data-warehouse-tables-index.md).  
 
 Como es importante que los segmentos de almacén de columnas sean de una buena calidad, es conveniente usar identificadores de usuario que se encuentren en la clase de recursos grande o mediana para cargar los datos. El uso de [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) inferiores significa que desea asignar una clase de recurso mayor para el usuario que realiza la carga.
 
-Dado que las tablas de almacén de columnas generalmente no insertan datos en un segmento del almacén de columnas comprimido hasta que hay más de 1 millón de filas por tabla y cada tabla del grupo de SQL se divide en 60 partes, como norma general, las tablas de almacén de columnas no serán útiles para las consultas a menos que la tabla tenga más de 60 millones de filas.  Para las tablas con menos de 60 millones de filas, podría no tener sentido el índice de almacén de columnas.  Pero tampoco molesta.  
+Dado que las tablas de almacén de columnas generalmente no insertan datos en un segmento del almacén de columnas comprimido hasta que hay más de 1 millón de filas por tabla y cada tabla del grupo de SQL dedicado se divide en 60 partes, como norma general, las tablas de almacén de columnas no serán útiles para las consultas a menos que la tabla tenga más de 60 millones de filas.  Para las tablas con menos de 60 millones de filas, podría no tener sentido el índice de almacén de columnas.  Pero tampoco molesta.  
 
 Además, si divide los datos, recuerde que cada parte deberá tener 1 millón de filas para beneficiarse de un índice de almacén de columnas agrupadas.  Si una tabla tiene 100 particiones, tendrá que tener al menos 6 mil millones de filas para beneficiarse de un almacén de columnas agrupadas (60 distribuciones *100 particiones* 1 millón de filas).  
 
@@ -164,7 +164,7 @@ Consulte también [Índices de tablas](sql-data-warehouse-tables-index.md), [Gu�
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Uso de clases de recursos más grandes para mejorar el rendimiento de las consultas
 
-El grupo de SQL usa grupos de recursos para asignar memoria a las consultas.  De manera predeterminada, todos los usuarios se asignan a los recursos de la clase pequeña, que concede 100 MB de memoria por distribución.  Dado que siempre hay 60 distribuciones y cada distribución tiene un mínimo de 100 MB, la asignación de memoria total del sistema es de 6 000 MB o justo por debajo de 6 GB.  
+El grupo de SQL dedicado usa grupos de recursos para asignar memoria a las consultas.  De manera predeterminada, todos los usuarios se asignan a los recursos de la clase pequeña, que concede 100 MB de memoria por distribución.  Dado que siempre hay 60 distribuciones y cada distribución tiene un mínimo de 100 MB, la asignación de memoria total del sistema es de 6 000 MB o justo por debajo de 6 GB.  
 
 Algunas consultas, como las combinaciones de gran tamaño o las cargas a las tablas de almacén de columnas agrupadas, se beneficiarán de las mayores asignaciones de memoria.  Algunas consultas, como los exámenes puros, no ofrecerá ventajas.  De todas formas, usar clases de recursos mayores reduce la simultaneidad, por lo que deberá tener en cuenta este impacto antes de cambiar todos los usuarios a una clase de recursos grande.
 

@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo habilitar la eliminación temporal
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 12/01/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 7defa8611080027a67a0d1db1daa4c4a9d44edfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ea98b2d9812fb5c848c7e13b94d46a4142595cd4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126148"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492172"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitación de la eliminación temporal en recursos compartidos de archivos de Azure
 
@@ -33,11 +33,29 @@ En las secciones siguientes se muestra cómo habilitar y usar la eliminación te
 
 :::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Captura de pantalla del panel de configuración de la eliminación temporal de la cuenta de almacenamiento. Resalte la sección de recursos compartidos de archivos, habilite la alternancia, establezca un período de retención y guárdelo. De esta forma, habilitará la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.":::
 
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Los cmdlets de eliminación temporal están disponibles en la versión 2.1.3 y posteriores del [módulo de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+## <a name="getting-started-with-cli"></a>Introducción a la CLI
+
+Para habilitar la eliminación temporal, debe actualizar las propiedades de servicio de un cliente de archivo. En el ejemplo siguiente se habilita la eliminación temporal para todos los recursos compartidos de archivos en una cuenta de almacenamiento:
+
+```azurecli
+az storage account file-service-properties update --enable-delete-retention true -n yourStorageaccount -g yourResourceGroup
+```
+
+Puede comprobar si la eliminación temporal está habilitada y ver su directiva de retención con el siguiente comando:
+
+```azurecli
+az storage account file-service-properties show -n yourStorageaccount -g yourResourceGroup
+```
+
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Los cmdlets de eliminación temporal están disponibles en la versión [3.0.0](https://www.powershellgallery.com/packages/Az.Storage/3.0.0) del módulo Az.Storage. 
+Los cmdlets de eliminación temporal están disponibles en la versión 4.8.0 y posteriores del módulo Az.Storage. 
 
 ## <a name="getting-started-with-powershell"></a>Introducción a PowerShell
 
@@ -70,15 +88,35 @@ Para restaurar un recurso compartido de archivos eliminado temporalmente:
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Si la columna de estado, situada junto a la columna de nombre, se establece en Eliminado, el recurso compartido de archivos se encuentra en un estado de eliminación temporal. Se eliminará de forma permanente después del período de retención especificado.":::
 
-1. Seleccione el recurso compartido y **recuperar** ; de esta forma se restaurará el recurso compartido.
+1. Seleccione el recurso compartido y **recuperar**; de esta forma se restaurará el recurso compartido.
 
     Puede confirmar que el recurso compartido se haya restaurado desde que su estado cambia a **Activo**.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Si la columna de estado, la columna situada junto a la columna de nombre, se establece en Activo, el recurso compartido de archivos se ha restaurado.":::
 
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Los cmdlets de eliminación temporal están disponibles en la versión 2.1.3 de la CLI de Azure. Para restaurar un recurso compartido de archivos eliminado temporalmente, primero debe obtener el valor `--deleted-version` del recurso compartido. Para obtener ese valor, use el siguiente comando para enumerar todos los recursos compartidos eliminados de la cuenta de almacenamiento:
+
+```azurecli
+az storage share-rm list --storage-account yourStorageaccount --include-deleted
+```
+
+Una vez que haya identificado el recurso compartido que desea restaurar, puede usarlo con el siguiente comando para restaurarlo:
+
+```azurecli
+az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
+```
+
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Los cmdlets de eliminación temporal están disponibles en la versión 3.0.0 del módulo Az.Storage. Para restaurar un recurso compartido de archivos eliminado temporalmente, use el siguiente comando:
+Los cmdlets de eliminación temporal están disponibles en la versión 4.8.0 y posteriores del módulo Az.Storage. Para restaurar un recurso compartido de archivos eliminado temporalmente, primero debe obtener el valor `-DeletedShareVersion` del recurso compartido. Para obtener ese valor, use el siguiente comando para enumerar todos los recursos compartidos eliminados de la cuenta de almacenamiento:
+
+```azurepowershell-interactive
+Get-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -IncludeDeleted
+```
+
+Una vez que haya identificado el recurso compartido que desea restaurar, puede usarlo con el siguiente comando para restaurarlo:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -97,9 +135,16 @@ Si desea detener la eliminación temporal o eliminar permanentemente un recurso 
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Deshabilitar la eliminación temporal le permitirá eliminar de forma inmediata y permanente todos los recursos compartidos de archivos de la cuenta de almacenamiento cuando descanse.":::
 
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Los cmdlets de eliminación temporal están disponibles en la versión 2.1.3 de la CLI de Azure. Puede usar el siguiente comando para deshabilitar la eliminación temporal en la cuenta de almacenamiento:
+
+```azurecli
+az storage account file-service-properties update --enable-delete-retention false -n yourStorageaccount -g yourResourceGroup
+```
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Los cmdlets de eliminación temporal están disponibles en la versión 3.0.0 del módulo Az.Storage. Puede usar el siguiente comando para deshabilitar la eliminación temporal en la cuenta de almacenamiento:
+Los cmdlets de eliminación temporal están disponibles en la versión 4.8.0 y posteriores del módulo Az.Storage. Puede usar el siguiente comando para deshabilitar la eliminación temporal en la cuenta de almacenamiento:
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

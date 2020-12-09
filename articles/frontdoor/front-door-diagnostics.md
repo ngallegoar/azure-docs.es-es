@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: duau
-ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/23/2020
+ms.author: yuajia
+ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961755"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483804"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervisión de métricas y registro en Azure Front Door
 
@@ -61,7 +61,7 @@ Los registros de diagnóstico proporcionan información valiosa acerca de las op
 
 Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que ha hecho el recurso. Para más información, vea [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Registro de actividad":::
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Registros de diagnóstico":::
 
 Para configurar los registros de diagnóstico para Front Door:
 
@@ -91,10 +91,11 @@ Front Door actualmente proporciona los registros de diagnóstico (agrupados por
 | RulesEngineMatchNames | Los nombres de las reglas que coincidieron con la solicitud. |
 | SecurityProtocol | La versión del protocolo TLS/SSL utilizada por la solicitud o null si no hay cifrado. |
 | SentToOriginShield </br> (en desuso)* **Consulte las notas sobre el desuso en la sección siguiente.**| Si es True, significa que la solicitud se respondió desde la memoria caché del escudo de origen en lugar del PoP perimetral. El escudo de origen es una memoria caché primaria que se usa para mejorar la proporción de aciertos de caché. |
-| isReceivedFromClient | Si es true, significa que la solicitud procedía del cliente. Si es false, la solicitud es una línea no ejecutada en el servidor perimetral (POP secundario) y se responde desde el escudo de origen (POP primario). 
+| isReceivedFromClient | Si es true, significa que la solicitud procedía del cliente. Si es false, la solicitud es una línea no ejecutada en el servidor perimetral (POP secundario) y se responde desde el escudo de origen (POP primario). |
 | TimeTaken | Período de tiempo desde el primer byte de la solicitud en Front Door hasta el último byte de la respuesta, en segundos. |
 | TrackingReference | La cadena de referencia exclusiva que identifica una solicitud atendida por Front Door, que también se envía como encabezado X-Azure-Ref al cliente. Se requiere para buscar los detalles en los registros de acceso para una solicitud específica. |
 | UserAgent | Tipo de explorador utilizado por el cliente. |
+| ErrorInfo | Este campo contiene el tipo específico de error para facilitar la solución de problemas. </br> Los valores posibles son: </br> **NoError**: indica que no se encontró ningún error. </br> **CertificateError**: error genérico de certificado SSL.</br> **CertificateNameCheckFailed**: el nombre de host del certificado SSL no es válido o no coincide. </br> **ClientDisconnected**: error de solicitud debido a la conexión de red del cliente. </br> **UnspecifiedClientError**: error genérico de cliente. </br> **InvalidRequest**: solicitud no válida. Podría producirse debido a un encabezado, un cuerpo y una dirección URL con formato incorrecto. </br> **DNSFailure**: error de DNS. </br> **DNSNameNotResolved**: no se pudo resolver el nombre o la dirección del servidor. </br> **OriginConnectionAborted**: la conexión con el origen se detuvo repentinamente. </br> **OriginConnectionError**: error genérico de conexión con el origen. </br> **OriginConnectionRefused**: no se pudo establecer la conexión con el origen. </br> **OriginError**: error genérico del origen. </br> **OriginInvalidResponse**: el origen devolvió una respuesta no válida o desconocida. </br> **OriginTimeout**: el período de tiempo de espera de la solicitud del origen expiró. </br> **ResponseHeaderTooBig**: el origen devolvió un encabezado de respuesta demasiado grande. </br> **RestrictedIP**: la solicitud se bloqueó debido a una IP restringida. </br> **SSLHandshakeError**: no se puede establecer la conexión con el origen debido a un error del protocolo de enlace SSL. </br> **UnspecifiedError**: se produjo un error que no coincidía con ninguno de los errores de la tabla. |
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Desuso de la propiedad de envío al escudo de origen
 La propiedad **isSentToOriginShield** del registro sin procesar ha quedado en desuso y se ha reemplazado por un nuevo campo, **isReceivedFromClient**. Use el nuevo campo si aún usa el campo en desuso. 
@@ -122,10 +123,10 @@ Si el valor es false, significa que la solicitud se responde desde el escudo de 
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Regla de enrutamiento sin almacenamiento en caché habilitado | 1 | Código POP perimetral | El back-end al que se reenvió la solicitud | Verdadero | CONFIG_NOCACHE |
 | Regla de enrutamiento con almacenamiento en caché habilitado. Aciertos de caché en el POP perimetral | 1 | Código POP perimetral | Vacío | Verdadero | HIT |
-| Regla de enrutamiento con almacenamiento en caché habilitado. Error de caché en el POP perimetral pero acierto en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Nombre de host de POP de caché primaria</br>2. Vacío | 1. True</br>2. False | 1. MISS</br>2. HIT |
-| Regla de enrutamiento con almacenamiento en caché habilitado. Error de caché en el POP perimetral pero acierto PARTIAL en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Nombre de host de POP de caché primaria</br>2. Back-end que ayuda a rellenar la memoria caché | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
+| Regla de enrutamiento con almacenamiento en caché habilitado. Errores de caché en el POP perimetral pero acierto en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Nombre de host de POP de caché primaria</br>2. Vacío | 1. True</br>2. False | 1. MISS</br>2. HIT |
+| Regla de enrutamiento con almacenamiento en caché habilitado. Error de cachés en el POP perimetral pero acierto PARTIAL en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Nombre de host de POP de caché primaria</br>2. Back-end que ayuda a rellenar la memoria caché | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
 | Regla de enrutamiento con almacenamiento en caché habilitado. PARTIAL_HIT en el POP perimetral pero acierto en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. HIT |
-| Regla de enrutamiento con almacenamiento en caché habilitado. Error de caché en el POP perimetral y en el de caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. True</br>2. False | 1. MISS</br>2. MISS |
+| Regla de enrutamiento con almacenamiento en caché habilitado. Errores de caché en el POP perimetral y en el de caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. True</br>2. False | 1. MISS</br>2. MISS |
 
 > [!NOTE]
 > En el caso de los escenarios de almacenamiento en caché, el valor del estado de la memoria caché será partial_hit cuando se sirvan algunos de los bytes para una solicitud desde la memoria caché del escudo de origen o perimetral de Front Door, mientras que algunos de los bytes se sirven desde el origen de los objetos grandes.

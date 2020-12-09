@@ -3,12 +3,12 @@ title: Entrega y reintento de entrega de Azure Event Grid
 description: Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981109"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463246"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
@@ -54,6 +54,22 @@ az eventgrid event-subscription create \
 Para más información sobre el uso de la CLI de Azure con Event Grid, consulte [Enrutamiento de eventos de almacenamiento a un punto de conexión web con la CLI de Azure](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Programación y duración de los reintentos
+
+Cuando Event Grid recibe un error para un intento de entrega de eventos, Event Grid decide si se debe reintentar la entrega o los mensajes fallidos o anular el evento según el tipo de error. 
+
+Si el error devuelto por el punto de conexión suscrito es un error relacionado con la configuración que no se puede corregir con los reintentos (por ejemplo, si se elimina el punto de conexión), Event Grid llevará a cabo los mensajes fallidos del evento o anulará el evento si no se ha configurado un método para los mensajes fallidos.
+
+A continuación, se indican los tipos de puntos de conexión para los que no se produce el reintento:
+
+| Tipo de punto de conexión | Códigos de error |
+| --------------| -----------|
+| recursos de Azure | 400 Solicitud incorrecta, 413 Entidad de solicitud demasiado larga, 403 Prohibido | 
+| webhook | 400 Solicitud incorrecta, 413 Entidad de solicitud demasiado larga, 403 Prohibido, 404 No encontrado, 401 No autorizado |
+ 
+> [!NOTE]
+> Si no se ha configurado un método para los mensajes fallidos para el punto de conexión, los eventos se anularán cuando se produzcan errores, por lo que considere la posibilidad de configurar un método para los mensajes fallidos si no quiere que se anulen estos tipos de eventos.
+
+Si el error devuelto por el punto de conexión suscrito no está en la lista anterior, Event Grid realiza el reintento con las directivas que se describen a continuación:
 
 Event Grid espera 30 segundos para obtener una respuesta después de entregar un mensaje. Después de 30 segundos, si el punto de conexión no ha respondido, el mensaje se pone en cola para volver a intentarlo. Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Event Grid reintenta la entrega en el siguiente horario y cuando sea el mejor momento:
 
@@ -256,16 +272,16 @@ Event Grid **solo** considera entregas correctas los siguientes códigos de resp
 
 ### <a name="failure-codes"></a>Códigos de error
 
-Todos los demás códigos que no están en el conjunto anterior (200-204) se consideran errores y se reintentarán. Algunos tienen directivas de reintento específicas, que se describen a continuación y todos las demás siguen el modelo de interrupción exponencial estándar. Es importante recordar que, debido a la naturaleza altamente paralela de la arquitectura de Event Grid, el comportamiento de reintento no es determinista. 
+Todos los demás códigos que no están en el conjunto anterior (200-204) se consideran errores y se reintentarán (si es necesario). Algunos tienen directivas de reintento específicas, que se describen a continuación y todos las demás siguen el modelo de interrupción exponencial estándar. Es importante recordar que, debido a la naturaleza altamente paralela de la arquitectura de Event Grid, el comportamiento de reintento no es determinista. 
 
 | status code | Comportamiento de reintento |
 | ------------|----------------|
-| 400 - Solicitud incorrecta | Reintentar después de 5 minutos o más (procesar inmediatamente como entrega devuelta si está configurada) |
-| 401 No autorizado | Reintentar después de 5 minutos o más |
-| 403 Prohibido | Reintentar después de 5 minutos o más |
-| 404 No encontrado | Reintentar después de 5 minutos o más |
+| 400 - Solicitud incorrecta | No se ha intentado de nuevo |
+| 401 No autorizado | Reintentar después de 5 minutos o más para los puntos de conexión de recursos de Azure |
+| 403 Prohibido | No se ha intentado de nuevo |
+| 404 No encontrado | Reintentar después de 5 minutos o más para los puntos de conexión de recursos de Azure |
 | Tiempo de espera de solicitud 408 | Reintentar después de 2 minutos o más |
-| 413 Entidad de solicitud demasiado larga | Reintentar después de 10 segundos o más (procesar inmediatamente como entrega devuelta si está configurada) |
+| 413 Entidad de solicitud demasiado larga | No se ha intentado de nuevo |
 | Servicio no disponible 503 | Reintentar después de 30 segundos o más |
 | Todos los demás | Reintentar después de 10 segundos o más |
 

@@ -14,21 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9c9979699b5bcb3636adc0f9b58331568ea9cad1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968543"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486309"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP
 
 El objetivo de este artículo es describir las configuraciones que permitirán la conectividad saliente hacia los puntos de conexión públicos. Las configuraciones giran principalmente en torno al contexto de alta disponibilidad con Pacemaker para SUSE/RHEL.  
 
-Si usa Pacemaker con el agente de barrera de Azure en la solución de alta disponibilidad, las máquinas virtuales deben tener conectividad de salida a la API de administración de Azure.  
-El artículo presenta varias opciones para que pueda seleccionar la opción más adecuada para su escenario.  
+Si usa Pacemaker con el agente de barrera de Azure en la solución de alta disponibilidad, las máquinas virtuales deben tener conectividad de salida a la API de administración de Azure. El artículo presenta varias opciones para que pueda seleccionar la opción más adecuada para su escenario.  
 
 ## <a name="overview"></a>Información general
 
@@ -42,12 +41,12 @@ Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el gru
 
 Si se asigna una dirección IP pública a una máquina virtual, o si la máquina virtual está en el grupo de back-end de un equilibrador de carga con una dirección IP pública, tendrá conectividad saliente hacia los puntos de conexión públicos.  
 
-Los sistemas SAP suelen contener datos empresariales confidenciales. Rara vez es aceptable que las máquinas virtuales que hospedan sistemas SAP tengan direcciones IP públicas. Al mismo tiempo, hay escenarios en los que es necesaria la conectividad saliente desde la máquina virtual hasta los puntos de conexión públicos.  
+Los sistemas SAP suelen contener datos empresariales confidenciales. Rara vez es aceptable que se pueda acceder a las máquinas virtuales que hospedan sistemas SAP a través de direcciones IP públicas. Al mismo tiempo, hay escenarios en los que es necesaria la conectividad saliente desde la máquina virtual hasta los puntos de conexión públicos.  
 
 Algunos ejemplos de escenarios que requieren acceso al punto de conexión público de Azure, son:  
-- Usar el agente de barrera de Azure como un mecanismo de barrera en los clústeres de Pacemaker.
-- Azure Backup
-- Azure Site Recovery  
+- El agente de barrera de Azure requiere acceso a **management.azure.com** y **login.microsoftonline.com**  
+- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
 - Usar el repositorio público para aplicar revisiones al sistema operativo.
 - El flujo de datos de la aplicación de SAP puede requerir conectividad saliente al punto de conexión público
 
@@ -70,7 +69,7 @@ Consulte primero las siguientes notas:
 * [Redes virtuales: reglas definidas por el usuario](../../../virtual-network/virtual-networks-udr-overview.md#user-defined): conceptos y reglas de enrutamiento de Azure.  
 * [Etiquetas de servicio de grupos de seguridad](../../../virtual-network/network-security-groups-overview.md#service-tags): cómo simplificar los grupos de seguridad de red y la configuración del firewall con etiquetas de servicio.
 
-## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Standard Load Balancer externo de Azure adicional para conexiones salientes a Internet
+## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Opción 1: Standard Load Balancer externo de Azure adicional para conexiones salientes a Internet
 
 Una opción para lograr la conectividad saliente a los puntos de conexión públicos, sin permitir la conectividad entrante a la máquina virtual desde el punto de conexión público, consiste en crear un segundo equilibrador de carga con una dirección IP pública, agregar las máquinas virtuales al grupo de back-end del segundo equilibrador de carga y definir solo [reglas de salida](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
 Use los [grupos de seguridad de red](../../../virtual-network/network-security-groups-overview.md) para controlar los puntos de conexión públicos, que están disponibles para las llamadas salientes desde la máquina virtual.  
@@ -120,7 +119,7 @@ La configuración sería similar a la siguiente:
 
    Para obtener más información sobre los grupos de seguridad de red de Azure, consulte [Grupos de seguridad](../../../virtual-network/network-security-groups-overview.md). 
 
-## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Azure Firewall para conexiones salientes a Internet
+## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>Opción 2: Azure Firewall para conexiones salientes a Internet
 
 Otra opción para lograr la conectividad saliente a los puntos de conexión públicos (sin permitir la conectividad entrante a la máquina virtual desde puntos de conexión públicos) es con Azure Firewall. Azure Firewall es un servicio administrado, con alta disponibilidad integrada y puede abarcar varias Availability Zones.  
 También tendrá que implementar una [Ruta definida por el usuario](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes) asociada a la subred donde se implementan las máquinas virtuales y el equilibrador de carga de Azure. Dicha ruta debe apuntar al firewall de Azure para enrutar el tráfico a través de Azure Firewall.  
@@ -170,7 +169,7 @@ La arquitectura tendría este aspecto:
    1. Nombre de ruta: ToMyAzureFirewall, Prefijo de dirección: **0.0.0.0/0**. Tipo de próximo salto: Seleccione Aplicación virtual. Dirección de próximo salto: escriba la dirección IP privada del firewall que configuró: **11.97.1.4**.  
    1. Save
 
-## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Uso de proxy para las llamadas de Pacemaker a la API de administración de Azure
+## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Opción 3: Uso de proxy para las llamadas de Pacemaker a la API de administración de Azure
 
 Puede usar el proxy para permitir las llamadas de Pacemaker al punto de conexión público de la API de administración de Azure.  
 
@@ -221,9 +220,9 @@ Para permitir que Pacemaker se comunique con la API de administración de Azure,
      sudo pcs property set maintenance-mode=false
      ```
 
-## <a name="other-solutions"></a>Otras soluciones
+## <a name="other-options"></a>Otras opciones
 
-Si el tráfico saliente se enruta a través de un firewall de terceros:
+Si el tráfico saliente se enruta a través de un proxy de firewall de terceros basado en direcciones URL:
 
 - Si se usa un agente de barrera de Azure, asegúrese de que la configuración del firewall permita la conectividad de salida a la API de administración de Azure: `https://management.azure.com` y `https://login.microsoftonline.com`.   
 - Si se usa la infraestructura de actualización de la nube pública de Azure de SUSE para aplicar actualizaciones y revisiones, vea [Infraestructura de actualización de la nube pública de Azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/).

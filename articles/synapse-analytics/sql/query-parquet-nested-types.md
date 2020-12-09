@@ -1,6 +1,6 @@
 ---
-title: Consulta de tipos anidados de Parquet con un grupo de SQL sin servidor (versión preliminar)
-description: En este artículo, aprenderá a consultar tipos anidados de Parquet con un grupo de SQL sin servidor (versión preliminar).
+title: Consulta de tipos anidados de Parquet con un grupo de SQL sin servidor
+description: En este artículo, aprenderá a consultar tipos anidados de Parquet con un grupo de SQL sin servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685722"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462562"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta de tipos anidados en Parquet y archivos JSON mediante el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de tipos anidados en Parquet y archivos JSON mediante el grupo de SQL sin servidor en Azure Synapse Analytics
 
-En este artículo, aprenderá a escribir una consulta mediante un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics. La consulta leerá los tipos anidados de Parquet.
+En este artículo, aprenderá a escribir una consulta mediante un grupo de SQL sin servidor en Azure Synapse Analytics. La consulta leerá los tipos anidados de Parquet.
 Los tipos anidados son estructuras complejas que representan objetos o matrices. Los tipos anidados se pueden almacenar en: 
 - [Parquet](query-parquet-files.md), donde puede tener varias columnas complejas que contengan matrices y objetos.
 - Los [archivos JSON](query-json-files.md) jerárquicos, donde puede leer un documento JSON complejo como una sola columna.

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630165"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492053"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solución de problemas de Azure Files en Windows (SMB)
 
@@ -147,7 +147,7 @@ El error 1816 se produce cuando se alcanza el límite superior de identificadore
 
 ### <a name="solution"></a>Solución
 
-Reduzca el número de identificadores abiertos simultáneos cerrando algunos de ellos y vuelva a intentarlo. Para más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Reduzca el número de identificadores abiertos simultáneos cerrando algunos de ellos y vuelva a intentarlo. Para más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 Para ver los identificadores abiertos de un recurso compartido de archivos, un directorio o un archivo, use el cmdlet de PowerShell [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle).  
 
@@ -176,7 +176,7 @@ Compruebe que las reglas de firewall y de red virtual están configuradas correc
 Vaya a la cuenta de almacenamiento donde se encuentra el recurso compartido de archivos de Azure, haga clic en **Control de acceso (IAM)** y compruebe que su cuenta de usuario tiene acceso a la cuenta de almacenamiento. Para obtener más información, consulte [cómo proteger su cuenta de almacenamiento mediante el control de acceso basado en roles de Azure (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>No se puede eliminar un archivo o un directorio en un recurso compartido de archivos de Azure
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>No se puede modificar, mover/cambiar de nombre o eliminar un archivo o directorio
 Uno de principales propósitos de un recurso compartido de archivos es que varios usuarios y aplicaciones pueden interactuar de manera simultánea con los archivos y directorios del recurso compartido. Para facilitar esta interacción, los recursos compartidos de archivos proporcionan varias maneras de mediar el acceso a los archivos y directorios.
 
 Al abrir un archivo desde un recurso compartido de archivos de Azure montado en SMB, la aplicación o el sistema operativo solicitan un identificador de archivos, que es una referencia al archivo. Entre otras cosas, la aplicación especifica un modo de uso compartido de archivos cuando solicita un identificador de archivos, que especifica el nivel de exclusividad del acceso al archivo aplicado por Azure Files: 
@@ -262,7 +262,7 @@ Puede que experimente un rendimiento lento cuando intente transferir archivos al
 - Si no tiene un requisito mínimo de tamaño de E/S específico, se recomienda que use 1 MiB como tamaño de E/S para disfrutar de un rendimiento óptimo.
 -   Si conoce el tamaño final de un archivo que está ampliando mediante operaciones de escritura y el software no presenta problemas de compatibilidad cuando la cola no escrita del archivo contiene ceros, establezca el tamaño de archivo con antelación en lugar de hacer que cada escritura sea una escritura de ampliación.
 -   Utilice el método de copia correcto:
-    -   Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para todas las transferencias entre dos recursos compartidos de archivos.
+    -   Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas las transferencias entre dos recursos compartidos de archivos.
     -   Utilice [Robocopy](./storage-files-deployment-guide.md#robocopy) entre recursos compartidos de archivos y un equipo local.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Consideraciones para Windows 8.1 o Windows Server 2012 R2
@@ -401,7 +401,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 El cmdlet realiza estas comprobaciones de forma secuencial y proporciona instrucciones que seguir cuando aparezcan errores:
 1. CheckADObjectPasswordIsCorrect: asegúrese de que la contraseña configurada en la identidad de AD que representa la cuenta de almacenamiento coincide con la de la clave kerb1 o kerb2 de la cuenta de almacenamiento. Si la contraseña es incorrecta, puede ejecutar [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) para restablecer la contraseña. 
 2. CheckADObject: confirme que hay un objeto en Active Directory que representa la cuenta de almacenamiento y que tiene el SPN correcto (nombre de entidad de seguridad de servicio). Si SPN no se configura correctamente, ejecute el cmdlet Set-AD devuelto en el cmdlet debug para configurar SPN.
-3. CheckDomainJoined: compruebe que la máquina cliente está unida por el dominio a AD. Si el equipo no está unido a un dominio deAD, consulte este [artículo](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) para obtener instrucciones sobre la unión a un dominio.
+3. CheckDomainJoined: compruebe que la máquina cliente está unida por el dominio a AD. Si el equipo no está unido a un dominio deAD, consulte este [artículo](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) para obtener instrucciones sobre la unión a un dominio.
 4. CheckPort445Connectivity: compruebe que el puerto 445 está abierto para la conexión SMB. Si el puerto requerido no está abierto, consulte la herramienta de solución de problemas [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) para ver los problemas de conectividad con Azure Files.
 5. CheckSidHasAadUser: compruebe que el usuario de AD que ha iniciado sesión está sincronizado con Azure AD. Si desea buscar si un usuario de AD específico está sincronizado con Azure AD, puede especificar el nombre de usuario y el dominio en los parámetros de entrada. 
 6. CheckGetKerberosTicket: intente obtener un vale de Kerberos para conectarse a la cuenta de almacenamiento. Si no hay un token de Kerberos válido, ejecute el cmdlet klist get cifs/storage-account-name.file.core.windows.net y examine el código de error para la causa principal del error de recuperación de vales.

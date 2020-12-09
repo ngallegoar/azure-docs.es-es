@@ -3,20 +3,20 @@ title: Creación y programación de canalizaciones y actividades en cadena en Da
 description: Aprenda a crear una canalización de datos en Azure Data Factory para mover y transformar datos. Crear un flujo de trabajo controlado por datos para producir información lista para usar.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 15b61653fcd9428abe41f61ac89b2a37302983c7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 83b4d14d46677c731b7fb9faae2217492368d4b2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369255"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496065"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -34,7 +34,7 @@ Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Fa
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Información general
-Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede usar una actividad de copia para copiar datos de una base de datos de SQL Server a una instancia de Azure Blob Storage. Después, utilice una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar o transformar datos de Blob Storage con el fin de generar datos de salida. Finalmente, use una segunda actividad de copia para copiar los datos de salida en Azure Synapse Analytics (anteriormente, SQL Data Warehouse) en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas.
+Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede usar una actividad de copia para copiar datos de una base de datos de SQL Server a una instancia de Azure Blob Storage. Después, utilice una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar o transformar datos de Blob Storage con el fin de generar datos de salida. Finalmente, use una segunda actividad de copia para copiar los datos de salida en Azure Synapse Analytics, en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas.
 
 Una actividad puede tomar diversos [conjuntos de datos](data-factory-create-datasets.md), o ninguno, y generar uno o varios [conjuntos de datos](data-factory-create-datasets.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos en Data Factory:
 
@@ -204,8 +204,8 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in
 Tenga en cuenta los siguientes puntos:
 
 * En la sección de actividades, solo hay una actividad con **type** establecido en **Copy**.
-* La entrada de la actividad está establecida en **InputDataset** , mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](data-factory-create-datasets.md) para definir conjuntos de datos en JSON.
-* En la sección **typeProperties** , **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o un receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino.
+* La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](data-factory-create-datasets.md) para definir conjuntos de datos en JSON.
+* En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o un receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino.
 
 Para obtener un tutorial completo de creación de esta canalización, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -260,7 +260,7 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsight
 Tenga en cuenta los siguientes puntos:
 
 * En la sección de actividades, solo hay una actividad con **type** establecido en **HDInsightHive**.
-* El archivo de script de Hive, **partitionweblogs.hql** , se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada **AzureStorageLinkedService** ) en una carpeta denominada **script** del contenedor **adfgetstarted**.
+* El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada **AzureStorageLinkedService**) en una carpeta denominada **script** del contenedor **adfgetstarted**.
 * La sección `defines` se usa para especificar la configuración de tiempo de ejecución que se pasa al script de Hive como valores de configuración de Hive (por ejemplo, `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 La sección **typeProperties** es diferente para cada actividad de transformación. Para obtener información sobre las propiedades de tipo compatibles con una actividad de transformación, haga clic en la actividad de transformación de la tabla [Actividades de transformación de datos](#data-transformation-activities).
@@ -347,7 +347,7 @@ Puede crear y programar una canalización que se ejecute periódicamente (por ej
 Tenga en cuenta lo siguiente:
 
 * No se especifican las horas de **inicio** y **finalización** de la canalización.
-* La disponibilidad ( **availability** ) de los conjuntos de datos de entrada y salida se especifica ( **frequency** e **interval** ), incluso aunque Data Factory no use los valores.
+* La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (**frequency** e **interval**), incluso aunque Data Factory no use los valores.
 * La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
 * Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
 

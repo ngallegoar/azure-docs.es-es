@@ -1,5 +1,5 @@
 ---
-title: Consulta de archivos de JSON mediante un grupo de SQL sin servidor (versión preliminar)
+title: Consulta de archivos JSON mediante un grupo de SQL sin servidor
 description: En esta sección se explica cómo leer archivos de JSON mediante un grupo de SQL sin servidor en Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d071bbabf630dd326ae46f4c840f8e60f957f9fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685637"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462603"
 ---
-# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta de archivos de JSON mediante un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos JSON mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
-En este artículo, aprenderá a escribir una consulta mediante un grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics. El objetivo de la consulta es leer archivos JSON con [OPENROWSET](develop-openrowset.md). 
+En este artículo, aprenderá a escribir una consulta mediante un grupo de SQL sin servidor en Azure Synapse Analytics. El objetivo de la consulta es leer archivos JSON con [OPENROWSET](develop-openrowset.md). 
 - Archivos JSON estándar en los que se almacenan varios documentos JSON como una matriz JSON.
 - Archivos JSON delimitados por líneas, donde los documentos JSON se separan con un carácter de nueva línea. Las extensiones comunes para estos tipos de archivos son `jsonl`, `ldjson` y `ndjson`.
 

@@ -10,16 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: d83719586b516d9db62df1fc0c7045fed57d083b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3b06cc68a4de50ae95d8946f32b241d38b4781ea
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637112"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460962"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Script de PowerShell: copia masiva de varias tablas mediante Azure Data Factory
 
-Este script de PowerShell de ejemplo copia los datos de varias tablas en una base de datos de Azure SQL Database en Azure Synapse Analytics (anteriormente, SQL Data Warehouse).
+Este script de ejemplo de PowerShell copia los datos de varias tablas de una instancia de Azure SQL Database en Azure Synapse Analytics.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

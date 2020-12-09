@@ -3,12 +3,12 @@ title: Supervisión del rendimiento en las VM de Azure - Azure Application Insig
 description: Supervisión del rendimiento de aplicaciones para máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 8b025c5196d65234a632bd1f939bc1116b72dce0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bc70b3d9a1a7a2d3fffb71ad28f2cf64cbd323b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024639"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461722"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implementación de Azure Application Insights Agent en máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure
 
@@ -17,8 +17,8 @@ La habilitación de la supervisión en las aplicaciones web basadas en .NET que 
 En este artículo se le guía a través de la habilitación de la supervisión de Application Insights mediante Application Insights Agent y se proporcionan instrucciones preliminares para automatizar el proceso para implementaciones a gran escala.
 
 > [!IMPORTANT]
-> Azure Application Insights Agent para .NET está actualmente en la versión preliminar pública.
-> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Agente de Azure Application Insights para aplicaciones de ASP.NET que se ejecutan en **VM y VMSS de Azure** está en versión preliminar pública actualmente. Para supervisar las aplicaciones de ASP.NET que se ejecutan **en el entorno local**, use el [agente de Azure Application Insights para servidores locales](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview), que está disponible con carácter general y es totalmente compatible.
+> La versión preliminar para VM y VMSS de Azure se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="enable-application-insights"></a>Habilitación de Application Insights

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 495300d677d6d898bfc916e5115b801c815bd587
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974466"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461494"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingesta de datos en Azure Data Lake Storage Gen2 
 
@@ -72,4 +72,4 @@ En este paso, desencadenará manualmente la canalización que publicó en el pas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la integración de datos para Synapse Analytics, consulte el artículo [Ingesta de datos en un grupo de SQL dedicado](data-integration-sql-pool.md).
+Para obtener más información sobre la integración de datos para Azure Synapse Analytics, consulte el artículo [Ingesta de datos en un grupo de SQL dedicado](data-integration-sql-pool.md).

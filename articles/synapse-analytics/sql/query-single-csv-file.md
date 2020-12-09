@@ -1,6 +1,6 @@
 ---
-title: Consulta de archivos .csv mediante un grupo de SQL sin servidor (versión preliminar)
-description: En este artículo, aprenderá a consultar archivos .csv únicos con distintos formatos de archivo mediante el grupo de SQL sin servidor (versión preliminar).
+title: Consulta de archivos .csv mediante un grupo de SQL sin servidor
+description: En este artículo, aprenderá a consultar archivos .csv únicos con distintos formatos de archivo mediante el grupo de SQL sin servidor.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685654"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462598"
 ---
 # <a name="query-csv-files"></a>Consulta de archivo CSV
 
-En este artículo, aprenderá a consultar un único archivo .csv mediante el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics. Los archivos CSV pueden tener distintos formatos: 
+En este artículo, aprenderá a consultar un único archivo .csv mediante el grupo de SQL sin servidor en Azure Synapse Analytics. Los archivos CSV pueden tener distintos formatos: 
 
 - Con y sin una fila de encabezado
 - Valores delimitados por comas y tabulaciones
@@ -47,8 +47,8 @@ from openrowset(
 La opción `firstrow` se utiliza para omitir la primera fila del archivo CSV, que representa el encabezado en este caso. Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegido con una clave SAS o una identidad personalizada, necesitaría configurar una [credencial de nivel de servidor para el inicio de sesión de SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Si el archivo CSV contiene caracteres UTF-8, asegúrese de usar alguna intercalación de base de datos UTF-8 (por ejemplo, `Latin1_General_100_CI_AS_SC_UTF8`).
-> La falta de coincidencia entre la codificación de texto del archivo y la intercalación podría producir errores de conversión inesperados.
+> Si el archivo .csv contiene caracteres UTF-8, asegúrese de usar una intercalación de base de datos UTF-8 (por ejemplo, `Latin1_General_100_CI_AS_SC_UTF8`).
+> Una falta de coincidencia entre la codificación de texto del archivo y la intercalación podría producir errores de conversión inesperados.
 > Puede cambiar fácilmente la intercalación predeterminada de la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
 
 ### <a name="data-source-usage"></a>Uso del origen de datos

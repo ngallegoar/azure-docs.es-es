@@ -1,6 +1,6 @@
 ---
 title: Optimización de transacciones
-description: Aprenda a optimizar el rendimiento del código transaccional en SQL de Synapse al mismo tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
+description: Aprenda a optimizar el rendimiento del código transaccional en un grupo de SQL dedicado, mientras se minimiza el riesgo de reversiones extensas.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46a165ea7fa21c02e859c16027086695f1f378c3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461212"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462791"
 ---
-# <a name="optimizing-transactions-in-synapse-sql"></a>Optimización de transacciones en SQL de Synapse
+# <a name="optimizing-transactions-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimización de transacciones con un grupo de SQL dedicado en Azure Synapse Analytics
 
-Aprenda a optimizar el rendimiento del código transaccional en SQL de Synapse al mismo tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
+Aprenda a optimizar el rendimiento del código transaccional en un grupo de SQL dedicado, mientras se minimiza el riesgo de reversiones extensas.
 
 ## <a name="transactions-and-logging"></a>Transacciones y registro
 
-Las transacciones son un componente importante de un motor de base de datos relacional. Las transacciones se utilizan durante la modificación de datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones INSERT, UPDATE y DELETE son ejemplos de transacciones implícitas. Las transacciones explícitas usan BEGIN TRAN, COMMIT TRAN y ROLLBACK TRAN. Las transacciones explícitas se usan normalmente cuando es necesario vincular varias instrucciones de modificación entre sí en una unidad atómica única.
+Las transacciones son un componente importante de un motor de grupo de SQL relacional. Las transacciones se utilizan durante la modificación de datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones INSERT, UPDATE y DELETE son ejemplos de transacciones implícitas. Las transacciones explícitas usan BEGIN TRAN, COMMIT TRAN y ROLLBACK TRAN. Las transacciones explícitas se usan normalmente cuando es necesario vincular varias instrucciones de modificación entre sí en una unidad atómica única.
 
-Se realiza un seguimiento de los cambios en la base de datos mediante registros de transacciones. Cada distribución tiene su propio registro de transacciones. Las escrituras en el registro de transacciones son automáticas. No es necesario realizar ninguna configuración. Sin embargo, si bien este proceso garantiza la escritura, introduce una sobrecarga en el sistema. Para minimizar este impacto, puede escribir código transaccionalmente eficiente. De forma amplia, un código transaccionalmente eficiente pertenece en dos categorías.
+Se realiza un seguimiento de los cambios en el grupo de SQL mediante registros de transacciones. Cada distribución tiene su propio registro de transacciones. Las escrituras en el registro de transacciones son automáticas. No es necesario realizar ninguna configuración. Sin embargo, si bien este proceso garantiza la escritura, introduce una sobrecarga en el sistema. Para minimizar este impacto, puede escribir código transaccionalmente eficiente. De forma amplia, un código transaccionalmente eficiente pertenece en dos categorías.
 
 * Use construcciones de registro mínimas siempre que sea posible.
 * Procese datos con lotes con ámbito para evitar transacciones singulares de larga ejecución.
@@ -79,7 +79,7 @@ CTAS e INSERT...SELECT son dos operaciones de carga masiva. Sin embargo, ambas s
 Conviene tener en cuenta que cualquier escritura para actualizar índices secundarios o no agrupados será siempre una operación con registro completo.
 
 > [!IMPORTANT]
-> Una base de datos del grupo de SQL de Synapse tiene 60 distribuciones. Por lo tanto, suponiendo que todas las filas tengan una distribución uniforme y una sola partición como destino, el lote deberá contener 6.144.000 filas o más para un registro mínimo cuando se escribe en un índice de almacén de columnas agrupado. Si la tabla tiene particiones y las filas que se insertan traspasan los límites de las particiones, serán necesarias 6 144 000 filas por límite de partición, lo que supone una distribución de datos uniforme. Cada partición de cada distribución debe superar de forma independiente el umbral de 102.400 filas para que la inserción se registre mínimamente en la distribución.
+> Un grupo de SQL dedicado tiene 60 distribuciones. Por lo tanto, suponiendo que todas las filas tengan una distribución uniforme y una sola partición como destino, el lote deberá contener 6.144.000 filas o más para un registro mínimo cuando se escribe en un índice de almacén de columnas agrupado. Si la tabla tiene particiones y las filas que se insertan traspasan los límites de las particiones, serán necesarias 6 144 000 filas por límite de partición, lo que supone una distribución de datos uniforme. Cada partición de cada distribución debe superar de forma independiente el umbral de 102.400 filas para que la inserción se registre mínimamente en la distribución.
 
 A menudo, la carga de datos en una tabla no vacía con un índice agrupado puede contener una mezcla de filas con registro completo y filas con registro mínimo. Un índice agrupado es un árbol equilibrado (árbol B) de las páginas. Si la página que se escribe ya contiene filas de otra transacción, estas escrituras se registrarán completamente. Sin embargo, si la página está vacía, la escritura en esa página se registrará mínimamente.
 
@@ -178,7 +178,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> El uso de las características de administración de cargas de trabajo del grupo de SQL de Synapse puede ser una ventaja a la hora de volver a crear tablas de gran tamaño. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
+> El uso de las características de administración de cargas de trabajo del grupo de SQL dedicado puede ser una ventaja a la hora de volver a crear tablas de gran tamaño. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
 
 ## <a name="optimizing-with-partition-switching"></a>Optimización con modificación de particiones
 
@@ -407,16 +407,16 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Instrucciones de operaciones de pausa y escalado
 
-SQL de Synapse le permite [pausar, reanudar y escalar](sql-data-warehouse-manage-compute-overview.md) el grupo de SQL a petición. Al pausar o escalar el grupo de SQL, es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las transacciones abiertas se reviertan. Si la carga de trabajo había emitido una modificación de datos incompleta y de larga ejecución antes de la operación de pausa o escalado, será necesario deshacer este trabajo. Esto puede afectar al tiempo que se tarda en pausar o escalar el grupo de SQL.
+El grupo de SQL dedicado le permite [pausar, reanudar y escalar](sql-data-warehouse-manage-compute-overview.md) el grupo de SQL dedicado a petición. Al pausar o escalar el grupo de SQL dedicado, es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las que están abiertas se reviertan. Si la carga de trabajo había emitido una modificación de datos incompleta y de larga ejecución antes de la operación de pausa o escalado, será necesario deshacer este trabajo. Esta acción puede afectar al tiempo que se tarda en pausar o escalar el grupo de SQL dedicado.
 
 > [!IMPORTANT]
 > `UPDATE` y `DELETE` son operaciones con registro completo y, por tanto, estas operaciones de deshacer y rehacer pueden tardar bastante más que las operaciones con registro mínimo equivalentes.
 
-Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar el grupo de SQL. Sin embargo, puede que este escenario no sea siempre práctico. Para mitigar el riesgo de que se produzca una reversión extensa, considere una de las siguientes opciones:
+Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar el grupo de SQL dedicado. Sin embargo, puede que este escenario no sea siempre práctico. Para mitigar el riesgo de que se produzca una reversión extensa, considere una de las siguientes opciones:
 
 * Vuelva a escribir las operaciones de ejecución prolongada con [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 * Divida la operación en fragmentos para operar sobre un subconjunto de las filas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Transacciones en SQL de Synapse](sql-data-warehouse-develop-transactions.md) para más información sobre los niveles de aislamiento y los límites transaccionales.  Para obtener información general sobre otros procedimientos recomendados, consulte [Procedimientos recomendados de Azure Synapse Analytics](sql-data-warehouse-best-practices.md).
+Consulte [Transacciones en el grupo de SQL dedicado](sql-data-warehouse-develop-transactions.md) para más información sobre los niveles de aislamiento y los límites transaccionales.  Para obtener información general de otros procedimientos recomendados, consulte [Procedimientos recomendados del grupo de SQL dedicado](sql-data-warehouse-best-practices.md).

@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/05/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af2eac929e3e3f40e1ac1cd384c943b1e09171a8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967472"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484284"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -112,7 +112,7 @@ La acumulación de un número de VHD de Azure por debajo de un conjunto de franj
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Funcionalidad de ráfaga de Azure para Premium Storage
-En el caso de los discos de Azure Premium Storage con una capacidad de 512 GiB o inferior, se ofrece funcionalidad de ráfaga. La forma exacta en que funciona la ráfaga de disco se describe en el artículo [Seguridad de disco](../../linux/disk-bursting.md). Al leer el artículo, comprenderá el concepto de acumulación de IOPS y rendimiento en los casos en que la carga de trabajo de E/S esté por debajo del valor de IOPS y de rendimiento de los discos nominal (para obtener más información sobre el rendimiento nominal, consulte [Precios del disco administrado](https://azure.microsoft.com/pricing/details/managed-disks/)). Acumulará la diferencia de IOPS y rendimiento entre el uso actual y los valores nominales del disco. Las ráfagas están limitadas a un máximo de 30 minutos.
+En el caso de los discos de Azure Premium Storage con una capacidad de 512 GiB o inferior, se ofrece funcionalidad de ráfaga. La forma exacta en que funciona la ráfaga de disco se describe en el artículo [Seguridad de disco](../../disk-bursting.md). Al leer el artículo, comprenderá el concepto de acumulación de IOPS y rendimiento en los casos en que la carga de trabajo de E/S esté por debajo del valor de IOPS y de rendimiento de los discos nominal (para obtener más información sobre el rendimiento nominal, consulte [Precios del disco administrado](https://azure.microsoft.com/pricing/details/managed-disks/)). Acumulará la diferencia de IOPS y rendimiento entre el uso actual y los valores nominales del disco. Las ráfagas están limitadas a un máximo de 30 minutos.
 
 Los casos ideales en los que se puede planear esta funcionalidad de ráfaga serán, probablemente, los volúmenes o discos que contengan archivos de datos para distintos DBMS. Se espera que la carga de trabajo de E/S para esos volúmenes, especialmente con sistemas de gama pequeña o mediana, tenga el aspecto siguiente:
 
@@ -134,7 +134,7 @@ Especialmente en sistemas DBMS más pequeños en los que la carga de trabajo con
 > La certificación de SAP HANA para las máquinas virtuales de serie M de Azure es exclusivamente con el Acelerador de escritura de Azure para el volumen **/hana/log**. Como resultado, las implementaciones de SAP HANA en un escenario de producción en máquinas virtuales de la serie M de Azure se espera que estén configuradas con el Acelerador de escritura de Azure para el volumen **/hana/log**.  
 
 > [!NOTE]
-> En escenarios que implican Azure Premium Storage, estamos implementando funcionalidades de ráfaga en la configuración. A medida que use herramientas de prueba de almacenamiento de cualquier forma, tenga en cuenta el [funcionamiento de la expansión de discos Premium de Azure](../../linux/disk-bursting.md). Al ejecutar las pruebas de almacenamiento que proporciona la herramienta HWCCT o HCMT de SAP, no se espera que todas las pruebas cumplan los criterios, ya que algunas pruebas superarán los créditos de expansión que se pueden acumular. Especialmente, cuando todas las pruebas se ejecutan secuencialmente sin interrupción.
+> En escenarios que implican Azure Premium Storage, estamos implementando funcionalidades de ráfaga en la configuración. A medida que use herramientas de prueba de almacenamiento de cualquier forma, tenga en cuenta el [funcionamiento de la expansión de discos Premium de Azure](../../disk-bursting.md). Al ejecutar las pruebas de almacenamiento que proporciona la herramienta HWCCT o HCMT de SAP, no se espera que todas las pruebas cumplan los criterios, ya que algunas pruebas superarán los créditos de expansión que se pueden acumular. Especialmente, cuando todas las pruebas se ejecutan secuencialmente sin interrupción.
 
 
 > [!NOTE]
@@ -273,7 +273,7 @@ Para información detallada sobre ANF para HANA, lea el documento [Volúmenes NF
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solución con control de costo con Azure Premium Storage
-Hasta ahora, la solución de Azure Premium Storage que se describe en este documento en la sección [Soluciones con Premium Storage y el Acelerador de escritura de Azure para máquinas virtuales de la serie M de Azure](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) estaba diseñada para escenarios admitidos de producción de SAP HANA. Una de las características de las configuraciones admitidas con la producción es la separación de los volúmenes de datos de SAP HANA y el registro de la fase de puesta al día en dos volúmenes diferentes. La razón de esta separación es que las características de la carga de trabajo en los volúmenes son diferentes. Además, con las configuraciones de producción sugeridas, podría ser necesario un tipo de almacenamiento en caché diferente o incluso diferentes tipos de almacenamiento de bloques de Azure. Las configuraciones admitidas de producción con el destino de almacenamiento en bloque de Azure para cumplir también con el [Acuerdo de Nivel de Servicio de única máquina virtual para Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).  En escenarios que no son de producción, es posible que algunas de las consideraciones tomadas para los sistemas de producción no se apliquen a sistemas que no sean de producción de menor calidad. Como resultado, se pueden combinar los datos y el volumen de registro de HANA. Aunque eventualmente con algunos culpables, como por ejemplo no cumplir con ciertos KPI de rendimiento o latencia que se requieren para los sistemas de producción. Otro aspecto para reducir costos en estos entornos puede ser el uso del [almacenamiento SSD estándar de Azure](./planning-guide-storage.md#azure-standard-ssd-storage). A pesar de una opción que invalida el [Acuerdo de Nivel de Servicio de una única máquina virtual para Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Hasta ahora, la solución de Azure Premium Storage que se describe en este documento en la sección [Soluciones con Premium Storage y el Acelerador de escritura de Azure para máquinas virtuales de la serie M de Azure](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) estaba diseñada para escenarios admitidos de producción de SAP HANA. Una de las características de las configuraciones admitidas con la producción es la separación de los volúmenes de datos de SAP HANA y el registro de la fase de puesta al día en dos volúmenes diferentes. La razón de esta separación es que las características de la carga de trabajo en los volúmenes son diferentes. Además, con las configuraciones de producción sugeridas, podría ser necesario un tipo de almacenamiento en caché diferente o incluso diferentes tipos de almacenamiento de bloques de Azure. En escenarios que no son de producción, es posible que algunas de las consideraciones tomadas para los sistemas de producción no se apliquen a sistemas que no sean de producción de menor calidad. Como resultado, se pueden combinar los datos y el volumen de registro de HANA. Aunque eventualmente con algunos culpables, como por ejemplo no cumplir con ciertos KPI de rendimiento o latencia que se requieren para los sistemas de producción. Otro aspecto para reducir costos en estos entornos puede ser el uso del [almacenamiento SSD estándar de Azure](./planning-guide-storage.md#azure-standard-ssd-storage). Tenga en cuenta que elegir Azure Storage de SSD estándar o HDD estándar afecta a los Acuerdos de Nivel de Servicio para una única máquina virtual, tal como se documenta en el artículo [Acuerdo de Nivel de Servicio para Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 Una alternativa menos costosa para estas configuraciones podría ser similar a la siguiente:
 

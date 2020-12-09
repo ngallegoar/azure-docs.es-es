@@ -3,20 +3,20 @@ title: Creación de conjuntos de datos en Azure Data Factory
 description: Aprenda a crear conjuntos de datos en Azure Data Factory con ejemplos que usan propiedades como offset y anchorDateTime.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bf6ff2971de57338dc299d48e24f6ffebd4b6b5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440735"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495946"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de datos en Azure Data Factory (versión  1)
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -32,7 +32,7 @@ En este artículo se describe qué son los conjuntos de datos, cómo se definen 
 > Si no está familiarizado con Data Factory, consulte [Introducción a Azure Data Factory](data-factory-introduction.md) para obtener información general. Si no tiene experiencia práctica con la creación de factorías de datos, lea el [tutorial de transformación de datos](data-factory-build-your-first-pipeline.md) y el [tutorial de movimiento de datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para adquirir una mejor comprensión.
 
 ## <a name="overview"></a>Información general
-Una factoría de datos puede tener una o más canalizaciones. Una **canalización** es una agrupación lógica de **actividades** que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, se podría usar una actividad de copia para copiar datos de una base de datos de SQL Server a una instancia de Azure Blob Storage. Después, podría usar una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar datos de Blob Storage con el fin de generar datos de salida. Por último, podría usar una segunda actividad de copia para copiar los datos de salida en Azure Synapse Analytics (anteriormente, SQL Data Warehouse), en el que se basan las soluciones de generación de informes de inteligencia empresarial (BI). Para más información sobre canalizaciones y actividades, consulte el artículo [Canalizaciones y actividades en Azure Data Factory](data-factory-create-pipelines.md).
+Una factoría de datos puede tener una o más canalizaciones. Una **canalización** es una agrupación lógica de **actividades** que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, se podría usar una actividad de copia para copiar datos de una base de datos de SQL Server a una instancia de Azure Blob Storage. Después, podría usar una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar datos de Blob Storage con el fin de generar datos de salida. Finalmente, podría usar segunda actividad de copia para copiar los datos de salida en Azure Synapse Analytics, en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas. Para más información sobre canalizaciones y actividades, consulte el artículo [Canalizaciones y actividades en Azure Data Factory](data-factory-create-pipelines.md).
 
 Una actividad puede tomar diversos **conjuntos de datos** de entrada, o ninguno, y generar uno o varios conjuntos de datos de salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Por ejemplo, un conjunto de datos de blob de Azure especifica el contenedor de blobs y la carpeta de Blob Storage de los que la canalización debe leer los datos.
 

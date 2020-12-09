@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308119"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490727"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT
 
@@ -40,6 +40,8 @@ Un atributo distintivo de la autenticación mediante la entidad de certificació
 Otro atributo importante de la autenticación mediante la autenticación con la entidad de certificación X.509 es la simplificación de la logística de la cadena de suministro. La autenticación segura de los dispositivos requiere que cada dispositivo tenga un secreto exclusivo, como una clave como base de confianza. En la autenticación basada en certificados, este secreto es una clave privada. Un flujo de fabricación de dispositivos típico implica varios pasos y administradores. La administración segura de claves privadas de dispositivos entre varios administradores y mantener la confianza resulta difícil y caro. El uso de las entidades de certificación soluciona este problema con el registro de cada administrador en una cadena de confianza criptográfica, en lugar de protegerlas con claves privadas de dispositivo. A su vez, cada administrador firma los dispositivos en el paso correspondiente del proceso del flujo de fabricación. El resultado general es una cadena de suministro óptima con responsabilidad integrada a través del uso de la cadena de confianza criptográfica. Es importante destacar que este proceso garantiza la máxima seguridad cuando los dispositivos protegen sus claves privadas exclusivas. Para ello, se recomienda usar los módulos de seguridad de hardware (HSM) capaces de generar claves privadas internamente que nunca se publicarán.
 
 En este artículo se proporciona una vista de un extremo a otro sobre cómo usar la autenticación mediante entidades de certificación X.509, desde la configuración de la cadena de suministro hasta la conexión del dispositivo, mediante el uso de un ejemplo real para consolidar la información.
+
+También puede usar grupos de inscripción con Azure IoT Hub Device Provisioning Service (DPS) para controlar el aprovisionamiento de dispositivos en los centros. Para obtener más información sobre el uso de DPS para aprovisionar dispositivos de certificados X.509, vea [Tutorial: Aprovisionamiento de varios dispositivos X.509 mediante grupos de inscripción](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Introducción
 
@@ -75,7 +77,7 @@ El proceso para crear un certificado de entidad de certificación X.509 autofirm
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registro del certificado X.509 en IoT Hub
 
-Company-X debe registrar la entidad de certificación X.509 en IoT Hub donde servirá para autenticar Smart-X-Widgets a medida que se conectan. Se trata de un proceso único que ofrece la capacidad de autenticar y administrar cualquier número de dispositivos Smart-X-Widget. Este proceso es único porque hay una relación de uno a muchos entre el certificado de entidad y los dispositivos y, además, constituye una de las principales ventajas derivadas del uso del método de autenticación con entidad de certificación C.509. La alternativa es cargar huellas digitales de certificado individuales para cada dispositivo Smart-X-Widget, lo que se agrega como suplemento a los costos operativos.
+Company-X debe registrar la entidad de certificación X.509 en IoT Hub donde servirá para autenticar Smart-X-Widgets a medida que se conectan. Se trata de un proceso único que ofrece la capacidad de autenticar y administrar cualquier número de dispositivos Smart-X-Widget. Se trata de un proceso único debido a una relación de uno a varios entre el certificado de la entidad de certificación y los certificados de dispositivo firmados por el certificado de entidad de certificación o un certificado intermedio. Esta relación constituye una de las principales ventajas de usar el método de autenticación de la entidad de certificación X.509. La alternativa es cargar huellas digitales de certificado individuales para cada dispositivo Smart-X-Widget, lo que se agrega como suplemento a los costos operativos.
 
 El registro del certificado de entidad de certificación X.509 es un proceso de dos pasos, que comprende la carga del certificado y la prueba de posesión del certificado.
 

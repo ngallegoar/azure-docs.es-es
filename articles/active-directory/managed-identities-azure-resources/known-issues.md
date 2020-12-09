@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835414"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460920"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -85,6 +85,46 @@ No. Las identidades administradas no admiten actualmente escenarios entre direct
 - Identidad administrada asignada por el sistema: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Esta acción se incluye en los roles integrados específicos del recurso como, por ejemplo, [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Identidad administrada asignada por el usuario: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Además de la asignación de roles [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sobre la identidad administrada.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>¿Cómo evito la creación de identidades administradas asignadas por el usuario?
+
+Puede impedir que los usuarios creen identidades administradas asignadas por el usuario mediante [Azure Policy](../../governance/policy/overview.md)
+
+- Navegue hasta [Azure Portal](https://portal.azure.com) y vaya a **Directiva**.
+- Elija **Definiciones**.
+- Seleccione **+ Definición de directiva** y escriba la información necesaria.
+- En la sección de regla de la directiva, pegue
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+Después de crear la directiva, asígnela al grupo de recursos que quiere usar.
+
+- Navegue a los grupos de recursos.
+- Busque el grupo de recursos que usa para las pruebas.
+- Elija **Directivas** en el menú izquierdo.
+- Seleccione **Asignar directiva**.
+- En la sección **Datos básicos**, proporcione:
+    - **Ámbito**: el grupo de recursos que se usa para las pruebas.
+    - **Definición de directiva**: La directiva que creamos anteriormente.
+- Deje todas las demás opciones con sus valores predeterminados y elija **Revisar y crear**.
+
+En este punto, se producirá un error al intentar crear una identidad administrada asignada por el usuario en el grupo de recursos.
+
+  ![Infracción de la directiva](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>Problemas conocidos
 

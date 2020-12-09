@@ -10,19 +10,19 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, devx-track-csharp
-ms.openlocfilehash: 637078cf67a2880e452ff02be63f3908bd601158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.openlocfilehash: c7377ea82ed4e36daeb2347fa3e9b1931acdbfa9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016298"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462836"
 ---
-# <a name="connection-strings-for-synapse-sql-pool"></a>Cadenas de conexión para el grupo de SQL de Synapse
+# <a name="connection-strings-for-sql-pools-in-azure-synapse"></a>Cadenas de conexión para grupos de SQL en Azure Synapse
 
-Puede conectarse al grupo de SQL con varios protocolos de aplicación diferentes, como [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo.  También puede usar el Portal de Azure para crear la cadena de conexión.  
+Puede conectarse a un grupo de SQL en Azure Synapse con varios protocolos de aplicación diferentes, como [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo.  También puede usar el Portal de Azure para crear la cadena de conexión.  
 
-Para generar la cadena de conexión mediante Azure Portal, vaya a la hoja de la base de datos en *Aspectos básicos* y haga clic en *Mostrar cadenas de conexión de base de datos*.
+Para generar la cadena de conexión mediante Azure Portal, vaya a la hoja del grupo de SQL en *Aspectos básicos* y haga clic en *Mostrar cadenas de conexión de base de datos*.
 
 ## <a name="sample-adonet-connection-string"></a>Cadena de conexión ADO.NET de ejemplo
 

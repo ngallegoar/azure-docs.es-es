@@ -1,26 +1,23 @@
 ---
-title: Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
+title: Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 description: Aprenda a habilitar Synapse Link para las cuentas de Azure Cosmos DB, crear un contenedor con el almacén analítico habilitado, conectar la base de datos de Azure Cosmos a un área de trabajo de Synapse y ejecutar consultas.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a487d984fe4b8f5d6313e181863872c4ea150059
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 32b64cd0d83c51a77b7bc58bde80e00e1980c233
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334546"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463317"
 ---
-# <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
+# <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link para Azure Cosmos DB](synapse-link.md) es una funcionalidad de procesamiento analítico y transaccional híbrido (HTAP) nativo de nube que permite ejecutar análisis casi en tiempo real de datos operativos en Azure Cosmos DB. Synapse Link crea una integración perfecta y sin contratiempos entre Azure Cosmos DB y Azure Synapse Analytics.
-
-> [!IMPORTANT]
-> Para usar Azure Synapse Link, asegúrese de que está aprovisionando su cuenta de Azure Cosmos DB y el área de trabajo de Azure Synapse Analytics en alguna de las regiones compatibles. Azure Synapse Link actualmente está disponible en las siguientes regiones de Azure: Centro-oeste de EE. UU., Este de EE. UU., Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Centro-sur de EE. UU., Sudeste de Asia, Este de Australia, Este de EE. UU. 2, Sur de Reino Unido.
 
 Azure Synapse Link está disponible para contenedores de API de SQL de Azure Cosmos DB para colecciones de Mongo DB. Siga estos pasos para ejecutar consultas analíticas con Azure Synapse Link para Azure Cosmos DB:
 
@@ -28,8 +25,8 @@ Azure Synapse Link está disponible para contenedores de API de SQL de Azure Cos
 * [Creación de un contenedor de Azure Cosmos DB habilitado para el almacén analítico](#create-analytical-ttl)
 * [Conexión de la base de datos de Azure Cosmos DB a un área de trabajo de Synapse](#connect-to-cosmos-database)
 * [Consulta del almacén analítico mediante Spark en Synapse](#query-analytical-store-spark)
-* [Consulta del almacén analítico mediante Synapse SQL sin servidor](#query-analytical-store-sql-on-demand)
-* [Uso de Synapse SQL sin servidor para analizar datos en Power BI y visualizarlos](#analyze-with-powerbi)
+* [Consulta del almacén analítico mediante un grupo de SQL sin servidor](#query-analytical-store-sql-on-demand)
+* [Uso de un grupo de SQL sin servidor para analizar datos en Power BI y visualizarlos](#analyze-with-powerbi)
 
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-db-accounts"></a><a id="enable-synapse-link"></a>Habilitación de Azure Synapse Link para cuentas de Azure Cosmos DB
 
@@ -43,7 +40,7 @@ Azure Synapse Link está disponible para contenedores de API de SQL de Azure Cos
 
 1. Seleccione **Synapse Link** en la lista de características.
 
-   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Búsqueda de la característica en vista previa Synapse Link":::
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Búsqueda de la característica Synapse Link":::
 
 1. A continuación, se le pedirá que habilite Synapse Link en su cuenta. Seleccione **Habilitar**. Este proceso puede tardar de 1 a 5 minutos en completarse.
 
@@ -63,7 +60,7 @@ Puede activar el almacén analítico en un contenedor de Azure Cosmos durante su
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [explorador de Azure Cosmos](https://cosmos.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/).
 
 1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos**.
 
@@ -75,7 +72,7 @@ Puede activar el almacén analítico en un contenedor de Azure Cosmos durante su
 
 1. Seleccione **Aceptar** para crear un contenedor de Azure Cosmos habilitado para el almacén analítico.
 
-1. Una vez creado el contenedor, compruebe que se ha habilitado el almacén analítico; para ello, haga clic en **Configuración** , justo debajo de Documentos en Data Explorer y compruebe si está activada la opción **Período de vida del almacén analítico**.
+1. Una vez creado el contenedor, compruebe que se ha habilitado el almacén analítico; para ello, haga clic en **Configuración**, justo debajo de Documentos en Data Explorer y compruebe si está activada la opción **Período de vida del almacén analítico**.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -171,14 +168,14 @@ Después de habilitar el almacén analítico con un valor de TTL determinado, pu
 
 Si creó un contenedor habilitado para el almacén analítico mediante Azure Portal, dicho contenedor contiene un TTL analítico predeterminado de -1. Siga estos pasos para actualizar dicho valor:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [explorador de Azure Cosmos](https://cosmos.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/).
 
 1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos**.
 
 1. Seleccione un contenedor existente que tenga habilitado el almacén analítico. Expanda el contenedor y modifique los valores siguientes:
 
   * Abra la ventana **Escala y configuración**.
-  * En **Configuración** , busque **Período de vida de almacenamiento analítico**.
+  * En **Configuración**, busque **Período de vida de almacenamiento analítico**.
   * Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida
   * Haga clic en **Guardar** para guardar los cambios.
 
@@ -218,11 +215,11 @@ Siga las instrucciones que se indican en el artículo [Consulta al almacén anal
 
 ## <a name="query-the-analytical-store-using-serverless-sql-pool-in-azure-synapse-analytics"></a><a id="query-analytical-store-sql-on-demand"></a> Consultar el almacén analítico mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
-El grupo de SQL sin servidor permite consultar y analizar los datos de los contenedores de Azure Cosmos DB que están habilitados con Azure Synapse Link. Se pueden analizar los datos casi en tiempo real sin que afecte al rendimiento de las cargas de trabajo transaccionales. Ofrece una sintaxis T-SQL familiar para consultar los datos del almacén analítico y la conectividad integrada en una amplia gama de herramientas de consulta ad hoc y de BI a través de la interfaz de T-SQL. Para obtener más información, vea el artículo [Consulta del almacén analítico mediante Synapse SQL sin servidor](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
+El grupo de SQL sin servidor permite consultar y analizar los datos de los contenedores de Azure Cosmos DB que están habilitados con Azure Synapse Link. Se pueden analizar los datos casi en tiempo real sin que afecte al rendimiento de las cargas de trabajo transaccionales. Ofrece una sintaxis T-SQL familiar para consultar los datos del almacén analítico y la conectividad integrada en una amplia gama de herramientas de consulta ad hoc y de BI a través de la interfaz de T-SQL. Para obtener más información, vea el artículo [Consulta del almacén analítico mediante un grupo de SQL sin servidor](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
 
-## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Uso de Synapse SQL sin servidor para analizar datos en Power BI y visualizarlos
+## <a name="use-serverless-sql-pool-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Uso de un grupo de SQL sin servidor para analizar datos en Power BI y visualizarlos
 
-Se puede compilar una base de datos de Synapse SQL sin servidor y vistas a través de Synapse Link para Azure Cosmos DB. Posteriormente se pueden consultar los contenedores de Azure Cosmos y, después, compilar un modelo con Power BI sobre esas vistas para reflejar la consulta. Para obtener más información, vea el artículo sobre cómo usar [Synapse SQL sin servidor para analizar los datos de Azure Cosmos DB con Synapse Link](synapse-link-power-bi.md).
+Se puede compilar una base de datos de grupo de SQL sin servidor y vistas a través de Synapse Link para Azure Cosmos DB. Posteriormente se pueden consultar los contenedores de Azure Cosmos y, después, compilar un modelo con Power BI sobre esas vistas para reflejar la consulta. Para obtener más información, vea el artículo sobre cómo usar un [grupo de SQL sin servidor para analizar los datos de Azure Cosmos DB con Synapse Link](synapse-link-power-bi.md).
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 
@@ -244,4 +241,4 @@ Para obtener más información, consulte la siguiente documentación:
 
 * [Apache Spark en Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [Compatibilidad del entorno de ejecución sin servidor de SQL con Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Compatibilidad del entorno de ejecución del grupo de SQL sin servidor con Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

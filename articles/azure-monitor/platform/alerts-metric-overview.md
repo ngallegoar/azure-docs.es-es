@@ -4,12 +4,12 @@ description: Obtenga información general acerca de lo que puede hacer con las a
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 066ffff5979e658a7c06fe10bd668a9fac839a14
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342185"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460833"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -57,7 +57,7 @@ Desde el momento en que se crea la regla de alerta, el monitor se ejecuta cada m
 
 ### <a name="view-and-resolution-of-fired-alerts"></a>Visualización y resolución de alertas desencadenadas
 
-Los ejemplos anteriores de activación de regla de alerta también se pueden ver en Azure Portal, en la hoja **Todas las alertas** .
+Los ejemplos anteriores de activación de regla de alerta también se pueden ver en Azure Portal, en la hoja **Todas las alertas**.
 
 Digamos que el uso en "myVM" continúa estando por encima del umbral en las comprobaciones posteriores; por lo tanto, la regla de alerta no volverá a activarse hasta que se resuelvan las condiciones.
 
@@ -122,7 +122,7 @@ El aumento de los períodos de retroceso y del número de infracciones también 
 
 > [!NOTE]
 >
-> Se recomienda elegir una *Granularidad de agregación (período)* mayor que la *Frecuencia de evaluación* , con el fin de reducir la probabilidad de que falte la primera evaluación de las series temporales agregadas en los casos siguientes:
+> Se recomienda elegir una *Granularidad de agregación (período)* mayor que la *Frecuencia de evaluación*, con el fin de reducir la probabilidad de que falte la primera evaluación de las series temporales agregadas en los casos siguientes:
 > - Regla de alertas de métricas que supervisa varias dimensiones: Cuando se agrega una nueva combinación de valores de dimensión.
 > - Regla de alertas de métricas que supervisa varios recursos: Cuando se agrega un nuevo recurso al ámbito.
 > - Regla de alertas de métricas que supervisa una métrica que no se emite de manera continua (métrica dispersa): Cuando la métrica se emite después de un período de más de 24 horas en el que no se emitió.
@@ -176,6 +176,7 @@ En este [artículo](./alerts-metric-near-real-time.md#metrics-and-dimensions-sup
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Aprenda a crear, ver y administrar las alertas de métricas en Azure](alerts-metric.md)
+- [Aprenda a crear alertas en el Explorador de métricas de Azure Monitor](./metrics-charts.md#create-alert-rules)
 - [Aprenda a implementar alertas de métricas con plantillas de Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Obtenga más información sobre los grupos de acciones](action-groups.md)
 - [Más información sobre el tipo de condición de umbrales dinámicos](alerts-dynamic-thresholds.md)

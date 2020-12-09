@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000834"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461215"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia diferencial desde una base de datos con una tabla de control
 
@@ -140,7 +140,7 @@ La plantilla define los parámetros siguientes:
 
     Verá que solo se copiaron en el destino las filas nuevas.
 
-15. (Opcional): Si selecciona Azure Synapse Analytics (antes, SQL DW) como destino de datos, también debe proporcionar una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere PolyBase en Azure Synapse Analytics (anteriormente, SQL Data Warehouse). La plantilla generará una ruta de acceso del contenedor automáticamente. Después de la ejecución de la canalización, compruebe si el contenedor se ha creado en Blob Storage.
+15. (Opcional): Si selecciona Azure Synapse Analytics como destino de datos, también debe proporcionar una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere Polybase de Azure Synapse Analytics. La plantilla generará una ruta de acceso del contenedor automáticamente. Después de la ejecución de la canalización, compruebe si el contenedor se ha creado en Blob Storage.
     
     ![Configuración de PolyBase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

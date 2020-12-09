@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672076"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462097"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -44,7 +44,7 @@ La clasificación y detección de datos presenta un conjunto de servicios avanza
 
 - **Confidencialidad del conjunto de resultados de consulta:** la confidencialidad del conjunto de resultados de consulta se calcula en tiempo real con fines de auditoría.
 
-- **Visibilidad** : puede ver el estado de clasificación de la base de datos en un panel detallado en Azure Portal. Además, puede descargar un informe en formato Excel para usarlo con fines de auditoría y cumplimiento de normas, así como para otras necesidades.
+- **Visibilidad**: puede ver el estado de clasificación de la base de datos en un panel detallado en Azure Portal. Además, puede descargar un informe en formato Excel para usarlo con fines de auditoría y cumplimiento de normas, así como para otras necesidades.
 
 ## <a name="discover-classify-and-label-sensitive-columns"></a><a id="discover-classify-columns"></a>Detección, clasificación y etiquetado de columnas confidenciales
 
@@ -55,8 +55,8 @@ En esta sección se describen los pasos para:
 
 La clasificación incluye dos atributos de metadatos:
 
-- **Etiquetas** : los atributos principales de clasificación, que se usan para definir el nivel de confidencialidad de los datos almacenados en la columna.  
-- **Tipos de información** : atributos que proporcionan información más detallada sobre el tipo de datos almacenados en la columna.
+- **Etiquetas**: los atributos principales de clasificación, que se usan para definir el nivel de confidencialidad de los datos almacenados en la columna.  
+- **Tipos de información**: atributos que proporcionan información más detallada sobre el tipo de datos almacenados en la columna.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Definir y personalizar la taxonomía de clasificación
 
@@ -77,11 +77,13 @@ Una vez definida la directiva de toda la organización, puede continuar con la c
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
-1. Vaya a **Clasificación y detección de datos** en el encabezado Seguridad del panel de Azure SQL Database. La pestaña Información general incluye un resumen del estado de clasificación actual de la base de datos. El resumen incluye una lista detallada de todas las columnas clasificadas, que también se pueden filtrar para mostrar solo partes específicas de esquema, tipos de información y etiquetas. Si aún no ha clasificado ninguna columna, [vaya al paso 4](#step-4).
+1. Vaya a **Clasificación y detección de datos** en el encabezado **Seguridad** del panel de Azure SQL Database. La pestaña Información general incluye un resumen del estado de clasificación actual de la base de datos. El resumen incluye una lista detallada de todas las columnas clasificadas, que también se pueden filtrar para mostrar solo partes específicas de esquema, tipos de información y etiquetas. Si aún no ha clasificado ninguna columna, [vaya al paso 4](#step-4).
+
+    ![Información general](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Para descargar un informe en formato de Excel, seleccione **Exportar** en el menú superior del panel.
 
-1. <a id="step-4"></a>Para empezar a clasificar los datos, seleccione la pestaña **Clasificación** en la página **Clasificación y detección de datos** .
+1. <a id="step-4"></a>Para empezar a clasificar los datos, seleccione la pestaña **Clasificación** en la página **Clasificación y detección de datos**.
 
     El motor de clasificación examina la base de datos en busca de columnas que contengan datos potencialmente confidenciales y proporciona una lista de clasificaciones de columna recomendadas.
 
@@ -91,7 +93,9 @@ Una vez definida la directiva de toda la organización, puede continuar con la c
 
    - Para aceptar una recomendación para una columna específica, seleccione la casilla en la columna izquierda de la fila correspondiente. Para marcar todas las recomendaciones como aceptadas, seleccione la casilla más a la izquierda del encabezado de la tabla de recomendaciones.
 
-   - Para aplicar las recomendaciones seleccionadas, seleccione **Aceptar las recomendaciones seleccionadas** .
+   - Para aplicar las recomendaciones seleccionadas, seleccione **Aceptar las recomendaciones seleccionadas**.
+
+   ![Recomendaciones para la clasificación](./media/data-discovery-and-classification-overview/recommendation.png)
 
 1. También puede clasificar las columnas manualmente, como alternativa a la clasificación basada en recomendaciones, o además de ella:
 
@@ -101,7 +105,10 @@ Una vez definida la directiva de toda la organización, puede continuar con la c
 
    1. Seleccione **Agregar clasificación** en la parte inferior de la ventana contextual.
 
-1. Para completar la clasificación y etiquetar de forma persistente las columnas de la base de datos con los nuevos metadatos de clasificación, seleccione **Guardar** en el menú superior de la ventana.
+   ![Agregue clasificación de forma manual](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Para completar la clasificación y etiquetar de forma persistente las columnas de la base de datos con los nuevos metadatos de clasificación, seleccione **Guardar** en la página **Clasificación**.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoría del acceso a datos confidenciales
 

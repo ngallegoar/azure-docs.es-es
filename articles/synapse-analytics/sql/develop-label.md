@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0b2c03c5c7ea8c65cb1cde3cbdb73b6bb838dc06
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 59fa68d12f1d8be598810399fc5623c2af983979
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324456"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462249"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Uso de etiquetas de consulta en SQL de Synapse
 
 En este artículo se incluyen sugerencias esenciales para el uso de etiquetas de consulta en SQL de Synapse.
 
 > [!NOTE]
-> Un grupo de SQL sin servidor (versión preliminar) no admite el etiquetado de consultas.
+> Un grupo de SQL sin servidor no admite el etiquetado de consultas.
 
 ## <a name="what-are-query-labels"></a>¿Qué son las etiquetas de consulta?
 

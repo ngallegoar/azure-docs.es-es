@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001684"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462215"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Asistente para copia de Azure Data Factory
 
@@ -48,7 +48,7 @@ Puede obtener una vista previa de la parte de los datos del origen de datos sele
 En algunos casos, es posible que el esquema de datos de entrada no coincida con el esquema de datos de salida. En este escenario, es preciso asignar columnas del esquema de origen a columnas del esquema de destino.
 
 > [!TIP]
-> Al copiar datos desde SQL Server o Azure SQL Database en Azure Synapse Analytics (anteriormente SQL Data Warehouse), si la tabla no se encuentra en el almacén de destino, Data Factory podrá crear la tabla automáticamente mediante el esquema del origen. Obtenga más información en [Movimiento de datos hacia y desde Azure Synapse Analytics mediante Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Al copiar datos desde SQL Server o Azure SQL Database en Azure Synapse Analytics, si la tabla no se encuentra en el almacén de destino, Data Factory podrá crear la tabla automáticamente mediante el esquema del origen. Obtenga más información en [Movimiento de datos hacia y desde Azure Synapse Analytics mediante Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 
 Use una lista desplegable para seleccionar una columna del esquema de origen para asignar a una columna en el esquema de destino. El Asistente para copia intenta entender el patrón para la asignación de columnas. Se aplica el mismo patrón para el resto de las columnas, por lo que no debe seleccionar cada una de las columnas individualmente para completar la asignación de esquema. Si lo prefiere, puede invalidar estas asignaciones mediante el uso de las listas desplegables para asignar las columnas una por una. El patrón se vuelve más preciso a medida que asigna más columnas. El Asistente para copia actualiza el patrón constantemente y, en última instancia, alcanza el patrón correcto para la asignación de columnas que desea conseguir.     
 
@@ -94,7 +94,7 @@ Una operación de copia única permite el movimiento de datos desde un origen a 
 En esta sección se exploran métodos comunes de solución de problemas del Asistente para copia en Azure Data Factory.
 
 > [!NOTE] 
-> Estas sugerencias para la solución de problemas se aplican al Asistente para copia de la versión 1 de Data Factory. Para Data Factory v2, consulte la guía de solución de problemas en [Solución de problemas con la experiencia de usuario de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide).
+> Estas sugerencias para la solución de problemas se aplican al Asistente para copia de la versión 1 de Data Factory. Para Data Factory v2, consulte la guía de solución de problemas en [Solución de problemas con la experiencia de usuario de Azure Data Factory](../data-factory-ux-troubleshoot-guide.md).
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Código de error: No se puede validar en el Asistente para copia
 

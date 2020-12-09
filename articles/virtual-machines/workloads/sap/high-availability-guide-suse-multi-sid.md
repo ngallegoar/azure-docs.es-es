@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2ce57911434aa0fdf1a5e624090633e75d98a5ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965245"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484250"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID
 
@@ -94,7 +94,7 @@ Se debe ajustar el tamaño de las máquinas virtuales que participan en el clús
 
 Para lograr alta disponibilidad, SAP NetWeaver requiere recursos compartidos NFS disponibles. En este ejemplo se supone que los recursos compartidos NFS de SAP se hospedan en un [servidor de archivos NFS](./high-availability-guide-suse-nfs.md) de alta disponibilidad, que puede usarse en varios sistemas SAP. O bien, los recursos compartidos se implementan en [volúmenes de NFS de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-![Información general sobre la alta disponibilidad de SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![El clúster de Pacemaker muestra información detallada sobre dos clústeres de varios SID, msidcl1 y msidcl2.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
 > La compatibilidad con la agrupación en clústeres de varios SID de SAP ASCS/ERS con SUSE Linux como sistema operativo invitado en las máquinas virtuales de Azure se limita a **cinco** SIDs de SAP en un mismo clúster. Cada nuevo SID aumenta la complejidad. No **se admite** una combinación de SAP Enqueue Replication Server 1 y SAP Enqueue Replication Server 2 en el mismo clúster. La agrupación en clústeres de varios SID describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker. Actualmente, la agrupación en clústeres de varios SID solo se admite para ASCS/ERS.  
@@ -147,7 +147,7 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
   * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 
 > [!IMPORTANT]
-> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC en escenarios de equilibrio de carga. Para ver detalles, consulte [Limitaciones de Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
+> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC en escenarios de equilibrio de carga. Para ver detalles, consulte [Limitaciones de Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
 
 > [!Note]
 > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

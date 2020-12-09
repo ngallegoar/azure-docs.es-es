@@ -5,24 +5,24 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399438"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490115"
 ---
 # <a name="what-are-security-partner-providers"></a>¿Qué son los proveedores de seguridad asociados?
 
-Los *proveedores de seguridad asociados* de Azure Firewall Manager permiten usar las mejores ofertas de seguridad como servicio (SECaaS) de terceros que ya conoce para proteger el acceso a internet para los usuarios.
+*Los proveedores de seguridad asociados* en Azure Firewall Manager permiten usar las mejores ofertas de seguridad como servicio (SECaaS) de terceros que ya conoce para proteger el acceso a internet para los usuarios.
 
 Con una configuración rápida, puede proteger un centro de conectividad con un asociado de seguridad compatible, así como enrutar y filtrar el tráfico de Internet de sus redes virtuales (VNet) o ubicaciones de rama en una región. Esto se hace mediante la administración de rutas automatizada, sin configurar ni administrar rutas definidas por el usuario (UDR).
 
 Puede implementar centros de conectividad protegidos configurados con el asociado de seguridad que prefiera en varias regiones de Azure para obtener conectividad y seguridad para los usuarios en cualquier lugar del mundo en dichas regiones. Con la capacidad de usar la oferta del asociado de seguridad para el tráfico de la aplicación de Internet/SaaS y Azure Firewall para el tráfico privado en los centros de conectividad de protegidos, ahora puede empezar a crear el perímetro de seguridad en Azure próximo a las aplicaciones y los usuarios distribuidos globalmente.
 
-Los asociados de seguridad admitidos son **ZScaler**, **Check Point** (versión preliminar) e **iboss** (versión preliminar).
+Los asociados de seguridad admitidos son **Zscaler**, **[Check Point](check-point-overview.md)** y **iboss**.
 
 ![Proveedores de seguridad asociados](media/trusted-security-partners/trusted-security-partners.png)
 

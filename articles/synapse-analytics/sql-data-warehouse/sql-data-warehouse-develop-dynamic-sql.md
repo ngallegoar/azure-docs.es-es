@@ -1,30 +1,30 @@
 ---
 title: Uso de SQL dinámico
-description: Sugerencias para las soluciones de desarrollo que usan SQL dinámico en el grupo de SQL de Synapse.
+description: Sugerencias para soluciones de desarrollo que usan SQL dinámico para grupos de SQL dedicados en Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bce79b8e18b3ec6f1fd139af280086281bbdda98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 52bc7bdc63f754d52bf4a69097c1dd309a6dc3ec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213472"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462784"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>SQL dinámico en el grupo de SQL de Synapse
+# <a name="dynamic-sql-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>SQL dinámico para grupos de SQL dedicados en Azure Synapse Analytics
 
-En este artículo se incluyen sugerencias para las soluciones de desarrollo que usan SQL dinámico en el grupo de SQL.
+En este artículo se incluyen sugerencias para las soluciones de desarrollo que usan SQL dinámico en el grupo de SQL dedicado.
 
 ## <a name="dynamic-sql-example"></a>Ejemplo de SQL dinámico
 
-Al desarrollar código de aplicación para el grupo de SQL, puede que necesite usar SQL dinámico con el fin de proporcionar soluciones flexibles, genéricas y modulares. En este momento, el grupo de SQL no admite tipos de datos de blob.
+Al desarrollar código de aplicación para los grupos de SQL dedicados, puede que necesite usar SQL dinámico con el fin de proporcionar soluciones flexibles, genéricas y modulares. En este momento, los grupos de SQL dedicados no admiten tipos de datos de blob.
 
 El hecho de no admitir tipos de datos blob podría limitar el tamaño de las cadenas, ya que los tipos de datos blob incluyen los tipos varchar(max) y nvarchar(max).
 

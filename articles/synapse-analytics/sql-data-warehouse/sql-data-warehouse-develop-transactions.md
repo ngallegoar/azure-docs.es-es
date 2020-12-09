@@ -1,5 +1,5 @@
 ---
-title: Uso de transacciones en el grupo de SQL de Synapse
+title: Uso de transacciones en un grupo de SQL de Azure Synapse Analytics
 description: En este artículo se incluyen sugerencias para implementar transacciones y desarrollar soluciones en el grupo de SQL de Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a3c0863bb35f0988d7928bb9a2857f6aceded6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213387"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463206"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>Uso de transacciones en el grupo de SQL de Synapse
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Uso de transacciones en un grupo de SQL en Azure Synapse 
 
-En este artículo se incluyen sugerencias para implementar transacciones y desarrollar soluciones en el grupo de SQL.
+En este artículo se incluyen sugerencias para implementar transacciones y desarrollar soluciones en un grupo de SQL.
 
 ## <a name="what-to-expect"></a>Qué esperar
 
@@ -27,7 +28,7 @@ Como cabría esperar, el grupo de SQL admite transacciones como parte de la carg
 
 ## <a name="transaction-isolation-levels"></a>Niveles de aislamiento de transacciones
 
-El grupo de SQL implementa transacciones ACID. El nivel de aislamiento de la compatibilidad transaccional se establece de forma predeterminada en READ UNCOMMITTED.  Para cambiarlo a READ COMMITTED SNAPSHOT ISOLATION, active la opción de base de datos READ_COMMITTED_SNAPSHOT de una base de datos de usuario cuando se conecte a la base de datos maestra.  
+El grupo de SQL implementa transacciones ACID. El nivel de aislamiento de la compatibilidad transaccional se establece de forma predeterminada en READ UNCOMMITTED.  Para cambiarlo a READ COMMITTED SNAPSHOT ISOLATION, active la opción de base de datos READ_COMMITTED_SNAPSHOT de un grupo de SQL de usuario cuando se conecte a la base de datos maestra.  
 
 Una vez habilitada, todas las transacciones de esta base de datos se ejecutan en READ COMMITTED SNAPSHOT ISOLATION y no se respeta la opción de configuración READ UNCOMMITTED en el nivel de sesión. Consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obtener más información.
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 225afcbafeaf7213b4f040a07d709d33e46b44f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 364d9c20c0bfce1f31103ddf6df0c8d7b228eca2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996294"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461774"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MySQL
 
@@ -112,7 +112,7 @@ Para Azure Database for MySQL, la característica de las reglas de red virtual t
 
 - Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásica][arm-deployment-model-568f].
 
-- Al activar los puntos de conexión de servicio de red virtual en Azure Database for MySQL con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+- Al activar los puntos de conexión de servicio de red virtual en Azure Database for MySQL con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure Synapse Analytics.
 
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 

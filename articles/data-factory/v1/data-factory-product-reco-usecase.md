@@ -3,8 +3,8 @@ title: 'Caso de uso de Factoría de datos: recomendaciones del producto'
 description: Obtenga información acerca de un caso de uso que se implementan mediante Azure Data Factory junto con otros servicios.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3d9d41e80f78af7087c80592d927c193e494eab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc1e0398f98dc72d57039530dce9751af012f154
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442401"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495300"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso: recomendaciones de productos
 Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Azure Data Factory y otros servicios del componente Cortana Intelligence.
@@ -41,7 +41,7 @@ Por último, los distribuidores necesitan medir la eficacia de su enfoque median
 ## <a name="solution-overview"></a>Información general de la solución
 Este caso práctico de ejemplo fue resuelto e implementado por usuarios reales de Azure Data Factory y otros servicios del componente Cortana Intelligence, como [HDInsight](https://azure.microsoft.com/services/hdinsight/) y [Power BI](https://powerbi.microsoft.com/).
 
-El distribuidor en línea usa un almacén de blobs de Azure, un servidor local de SQL Server, Azure SQL Database y un data mart relacional como opciones de almacenamiento de datos a lo largo del flujo de trabajo.  El almacén de blobs contiene información del cliente, los datos de comportamiento de cliente y los datos de información de los productos. Los datos de información de los productos incluyen información de la marca de producto y un catálogo de productos almacenado localmente en Azure Synapse Analytics (anteriormente SQL Data Warehouse). 
+El distribuidor en línea usa un almacén de blobs de Azure, un servidor local de SQL Server, Azure SQL Database y un data mart relacional como opciones de almacenamiento de datos a lo largo del flujo de trabajo.  El almacén de blobs contiene información del cliente, los datos de comportamiento de cliente y los datos de información de los productos. Los datos de información de los productos incluyen información de la marca de producto y un catálogo de productos almacenado localmente en una instancia de Azure Synapse Analytics. 
 
 Todos los datos se combinan e introducen en un sistema de recomendación de productos para ofrecer recomendaciones personalizadas según los intereses y las acciones del cliente, mientras el usuario examina los productos en el catálogo del sitio web del distribuidor. Los clientes también ven productos que puedan estar relacionados con el producto que miran de acuerdo con los patrones de uso general del sitio web que no están relacionados con ningún otro usuario.
 

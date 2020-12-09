@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fa6e19fd9759d6e489d0945b5521a2e0ae3881e0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001763"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462641"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -31,7 +31,7 @@ ms.locfileid: "96001763"
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos hacia Azure Blob Storage y desde este servicio. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
 ## <a name="overview"></a>Información general
-Puede copiar datos de cualquier almacén de datos de origen compatible a Azure Blob Storage o de Azure Blob Storage a cualquier almacén de datos del receptor compatible. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes o receptores de la actividad de copia. Por ejemplo, puede trasladar datos **de** una base de datos de SQL Server o una base de datos de Azure SQL Database **a** un almacenamiento de blobs de Azure. Y, puede copiar datos **desde** Azure Blob Storage **hacia** Azure Synapse Analytics (anteriormente, SQL Data Warehouse) o una colección de Azure Cosmos DB.
+Puede copiar datos de cualquier almacén de datos de origen compatible a Azure Blob Storage o de Azure Blob Storage a cualquier almacén de datos del receptor compatible. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes o receptores de la actividad de copia. Por ejemplo, puede trasladar datos **de** una base de datos de SQL Server o una base de datos de Azure SQL Database **a** un almacenamiento de blobs de Azure. Y, puede copiar datos **desde** Azure Blob Storage **hacia** Azure Synapse Analytics o una colección de Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438473"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461247"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformación con Azure Databricks
 
@@ -28,7 +28,7 @@ En este tutorial, creará una canalización de un extremo a otro que contenga la
 
 - **Copy Data**: duplica el conjunto de datos de origen en el almacenamiento receptor, que se monta como DBFS en el cuaderno de Azure Databricks. De esta manera, Spark puede consumirlo directamente.
 
-- **Notebook**: desencadena el cuaderno de Databricks que transforma el conjunto de datos. También agrega el conjunto de datos a una carpeta procesada o a Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+- **Notebook**: desencadena el cuaderno de Databricks que transforma el conjunto de datos. También agrega el conjunto de datos a una carpeta procesada o a Azure Synapse Analytics.
 
 Por motivos de simplicidad, la plantilla de este tutorial no crea un desencadenador programado. Puede agregar uno si es necesario.
 
@@ -56,29 +56,29 @@ Para importar un cuaderno de **Transformation** al área de trabajo de Databrick
 
    En el cuaderno importado, vaya a **command 5** (comando 5), como se muestra en el siguiente fragmento de código.
 
-   - Reemplace `<storage name>` y `<access key>` por su propia información de conexión de almacenamiento.
+   - Reemplace `<storage name>` y `<access key>` por su propia información de conexión de almacenamiento.
    - Use la cuenta de almacenamiento con el contenedor `sinkdata`.
 
     ```python
-    # Supply storageName and accessKey values  
-    storageName = "<storage name>"  
-    accessKey = "<access key>"  
+    # Supply storageName and accessKey values  
+    storageName = "<storage name>"  
+    accessKey = "<access key>"  
 
-    try:  
-      dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+    try:  
+      dbutils.fs.mount(  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
-    except Exception as e:  
-      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
+    except Exception as e:  
+      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
 
-    import re
-    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
-    if result:
-      print result[-1] \# Print only the relevant error message
-    else:  
-      print e \# Otherwise print the whole stack trace.  
+    import re
+    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
+    if result:
+      print result[-1] \# Print only the relevant error message
+    else:  
+      print e \# Otherwise print the whole stack trace.  
     ```
 
 1. Genere un **token de acceso de Databricks** para Data Factory para acceder a Databricks.

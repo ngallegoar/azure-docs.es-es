@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905334"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461838"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y la CLI de Azure: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrado de datos transparente (TDE) en una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para obtener más información sobre TDE con la integración de Azure Key Vault - compatibilidad con Traiga su propia clave (BYOK), visite [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md) (TDE con claves administradas por el cliente de Azure Key Vault).
+En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrado de datos transparente (TDE) en una instancia de Azure SQL Database o Azure Synapse Analytics. Para obtener más información sobre TDE con la integración de Azure Key Vault - compatibilidad con Traiga su propia clave (BYOK), visite [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md) (TDE con claves administradas por el cliente de Azure Key Vault).
 
 > [!NOTE] 
 > Azure SQL admite ahora el uso de una clave RSA almacenada en un HSM administrado como protector de TDE. Esta característica está en **versión preliminar pública**. HSM administrado de Azure Key Vault es un servicio en la nube totalmente administrado, de alta disponibilidad y de un solo inquilino que cumple los estándares y que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de FIPS 140-2, nivel 3. Obtenga más información sobre [HSM administrados](../../key-vault/managed-hsm/index.yml).
@@ -46,7 +46,7 @@ En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrad
 
 Para obtener instrucciones sobre la instalación del módulo Az, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Para los cmdlets concretos, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
-Para obtener información específica sobre Key Vault, consulte las [instrucciones de PowerShell de Key Vault](../../key-vault/secrets/quick-create-powershell.md) y [Uso de la eliminación temporal de Key Vault con PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Para obtener información específica sobre Key Vault, consulte las [instrucciones de PowerShell de Key Vault](../../key-vault/secrets/quick-create-powershell.md) y [Uso de la eliminación temporal de Key Vault con PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -136,7 +136,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Para instalar la versión necesaria de la CLI de Azure (2.0 o posterior) y conectarla con la suscripción a Azure, consulte [Instalación y configuración de la Interfaz de la línea de comandos de Azure 2.0 multiplataforma](/cli/azure/install-azure-cli).
 
-Para obtener información específica sobre Key Vault, consulte [Administración de Key Vault mediante la CLI 2.0](../../key-vault/general/manage-with-cli2.md) y [Uso de la eliminación temporal de Key Vault con la CLI](../../key-vault/general/soft-delete-cli.md).
+Para obtener información específica sobre Key Vault, consulte [Administración de Key Vault mediante la CLI 2.0](../../key-vault/general/manage-with-cli2.md) y [Uso de la eliminación temporal de Key Vault con la CLI](../../key-vault/general/key-vault-recovery.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Asignar una identidad de Azure AD al servidor
 

@@ -1,6 +1,6 @@
 ---
 title: Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado
-description: Recomendaciones y consideraciones que debe conocer al usar el índice de almacén de columnas agrupado ordenado para mejorar el rendimiento de las consultas.
+description: Recomendaciones y consideraciones que debe conocer al usar el índice de almacén de columnas agrupado ordenado para mejorar el rendimiento de las consultas en grupos de SQL dedicados.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841601"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460795"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado  
 
-Cuando los usuarios consultan una tabla de almacén de columnas en el grupo de Synapse SQL, el optimizador comprueba los valores mínimo y máximo almacenados en cada segmento.  Los segmentos que están fuera de los límites del predicado de la consulta no se leen del disco a la memoria.  Una consulta puede tener un rendimiento más rápido si el número de segmentos que se van a leer y su tamaño total son pequeños.   
+Cuando los usuarios consultan una tabla de almacén de columnas en el grupo de SQL dedicado, el optimizador comprueba los valores mínimo y máximo almacenados en cada segmento.  Los segmentos que están fuera de los límites del predicado de la consulta no se leen del disco a la memoria.  Una consulta puede tener un rendimiento más rápido si el número de segmentos que se van a leer y su tamaño total son pequeños.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice de almacén de columnas agrupado ordenado frente al no ordenado
 
 De forma predeterminada, para cada tabla creada sin una opción de índice, un componente interno (generador de índices) crea en ellas un índice de almacén de columnas agrupado (CCI) no ordenado.  Los datos de cada columna se comprimen en un segmento de grupo de filas de CCI independiente.  Hay metadatos en el intervalo de valores de cada segmento, por lo que los segmentos que están fuera de los límites del predicado de la consulta no se leen desde el disco durante la ejecución de la consulta.  CCI ofrece el máximo nivel de compresión de datos y reduce el tamaño de los segmentos que se van a leer para que las consultas se ejecuten más rápido. Sin embargo, dado que el generador de índices no ordena los datos antes de comprimirlos en segmentos, pueden darse segmentos con intervalos de valores superpuestos, lo que hace que las consultas lean más segmentos del disco y tarden más en finalizar.  
 
-Al crear un CCI ordenado, el motor de Synapse SQL ordena los datos existentes en memoria por las claves de orden antes de que el generador de índices los comprima en segmentos de índice.  Con los datos ordenados, se reduce la superposición de segmentos, lo que permite que las consultas tengan una eliminación de segmentos más eficaz y, por tanto, un rendimiento más rápido, ya que el número de segmentos que se leerán desde el disco es menor.  Si todos los datos se pueden ordenar en memoria de una vez, se puede evitar la superposición de segmentos.  Dado el gran tamaño de las tablas de los almacenamientos de datos, este escenario no se produce con frecuencia.  
+Al crear un CCI ordenado, el motor de grupo de SQL dedicado ordena los datos existentes en memoria por las claves de orden antes de que el generador de índices los comprima en segmentos de índice.  Con los datos ordenados, se reduce la superposición de segmentos, lo que permite que las consultas tengan una eliminación de segmentos más eficaz y, por tanto, un rendimiento más rápido, ya que el número de segmentos que se leerán desde el disco es menor.  Si todos los datos se pueden ordenar en memoria de una vez, se puede evitar la superposición de segmentos.  Dado el gran tamaño de las tablas de los almacenamientos de datos, este escenario no se produce con frecuencia.  
 
 Para comprobar los intervalos de segmentos de una columna, ejecute el comando siguiente con el nombre de la tabla y el nombre de la columna:
 
@@ -50,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> En una tabla de CCI ordenada, los nuevos datos resultantes del mismo lote de DML o de operaciones de carga de datos se organizan dentro de ese lote, no hay ninguna organización global de todos los datos de la tabla.  Los usuarios pueden RECOMPILAR el CCI ordenado para ordenar todos los datos de la tabla.  En Synapse SQL, el índice de almacén de columnas REBUILD es una operación sin conexión.  En el caso de una tabla con particiones, la RECOMPILACIÓN se realiza en una partición cada vez.  Los datos de la partición que se está recompilando estarán "sin conexión" y no estarán disponibles hasta que la RECOMPILACIÓN se complete para esa partición. 
+> En una tabla de CCI ordenada, los nuevos datos resultantes del mismo lote de DML o de operaciones de carga de datos se organizan dentro de ese lote, no hay ninguna organización global de todos los datos de la tabla.  Los usuarios pueden RECOMPILAR el CCI ordenado para ordenar todos los datos de la tabla.  En el grupo de SQL dedicado, el índice de almacén de columnas REBUILD es una operación sin conexión.  En el caso de una tabla con particiones, la RECOMPILACIÓN se realiza en una partición cada vez.  Los datos de la partición que se está recompilando estarán "sin conexión" y no estarán disponibles hasta que la RECOMPILACIÓN se complete para esa partición. 
 
 ## <a name="query-performance"></a>Rendimiento de las consultas
 

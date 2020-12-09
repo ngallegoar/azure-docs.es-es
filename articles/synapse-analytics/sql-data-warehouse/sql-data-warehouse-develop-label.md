@@ -1,32 +1,30 @@
 ---
 title: Uso de etiquetas para instrumentar consultas
-description: Sugerencias para usar etiquetas para instrumentar las consultas en el grupo de SQL de Synapse para el desarrollo de soluciones.
+description: Sugerencias para usar etiquetas para instrumentar las consultas para grupos de SQL dedicados en Azure Synapse Analytics
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 7958caf71658dcdcbf31bac84697931e9049452f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459154"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462739"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Uso de etiquetas para instrumentar consultas en el grupo de SQL de Synapse
+# <a name="using-labels-to-instrument-queries-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Uso de etiquetas para instrumentar las consultas para grupos de SQL dedicados en Azure Synapse Analytics
 
-En este artículo se incluyen sugerencias para desarrollar soluciones que usan etiquetas para instrumentar consultas en el grupo de SQL.
-
-Sugerencias para usar etiquetas para instrumentar las consultas en Azure Synapse Analytics para el desarrollo de soluciones.
+En este artículo se incluyen sugerencias para desarrollar soluciones que usan etiquetas para instrumentar consultas en grupos de SQL dedicados.
 
 ## <a name="what-are-labels"></a>¿Qué son las etiquetas?
 
-El grupo de SQL admite un concepto conocido como etiquetas de consulta. Antes de entrar en materia, vamos a ver un ejemplo:
+Un grupo de SQL dedicado admite un concepto conocido como "etiquetas de consulta". Antes de entrar en materia, vamos a ver un ejemplo:
 
 ```sql
 SELECT *

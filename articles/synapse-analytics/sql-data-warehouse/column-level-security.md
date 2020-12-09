@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es la seguridad de nivel de columna de Azure Synapse?
+title: Seguridad de nivel de columna para un grupo de SQL dedicado
 description: La seguridad de nivel de columna permite a los clientes controlar el acceso a las columnas de tablas de base de datos según el contexto de ejecución del usuario o la pertenencia a un grupo, lo cual permite simplificar el diseño y la codificación de seguridad de la aplicación, e implementar restricciones en el acceso a las columnas.
 services: synapse-analytics
 author: julieMSFT
@@ -12,19 +12,19 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259890"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462499"
 ---
 # <a name="column-level-security"></a>Seguridad de nivel de columna
 
 La seguridad de nivel de columna permite a los clientes controlar el acceso a columnas de tablas según el contexto de ejecución del usuario o su pertenencia a grupos.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) también está disponible en Azure Synapse.
+Desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) también está disponible para un grupo de SQL dedicado en Azure Synapse.
 
 La seguridad de nivel de columna simplifica el diseño y la codificación de la seguridad de la aplicación y esto le permite restringir el acceso a las columnas para proteger información confidencial. Por ejemplo, garantiza que determinados usuarios puedan acceder solo a ciertas columnas de una tabla pertenecientes a su departamento. La lógica de la restricción de acceso está ubicada en el nivel de base de datos en lugar de estar alejado de los datos en otro nivel de aplicación. La base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esta restricción hace que la seguridad resulte más sólida y confiable, ya que reduce el área expuesta del sistema de seguridad global. Además, la seguridad de nivel de columna también elimina la necesidad de introducir vistas para filtrar las columnas a fin de imponer restricciones de acceso a los usuarios.
 
@@ -85,5 +85,5 @@ SELECT * FROM Membership;
 
 Estos son algunos ejemplos de cómo se usa la seguridad de nivel de columna en la actualidad:
 
-- Una empresa de servicios financieros solo permite a los administradores de cuentas obtener acceso a los números del seguro social (SSN), números de teléfono y otra información de identificación personal (PII) del cliente.
+- Una empresa de servicios financieros solo permite a los administradores de cuentas obtener acceso a los números del seguro social (SSN), números de teléfono y otros datos personales del cliente.
 - Un profesional sanitario solo permite a los médicos y a las enfermeras acceder a los historiales médicos confidenciales mientras que impide ver estos datos a los miembros del departamento de facturación.

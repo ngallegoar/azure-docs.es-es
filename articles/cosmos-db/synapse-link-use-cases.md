@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340182"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463114"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para Azure Cosmos DB: Casos de uso del análisis casi en tiempo real
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,9 +53,9 @@ Si se basa en la arquitectura anterior, puede lograr los siguientes casos de uso
 
   Synapse Link para Azure Cosmos DB habilita escenarios de creación de informes/inteligencia empresarial enriquecidos:
 
-  * Use la integración nativa con Synapse SQL sin servidor y la expresividad completa del lenguaje T-SQL para consultar los datos operativos del almacén analítico de Azure Cosmos DB.
+  * Use la integración nativa con grupos de SQL sin servidor y la expresividad completa del lenguaje T-SQL para consultar los datos operativos del almacén analítico de Azure Cosmos DB.
 
-  * Cree modelos y publique paneles de inteligencia empresarial que se actualizan automáticamente a través de Azure Cosmos DB gracias a la compatibilidad de Synapse SQL sin servidor con las herramientas de inteligencia empresarial que ya conoce. Por ejemplo, Azure Analysis Services, Power BI Premium, etc.
+  * Cree modelos y publique paneles de inteligencia empresarial que se actualizan automáticamente a través de Azure Cosmos DB gracias a la compatibilidad de grupos de SQL sin servidor con las herramientas de inteligencia empresarial que ya conoce. Por ejemplo, Azure Analysis Services, Power BI Premium, etc.
 
 A continuación se incluyen algunas instrucciones para la integración de los datos por lotes y la transmisión de datos en Azure Cosmos DB:
 
@@ -143,4 +143,4 @@ Para obtener más información, consulte los documentos siguientes:
 
 * [Apache Spark en Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Compatibilidad del entorno de ejecución sin servidor de SQL con Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Compatibilidad del entorno de ejecución del grupo de SQL sin servidor con Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

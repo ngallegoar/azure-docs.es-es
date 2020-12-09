@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997535"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488075"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -130,9 +130,11 @@ La configuración descrita en este artículo es para el acceso a RDS a través d
 
 | Método de autenticación | Configuración de cliente compatible |
 | --------------------- | ------------------------------ |
-| Autenticación previa    | Acceso web de Escritorio remoto: Windows 7/10 con Internet Explorer o [modo IE de Edge Chromium](/deployedge/edge-ie-mode) y complemento ActiveX de RDS |
+| Autenticación previa    | Acceso web de Escritorio remoto: Windows 7/10 con Internet Explorer* o [modo IE de Edge Chromium](/deployedge/edge-ie-mode) y complemento ActiveX de RDS |
 | Autenticación previa    | Cliente web de escritorio remoto: explorador web compatible con HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v55.0 y versiones posteriores) |
 | Acceso directo | Cualquier otro sistema operativo compatible con la aplicación Escritorio remoto de Microsoft |
+
+*El modo IE de Edge Chromium es obligatorio cuando se usa el portal Aplicaciones para acceder a la aplicación de Escritorio remoto.  
 
 El flujo de autenticación previa ofrece más ventajas de seguridad que el flujo de acceso directo. Con la autenticación previa, puede utilizar características de autenticación de Azure AD como el inicio de sesión único, el acceso condicional y la verificación en dos pasos para recursos locales. También garantiza que solo el tráfico autenticado alcance la red.
 

@@ -9,15 +9,16 @@ ms.date: 11/18/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 4387aadd70ddb373df1bdfa61cbe9ed7f2af283d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bad71cfeb8f15f463bb9659be704374325d1f50a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919242"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461991"
 ---
 # <a name="azure-synapse-analytics-notebooks"></a>Cuadernos de Azure Synapse Analytics
-Un cuaderno de Synapse Studio (versión preliminar) es una interfaz web para crear archivos que contengan código activo, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. 
+
+Un cuaderno de Synapse Studio es una interfaz web para crear archivos que contengan código activo, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. 
 
 Con un cuaderno de Azure Synapse Studio, puede hacer lo siguiente:
 

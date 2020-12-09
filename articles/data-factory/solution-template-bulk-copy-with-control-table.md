@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441075"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461224"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copia masiva desde una base de datos con una tabla de control
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Para copiar datos desde un almacenamiento de datos como Oracle Server, Netezza, Teradata o SQL Server en Azure Synapse Analytics (antes Azure SQL Data Warehouse), tiene que cargar enormes cantidades de datos de varias tablas. Normalmente, los datos se tienen que dividir aún más en cada tabla para poder cargar filas con varios subprocesos en paralelo desde una única tabla. En este artículo se describe una plantilla para utilizarla en estos escenarios.
+Para copiar datos desde un almacenamiento de datos como Oracle Server, Netezza, Teradata o SQL Server en Azure Synapse Analytics, tiene que cargar enormes cantidades de datos de varias tablas. Normalmente, los datos se tienen que dividir aún más en cada tabla para poder cargar filas con varios subprocesos en paralelo desde una única tabla. En este artículo se describe una plantilla para utilizarla en estos escenarios.
 
  >Nota: Si quiere copiar datos desde un número reducido de tablas con un volumen de datos relativamente pequeño en Azure Synapse Analytics, resulta más eficaz usar la [herramienta Copiar datos de Azure Data Factory](copy-data-tool.md). La plantilla que se describe en este artículo es más de lo que necesita para esa situación.
 

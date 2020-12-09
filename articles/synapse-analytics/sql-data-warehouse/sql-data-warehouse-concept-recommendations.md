@@ -1,5 +1,5 @@
 ---
-title: Recomendaciones de SQL de Synapse
+title: Recomendaciones de Azure Advisor para el grupo de SQL dedicado
 description: Información acerca de las recomendaciones de SQL de Synapse y cómo se generan
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482860"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462858"
 ---
-# <a name="synapse-sql-recommendations"></a>Recomendaciones de SQL de Synapse
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendaciones de Azure Advisor para el grupo de SQL dedicado en Azure Synapse Analytics
 
-En este artículo se describen las recomendaciones de SQL de Synapse atendidas mediante Azure Advisor.  
+En este artículo se describen las recomendaciones de grupos de SQL dedicados disponibles en Azure Advisor.  
 
-Synapse SQL proporciona recomendaciones para garantizar que la carga de trabajo de almacenamiento de datos esté optimizada de forma coherente para el rendimiento. Las recomendaciones están totalmente integradas con [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para ofrecerle los procedimientos recomendados directamente en [Azure Portal](https://aka.ms/Azureadvisor). Synapse SQL recopila las recomendaciones de telemetría y superficies de la carga de trabajo activa diariamente. Los escenarios de recomendaciones admitidas se describen a continuación junto con instrucciones sobre cómo aplicar las acciones recomendadas.
+El grupo de SQL dedicado proporciona recomendaciones para garantizar que la carga de trabajo de almacenamiento de datos esté optimizada de forma coherente para el rendimiento. Las recomendaciones están totalmente integradas con [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para ofrecerle los procedimientos recomendados directamente en [Azure Portal](https://aka.ms/Azureadvisor). El grupo de SQL dedicado recopila las recomendaciones de telemetría y superficies de la carga de trabajo activa diariamente. Los escenarios de recomendaciones admitidas se describen a continuación junto con instrucciones sobre cómo aplicar las acciones recomendadas.
 
 [Compruebe sus recomendaciones](https://aka.ms/Azureadvisor) ya mismo. 
 
@@ -73,4 +73,4 @@ El rendimiento de las consultas puede reducirse si hay una gran contención de t
 
 ## <a name="data-loading-misconfiguration"></a>Error de configuración de la carga de datos
 
-Debe cargar siempre los datos desde una cuenta de almacenamiento que esté en la misma región que el grupo de SQL para minimizar la latencia. Use la [instrucción COPY para la ingesta de datos de alto rendimiento](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) y divida los archivos preconfigurados en la cuenta de almacenamiento para maximizar el rendimiento. Si no puede usar la instrucción COPY, puede usar la API SqlBulkCopy o bcp con un tamaño de lote alto para mejorar el rendimiento. Para obtener instrucciones adicionales sobre la carga de datos, consulte la siguiente [documentación](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 
+Debe cargar siempre los datos desde una cuenta de almacenamiento que esté en la misma región que el grupo de SQL dedicado para minimizar la latencia. Use la [instrucción COPY para la ingesta de datos de alto rendimiento](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) y divida los archivos preconfigurados en la cuenta de almacenamiento para maximizar el rendimiento. Si no puede usar la instrucción COPY, puede usar la API SqlBulkCopy o bcp con un tamaño de lote alto para mejorar el rendimiento. Para obtener instrucciones adicionales sobre la carga de datos, consulte la siguiente [documentación](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 

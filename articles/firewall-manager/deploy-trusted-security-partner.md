@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85611584"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485729"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Implementación de un proveedor de seguridad asociado
 
@@ -21,7 +21,11 @@ ms.locfileid: "85611584"
 Para más información acerca de los escenarios admitidos y las directrices de prácticas recomendadas, consulte [¿Qué son los proveedores de seguridad asociados?](trusted-security-partners.md)
 
 
-Los partners integrados de seguridad como servicio (SECaaS) de terceros ya están disponibles en todas las regiones de la nube pública de Azure. La integración de **Zscaler** estará disponible con carácter general el 3 de julio de 2020. **Check Point** es un asociado compatible de SECaaS y estará disponible en versión preliminar el 3 de julio de 2020. La integración de **iboss** estará disponible con carácter general el 31 de julio de 2020.
+Los asociados integrados de seguridad como servicio (SECaaS) de terceros ya están disponibles: 
+
+- **Zscaler**
+- **[Check Point](check-point-overview.md)**
+- **iboss**
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Implementación de un proveedor de seguridad de terceros en un nuevo centro de conectividad
 
@@ -81,15 +85,15 @@ Para configurar túneles en VPN Gateway del centro de conectividad virtual, los 
 1. Siga las instrucciones proporcionadas por el asociado para completar la instalación. Esto incluye el envío de información de AAD para detectar y conectarse al concentrador, actualizar las directivas de salida y comprobar el estado de la conectividad y los registros.
 
    - [ZScaler: Configure una integración Virtual WAN de Microsoft Azure](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point (versión preliminar): Configure una integración Virtual WAN de Microsoft Azure](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
-   - [iboss (versión preliminar): Configure una integración Virtual WAN de Microsoft Azure](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
+   - [Check Point: Configure una integración Virtual WAN de Microsoft Azure](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss: Configure una integración Virtual WAN de Microsoft Azure](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
 2. Puede ver el estado de creación del túnel en el portal de la Azure Virtual WAN en Azure. Una vez que los túneles se muestren **conectados** tanto en Azure como en el portal asociado, continúe con los siguientes pasos para configurar las rutas en la selección de las sucursales y VNets que deberán enviar el tráfico de Internet al asociado.
 
 ## <a name="configure-route-settings"></a>Configurar los parámetros de la ruta
 
 1. Examine Azure Firewall Manager -> Centros de conectividad seguros. 
-2. Seleccione un centro de conectividad. El estado del centro de conectividad debe mostrar ahora **Provisto**en lugar de **Conexión de seguridad pendiente**.
+2. Seleccione un centro de conectividad. El estado del centro de conectividad debe mostrar ahora **Provisto** en lugar de **Conexión de seguridad pendiente**.
 
    Asegúrese de que el proveedor de terceros pueda conectarse al centro de conectividad. El estado de los túneles de la puerta de enlace VPN deben ser **Conectados**. Este estado refleja mejor el estado de la conexión entre el centro de conectividad y el socio de terceros, en comparación con el estado anterior.
 3. Seleccione el centro de conectividad, y vaya a **Configuración de ruta**.

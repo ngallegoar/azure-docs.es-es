@@ -3,18 +3,18 @@ title: 'Azure Data Factory: Preguntas más frecuentes '
 description: Obtenga respuestas a las preguntas más frecuentes acerca de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2d1b9f0e25c460b7f26c31c3d2c6ebe51d958017
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635769"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485060"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 
@@ -67,7 +67,7 @@ Los usuarios también pueden usar las API REST documentadas para interactuar con
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Desarrollo y depuración iterativos mediante herramientas visuales
 Las herramientas visuales de Azure Data Factory le permiten realizar un desarrollo y depuración iterativos. Puede crear canalizaciones y realizar series de pruebas con la funcionalidad **Depurar** en el lienzo de la canalización sin escribir ni una sola línea de código. Puede ver los resultados de las series de pruebas en la ventana **Salida** del lienzo de la canalización. Después de realizar correctamente una serie de pruebas, puede agregar más actividades a la canalización y continuar con la depuración de manera iterativa. También puede cancelar las series de pruebas una vez que están en curso. 
 
-No es necesario que publique los cambios en el servicio Data Factory antes de seleccionar **Depurar** . Esto resulta útil en escenarios en los que se desea garantizar que los cambios o nuevas adiciones funcionarán según lo esperado antes de actualizar los flujos de trabajo de la factoría de datos en entornos de desarrollo, pruebas o producción. 
+No es necesario que publique los cambios en el servicio Data Factory antes de seleccionar **Depurar**. Esto resulta útil en escenarios en los que se desea garantizar que los cambios o nuevas adiciones funcionarán según lo esperado antes de actualizar los flujos de trabajo de la factoría de datos en entornos de desarrollo, pruebas o producción. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Capacidad de Implementación de paquetes SSIS en Azure 
 Si desea mover las cargas de trabajo de SSIS, puede crear una instancia de Data Factory y aprovisionar una instancia de Integration Runtime para la integración de SSIS en Azure. Un entorno de ejecución de integración de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones paso a paso, vea el tutorial [Implementación de paquetes SSIS en Azure](./tutorial-deploy-ssis-packages-azure.md). 
@@ -95,9 +95,9 @@ Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data F
 ## <a name="what-is-the-integration-runtime"></a>¿Qué es el entorno de ejecución de integración?
 El entorno de ejecución de integración es la infraestructura de proceso que Azure Data Factory usa para proporcionar las siguientes funcionalidades de integración de datos en diversos entornos de red:
 
-- **Movimiento de datos** : Para el movimiento de datos, el entorno de ejecución de integración mueve los datos entre los almacenes de origen y de destino e incluye funcionalidad de conectores integrados, conversión de formato, asignación de columnas y transferencia de datos eficaz y escalable.
-- **Distribución de actividades** : Para la transformación, permite ejecutar paquetes SSIS de forma nativa.
-- **Ejecución de paquetes SSIS** : El entorno de ejecución de integración ejecuta de forma nativa paquetes SSIS en un entorno de proceso de Azure administrado. También permite distribuir y supervisar actividades de transformación que se ejecutan en una gran variedad de servicios de proceso, como Azure HDInsight, Azure Machine Learning, Azure SQL Database y SQL Server.
+- **Movimiento de datos**: Para el movimiento de datos, el entorno de ejecución de integración mueve los datos entre los almacenes de origen y de destino e incluye funcionalidad de conectores integrados, conversión de formato, asignación de columnas y transferencia de datos eficaz y escalable.
+- **Distribución de actividades**: Para la transformación, permite ejecutar paquetes SSIS de forma nativa.
+- **Ejecución de paquetes SSIS**: El entorno de ejecución de integración ejecuta de forma nativa paquetes SSIS en un entorno de proceso de Azure administrado. También permite distribuir y supervisar actividades de transformación que se ejecutan en una gran variedad de servicios de proceso, como Azure HDInsight, Azure Machine Learning, Azure SQL Database y SQL Server.
 
 Puede implementar una o varias instancias del entorno de ejecución de integración, según sea necesario para mover y transformar los datos. El entorno de ejecución de integración se puede ejecutar en una red de Azure pública o en una red privada (local, Azure Virtual Network o en la nube privada virtual de Amazon Web Services [VPC]). 
 
@@ -190,7 +190,7 @@ Cuando Microsoft facilita ayuda o soluciona problemas con los flujos de datos, p
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>¿Cómo accedo a los datos con los otros 90 tipos de conjunto de datos en Data Factory?
 
-Actualmente, la característica de flujo de datos de asignación permite los archivos de texto delimitados de Azure SQL Database, Azure Synapse Analytics (antes SQL Data Warehouse) desde Azure Blob Storage o Azure Data Lake Storage Gen2, y los archivos Parquet desde Blob Storage o Data Lake Storage Gen2 de forma nativa para el origen y el receptor. 
+Actualmente, la característica de flujo de datos de asignación permite los archivos de texto delimitados, de Azure SQL Database y Azure Synapse Analytics desde Azure Blob Storage o Azure Data Lake Storage Gen2 y los archivos Parquet desde Blob Storage o Data Lake Storage Gen2 de forma nativa para el origen y el receptor. 
 
 Utilice la actividad de copia para almacenar provisionalmente los datos desde cualquiera de los demás conectores y, a continuación, ejecutar una actividad de Data Flow para transformar los datos después de haberlos almacenado provisionalmente. Por ejemplo, la canalización se copiará en primer lugar al almacenamiento de blobs y, a continuación, una actividad de Data Flow utilizará un conjunto de datos del origen para transformar los datos.
 

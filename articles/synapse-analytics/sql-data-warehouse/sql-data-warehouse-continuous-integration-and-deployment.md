@@ -1,6 +1,6 @@
 ---
-title: Integración e implementación continuas
-description: Experiencia de DevOps de bases de datos de clase empresarial para el almacenamiento de datos con compatibilidad integrada con integración e implementación continuas mediante Azure Pipelines.
+title: Integración e implementación continuas para el grupo de SQL dedicado
+description: Experiencia de DevOps de bases de datos de clase empresarial para el grupo de SQL dedicado en Azure Synapse Analytics con compatibilidad integrada con integración e implementación continuas mediante Azure Pipelines.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480537"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462821"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integración e implementación continuas para el almacenamiento de datos
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integración e implementación continuas para el grupo de SQL dedicado en Azure Synapse Analytics
 
 En este sencillo tutorial se describe cómo integrar un proyecto de base de datos de SQL Server Data Tools (SSDT) con Azure DevOps y aprovechar Azure Pipelines para configurar la integración e implementación continuas. Este tutorial es el segundo paso en la creación de la canalización de integración e implementación continuas para el almacenamiento de datos.
 
@@ -60,7 +60,7 @@ En este punto, tiene un entorno simple en el que cualquier inserción en la rama
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Explore la [arquitectura de grupo de Synapse SQL](massively-parallel-processing-mpp-architecture.md).
-- [Creación rápida de un grupo de SQL](create-data-warehouse-portal.md)
+- Explore [Arquitectura de un grupo de SQL dedicado (anteriormente SQL DW)](massively-parallel-processing-mpp-architecture.md).
+- Consulte rápidamente la [Creación de un grupo de SQL dedicado (anteriormente SQL DW)](create-data-warehouse-portal.md).
 - [Carga de datos de ejemplo](load-data-from-azure-blob-storage-using-polybase.md)
 - Explore [vídeos](sql-data-warehouse-videos.md).

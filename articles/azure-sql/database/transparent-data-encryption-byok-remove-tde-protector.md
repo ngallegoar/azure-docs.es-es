@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: a879ac81859c855bb7b7bc2eddb1e3c9b62adb34
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321405"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461861"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Eliminación de un protector de Cifrado de datos transparente (TDE) con PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,13 +35,13 @@ Tenga en cuenta que una vez que el protector de TDE se elimina en Key Vault, en 
 Esta guía de procedimientos explica dos enfoques dependiendo del resultado deseado después de la respuesta a un incidente comprometido:
 
 - Hacer que las bases de datos de Azure SQL Database o Azure Synapse Analytics sean **inaccesibles**.
-- Hacer que las bases de datos de Azure SQL Database o Azure Synapse Analytics (anteriormente SQL Data Warehouse) sean **inaccesibles**.
+- Hacer que las bases de datos de Azure SQL Database o Azure Synapse Analytics sean **inaccesibles**.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener una suscripción de Azure y ser un administrador en esa suscripción.
 - Es preciso tener instalado y en ejecución Azure PowerShell.
-- En esta guía de procedimientos se supone que ya utiliza una clave de Azure Key Vault como protector de TDE para una instancia de Azure SQL Database o Azure Synapse (antiguamente, SQL Data Warehouse). Para más información, consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-overview.md).
+- En esta guía de procedimientos se asume que ya utiliza una clave de Azure Key Vault como protector de TDE para Azure SQL Database o Azure Synapse. Para más información, consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-overview.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

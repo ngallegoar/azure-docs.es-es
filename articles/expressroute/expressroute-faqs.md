@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: ef5b065425fa05d016c1b1c1688cc28508f32d30
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027115"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462055"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -46,8 +46,9 @@ No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de s
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿puedo usar una cantidad superior al ancho de banda adquirido?
 
-Sí, puede usar hasta dos veces el límite de ancho de banda que haya adquirido empleando el ancho de banda disponible en la conexión secundaria del circuito ExpressRoute. La redundancia integrada del circuito se configura mediante conexiones principales y secundarias, cada una de ellas del ancho de banda adquirido, a dos enrutadores perimetrales de Microsoft Enterprise (los MSEE). El ancho de banda disponible mediante la conexión secundaria se puede usar para permitir más tráfico, en caso necesario. No obstante, dado que la conexión secundaria está pensada para la redundancia, no se garantiza y no debe usarse para permitir más tráfico durante un período de tiempo prolongado. Para más información sobre cómo usar ambas conexiones para transmitir tráfico, consulte [aquí](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
-Si planea usar solo la conexión principal para transmitir el tráfico, el ancho de banda de la conexión es fijo y al intentar saturarlo se producirá un aumento en los descartes de paquetes. Si el tráfico fluye a través de una puerta de enlace de ExpressRoute, el ancho de banda de la SKU es fijo y no ampliable.
+Sí, puede usar hasta dos veces el límite de ancho de banda que haya adquirido empleando el ancho de banda disponible en la conexión secundaria del circuito ExpressRoute. La redundancia integrada del circuito se configura mediante conexiones principales y secundarias, cada una de ellas del ancho de banda adquirido, a dos enrutadores perimetrales de Microsoft Enterprise (los MSEE). El ancho de banda disponible mediante la conexión secundaria se puede usar para permitir más tráfico, en caso necesario. No obstante, dado que la conexión secundaria está pensada para la redundancia, no se garantiza y no debe usarse para permitir más tráfico durante un período de tiempo prolongado. Para más información sobre cómo usar ambas conexiones para transmitir tráfico, consulte [Solución: anteponga AS PATH](./expressroute-optimize-routing.md#solution-use-as-path-prepending).
+
+Si planea usar solo la conexión principal para transmitir el tráfico, el ancho de banda de la conexión es fijo y al intentar saturarlo se producirá un aumento en los descartes de paquetes. Si el tráfico fluye a través de una puerta de enlace de ExpressRoute, el ancho de banda de la SKU de puerta de enlace es fijo y no ampliable. Para obtener el ancho de banda de cada SKU de puerta de enlace, consulte [Acerca de las puertas de enlace de red virtual de ExpressRoute](expressroute-about-virtual-network-gateways.md#aggthroughput).
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>¿Es posible usar la misma conexión de red privada con Red virtual y otros servicios de Azure simultáneamente?
 
