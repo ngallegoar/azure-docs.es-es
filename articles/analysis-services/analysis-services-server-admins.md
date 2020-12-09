@@ -4,21 +4,23 @@ description: En este artículo se describe cómo administrar los administradores
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c876e27165eba30b17874eca600ba81be2e9354
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019448"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351731"
 ---
 # <a name="manage-server-administrators"></a>Administración de administradores de servidor
 
 Los administradores del servidor deben ser un usuario, entidad de servicio o grupo de seguridad válido en Azure Active Directory (Azure AD) para el inquilino en el que reside el servidor. Puede usar **Administradores de Analysis Services** en el servidor de Azure Portal, Propiedades del servidor en SSMS, PowerShell o la API de REST para administrar los administradores del servidor. 
 
 Al agregar un **grupo de seguridad**, use `obj:groupid@tenantid`. Las entidades de servicio no se admiten en los grupos de seguridad que se agregan al rol de administrador del servidor.
+
+Si el firewall del servidor está habilitado, las direcciones IP del equipo cliente del administrador del servidor deben estar incluidas en una regla del firewall. Para más información, consulte [Configuración del firewall del servidor](analysis-services-qs-firewall.md).
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Incorporación de administradores de servidor mediante Azure Portal
 

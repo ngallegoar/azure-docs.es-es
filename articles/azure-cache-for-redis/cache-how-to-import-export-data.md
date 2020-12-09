@@ -6,18 +6,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: e8bb1457bbf5d610518c3bc84768186972734099
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9ee3b447b2b5f6dfa8972749c3c46ae01f79bfdc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536868"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327515"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importación y exportación de datos en Azure Cache for Redis
 Import/Export es una operación de administración de datos de Azure Cache for Redis que permite importar datos en Azure Cache for Redis o exporta datos de Azure Cache for Redis mediante la importación y exportación de una instantánea de base de datos de Azure Cache for Redis (RDB) desde una memoria caché prémium a un blob en una cuenta de Azure Storage.
 
-- **Exportar** : puede exportar las instantáneas de RDB de Azure Cache for Redis a un blob en páginas.
-- **Importar** : puede importar las instantáneas de RDB de Azure Cache for Redis desde de un blob en páginas o un blob en bloques.
+- **Exportar**: puede exportar las instantáneas de RDB de Azure Cache for Redis a un blob en páginas.
+- **Importar**: puede importar las instantáneas de RDB de Azure Cache for Redis desde de un blob en páginas o un blob en bloques.
 
 Import/Export permite migrar entre diferentes instancias de Azure Cache for Redis o rellenar la memoria caché de datos antes de su uso.
 
@@ -36,7 +36,7 @@ La importación se puede usar para traer los archivos RDB compatibles de Redis d
 >
 >
 
-1. Para importar uno o varios blobs de memoria caché exportados, [vaya a la memoria caché](cache-configure.md#configure-azure-cache-for-redis-settings) en Azure Portal y haga clic en **Importar datos** desde el menú **Recurso** .
+1. Para importar uno o varios blobs de memoria caché exportados, [vaya a la memoria caché](cache-configure.md#configure-azure-cache-for-redis-settings) en Azure Portal y haga clic en **Importar datos** desde el menú **Recurso**.
 
     ![Importar datos](./media/cache-how-to-import-export-data/cache-import-data.png)
 2. Haga clic en **Elegir blobs** y seleccione la cuenta de almacenamiento que contiene los datos que desea importar.
@@ -45,7 +45,7 @@ La importación se puede usar para traer los archivos RDB compatibles de Redis d
 3. Haga clic en el contenedor que contiene los datos que desea importar.
 
     ![Elegir contenedor](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
-4. Seleccione uno o varios blobs para importar; para ello, haga clic en el área a la izquierda del nombre del blob y, a continuación, haga clic en **Seleccionar** .
+4. Seleccione uno o varios blobs para importar; para ello, haga clic en el área a la izquierda del nombre del blob y, a continuación, haga clic en **Seleccionar**.
 
     ![Elegir blobs](./media/cache-how-to-import-export-data/cache-import-choose-blobs.png)
 5. Haga clic en **Importar** para comenzar el proceso de importación.
@@ -64,9 +64,9 @@ La importación se puede usar para traer los archivos RDB compatibles de Redis d
 ## <a name="export"></a>Exportación
 La exportación permite exportar los datos almacenados en Azure Cache for Redis a archivos RDB compatibles. Puede utilizar esta característica para mover datos desde una instancia de Azure Cache for Redis a otra o a otro servidor de Redis. Durante el proceso de exportación, se crea un archivo temporal en la máquina virtual que hospeda la instancia del servidor de Azure Cache for Redis y el archivo se carga en la cuenta de almacenamiento designada. Una vez completada la operación de exportación (de manera correcta o incorrecta), se elimina el archivo temporal.
 
-1. Para exportar el contenido actual de la memoria caché al almacenamiento, [vaya a la memoria caché](cache-configure.md#configure-azure-cache-for-redis-settings) de Azure Portal y haga clic en **Exportar datos** desde el menú **Recurso** .
+1. Para exportar el contenido actual de la memoria caché al almacenamiento, [vaya a la memoria caché](cache-configure.md#configure-azure-cache-for-redis-settings) de Azure Portal y haga clic en **Exportar datos** desde el menú **Recurso**.
 
-    ![Elegir el contenedor de almacenamiento](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
+    ![En el panel de navegación de contoso5premium, la opción Exportar datos de la lista Administración aparece resaltada.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. Haga clic en **Elegir el contenedor de almacenamiento** y seleccione la cuenta de almacenamiento. La cuenta de almacenamiento debe encontrarse en la misma región y suscripción que la memoria caché.
 
    > [!IMPORTANT]
@@ -74,9 +74,9 @@ La exportación permite exportar los datos almacenados en Azure Cache for Redis 
    >
 
     ![Cuenta de almacenamiento](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
-3. Elija el contenedor de blobs deseado y haga clic en **Seleccionar** . Para utilizar un contenedor nuevo, haga clic en **Agregar contenedor** para agregarlo primero y, a continuación, selecciónelo en la lista.
+3. Elija el contenedor de blobs deseado y haga clic en **Seleccionar**. Para utilizar un contenedor nuevo, haga clic en **Agregar contenedor** para agregarlo primero y, a continuación, selecciónelo en la lista.
 
-    ![Elegir el contenedor de almacenamiento](./media/cache-how-to-import-export-data/cache-export-data-container.png)
+    ![En Contenedores de contoso55, la opción + Contenedor aparece resaltada. Hay un contenedor en la lista, cachesaves, que aparece seleccionado y resaltado. La opción Selección está seleccionada y resaltada.](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. Escriba el **Prefijo del nombre del blob** y haga clic en **Exportar** para iniciar el proceso de exportación. El prefijo del nombre del blob se utiliza como prefijo para los nombres de los archivos generados por esta operación de exportación.
 
     ![Exportación](./media/cache-how-to-import-export-data/cache-export-data.png)

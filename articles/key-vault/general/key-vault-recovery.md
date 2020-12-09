@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748504"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324965"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Cómo habilitar la eliminación temporal y la protección de purga
 
@@ -25,9 +25,9 @@ La protección de eliminación temporal y la protección de purga son dos caract
 > [!IMPORTANT]
 > La protección de eliminación temporal debe estar habilitada en todos los almacenes de claves. La capacidad de deshabilitar la protección contra la eliminación temporal quedará en desuso en diciembre de 2020. Consulte todos los detalles [**aquí**.](soft-delete-change.md)
 
-La **eliminación temporal** está diseñada para evitar la eliminación accidental del almacén de claves y las claves, los secretos y los certificados almacenados en el mismo. Puede considerar la eliminación temporal como una papelera de reciclaje. Cuando se elimina un almacén de claves o un objeto del mismo, podrá recuperarlo durante el período de retención que haya configurado el usuario o un valor predeterminado de 90 días. Los almacenes de claves con estado de eliminación temporal también se pueden **purgar** , lo que significa que se eliminan de forma permanente. Esto le permite volver a crear almacenes de claves y sus objetos con el mismo nombre. Tanto la recuperación como la eliminación de los almacenes de claves y sus objetos requieren permisos elevados de directiva de acceso. **Una vez habilitada la eliminación temporal, no se puede deshabilitar.**
+La **eliminación temporal** está diseñada para evitar la eliminación accidental del almacén de claves y las claves, los secretos y los certificados almacenados en el mismo. Puede considerar la eliminación temporal como una papelera de reciclaje. Cuando se elimina un almacén de claves o un objeto del mismo, podrá recuperarlo durante el período de retención que haya configurado el usuario o un valor predeterminado de 90 días. Los almacenes de claves con estado de eliminación temporal también se pueden **purgar**, lo que significa que se eliminan de forma permanente. Esto le permite volver a crear almacenes de claves y sus objetos con el mismo nombre. Tanto la recuperación como la eliminación de los almacenes de claves y sus objetos requieren permisos elevados de directiva de acceso. **Una vez habilitada la eliminación temporal, no se puede deshabilitar.**
 
-Es importante tener en cuenta que **los nombres de los almacenes de claves son únicos de forma global** , por lo que no podrá crear un almacén de claves que tenga el mismo nombre que un almacén de claves con estado de eliminación temporal. Del mismo modo, los nombres de claves, secretos y certificados son únicos en un almacén de claves. No podrá crear un secreto, una clave o un certificado que tenga el mismo nombre que otro que cuente con el estado de eliminación temporal.
+Es importante tener en cuenta que **los nombres de los almacenes de claves son únicos de forma global**, por lo que no podrá crear un almacén de claves que tenga el mismo nombre que un almacén de claves con estado de eliminación temporal. Del mismo modo, los nombres de claves, secretos y certificados son únicos en un almacén de claves. No podrá crear un secreto, una clave o un certificado que tenga el mismo nombre que otro que cuente con el estado de eliminación temporal.
 
 La **protección de purga** está diseñada para evitar la eliminación de su almacén de claves, las claves, los secretos y los certificados de un agente interno malintencionado. Considere esto como una papelera de reciclaje con un bloqueo basado en el tiempo. Puede recuperar los elementos en cualquier momento durante el período de retención que haya configurado. Recuerde que **no podrá eliminar o purgar un almacén de claves permanentemente hasta que transcurra el período de retención.** Una vez que transcurra el período de retención establecido, el objeto del almacén de claves se purgará automáticamente.
 
@@ -44,7 +44,7 @@ La **protección de purga** está diseñada para evitar la eliminación de su al
 1. Compruebe si el botón de radio situado junto a eliminación temporal está establecido en "Habilitar recuperación".
 1. Si no está habilitada la eliminación temporal en el almacén de claves, haga clic en el botón de radio para habilitarla y haga clic en "Guardar".
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="<Captura de pantalla de Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="En las propiedades, la eliminación temporal se resalta, ya que es el valor que se va a habilitar.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>Conceder acceso a una entidad de servicio para purgar y recuperar los secretos eliminados
 
@@ -56,7 +56,7 @@ La **protección de purga** está diseñada para evitar la eliminación de su al
 1. Desplácese hasta la parte inferior de la lista desplegable y haga clic en "Recuperar" y "Purgar".
 1. Las entidades de seguridad también necesitarán las funcionalidades de obtención y lista para realizar la mayoría de las operaciones.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="<Captura de pantalla de Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="En el panel de navegación izquierdo, Directivas de acceso está resaltado. En Directivas de acceso se muestra la lista desplegable Secret Positions (Posiciones secretas) con cuatro elementos seleccionados: Obtener, Enumerar, Recuperar y Purgar.":::
 
 ## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>Enumerar, recuperar o purgar un almacén de claves eliminado temporalmente
 
@@ -72,9 +72,9 @@ La **protección de purga** está diseñada para evitar la eliminación de su al
 1. Seleccione la opción de recuperación en la parte inferior del panel de contexto si quiere recuperar el almacén de claves.
 1. Si por el contrario quiere eliminar de forma permanente el almacén de claves, seleccione la opción de purga.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="<Captura de pantalla de Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="En los almacenes de claves, la opción Manage deleted vaults (Administrar almacenes eliminados) está resaltada.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="<Captura de pantalla de Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="En Manage deleted key vaults (Administrar almacenes de claves eliminados), el único almacén de claves que aparece está resaltado y seleccionado, y el botón Recuperar, también está resaltado.":::
 
 ## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>Enumerar, recuperar o purgar secretos, claves y certificados eliminados temporalmente
 
@@ -87,7 +87,7 @@ La **protección de purga** está diseñada para evitar la eliminación de su al
 1. Seleccione el secreto, la clave o el certificado que quiera administrar.
 1. Seleccione la opción para recuperar o purgar que está en la parte inferior del panel de contexto.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="<Captura de pantalla de Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="En Claves, la opción Manage deleted keys (Administrar claves eliminadas) está resaltada.":::
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

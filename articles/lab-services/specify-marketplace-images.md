@@ -3,12 +3,12 @@ title: Especificación de imágenes de Marketplace para un laboratorio en Azure 
 description: En este artículo se muestra cómo especificar las imágenes de Marketplace que el creador del laboratorio puede usar para crear laboratorios en una cuenta de laboratorio de Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5a353394fec3dadf0f808a25ec66f6e9028820a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c81c8d7a15d67055729a29e98f5b7e30f3d0764
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445617"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434743"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios
 Como propietario de una cuenta de laboratorio, puede especificar las imágenes de Marketplace que los creadores de laboratorios pueden usar para este fin en la cuenta de laboratorio. 
@@ -60,4 +60,4 @@ Vea los artículos siguientes:
 - [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)
 - [Como propietario del laboratorio, configurar y publicar plantillas](how-to-create-manage-template.md)
 - [Como propietario del laboratorio, configurar y controlar el uso de un laboratorio](how-to-configure-student-usage.md)
-- [Como usuario del laboratorio, obtener acceso a laboratorios educativos](how-to-use-classroom-lab.md)
+- [Como usuario de laboratorio, obtener acceso a los laboratorios](how-to-use-classroom-lab.md)

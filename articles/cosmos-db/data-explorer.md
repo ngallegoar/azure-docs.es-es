@@ -1,22 +1,22 @@
 ---
-title: Uso del Explorador de Azure Cosmos DB para administrar los datos
-description: El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que permite ver y administrar los datos almacenados en Azure Cosmos DB.
+title: Uso del Explorador de Azure Cosmos DB para administrar los datos
+description: El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que permite ver y administrar los datos almacenados en Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4baa92fe4aa2ed402c394198684c4deec2bf9f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008589"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348609"
 ---
-# <a name="work-with-data-using-azure-cosmos-explorer"></a>Uso de datos con el Explorador de Azure Cosmos 
+# <a name="work-with-data-using-azure-cosmos-db-explorer"></a>Uso de datos con el Explorador de Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que permite ver y administrar los datos almacenados en Azure Cosmos DB. El Explorador de Azure Cosmos DB es equivalente a la pestaña **Explorador de datos** existente que está disponible en Azure Portal cuando crea una cuenta de Azure Cosmos DB. Las principales ventajas del Explorador de Azure Cosmos DB sobre el Explorador de datos existente son las siguientes:
+El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que permite ver y administrar los datos almacenados en Azure Cosmos DB. El Explorador de Azure Cosmos DB es equivalente a la pestaña **Explorador de datos** existente que está disponible en Azure Portal cuando crea una cuenta de Azure Cosmos DB. Las principales ventajas del Explorador de Azure Cosmos DB sobre el Explorador de datos existente son las siguientes:
 
 * Tiene un estado real de pantalla completa para ver los datos, ejecutar las consultas, los procedimientos almacenados, los desencadenadores y ver sus resultados.  
 
@@ -24,13 +24,13 @@ El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que
 
 * Puede compartir los resultados de la consulta con otros usuarios que no tienen acceso a Azure Portal ni a la suscripción.  
 
-## <a name="access-azure-cosmos-db-explorer"></a>Acceso al Explorador de Azure Cosmos DB
+## <a name="access-azure-cosmos-db-explorer"></a>Acceso al Explorador de Azure Cosmos DB
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com/). 
 
 2. En **Todos los recursos**, busque y vaya a la cuenta de Azure Cosmos DB, seleccione Claves y copie la **cadena de conexión principal**.  
 
-3. Vaya a https://cosmos.azure.com/, pegue la cadena de conexión y seleccione **Conectar**. Con la cadena de conexión, puede acceder al Explorador de Azure Cosmos DB sin límite de tiempo.  
+3. Vaya a https://cosmos.azure.com/, pegue la cadena de conexión y seleccione **Conectar**. Con la cadena de conexión, puede acceder al Explorador de Azure Cosmos DB sin límite de tiempo.  
 
    Si quiere proporcionar a otros usuarios acceso temporal a su cuenta de Azure Cosmos DB, puede hacerlo con las direcciones URL de acceso de lectura y escritura o de acceso de lectura. 
 
@@ -42,7 +42,7 @@ El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que
 
    Elija el tipo de acceso con el que quisiera abrir la cuenta y haga clic en **Abrir**. Después de abrir el explorador, la experiencia es igual que la que tendría con la pestaña Explorador de datos en Azure Portal.
 
-   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Apertura del Explorador de Azure Cosmos DB":::
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Apertura del Explorador de Azure Cosmos DB":::
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -54,6 +54,6 @@ Los errores HTTP 401 que reciben los clientes pueden deberse a permisos de RBAC 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya aprendió a empezar a trabajar con el Explorador de Azure Cosmos DB para administrar los datos y continuación podrá:
+Ya ha aprendido a empezar a trabajar con el Explorador de Azure Cosmos DB para administrar los datos y a continuación podrá:
 
 * Empezar a definir [consultas](./sql-query-getting-started.md) con la sintaxis de SQL y realizar [programación del lado servidor](stored-procedures-triggers-udfs.md) mediante el uso de procedimientos almacenados, UDF y desencadenadores.

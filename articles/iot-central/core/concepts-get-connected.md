@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: abfd5fadcf553e73dca3f08bc8a0e377f2ace87d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a050daa3a4b3ae9be5ef40961c40adaa90dc72b
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992665"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121812"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -255,7 +255,7 @@ Todos los datos intercambiados entre los dispositivos y la instancia de Azure Io
 
 Si es desarrollador de dispositivos, algunos de los pasos sugeridos son los siguientes:
 
-- Revisar algún código de ejemplo que muestra cómo usar los tokens de SAS en [Tutorial: Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central(tutorial-connect-device-nodejs.md)
+- Revisar algún código de ejemplo que muestre cómo usar los tokens de SAS en [Tutorial: Creación y conexión de una aplicación cliente a una aplicación de Azure IoT Central](tutorial-connect-device.md)
 - Aprender el [procedimiento para conectar dispositivos con certificados X.509 mediante el SDK de dispositivo de Node.js para la aplicación de IoT Central](how-to-connect-devices-x509.md)
 - Aprender a [supervisar la conectividad de dispositivos mediante la CLI de Azure](./howto-monitor-devices-azure-cli.md)
 - Aprender a [definir un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central](./howto-set-up-template.md)

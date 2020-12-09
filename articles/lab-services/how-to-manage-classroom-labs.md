@@ -1,17 +1,17 @@
 ---
-title: Administración de laboratorios de clase en Azure Lab Services | Microsoft Docs
-description: Obtenga información sobre cómo crear y configurar un laboratorio de clase, ver todos los laboratorios de clase, compartir el vínculo de registro con un usuario del laboratorio o eliminar un laboratorio.
+title: Administración de laboratorios en Azure Lab Services | Microsoft Docs
+description: Obtenga información sobre cómo crear y configurar un laboratorio de clase, ver todos los laboratorios, compartir el vínculo de registro con un usuario del laboratorio o eliminar un laboratorio.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: dd05b13a34e2be1a9d6bdc011a9aa24e79bc8dd1
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148378"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434216"
 ---
-# <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
-En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de clase de una cuenta de laboratorio. 
+# <a name="manage-labs-in-azure-lab-services"></a>Administración de laboratorios en Azure Lab Services 
+En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de una cuenta de laboratorio. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. La cuenta que usó para crear una cuenta de laboratorio se agrega automáticamente a este rol. Un propietario de laboratorio puede agregar otros usuarios al rol Creador de laboratorio mediante los pasos que se indican en el siguiente artículo: [Incorporación de un usuario al rol Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
@@ -23,7 +23,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 1. Seleccione **New lab** (Nuevo laboratorio). 
     
     ![Creación de un laboratorio educativo](./media/tutorial-setup-classroom-lab/new-lab-button.png)
-1. En la ventana **Nuevo laboratorio** , lleve a cabo las siguientes acciones: 
+1. En la ventana **Nuevo laboratorio**, lleve a cabo las siguientes acciones: 
     1. Especifique un **nombre** para el laboratorio. 
     1. Seleccione el **tamaño de las máquinas virtuales** que necesite para la clase. Para ver la lista de tamaños disponibles, consulte la sección [VM Sizes](#vm-sizes) (Tamaños de máquina virtual). 
     1. Seleccione la **imagen de máquina virtual**  que quiere usar para el laboratorio educativo. Si selecciona una imagen de Linux, verá una opción para **habilitar la conexión a Escritorio remoto**. Para más información, consulte [Habilitar conexión de escritorio remoto para Linux](how-to-enable-remote-desktop-linux.md).
@@ -44,13 +44,13 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
         > Tome nota de ambos. No se volverán a mostrar.
     3. Deshabilite la opción **Usar la misma contraseña para todas las máquinas virtuales** si quiere que los alumnos establezcan sus propias contraseñas. Este paso es **opcional**. 
 
-        Un formador puede elegir usar la misma contraseña para todas las VM en el laboratorio o permitir a los alumnos establecer contraseñas para sus VM. De forma predeterminada, esta configuración está habilitada para todas las imágenes Windows y Linux, excepto para Ubuntu. Al seleccionar la máquina virtual **Ubuntu** , esta opción está deshabilitada, por lo que se pedirá a los alumnos que establezcan una contraseña cuando inicien sesión por primera vez.  
+        Un formador puede elegir usar la misma contraseña para todas las VM en el laboratorio o permitir a los alumnos establecer contraseñas para sus VM. De forma predeterminada, esta configuración está habilitada para todas las imágenes Windows y Linux, excepto para Ubuntu. Al seleccionar la máquina virtual **Ubuntu**, esta opción está deshabilitada, por lo que se pedirá a los alumnos que establezcan una contraseña cuando inicien sesión por primera vez.  
 
         ![Ventana de nuevo laboratorio](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     4. A continuación, seleccione **Next** (Siguiente) en la página **Virtual machine credentials** (Credenciales de la máquina virtual). 
-5. En la página **Directivas de laboratorio** , siga estos pasos:
-    1. Escriba el número de horas asignadas para cada usuario ( **cuota para cada usuario** ) fuera del tiempo programado para el laboratorio. 
-    2. En la opción **Apagado automático de máquinas virtuales** , especifique si desea que la VM se apague automáticamente cuando el usuario se desconecte. También puede especificar cuánto tiempo debe esperar la VM para que el usuario se vuelva a conectar antes de que se apague automáticamente. Para obtener más información, consulte [Habilitación del apagado automático de las máquinas virtuales al desconectarse](how-to-enable-shutdown-disconnect.md).
+5. En la página **Directivas de laboratorio**, siga estos pasos:
+    1. Escriba el número de horas asignadas para cada usuario (**cuota para cada usuario**) fuera del tiempo programado para el laboratorio. 
+    2. En la opción **Apagado automático de máquinas virtuales**, especifique si desea que la VM se apague automáticamente cuando el usuario se desconecte. También puede especificar cuánto tiempo debe esperar la VM para que el usuario se vuelva a conectar antes de que se apague automáticamente. Para obtener más información, consulte [Habilitación del apagado automático de las máquinas virtuales al desconectarse](how-to-enable-shutdown-disconnect.md).
     3. Después, seleccione **Finalizar**. 
 
         ![Cuota para cada usuario](./media/tutorial-setup-classroom-lab/quota-for-each-user.png)
@@ -103,7 +103,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 > [!NOTE]
 > Es posible que no vea algunos de estos tamaños de VM en la lista al crear un laboratorio de clase. La lista se rellena en función de la capacidad actual de la ubicación del laboratorio. Si el creador de la cuenta de laboratorio [permite que los creadores del laboratorio elijan una ubicación para el laboratorio](allow-lab-creator-pick-lab-location.md), puede intentar elegir otra ubicación para el laboratorio y ver si el tamaño de VM está disponible. 
 
-## <a name="view-all-classroom-labs"></a>Visualización de todos los laboratorios de clase
+## <a name="view-all-labs"></a>Visualización de todos los laboratorios
 
 1. Vaya al [portal de Azure Lab Services](https://labs.azure.com).
 1. Seleccione **Iniciar sesión**. Seleccione o escriba un **Id. de usuario** que sea miembro del rol **Creador de laboratorio** en la cuenta del laboratorio y escriba la contraseña. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
@@ -139,5 +139,5 @@ Vea los artículos siguientes:
 
 - [Como propietario del laboratorio, configurar y publicar plantillas](how-to-create-manage-template.md)
 - [Como propietario del laboratorio, configurar y controlar el uso de un laboratorio](how-to-configure-student-usage.md)
-- [Como usuario del laboratorio, obtener acceso a laboratorios educativos](how-to-use-classroom-lab.md)
+- [Como usuario de laboratorio, obtener acceso a los laboratorios](how-to-use-classroom-lab.md)
 

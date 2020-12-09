@@ -1,18 +1,18 @@
 ---
 title: Salidas en plantillas
-description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager.
+description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911437"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353534"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Salidas en una plantilla de Azure Resource Manager
+# <a name="outputs-in-arm-templates"></a>Salidas en plantillas de ARM
 
-En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager. Las salidas se usan cuando es necesario devolver valores de los recursos implementados.
+En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM). Las salidas se usan cuando es necesario devolver valores de los recursos implementados.
 
 El formato de cada valor de salida debe coincidir con uno de los [tipos de datos](template-syntax.md#data-types).
 
@@ -120,4 +120,4 @@ En los siguientes ejemplos se muestran escenarios para usar salidas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre las propiedades disponibles para salidas, consulte [Información sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para más información sobre las propiedades disponibles para salidas, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

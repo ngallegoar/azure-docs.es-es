@@ -1,6 +1,6 @@
 ---
-title: Migración de una imagen administrada a Shared Image Gallery
-description: Aprenda a usar Azure PowerShell para migrar una imagen administrada a una versión de la imagen de Shared Image Gallery.
+title: Clonación de una imagen administrada en Shared Image Gallery
+description: Aprenda a usar Azure PowerShell para clonar una imagen administrada en una versión de la imagen de Shared Image Gallery.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1c57d9d283714da6905335fd3167c4f8a69292f8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964888"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349929"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migración de una imagen administrada a una imagen de Shared Image Gallery
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Clonación de una imagen administrada en una imagen de Shared Image Gallery
 
-Si tiene una imagen administrada existente que desee migrar a Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente desde la imagen administrada. Una vez que haya probado la nueva imagen, puede eliminar la imagen administrada de origen. También puede migrar de una imagen administrada a Shared Image Gallery mediante la [CLI de Azure](image-version-managed-image-cli.md).
+Si tiene una imagen administrada existente que desee clonar y mover a Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente desde la imagen administrada. Una vez que haya probado la nueva imagen, puede eliminar la imagen administrada de origen. También puede migrar de una imagen administrada a Shared Image Gallery mediante la [CLI de Azure](image-version-managed-image-cli.md).
 
 Las imágenes de una galería de imágenes tienen dos componentes, que se crearán durante este ejemplo:
 - Una **definición de imagen**, que contiene información sobre la imagen y los requisitos para usarla. Esto incluye si la imagen es Windows o Linux, si es generalizada o especializada, las notas de la versión y los requisitos de memoria mínima y máxima. Es una definición de un tipo de imagen. 

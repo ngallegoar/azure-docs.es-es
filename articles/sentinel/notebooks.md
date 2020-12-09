@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: ded332813a840892f640aa6f6e48debbfe381b4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889298"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344200"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Uso de cuadernos de Jupyter para buscar amenazas de seguridad
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Uso de Jupyter Notebook para buscar amenazas de seguridad
 
 La base de Azure Sentinel es el almacén de datos; combina consultas de alto rendimiento y esquemas dinámicos, y tiene capacidad para escalar a volúmenes de datos masivos. Azure Portal y todas las herramientas de Azure Sentinel emplean una API común para acceder a este almacén de datos. Esta misma API está disponible también para herramientas externas, como los cuadernos de [Jupyter](https://jupyter.org/) y Python. Mientras que muchas tareas comunes pueden llevarse a cabo en el portal, Jupyter amplía las posibilidades de lo que se puede hacer con estos datos. Combina una programación completa con una vasta colección de bibliotecas pensadas para el análisis de datos, la visualización y Machine Learning. Estas características hacen que Jupyter sea una herramienta fascinante para la búsqueda e investigación relacionadas con cuestiones de seguridad.
 
@@ -63,7 +63,7 @@ Para usar los cuadernos, primero debe crear un área de trabajo de Azure Machine
 
     |Campo|Descripción|
     |--|--|
-    |Suscripción|Seleccione la suscripción de Azure que quiera usar.|
+    |Subscription|Seleccione la suscripción de Azure que quiera usar.|
     |Resource group|Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo se usa **AzureMLRG**.|
     |Nombre del área de trabajo|Escriba un nombre único que identifique el área de trabajo. En este ejemplo se usa **testworkspace1**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros.|
     |Region|Seleccione la ubicación más cercana a los usuarios y los recursos de datos para crear el área de trabajo.|
@@ -140,7 +140,7 @@ Agradecemos cualquier comentario, sean sugerencias, peticiones de característic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a usar cuadernos de Jupyter Notebooks en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este artículo, ha comenzado a usar Jupyter Notebook en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
 - [Búsqueda de amenazas con Azure Sentinel, versión preliminar](hunting.md)
 - [Realizar un seguimiento de los datos durante una búsqueda](bookmarks.md)

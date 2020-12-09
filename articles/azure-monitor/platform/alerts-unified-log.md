@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995087"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317561"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
 ## <a name="overview"></a>Introducción
 
-Las alertas de registro son uno de los tipos de alerta que se admiten en [Alertas de Azure](./alerts-overview.md). Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../log-query/get-started-portal.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](./action-groups.md).
+Las alertas de registro son uno de los tipos de alerta que se admiten en [Alertas de Azure](./alerts-overview.md). Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../log-query/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](./action-groups.md).
 
 > [!NOTE]
-> Los datos de registro de un [área de trabajo de Log Analytics](../log-query/get-started-portal.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](alerts-metric-logs.md).
+> Los datos de registro de un [área de trabajo de Log Analytics](../log-query/log-analytics-tutorial.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](alerts-metric-logs.md).
 
 > [!NOTE]
 > Actualmente no hay cargos adicionales por la versión `2020-05-01-preview` de la API y las alertas de registro orientadas a los recursos.  Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando la nueva versión de la API y las alertas de registro orientadas a los recursos después del período de aviso, se le facturará según la tarifa aplicable.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Las alertas de registro ejecutan consultas sobre los datos de Log Analytics. En primer lugar, debe comenzar a [recopilar datos de registro](resource-logs.md) y consultar estos datos de registro para detectar problemas. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/saved-queries.md) en Log Analytics para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../log-query/get-started-portal.md).
+Las alertas de registro ejecutan consultas sobre los datos de Log Analytics. En primer lugar, debe comenzar a [recopilar datos de registro](resource-logs.md) y consultar estos datos de registro para detectar problemas. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/example-queries.md) en Log Analytics para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../log-query/log-analytics-tutorial.md).
 
 El [colaborador de supervisión de Azure](./roles-permissions-security.md) es un rol común necesario para crear, modificar y actualizar las alertas de registro. También se necesitan derechos de acceso y de ejecución de consulta para los registros de recursos. El acceso parcial a los registros de recursos puede producir errores en las consultas o devolver resultados parciales. [Más información sobre la configuración de alertas de registro en Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ La definición de la condición de las reglas de búsqueda de registros comienza
 En las secciones siguientes se describen los distintos parámetros que se pueden usar para establecer la lógica anterior.
 
 ### <a name="log-query"></a>Consulta de registro
-La consulta de [Log Analytics](../log-query/get-started-portal.md) se utiliza para evaluar la regla. Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. El ámbito de la consulta puede ser:
+La consulta de [Log Analytics](../log-query/log-analytics-tutorial.md) se utiliza para evaluar la regla. Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. El ámbito de la consulta puede ser:
 
 - Un recurso específico, como una máquina virtual.
 - Un recurso a gran escala, como una suscripción o un grupo de recursos.
@@ -90,7 +90,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Período de tiempo**: 15 minutos
+- **Período de tiempo / Granularidad de agregación**: 15 minutos
 - **Frecuencia de la alerta**: 15 minutos
 - **Valor del umbral:** mayor que 0
 
@@ -145,7 +145,7 @@ Por ejemplo, supongamos que desea supervisar los errores de varias máquinas vir
 - **Resource ID Column (Columna de id. de recurso)** : _ResourceId (actualmente, la división por la columna de identificador de recurso en las reglas de alertas solo está disponible en las suscripciones y los grupos de recursos)
 - **Dimensiones/Agregado en**:
   - Equipo = VM1, VM2 (actualmente, no está disponible el filtrado de valores en la definición de reglas de alertas para áreas de trabajo y Application Insights; debe filtrar en el texto de la consulta)
-- **Período de tiempo**: 15 minutos
+- **Período de tiempo / Granularidad de agregación**: 15 minutos
 - **Frecuencia de la alerta**: 15 minutos
 - **Valor del umbral:** mayor que 0
 
@@ -209,4 +209,3 @@ La información de precios se encuentra en la [página de precios de Azure Monit
 * Información sobre [webhooks en alertas de registro en Azure](alerts-log-webhook.md).
 * Más información acerca de las [Alertas de Azure](./alerts-overview.md).
 * Más información sobre [Log Analytics](../log-query/log-query-overview.md).
-

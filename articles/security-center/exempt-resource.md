@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 347d5ac9de164f2e96340df71fd3b1b908e607c1
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b7780a0ef70a89a88070d5883cc840319a67fa3d
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372751"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122363"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Exención de un recurso de las recomendaciones y la puntuación segura
 
@@ -48,8 +48,8 @@ El recurso se mostrará como no aplicable y el motivo aparecerá como "exento" c
     :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Panel Crear exención":::
 
 1. Escriba los criterios y seleccione uno de ellos para la exención de este recurso:
-    - **Mitigado** : este problema no es importante para el recurso porque se ha administrado mediante una herramienta o un proceso diferentes de los que se sugieren.
-    - **Renuncia** : aceptación del riesgo de este recurso.
+    - **Mitigado**: este problema no es importante para el recurso porque se ha administrado mediante una herramienta o un proceso diferentes de los que se sugieren.
+    - **Renuncia**: aceptación del riesgo de este recurso.
 1. Seleccione **Guardar**.
 1. Al cabo de un tiempo (puede tardar hasta 24 horas):
     - El recurso no afecta a la puntuación segura.
@@ -71,7 +71,7 @@ El recurso se mostrará como no aplicable y el motivo aparecerá como "exento" c
 
 Las reglas de exención usan Azure Policy para crear una exención para el recurso en la asignación de directiva.
 
-Puede usar Azure Policy para realizar un seguimiento de todas las exenciones de la página **Exención** :
+Puede usar Azure Policy para realizar un seguimiento de todas las exenciones de la página **Exención**:
 
 :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Página de exenciones de Azure Policy":::
 

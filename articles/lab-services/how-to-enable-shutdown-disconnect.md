@@ -3,12 +3,12 @@ title: Configuración del apagado automático de las máquinas virtuales de un l
 description: Obtenga información sobre cómo habilitar o deshabilitar el apagado automático de las máquinas virtuales cuando se desconecta una conexión a escritorio remoto.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 67b51941207fdd4913df9a92362959bbd468d336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649888"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433935"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configuración del apagado automático de las máquinas virtuales de un laboratorio
 
@@ -40,4 +40,4 @@ Asegúrese de revisar los detalles sobre el apagado automático en la sección [
 > Si apaga el sistema operativo (SO) Windows o Linux en una máquina virtual antes de desconectar en ella una sesión RDP, la característica de apagado automático no funcionará correctamente.  
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Panel para laboratorios de clase](use-dashboard.md)
+[Panel para laboratorios](use-dashboard.md)

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652638"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353551"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -88,6 +88,10 @@ Para información sobre qué enlaces están en versión preliminar o aprobados p
 Use la tabla siguiente para buscar ejemplos de tipos de enlaces específicos que muestren cómo trabajar con enlaces en las funciones. En primer lugar, elija la pestaña de lenguaje que corresponde al proyecto. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>Enlaces personalizados
+
+Puede crear enlaces de entrada y salida personalizados. Los enlaces se deben crear en .NET, pero se pueden consumir en cualquier lenguaje admitido. Para más información sobre la creación de enlaces personalizados, vea [Creación de enlaces de entrada y salida personalizados](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 ## <a name="resources"></a>Recursos
 - [Patrones y expresiones de enlace](./functions-bindings-expressions-patterns.md)

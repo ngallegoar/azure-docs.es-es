@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076579"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187806"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solución de problemas de roles de servicios en la nube que no se inician
 Presentamos algunos problemas y soluciones comunes relacionados con los roles de Azure Cloud Services que no se inician.

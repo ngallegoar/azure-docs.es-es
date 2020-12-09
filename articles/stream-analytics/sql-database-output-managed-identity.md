@@ -1,31 +1,45 @@
 ---
-title: 'Uso de identidades administradas para acceder a Azure SQL Database: Azure Stream Analytics'
-description: En este artículo se describe cómo usar identidades administradas para autenticar su trabajo de Azure Stream Analytics en la salida de Azure SQL Database.
+title: 'Uso de identidades administradas para acceder a Azure SQL Database o Azure Synapse Analytics: Azure Stream Analytics'
+description: En este artículo se describe cómo usar identidades administradas para autenticar su trabajo de Azure Stream Analytics en la salida de Azure SQL Database o Azure Synapse Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/08/2020
-ms.openlocfilehash: ec260c2e71d1716eb4de9ad25942f61169356dfb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/30/2020
+ms.openlocfilehash: ee617b50d85f611e130ec5533239c8924efecc6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491348"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352191"
 ---
-# <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Azure SQL Database desde un trabajo de Azure Stream Analytics (versión preliminar)
+# <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Azure SQL Database o Azure Synapse Analytics desde un trabajo de Azure Stream Analytics (versión preliminar)
 
-Azure Stream Analytics admite la [autenticación de identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) para los receptores de salida de Azure SQL Database. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en el usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña o la expiración de tokens de usuario que se produce cada 90 días. Cuando se elimina la necesidad de autenticarse manualmente, las implementaciones de Stream Analytics se pueden automatizar completamente.
+Azure Stream Analytics admite la [autenticación de identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) para los receptores de salida de Azure SQL Database y Azure Synapse Analytics. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en el usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña o la expiración de tokens de usuario que se produce cada 90 días. Cuando se elimina la necesidad de autenticarse manualmente, las implementaciones de Stream Analytics se pueden automatizar completamente.
 
-Una identidad administrada es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado. La aplicación administrada se usa para la autenticación en un recurso de destino. En este artículo se muestra cómo habilitar la identidad administrada para las salidas de Azure SQL Database de un trabajo de Stream Analytics a través de Azure Portal.
+Una identidad administrada es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado. La aplicación administrada se usa para la autenticación en un recurso de destino. En este artículo se muestra cómo habilitar la identidad administrada para las salidas de Azure SQL Database o Azure Synapse Analytics de un trabajo de Stream Analytics a través de Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+#### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/azure-sql)
 
 Para usar esta característica se requiere lo siguiente:
 
 - Un trabajo de Azure Stream Analytics.
 
 - Un recurso de Azure SQL Database.
+
+#### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
+
+Para usar esta característica se requiere lo siguiente:
+
+- Un trabajo de Azure Stream Analytics.
+
+- Un grupo de SQL de Azure Synapse Analytics.
+
+- Una cuenta de Azure Storage [configurada para el trabajo de Stream Analytics](azure-synapse-analytics-output.md).
+
+---
 
 ## <a name="create-a-managed-identity"></a>Creación de una entidad administrada
 
@@ -37,8 +51,7 @@ En primer lugar, debe crear una identidad administrada para el trabajo de Azure 
 
    ![Selección de la identidad administrada asignada por el sistema](./media/sql-db-output-managed-identity/system-assigned-managed-identity.png)
 
-
-   Se crea una entidad de servicio para la identidad del trabajo de Stream Analytics en Azure Active Directory. El ciclo de vida de la identidad recién creada lo administrará Azure. Cuando se elimina el trabajo de Stream Analytics, Azure elimina automáticamente la identidad asociada (es decir, la entidad de servicio). 
+   Se crea una entidad de servicio para la identidad del trabajo de Stream Analytics en Azure Active Directory. El ciclo de vida de la identidad recién creada lo administrará Azure. Cuando se elimina el trabajo de Stream Analytics, Azure elimina automáticamente la identidad asociada (es decir, la entidad de servicio).
 
 1. Cuando se guarda la configuración, el id. de objeto (OID) de la entidad de servicio aparece como id. de entidad de seguridad, tal como se muestra a continuación: 
 
@@ -50,12 +63,12 @@ En primer lugar, debe crear una identidad administrada para el trabajo de Azure 
 
 Después de crear una identidad administrada, seleccione un administrador de Active Directory.
 
-1. Navegue hasta el recurso de Azure SQL Database y seleccione la instancia de SQL Server en la que se encuentra la base de datos. Puede encontrar el nombre de SQL Server junto a *Nombre del servidor* en la página de información general de recursos. 
+1. Navegue hasta el recurso de Azure SQL Database o Azure Synapse Analytics y seleccione la instancia de SQL Server en la que se encuentra la base de datos. Puede encontrar el nombre de SQL Server junto a *Nombre del servidor* en la página de información general de recursos.
 
-1. Seleccione **Administrador de Active Directory** en **Configuración**. A continuación, seleccione **Establecer administrador**. 
+1. Seleccione **Administrador de Active Directory** en **Configuración**. A continuación, seleccione **Establecer administrador**.
 
    ![Página Administrador de Active Directory](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
- 
+
 1. En la página Administrador de Active Directory, busque un usuario o un grupo para que sea administrador de SQL Server y haga clic en **Seleccionar**.
 
    ![Adición de un administrador de Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
@@ -68,15 +81,15 @@ Después de crear una identidad administrada, seleccione un administrador de Act
 
 ## <a name="create-a-contained-database-user"></a>Creación de un usuario de base de datos independiente
 
-A continuación, cree un usuario de base de datos independiente en su instancia de SQL Database que esté asignado a la identidad de Azure Active Directory. El usuario de base de datos independiente no tiene un inicio de sesión para la base de datos principal, sino que se asigna a una identidad del directorio que está asociada a la base de datos. La identidad de Azure Active Directory puede ser una cuenta de usuario individual o un grupo. En este caso, puede crear un usuario de base de datos independiente para el trabajo de Stream Analytics. 
+A continuación, cree un usuario de base de datos independiente en su base de datos de Azure SQL o Azure Synapse que esté asignado a la identidad de Azure Active Directory. El usuario de base de datos independiente no tiene un inicio de sesión para la base de datos principal, sino que se asigna a una identidad del directorio que está asociada a la base de datos. La identidad de Azure Active Directory puede ser una cuenta de usuario individual o un grupo. En este caso, puede crear un usuario de base de datos independiente para el trabajo de Stream Analytics. 
 
-1. Conéctese a SQL Database mediante SQL Server Management Studio. El **nombre de usuario** es un usuario de Azure Active Directory con el permiso **ALTER ANY USER**. El administrador que estableció en SQL Server es un ejemplo. Utilice la opción de autenticación **Azure Active Directory - Universal con MFA** 
+1. Conéctese a la base de datos de Azure SQL o Azure Synapse mediante SQL Server Management Studio. El **nombre de usuario** es un usuario de Azure Active Directory con el permiso **ALTER ANY USER**. El administrador que estableció en SQL Server es un ejemplo. Utilice la opción de autenticación **Azure Active Directory - Universal con MFA** 
 
    ![Conectar a SQL Server](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
    El nombre del servidor `<SQL Server name>.database.windows.net` puede ser diferente en distintas regiones. Por ejemplo, la región de China debe utilizar `<SQL Server name>.database.chinacloudapi.cn`.
  
-   Para especificar una instancia de SQL Database específica, vaya a **Opciones > Propiedades de conexión > Conectar con base de datos**.  
+   Para especificar una base de datos de Azure SQL o Azure Synapse específica, vaya a **Opciones > Propiedades de conexión > Conectar con base de datos**.  
 
    ![Propiedades de conexión de SQL Server:](./media/sql-db-output-managed-identity/sql-server-connection-properties.png)
 
@@ -102,19 +115,43 @@ A continuación, cree un usuario de base de datos independiente en su instancia 
 
 ## <a name="grant-stream-analytics-job-permissions"></a>Concesión de permisos del trabajo de Stream Analytics
 
-Una vez que se haya creado un usuario de base de datos independiente y se le haya proporcionado acceso a los servicios de Azure en el portal como se ha descrito en la sección anterior, el trabajo de Stream Analytics tiene permiso de identidad administrada para **CONECTARSE** al recurso de base de datos de SQL a través de la identidad administrada. Se recomienda conceder los permisos SELECT e INSERT al trabajo de Stream Analytics, ya que se necesitarán más adelante en el flujo de trabajo de Stream Analytics. El permiso **SELECT** permite que el trabajo pruebe su conexión con la tabla de la instancia de SQL Database. El permiso **INSERT** permite probar consultas Stream Analytics de un extremo a otro una vez que haya configurado una entrada y la salida de SQL Database. Puede conceder estos permisos al trabajo de Stream Analytics mediante SQL Server Management Studio. Para obtener más información, consulte la referencia de GRANT (Transact-SQL).
+#### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/azure-sql)
+
+Una vez que se haya creado un usuario de base de datos independiente y se le haya proporcionado acceso a los servicios de Azure en el portal como se ha descrito en la sección anterior, el trabajo de Stream Analytics tiene permiso de identidad administrada para **CONECTARSE** al recurso de base de datos de Azure SQL a través de la identidad administrada. Se recomienda conceder los permisos SELECT e INSERT al trabajo de Stream Analytics, ya que se necesitarán más adelante en el flujo de trabajo de Stream Analytics. El permiso **SELECT** permite que el trabajo pruebe su conexión con la tabla de la instancia de base de datos de Azure SQL. El permiso **INSERT** permite probar las consultas de Stream Analytics de un extremo a otro una vez que haya configurado una entrada y la salida de la base de datos de Azure SQL.
+
+#### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
+
+Una vez que se haya creado un usuario de base de datos independiente y se le haya proporcionado acceso a los servicios de Azure en el portal como se ha descrito en la sección anterior, el trabajo de Stream Analytics tiene permiso de identidad administrada para **CONECTARSE** al recurso de base de datos de Azure Synapse a través de la identidad administrada. Se recomienda conceder los permisos SELECT, INSERT y ADMINISTER DATABASE BULK OPERATIONS al trabajo de Stream Analytics, ya que se necesitarán más adelante en el flujo de trabajo de Stream Analytics. El permiso **SELECT** permite que el trabajo pruebe su conexión con la tabla de la instancia de base de datos de Azure Synapse. Los permisos **INSERTAR** y **ADMINISTER DATABASE BULK OPERATIONS** permiten probar las consultas de Stream Analytics de un extremo a otro una vez que haya configurado una entrada y la salida de la base de datos de Azure Synapse.
+
+Para conceder el permiso ADMINISTER DATABASE BULK OPERATIONS, tendrá que conceder todos los permisos etiquetados como **CONTROL** en [Implícito en el permiso de base de datos](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) al trabajo de Stream Analytics. Necesita este permiso porque el trabajo de Stream Analytics realiza la instrucción COPY, que requiere los permisos [ADMINISTER DATABASE BULK OPERATIONS e INSERT](/sql/t-sql/statements/copy-into-transact-sql).
+
+---
+
+Puede conceder estos permisos al trabajo de Stream Analytics mediante SQL Server Management Studio. Para obtener más información, consulte la referencia de GRANT (Transact-SQL).
 
 Para conceder solo permiso a una tabla o un objeto determinado de la base de datos, use la siguiente sintaxis de T-SQL y ejecute la consulta. 
 
+#### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/azure-sql)
+
 ```sql
-GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
+GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 ```
 
-Como alternativa, puede hacer clic con el botón derecho en su instancia de SQL Database en SQL Server Management Studio y seleccionar **Propiedades > Permisos**. En el menú de permisos, puede ver el trabajo de Stream Analytics que agregó anteriormente y conceder o denegar los permisos manualmente según considere oportuno.
+#### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
 
-## <a name="create-an-azure-sql-database-output"></a>Creación de una salida de Azure SQL Database
+```sql
+GRANT [PERMISSION NAME] OBJECT::TABLE_NAME TO ASA_JOB_NAME;
+```
 
-Ahora que la identidad administrada está configurada, está listo para agregar Azure SQL Database como salida a su trabajo de Stream Analytics.
+---
+
+Como alternativa, puede hacer clic con el botón derecho en su base de datos de Azure SQL o Azure Synapse en SQL Server Management Studio y seleccionar **Propiedades > Permisos**. En el menú de permisos, puede ver el trabajo de Stream Analytics que agregó anteriormente y conceder o denegar los permisos manualmente según considere oportuno.
+
+## <a name="create-an-azure-sql-database-or-azure-synapse-output"></a>Creación de una salida de Azure SQL Database o Azure Synapse
+
+#### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/azure-sql)
+
+Ahora que la identidad administrada está configurada, está listo para agregar una salida de Azure SQL Database o Azure Synapse a su trabajo de Stream Analytics.
 
 Asegúrese de haber creado una tabla en la instancia de SQL Database con el esquema de salida adecuado. El nombre de esta tabla es una de las propiedades necesarias que se debe rellenar cuando se agrega la salida de SQL Database al trabajo de Stream Analytics. Además, asegúrese de que el trabajo tiene permisos **SELECT** e **INSERT** para probar la conexión y ejecutar consultas de Stream Analytics. Consulte la sección [Concesión de permisos de trabajos de Stream Analytics](#grant-stream-analytics-job-permissions) si todavía no lo ha hecho. 
 
@@ -122,13 +159,28 @@ Asegúrese de haber creado una tabla en la instancia de SQL Database con el esq
 
 1. Seleccione **Agregar > SQL Database**. En la ventana de propiedades de salida del receptor de salida de SQL Database, seleccione **Identidad administrada** en la lista desplegable Modo de autenticación.
 
-1. Rellene el resto de las propiedades. Para más información acerca de cómo crear una salida de SQL Database, consulte [Creación de una salida de SQL Database con Stream Analytics](sql-database-output.md). Cuando haya terminado, seleccione **Guardar**. 
+1. Rellene el resto de las propiedades. Para más información acerca de cómo crear una salida de SQL Database, consulte [Creación de una salida de SQL Database con Stream Analytics](sql-database-output.md). Cuando haya terminado, seleccione **Guardar**.
+
+#### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
+
+Ahora que la identidad administrada y la cuenta de almacenamiento están configuradas, está listo para agregar una salida de Azure SQL Database o Azure Synapse a su trabajo de Stream Analytics.
+
+Asegúrese de haber creado una tabla en la base de datos de Azure Synapse con el esquema de salida adecuado. El nombre de esta tabla es una de las propiedades necesarias que se debe rellenar cuando se agrega la salida de Azure Synapse al trabajo de Stream Analytics. Además, asegúrese de que el trabajo tiene permisos **SELECT** e **INSERT** para probar la conexión y ejecutar consultas de Stream Analytics. Consulte la sección [Concesión de permisos de trabajos de Stream Analytics](#grant-stream-analytics-job-permissions) si todavía no lo ha hecho.
+
+1. Vuelva al trabajo de Stream Analytics y vaya a la página **Salidas** en **Topología de trabajo**.
+
+1. Seleccione **Agregar > Azure Synapse Analytics**. En la ventana de propiedades de salida del receptor de salida de SQL Database, seleccione **Identidad administrada** en la lista desplegable Modo de autenticación.
+
+1. Rellene el resto de las propiedades. Para más información sobre la creación de una salida de Azure Synapse, consulte [Salida de Azure Synapse Analytics desde Azure Stream Analytics](azure-synapse-analytics-output.md). Cuando haya terminado, seleccione **Guardar**.
+
+---
 
 ## <a name="remove-managed-identity"></a>Eliminación de una identidad administrada
 
-La identidad administrada creada para un trabajo de Stream Analytics se elimina solo cuando se elimina el trabajo. No hay ninguna manera de eliminar la identidad administrada sin eliminar el trabajo. Si ya no va a usar la identidad administrada, puede cambiar el método de autenticación de la salida. La identidad administrada seguirá existiendo hasta que se elimine el trabajo y se usará si decide usar de nuevo la autenticación de identidad administrada.
+La identidad administrada creada para un trabajo de Stream Analytics se elimina solo cuando se elimina el trabajo. No hay ninguna manera de eliminar la identidad administrada sin eliminar el trabajo. Si ya no va a usar la identidad administrada, puede cambiar el método de autenticación de la salida. La identidad administrada seguirá existiendo hasta que se elimine el trabajo y se utilizará si decide usar de nuevo la autenticación de identidad administrada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Información sobre las salidas desde Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Salida de Azure Stream Analytics a Azure SQL Database](stream-analytics-sql-output-perf.md)
+* [Salida de Azure Synapse Analytics desde Azure Stream Analytics](azure-synapse-analytics-output.md)

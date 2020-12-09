@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013588"
+ms.locfileid: "96030788"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creación de un proveedor de sugerencias para habilitar la función autocompletar y los resultados sugeridos en una consulta
 
-En Azure Cognitive Search, la función de "búsqueda al escribir" se habilita mediante una construcción de **proveedor de sugerencias** que se agrega a un [índice de búsqueda](search-what-is-an-index.md). Un proveedor de sugerencias admite dos experiencias: *autocompletar*, que completa una entrada parcial para una consulta de un término completo, y *sugerencias*, que invita a hacer clic en una coincidencia concretar. Autocompletar genera una consulta. Las sugerencias producen un documento coincidente.
+En Azure Cognitive Search, la función de búsqueda mientras escribe se habilita a través de un *proveedor de sugerencias*. Un proveedor de sugerencias es una estructura de datos interna que consta de una colección de campos. Los campos se someten a tokenización adicional y generan secuencias de prefijos para admitir coincidencias en términos parciales.
+
+Por ejemplo, si un proveedor de sugerencias incluye un campo Ciudad, para el término "Seattle" se crearán combinaciones de prefijos de "sea", "seat", "seatt" y "seattl". Los prefijos se almacenan en índices invertidos, uno por cada campo especificado en una colección de campos del proveedor de sugerencias.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Experiencias de escritura anticipada en Cognitive Search
+
+Un proveedor de sugerencias admite dos experiencias: *autocompletar*, que completa una entrada parcial para una consulta de un término completo, y *sugerencias*, que invita a hacer clic en una coincidencia concretar. Autocompletar genera una consulta. Las sugerencias producen un documento coincidente.
 
 En la siguiente captura de pantalla del artículo [Creación de la primera aplicación en C#](tutorial-csharp-type-ahead-and-suggestions.md), se muestran ambas experiencias. Autocompletar anticipa un posible término, agregando a "met" la terminación "ro" por ejemplo. Las sugerencias son resultados de búsquedas en miniatura, donde un campo como el nombre de un hotel representa un documento de búsqueda de hoteles coincidentes del índice. Para obtener sugerencias, puede mostrar cualquier campo que proporcione información descriptiva.
 
@@ -31,10 +37,6 @@ Puede utilizar estas características de forma conjunta o por separado. Para imp
 + Llame a una consulta habilitada para el proveedor de sugerencias, en forma de una solicitud de Sugerencia o solicitud de Autocompletar, mediante una de las [API que se enumeran a continuación](#how-to-use-a-suggester).
 
 La compatibilidad con la búsqueda al escribir está habilitada por cada campo para los campos de cadena. Puede implementar ambos comportamientos de escritura automática dentro de la misma solución de búsqueda si desea una experiencia similar a la indicada en la captura de pantalla. El destino de ambas solicitudes son la colección de *documentos* de índice específico y las respuestas se devuelven después de que un usuario haya proporcionado al menos una cadena de entrada de tres caracteres.
-
-## <a name="what-is-a-suggester"></a>¿Qué es un proveedor de sugerencias?
-
-Un proveedor de sugerencias es una estructura de datos interna que admite comportamientos de búsqueda mientras se escribe mediante el almacenamiento de prefijos para buscar coincidencias en consultas parciales. Igual que sucede con los términos tokenizados, los prefijos se almacenan en índices invertidos, uno para cada campo especificado en una colección de campos del proveedor de sugerencias.
 
 ## <a name="how-to-create-a-suggester"></a>Creación de un proveedor de sugerencias
 

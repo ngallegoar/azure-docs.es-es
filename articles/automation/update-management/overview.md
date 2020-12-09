@@ -3,14 +3,14 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 11/23/2020
+ms.date: 11/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: eadceb17d01b40deab656bdd6223cb8f0844f54f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528251"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327498"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
@@ -79,7 +79,7 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles pa
 |CentOS 6 y 7 (x64)      | Los agentes de Linux requieren acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 y 7 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 12 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
-|Ubuntu 14.04 LTS, 16.04 LTS y 18.04 (x64)      |Los agentes de Linux requieren acceso a un repositorio de actualización.         |
+|Ubuntu 14.04 LTS, 16.04 LTS y 18.04 LTS (x64)      |Los agentes de Linux requieren acceso a un repositorio de actualización.         |
 
 > [!NOTE]
 > Los conjuntos de escalado de máquinas virtuales de Azure se pueden administrar a través de Update Management. Update Management funciona en las propias instancias y no en la imagen base. Deberá programar las actualizaciones de forma incremental, de modo que no todas las instancias de VM se actualicen a la vez. Puede agregar nodos para conjuntos de escalado de máquinas virtuales siguiendo los pasos que se describen en [Incorporación de una máquina que no es de Azure a la característica Change Tracking e Inventario](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).

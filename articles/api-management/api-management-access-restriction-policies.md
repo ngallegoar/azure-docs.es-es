@@ -4,21 +4,17 @@ description: Aprenda sobre las directivas de restricción de acceso disponibles 
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 711a973f13c8e292578703518df4c4302c31eb57
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70be2000d3b01e55cd52d161072c3249870310b9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071394"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122578"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -26,13 +22,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Directivas de restricción de acceso
 
--   [Activar encabezado HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) : aplica la existencia o el valor de un encabezado HTTP.
--   [Limitar la frecuencia de llamadas por suscripción](api-management-access-restriction-policies.md#LimitCallRate) : evita los picos de uso de la API limitando la frecuencia de llamadas, por suscripción.
+-   [Activar encabezado HTTP](#CheckHTTPHeader) : aplica la existencia o el valor de un encabezado HTTP.
+-   [Limitar la frecuencia de llamadas por suscripción](#LimitCallRate) : evita los picos de uso de la API limitando la frecuencia de llamadas, por suscripción.
 -   [Limitar la frecuencia de llamadas por clave](#LimitCallRateByKey) : evita los picos de uso de la API limitando la frecuencia de llamadas, por clave.
--   [Restringir IP de autor de llamada](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
--   [Establecer cuota de uso por suscripción](api-management-access-restriction-policies.md#SetUsageQuota) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por suscripción.
+-   [Restringir IP de autor de llamada](#RestrictCallerIPs) : filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
+-   [Establecer cuota de uso por suscripción](#SetUsageQuota) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por suscripción.
 -   [Establecer cuota de uso por clave](#SetUsageQuotaByKey) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por clave.
--   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) : aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
+-   [Validar JWT](#ValidateJWT) : aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
 
 > [!TIP]
 > Puede usar las directivas de restricción de acceso en distintos ámbitos para distintos propósitos. Por ejemplo, puede proteger toda la API con la autenticación de AAD si aplica la directiva `validate-jwt` en el nivel de API, o bien puede aplicarla en el nivel de operación de API y usar `claims` para un control más detallado.
@@ -384,12 +380,12 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 
 ## <a name="validate-jwt"></a><a name="ValidateJWT"></a> Validación de JWT
 
-La directiva `validate-jwt` aplica la existencia y la validez de un JWT extraído de un encabezado HTTP o un parámetro de consulta especificados.
+La directiva `validate-jwt` aplica la existencia y la validez de un token web JSON (JWT) extraído de un encabezado HTTP o de un parámetro de consulta especificados.
 
 > [!IMPORTANT]
 > La directiva `validate-jwt` requiere que la notificación registrada `exp` se incluya en el token de JWT, a menos que se especifique el atributo `require-expiration-time` y se establezca en `false`.
-> La directiva `validate-jwt` es compatible con los algoritmos de firma HS256 y RS256. En el caso de HS256, la clave debe proporcionarse en línea dentro de la directiva con el formato de codificación Base64. En el caso de RS256, la clave debe proporcionarse a través de un punto de conexión de configuración OpenID.
-> La directiva `validate-jwt` admite tokens cifrados con claves simétricas que utilicen los siguientes algoritmos de cifrado: A128CBC-HS256, A192CBC-HS384 y A256CBC-HS512.
+> La directiva `validate-jwt` es compatible con los algoritmos de firma HS256 y RS256. En el caso de HS256, la clave debe proporcionarse en línea dentro de la directiva con el formato de codificación Base64. En el caso de RS256, la clave se puede proporcionar mediante un punto de conexión de configuración de Open ID o con el identificador de un certificado cargado que contenga la clave pública o el par módulo-exponente de la clave pública.
+> La directiva `validate-jwt` admite tokens cifrados con claves simétricas que utilicen los siguientes algoritmos de cifrado: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -440,6 +436,22 @@ La directiva `validate-jwt` aplica la existencia y la validez de un JWT extraíd
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
     <issuer-signing-keys>
         <key>{{jwt-signing-key}}</key>  <!-- signing key specified as a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
+    </audiences>
+    <issuers>
+        <issuer>http://contoso.com/</issuer>
+    </issuers>
+</validate-jwt>
+```
+
+#### <a name="token-validation-with-rsa-certificate"></a>Validación de tokens con certificado RSA
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer">
+    <issuer-signing-keys>
+        <key certficate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
     </issuer-signing-keys>
     <audiences>
         <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
@@ -519,8 +531,8 @@ En este ejemplo se muestra cómo usar la directiva de [validación de JWT](api-m
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Elemento raíz.                                                                                                                                                                                                                                                                                                                                         | Sí      |
 | audiences           | Contiene una lista de notificaciones de audiencia aceptables que pueden estar presentes en el token. Si existen varios valores de audiencia, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno. Debe especificarse al menos una audiencia.                                                                     | No       |
-| issuer-signing-keys | Lista de las claves de seguridad con codificación Base64 que se utilizan para validar los tokens firmados. Si existen varias claves de seguridad, se prueban las claves una a una hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta (lo que es útil para la sustitución de tokens). Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.               | No       |
-| decryption-keys     | Una lista de claves con codificación Base64 que se usan para descifrar los tokens. Si existen varias claves de seguridad, se prueba cada clave hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta. Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.                                                 | No       |
+| issuer-signing-keys | Lista de las claves de seguridad con codificación Base64 que se utilizan para validar los tokens firmados. Si existen varias claves de seguridad, se prueban las claves una a una hasta que se agoten todas (en cuyo caso no se superará la validación) o que una sea la correcta (lo que es útil para la sustitución de tokens). Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`. <br/><br/>También puede proporcionar una clave de firma de emisor mediante:<br/><br/> - `certificate-id` en formato `<key certificate-id="mycertificate" />` para especificar el identificador de una entidad de certificado [cargada](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) en API Management<br/>- El par módulo `n` y exponente `e` de RSA en formato `<key n="<modulus>" e="<exponent>" />` para especificar los parámetros de RSA en formato codificado de base64url               | No       |
+| decryption-keys     | Una lista de claves con codificación Base64 que se usan para descifrar los tokens. Si existen varias claves de seguridad, se prueba cada clave hasta que se agoten todas (en cuyo caso no se superará la validación) o que una sea la correcta. Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.<br/><br/>También puede proporcionar una clave de descifrado mediante:<br/><br/> - `certificate-id` en formato `<key certificate-id="mycertificate" />` para especificar el identificador de una entidad de certificado [cargada](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) en API Management                                                 | No       |
 | issuers             | Lista de entidades de seguridad aceptables que emitieron el token. Si existen varios valores de emisor, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno.                                                                                                                                         | No       |
 | openid-config       | Elemento que se usa para especificar un punto de conexión de configuración OpenID compatible desde el que se puedan obtener las claves y el emisor de la firma.                                                                                                                                                                                                                        | No       |
 | required-claims     | Contiene una lista de las notificaciones que se espera que estén presentes en el token para que se considere válido. Cuando el atributo `match` está establecido en `all`, todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Cuando el atributo `match` está establecido en `any`, debe haber al menos una notificación en el token para que la validación se efectúe correctamente. | No       |

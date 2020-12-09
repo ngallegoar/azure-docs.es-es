@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3f0a9f0b7fdef26cf1ef2b145ede1826fda6ebd
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685603"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299622"
 ---
 # <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Uso de metadatos de archivo en consultas de grupo de SQL sin servidor
 
@@ -76,7 +76,7 @@ ORDER BY
 
 La función filepath devuelve una ruta de acceso completa o parcial:
 
-- Cuando se la llama sin ningún parámetro, devuelve la ruta de acceso completa al archivo del que se origina la fila.
+- Cuando se la llama sin ningún parámetro, devuelve la ruta de acceso completa al archivo del que se origina la fila. Cuando se utiliza DATA_SOURCE en OPENROWSET, se devuelve una ruta de acceso relativa a DATA_SOURCE. 
 - Cuando se la llama con un parámetro, devuelve la parte de la ruta de acceso que coincide con el carácter comodín en la posición especificada del parámetro. Por ejemplo, el valor 1 del parámetro devolvería la parte de la ruta de acceso que coincide con el primer carácter comodín.
 
 En el ejemplo siguiente se leen archivos de datos de NYC Yellow Taxi para los últimos tres meses de 2017. Devuelve el número de carreras por ruta de acceso de archivo. La parte de OPENROWSET de la consulta especifica qué archivos se leerán.

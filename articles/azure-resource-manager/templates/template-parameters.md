@@ -1,18 +1,18 @@
 ---
 title: Parámetros en plantillas
-description: Se describe cómo definir parámetros en una plantilla de Azure Resource Manager.
+description: Se describe cómo definir parámetros en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911420"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353517"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parámetros en plantillas de Azure Resource Manager
+# <a name="parameters-in-arm-templates"></a>Parámetros en plantillas de ARM
 
-En este artículo se describe cómo definir y usar parámetros en una plantilla de Azure Resource Manager. Si proporciona valores diferentes para los parámetros, podrá volver a usar una plantilla para distintos entornos.
+En este artículo se describe cómo definir y usar parámetros en una plantilla de Azure Resource Manager (plantilla de ARM). Si proporciona valores diferentes para los parámetros, podrá volver a usar una plantilla para distintos entornos.
 
 Resource Manager resuelve los valores de parámetro antes de iniciar las operaciones de implementación. Siempre que el parámetro se use en la plantilla, Resource Manager lo reemplaza por el valor resuelto.
 
@@ -159,9 +159,8 @@ En los siguientes ejemplos se muestran escenarios para usar parámetros.
 |[parámetros con funciones para los valores predeterminados](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Muestra cómo utilizar las funciones de plantilla al definir valores predeterminados para parámetros. La plantilla no implementa ningún recurso. Genera valores de parámetro y devuelve dichos valores. |
 |[objeto de parámetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Muestra cómo utilizar un objeto para un parámetro. La plantilla no implementa ningún recurso. Genera valores de parámetro y devuelve dichos valores. |
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre las propiedades disponibles para parámetros, consulte [Información sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para más información sobre las propiedades disponibles para parámetros, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
 * Para más información sobre cómo pasar valores de parámetro como un archivo, consulte [Creación de un archivo de parámetros de Resource Manager](parameter-files.md).
 * Para obtener recomendaciones sobre cómo crear parámetros, consulte [Procedimientos recomendados: parámetros](template-best-practices.md#parameters).

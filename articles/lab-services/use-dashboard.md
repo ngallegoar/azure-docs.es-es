@@ -3,14 +3,14 @@ title: Uso de un panel para un laboratorio educativo en Azure Lab Services | M
 description: Obtenga información sobre cómo usar un panel para un laboratorio educativo en Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 3834e6910faea38e87489d1ad0075d4bd9b8c6c6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a91e1649d913956219ddcf192ab315a245b32eae
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018314"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434607"
 ---
-# <a name="dashboard-for-classroom-labs"></a>Panel para laboratorios educativos
+# <a name="dashboard-for-labs"></a>Panel para laboratorios
 En este artículo se describe la vista de panel de un laboratorio educativo en Azure Lab Services. 
 
 ![Captura de pantalla en la que se muestra la vista de panel de un laboratorio educativo en Azure Lab Services](./media/use-dashboard/dashboard.png)

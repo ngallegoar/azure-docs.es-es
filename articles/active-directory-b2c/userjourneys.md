@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fda57ae152efbb04a793c6acf63465fe8d406a1a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 5b89126b837f9c197a8babf81abb17bfd98002e4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998652"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345004"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -172,7 +172,7 @@ El elemento **ClaimsProviderSelections** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| DisplayOption| No | Controla el comportamiento de un caso en el que solo hay disponible una selección del proveedor de notificaciones. Valores posibles: `DoNotShowSingleProvider` (valor predeterminado), el usuario se redirige inmediatamente al proveedor de identidades federadas. O `ShowSingleProvider` Azure AD B2C presenta la página de inicio de sesión con la selección del proveedor de identidades única. Para usar este atributo, la [versión de definición de contenido](page-layout.md) debe ser  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` y superior.|
+| DisplayOption| No | Controla el comportamiento de un caso en el que solo hay disponible una selección del proveedor de notificaciones. Valores posibles:`DoNotShowSingleProvider` (valor predeterminado), el usuario se redirige inmediatamente al proveedor de identidades federadas. O `ShowSingleProvider`Azure AD B2C presenta la página de inicio de sesión con la selección del proveedor de identidades única. Para usar este atributo, la [versión de definición de contenido](page-layout.md) debe ser `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` y superior.|
 
 El elemento **ClaimsProviderSelection** contiene los atributos siguientes:
 

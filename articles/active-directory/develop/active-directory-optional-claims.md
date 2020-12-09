@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/30/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019966"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433314"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -58,7 +58,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `verified_secondary_email` | Procede del valor SecondaryAuthoritativeEmail del usuario.   | JWT        |           |        |
 | `vnet`                     | Información del especificador de la red virtual | JWT        |           |      |
 | `fwd`                      | Dirección IP.| JWT    |   | Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual) |
-| `ctry`                     | País o región del usuario | JWT, SAML |  | Azure AD devuelve la notificación opcional `ctry` si existe, y el valor del campo es un código de país o región estándar de dos letras, como FR, JP, SZ, etc. |
+| `ctry`                     | País o región del usuario | JWT |  | Azure AD devuelve la notificación opcional `ctry` si existe, y el valor del campo es un código de país o región estándar de dos letras, como FR, JP, SZ, etc. |
 | `tenant_ctry`              | País del inquilino de los recursos | JWT | | Igual que `ctry`, salvo que un administrador lo establezca en un nivel de inquilino.  También debe ser un valor estándar de dos letras. |
 | `xms_pdl`             | Ubicación de datos preferida   | JWT | | En los inquilinos multigeográficos, la ubicación de datos preferida es el código de tres letras que muestra la región geográfica en la que se encuentra el usuario. Para más información, vea la [documentación de Azure AD Connect acerca de la ubicación de datos preferida](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Por ejemplo: `APC` para Asia Pacífico. |
 | `xms_pl`                   | Idioma preferido del usuario  | JWT ||Idioma preferido del usuario, si se establece. Se origina desde su inquilino principal, en escenarios de acceso de invitado. Con formato LL-CC ("en-us"). |
@@ -67,7 +67,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `email`                    | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | MSA, Azure AD | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, únicamente en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Estado de la cuenta de los usuarios de un inquilino | JWT, SAML | | Si el usuario es miembro del inquilino, el valor es `0`. Si es un invitado, el valor es `1`. |
 | `groups`| Formato opcional de las notificaciones de grupo |JWT, SAML| |Se usa junto con la configuración de GroupMembershipClaims en el [manifiesto de la aplicación](reference-app-manifest.md), que se debe establecer también. Para más información, vea las [notificaciones de grupo](#configuring-groups-optional-claims) abajo. Para más información sobre las notificaciones de grupo, vea [Cómo configurar notificaciones de grupo](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](/azure/active-directory/authentication/howto-authentication-use-email-signin) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados  |
 | `idtyp`                    | Tipo de token   | Tokens de acceso de JWT | Especial: únicamente en tokens de acceso de solo aplicación |  El valor es `app` cuando el token es un token de solo aplicación. Esta es la forma más precisa para que una API determine si un token es un token de aplicación o un token de usuario + aplicación.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Conjunto de notificaciones opcionales específicas de la versión 2.0
@@ -85,7 +85,7 @@ Estas notificaciones siempre se incluyen en los tokens de la versión 1.0 de Azu
 | `in_corp`     | Dentro de red corporativa        | Indica si el cliente ha iniciado sesión desde la red corporativa. En caso contrario, la notificación no se incluye.   |  En función de la configuración de las [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips) de MFA.    |
 | `family_name` | Apellido                       | Proporciona el apellido del usuario según está definido en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y Azure AD. Requiere el ámbito `profile`.   |
 | `given_name`  | Nombre                      | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y Azure AD.  Requiere el ámbito `profile`. |
-| `upn`         | Nombre principal del usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](/azure/active-directory/authentication/howto-authentication-use-email-signin) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. Requiere el ámbito `profile`.|
+| `upn`         | Nombre principal del usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. Requiere el ámbito `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propiedades adicionales de las notificaciones opcionales
 
@@ -139,7 +139,7 @@ Puede configurar notificaciones opcionales para la aplicación mediante la inter
 1. Seleccione **Agregar**.
 
 > [!NOTE]
-> La hoja **Configuración del token** de la opción de la interfaz de usuario no está disponible actualmente para las aplicaciones registradas en un inquilino de Azure AD B2C. En el caso de las aplicaciones registradas en un inquilino de B2C, las notificaciones opcionales se pueden configurar con la modificación del manifiesto de aplicación. Para más información, vea [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input). 
+> La hoja **Configuración del token** de la opción de la interfaz de usuario no está disponible actualmente para las aplicaciones registradas en un inquilino de Azure AD B2C. En el caso de las aplicaciones registradas en un inquilino de B2C, las notificaciones opcionales se pueden configurar con la modificación del manifiesto de aplicación. Para más información, vea [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md). 
 
 **Configuración de notificaciones opcionales mediante el manifiesto de aplicación:**
 

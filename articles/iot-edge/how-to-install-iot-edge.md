@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7794bcdfa4f82698fdc5875bc94dcf52b70166e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109007"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185103"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Instalación o desinstalación del entorno de ejecución de Azure IoT Edge
 
@@ -39,19 +39,19 @@ Prepare el dispositivo para acceder a los paquetes de instalación de Microsoft.
 
 1. Instale la configuración del repositorio que coincida con el sistema operativo del dispositivo.
 
-   * **Ubuntu Server 16.04** :
+   * **Ubuntu Server 16.04**:
 
      ```bash
      curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Ubuntu Server 18.04** :
+   * **Ubuntu Server 18.04**:
 
      ```bash
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Raspbian Stretch** :
+   * **Raspberry Pi OS Stretch**:
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -150,13 +150,13 @@ Compruebe qué versiones de IoT Edge están disponibles.
    apt list -a iotedge
    ```
 
-Si quiere instalar la versión más reciente del demonio de seguridad, use el siguiente comando, que también instala la versión más reciente del paquete **libiothsm-std** :
+Si quiere instalar la versión más reciente del demonio de seguridad, use el siguiente comando, que también instala la versión más reciente del paquete **libiothsm-std**:
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-Si desea instalar una versión específica del demonio de seguridad, especifique la versión en la salida de la lista apt. Especifique también la misma versión para el paquete **libiothsm-std** , que de lo contrario instalaría su versión más reciente. Por ejemplo, el siguiente comando instala la versión más reciente de la versión 1.0.8:
+Si desea instalar una versión específica del demonio de seguridad, especifique la versión en la salida de la lista apt. Especifique también la misma versión para el paquete **libiothsm-std**, que de lo contrario instalaría su versión más reciente. Por ejemplo, el siguiente comando instala la versión más reciente de la versión 1.0.8:
 
    ```bash
    sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
@@ -272,7 +272,7 @@ Si el dispositivo va a estar sin conexión durante la instalación o si desea in
 
    Es importante usar el script de PowerShell de la misma versión que el archivo .cab que se usa, porque la funcionalidad cambia para admitir las características de cada versión.
 
-3. Si el archivo .cab que descargó tiene un sufijo de arquitectura, cambie el nombre del archivo a **Microsoft-Azure-IoTEdge.cab** .
+3. Si el archivo .cab que descargó tiene un sufijo de arquitectura, cambie el nombre del archivo a **Microsoft-Azure-IoTEdge.cab**.
 
 4. Opcionalmente, descargue un instalador para Visual C++ Redistributable. Por ejemplo, el script de PowerShell usa esta versión: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Guarde el instalador en la misma carpeta del dispositivo IoT que los archivos IoT Edge.
 
@@ -343,10 +343,10 @@ Después de instalar el entorno de ejecución de IoT Edge, configure el disposit
 
 Elija el siguiente artículo en función del tipo de autenticación que quiera usar:
 
-* **Clave simétrica** : tanto IoT Hub como el dispositivo IoT Edge tienen una copia de una clave segura. Cuando el dispositivo se conecta a IoT Hub, comprueba que las claves coincidan. Este método de autenticación es más rápido para comenzar, pero no es tan seguro.
+* **Clave simétrica**: tanto IoT Hub como el dispositivo IoT Edge tienen una copia de una clave segura. Cuando el dispositivo se conecta a IoT Hub, comprueba que las claves coincidan. Este método de autenticación es más rápido para comenzar, pero no es tan seguro.
 
   [Configuración de un dispositivo Azure IoT Edge con autenticación de claves simétricas](how-to-manual-provision-symmetric-key.md)
 
-* **X.509 autofirmado** : el dispositivo IoT Edge tiene certificados de identidad X.509 y se proporciona la huella digital de los certificados a IoT Hub. Cuando el dispositivo se conecta a IoT Hub, estos comparan el certificado con su huella digital. Este método de autenticación es más seguro y se recomienda para escenarios de producción.
+* **X.509 autofirmado**: el dispositivo IoT Edge tiene certificados de identidad X.509 y se proporciona la huella digital de los certificados a IoT Hub. Cuando el dispositivo se conecta a IoT Hub, estos comparan el certificado con su huella digital. Este método de autenticación es más seguro y se recomienda para escenarios de producción.
 
   [Configuración de un dispositivo Azure IoT Edge con autenticación de certificados X.509](how-to-manual-provision-x509.md)

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f941c394c3dab0e5e6997898a48a248f6a0cfe42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009692"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352446"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -66,7 +66,8 @@ static void Main(string[] args)
 }
 ```
 
-Como la versión 3.*x* emplea las API de configuración predeterminadas de .NET Core, no hay ninguna API para cambiar los nombres de las cadenas de conexión.
+> [!NOTE]
+> Como la versión 3.*x* emplea las API de configuración predeterminadas de .NET Core, no hay ninguna API para cambiar los nombres de las cadenas de conexión. Consulte [Desarrollo e implementación de WebJobs mediante Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ### <a name="host-development-settings"></a>Configuración de desarrollo del host
 
@@ -829,7 +830,7 @@ Cada registro que creó una instancia `ILogger` tiene asociados los valores `Cat
 |------------|---|
 |Seguimiento       | 0 |
 |Depurar       | 1 |
-|Información | 2 |
+|Information | 2 |
 |Advertencia     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |

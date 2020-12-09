@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b09ce48226b3c31efce4966ec776c10931cc391
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010578"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348660"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Administración de recursos de Azure Cosmos DB mediante el Explorador de Azure Storage
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,7 +22,7 @@ Puede usar el Explorador de Azure Storage para conectarse a Azure Cosmos DB. Le
 Ahora puede usar la misma herramienta para administrar las diferentes entidades de Azure en un solo lugar. Puede administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure como los blobs y las colas de Storage. Actualmente, el Explorador de Azure Storage admite cuentas de Cosmos que estén configuradas para las API de SQL, MongoDB, Graph y Table.
 
 > [!NOTE]
-> La integración de Azure Cosmos DB con Explorador de Storage ha quedado en desuso. Cualquier funcionalidad existente no se quitará durante un año como mínimo a partir de esta versión. En su lugar, debe usar [Azure Portal](https://portal.azure.com/), la [aplicación de escritorio de Azure Portal](https://portal.azure.com/App/Download) o el [explorador de Azure Cosmos](data-explorer.md) independiente. Las opciones alternativas contienen muchas características nuevas que actualmente no se admiten en Explorador de Storage.
+> La integración de Azure Cosmos DB con Explorador de Storage ha quedado en desuso. Cualquier funcionalidad existente no se quitará durante un año como mínimo a partir de esta versión. En su lugar, debe usar [Azure Portal](https://portal.azure.com/), la [aplicación de escritorio de Azure Portal](https://portal.azure.com/App/Download) o el [Explorador de Azure Cosmos DB](data-explorer.md) independiente. Las opciones alternativas contienen muchas características nuevas que actualmente no se admiten en Explorador de Storage.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

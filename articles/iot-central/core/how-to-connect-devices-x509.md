@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 33d837f63fca2062ec930fcf0d64ee01ea822c99
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d36cf2344891bb70ab5499e77699b111429a936b
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989537"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121828"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Procedimiento para conectar dispositivos con certificados X.509 mediante el SDK de dispositivo de Node.js para la aplicación de IoT Central
 
-IoT Central admite firmas de acceso compartido (SAS) y certificados X.509 para proteger la comunicación entre un dispositivo y la aplicación. En el tutorial [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](./tutorial-connect-device-nodejs.md) se usa SAS. En este artículo, aprenderá a modificar el ejemplo de código para usar X.509.  Los certificados X.509 se recomiendan en entornos de producción. Para obtener más información, consulte [Conexión a Azure IoT Central](./concepts-get-connected.md).
+IoT Central admite firmas de acceso compartido (SAS) y certificados X.509 para proteger la comunicación entre un dispositivo y la aplicación. En el tutorial [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](./tutorial-connect-device.md) se usa SAS. En este artículo, aprenderá a modificar el ejemplo de código para usar X.509.  Los certificados X.509 se recomiendan en entornos de producción. Para obtener más información, consulte [Conexión a Azure IoT Central](./concepts-get-connected.md).
 
 En este artículo se muestran dos formas de usar X.509: en [inscripciones de grupo](how-to-connect-devices-x509.md#use-a-group-enrollment), que se usan normalmente en un entorno de producción, y en [inscripciones individuales](how-to-connect-devices-x509.md#use-an-individual-enrollment), que resultan útiles para las pruebas.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Haber completado el tutorial [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Node.js)](./tutorial-connect-device-nodejs.md).
+- Haber completado el tutorial [Creación y conexión de una aplicación cliente a una aplicación de Azure IoT Central (JavaScript)](./tutorial-connect-device.md).
 - [Git](https://git-scm.com/download/).
 - Descargar e instalar [OpenSSL](https://www.openssl.org/). Si usa Windows, puede usar los archivos binarios de la [página de OpenSSL en SourceForge](https://sourceforge.net/projects/openssl/).
 
@@ -97,7 +97,7 @@ Después de guardar el grupo de inscripciones, tome nota del ámbito de identifi
 
 ## <a name="run-sample-device-code"></a>Ejecución del código del dispositivo de ejemplo
 
-1. Copie los archivos **sampleDevice01_key.pem** y **sampleDevice01_cert.pem** en la carpeta _azure-iot-sdk-node/device/samples/pnp_ que contiene la aplicación **simple_thermostat.js**. Utilizó esta aplicación cuando completó el tutorial [Conexión de un dispositivo (Node.js)](./tutorial-connect-device-nodejs.md).
+1. Copie los archivos **sampleDevice01_key.pem** y **sampleDevice01_cert.pem** en la carpeta _azure-iot-sdk-node/device/samples/pnp_ que contiene la aplicación **simple_thermostat.js**. Utilizó esta aplicación cuando completó el [tutorial Conexión de un dispositivo (JavaScript)](./tutorial-connect-device.md).
 
 1. Vaya a la carpeta _azure-iot-sdk-node/device/samples/pnp_ que contiene la aplicación **simple_thermostat.js** y ejecute el siguiente comando para instalar el paquete X.509:
 
@@ -149,7 +149,7 @@ Después de guardar el grupo de inscripciones, tome nota del ámbito de identifi
     ```
 
     > [!TIP]
-    > Establezca las otras dos variables de entorno necesarias cuando complete el tutorial [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](./tutorial-connect-device-nodejs.md).
+    > Establezca las otras dos variables de entorno necesarias cuando complete el tutorial [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](./tutorial-connect-device.md).
 
 1. Ejecute el script y compruebe que el dispositivo se haya aprovisionado correctamente:
 
@@ -197,7 +197,7 @@ El dispositivo ya está aprovisionado con el certificado X.509.
 
 ## <a name="run-a-sample-individual-enrollment-device"></a>Ejecución de un dispositivo de inscripción individual de ejemplo
 
-1. Copie los archivos _mytestselfcertprimary_key.pem_ y _mytestselfcertprimary_cert.pem_ en la carpeta _azure-iot-sdk-node/device/samples/pnp_ que contiene la aplicación **simple_thermostat.js**. Utilizó esta aplicación cuando completó el tutorial [Conexión de un dispositivo (Node.js)](./tutorial-connect-device-nodejs.md).
+1. Copie los archivos _mytestselfcertprimary_key.pem_ y _mytestselfcertprimary_cert.pem_ en la carpeta _azure-iot-sdk-node/device/samples/pnp_ que contiene la aplicación **simple_thermostat.js**. Utilizó esta aplicación cuando completó el [tutorial Conexión de un dispositivo (JavaScript)](./tutorial-connect-device.md).
 
 1. Modifique las variables de entorno que usó de la siguiente manera:
 

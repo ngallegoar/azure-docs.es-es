@@ -3,12 +3,12 @@ title: Introducción y creación de un laboratorio de Azure Lab Services en Team
 description: Obtenga información de cómo crear y empezar a usar un laboratorio de Azure Lab Services en Teams.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217089"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433978"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Introducción y creación de un laboratorio de Lab Services en Teams
 
@@ -21,7 +21,7 @@ En este tutorial, configurará un laboratorio con máquinas virtuales para su eq
 Este es el flujo de trabajo típico al usar Azure Lab Services en Teams:
 
 1. El usuario [crea una cuenta de laboratorio](tutorial-setup-lab-account.md#create-a-lab-account) en Azure Portal.
-1. El [creador de una cuenta de laboratorio puede agregar otros usuarios](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) al rol **Creador de laboratorio** . Por ejemplo, el creador o administrador de la cuenta de laboratorio agrega formadores al rol **Creador de laboratorio** para que puedan crear laboratorios para sus clases.
+1. El [creador de una cuenta de laboratorio puede agregar otros usuarios](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) al rol **Creador de laboratorio**. Por ejemplo, el creador o administrador de la cuenta de laboratorio agrega formadores al rol **Creador de laboratorio** para que puedan crear laboratorios para sus clases.
 1. Después, los educadores crean laboratorios, configuran previamente la VM de plantilla y publican el laboratorio para aprovisionar las VM para todos los usuarios del equipo.
 1. Una vez que se publica el laboratorio, se asigna una VM a todos los usuarios de la lista de pertenencia del equipo cuando inician sesión por primera vez en Azure Lab Services, bien haciendo clic en la pestaña que contiene la aplicación **Azure Lab Services** en Teams (SSO) o accediendo al [sitio web de los laboratorios](https://labs.azure.com). A continuación, los usuarios pueden usar la VM para hacer el trabajo de clase y sus tareas.
 
@@ -40,18 +40,18 @@ Como propietario de un equipo, puede agregar la aplicación **Azure Lab Services
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Agregar una tabla":::
-1. Seleccione la cuenta de Lab Services que quiera usar para crear laboratorios de clases en este equipo. 
+1. Seleccione la cuenta de Lab Services que quiera usar para crear laboratorios en este equipo. 
 
     Azure Lab Services usa el inicio de sesión único en el [sitio web de Azure Lab Services](https://labs.azure.com) y extrae todas las cuentas de laboratorio a las que tiene acceso. 
 
-    Se muestran las cuentas que están en el mismo inquilino que Teams y para las que tiene acceso de **Propietario** , **Colaborador** o **Creador** . 
+    Se muestran las cuentas que están en el mismo inquilino que Teams y para las que tiene acceso de **Propietario**, **Colaborador** o **Creador**. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Agregar una tabla":::
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Bienvenido a ALS":::
 1. Presione **Guardar** y la pestaña se agregará al canal.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Agregar una tabla":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="La pestaña de ALS creada":::
 
     Ahora puede seleccionar la pestaña **Azure Lab Services** en el canal e iniciar la administración de laboratorios como se describe en los artículos siguientes.
 

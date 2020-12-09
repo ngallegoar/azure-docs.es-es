@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358174"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169943"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -54,7 +54,7 @@ Las direcciones IP públicas de SKU estándar:
 - Tiene un tiempo espera de inactividad del flujo originado de entrada ajustable de entre 4 y 30 minutos, y un valor predeterminado de 4 minutos, y el valor predeterminado del tiempo de espera del flujo originado es de 4 minutos.
 - Son seguras de forma predeterminada y se cierran al tráfico de entrada. Permiten mostrar el tráfico de entrada con un [grupo de seguridad de red](security-overview.md#network-security-groups).
 - Se asignan a interfaces de red, equilibradores de carga estándar públicos o puertas de enlace de aplicaciones. Para más información sobre Standard Load Balancer, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Puede ser con redundancia de zona o zonal (se pueden crear zonal y garantizada en una zona de disponibilidad específica). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad).
+- Puede ser con redundancia de zona (publicitado desde las tres zonas) o zonal (se pueden crear zonal y garantizada en una zona de disponibilidad específica). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad). **Las direcciones IP con redundancia de zona solo se pueden crear en regiones de [en las que haya tres zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-region) activas.** Las direcciones IP creadas antes de que las zonas estén activas no tendrán redundancia de zona.
  
 > [!NOTE]
 > Para evitar que se produzca un error en la comunicación de entrada con el recurso SKU estándar, debe crear un [grupo de seguridad de red](security-overview.md#network-security-groups), asociarlo y permitir explícitamente el tráfico de entrada deseado.

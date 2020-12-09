@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368099"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296818"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -31,7 +31,7 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 - Servicios de búsqueda administrados.
 
 > [!TIP]
-> Originalmente se inició como **ATP de Windows Defender** , pero se cambió el nombre de este producto de Detección y respuesta de puntos de conexión (EDR) en 2019 a **ATP de Microsoft Defender**.
+> Originalmente se inició como **ATP de Windows Defender**, pero se cambió el nombre de este producto de Detección y respuesta de puntos de conexión (EDR) en 2019 a **ATP de Microsoft Defender**.
 >
 > En Ignite 2020, lanzamos el [conjunto Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection) y se cambió el nombre del componente EDR a **Microsoft Defender para punto de conexión**.
 
@@ -44,7 +44,7 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 | Precios:                        | Requiere [Azure Defender para servidores](security-center-pricing.md).                                                                                                                                                                                                                                             |
 | Plataformas compatibles:            | ![Sí](./media/icons/yes-icon.png) Máquinas de Azure que ejecutan Windows.<br>![Sí](./media/icons/yes-icon.png) Máquinas de Azure Arc que ejecutan Windows.|
 | Versiones compatibles de Windows:  | Defender para punto de conexión está integrado en Windows 10 1703 (y versiones posteriores) y Windows Server 2019.<br>Security Center admite la detección en los sistemas operativos Windows Server 2016, 2012 R2 y 2008 R2 SP1.<br>La supervisión del punto de conexión del servidor que usa esta integración se ha deshabilitado para los clientes de Office 365 GCC. |
-| Roles y permisos necesarios: | Para habilitar o deshabilitar la integración: **Administrador de seguridad** o **Propietario**<br>Para ver las alertas de MDATP en Security Center: **Lector de seguridad** , **Lector** , **Colaborador del grupo de recursos** , **Propietario del grupo de recursos** , **Administrador de seguridad** , **Propietario de la suscripción** o **Colaborador de la suscripción**                         |
+| Roles y permisos necesarios: | Para habilitar o deshabilitar la integración: **Administrador de seguridad** o **Propietario**<br>Para ver las alertas de MDATP en Security Center: **Lector de seguridad**, **Lector**, **Colaborador del grupo de recursos**, **Propietario del grupo de recursos**, **Administrador de seguridad**, **Propietario de la suscripción** o **Colaborador de la suscripción**                         |
 | Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales.<br>![No](./media/icons/no-icon.png) Clientes de GCC que ejecutan cargas de trabajo en nubes de Azure globales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
@@ -61,7 +61,7 @@ Microsoft Defender para punto de conexión proporciona lo siguiente:
 
 Mediante la integración de Defender para punto de conexión con Security Center, también puede beneficiarse de las siguientes funcionalidades adicionales:
 
-- **Incorporación automatizada**. Security Center habilita automáticamente el sensor de Microsoft Defender para punto de conexión en todos los servidores Windows que supervisa (a menos que ejecuten Windows Server 2019).
+- **Incorporación automatizada**. Security Center habilita automáticamente el sensor de Microsoft Defender para punto de conexión en todos los servidores Windows que supervisa Security Center. La excepción son aquellos servidores que ejecutan Windows Server 2019, que deben incorporarse a través de un script local, un objeto de directiva de grupo (GPO) o [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (antes SCCM).
 
 - **Panel único**. la consola de Security Center muestra las alertas de Microsoft Defender para punto de conexión. Para obtener más detalles, use las páginas del portal de Microsoft Defender para punto de conexión, donde verá información adicional, como el árbol de procesos de alerta y el gráfico de incidentes. También puede ver una escala de tiempo de la máquina detallada que muestra cada comportamiento durante un período histórico de hasta seis meses.
 

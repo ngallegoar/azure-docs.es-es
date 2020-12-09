@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99cad2a4218995ad10488d97ce19eeef36b642ae
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 961dae4cd35c7529a5661d1ddc7d0d1f6e4db634
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637003"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029122"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Base de referencia de seguridad de Azure para Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -445,11 +445,11 @@ Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/qui
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: Proporcione a Microsoft acceso a los datos pertinentes del cliente durante los escenarios de soporte técnico
 
-**Guía**: Actualmente, no está disponible; la Caja de seguridad del cliente todavía no se admite en Azure Database para Cosmos DB.
+**Guía**: La Caja de seguridad del cliente no es aplicable para Cosmos DB.  Los empleados de Microsoft no pueden acceder a los recursos de datos ni siquiera con permisos de los clientes.
 
 Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Supervisión de Azure Security Center**: No aplicable
 
 **Responsabilidad**: No aplicable
 
@@ -803,7 +803,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Establezca configuraciones del sistema operativo seguras
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -824,7 +824,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenga configuraciones del sistema operativo seguras
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -843,7 +843,7 @@ Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -879,7 +879,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 

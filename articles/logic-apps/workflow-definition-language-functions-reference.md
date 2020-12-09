@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: dff2488094bd9abde44b8d8a8d7a44d4f79a12e0
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a4646263eeb93a33a03e32107b46bb6dc104ce06
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592692"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326308"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -556,7 +556,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*días*> | Sí | Entero | Número positivo o negativo de días que desea agregar |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -598,7 +598,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*horas*> | Sí | Entero | Número positivo o negativo de horas que desea agregar |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -640,7 +640,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*minutos*> | Sí | Entero | Número positivo o negativo de minutos que desea agregar |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -781,7 +781,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*segundos*> | Sí | Entero | Número positivo o negativo de segundos que desea agregar |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -825,7 +825,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a agregar |
 | <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -1278,7 +1278,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -1321,7 +1321,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
 | <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -1363,7 +1363,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -1948,7 +1948,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -2097,7 +2097,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a agregar |
 | <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -2141,7 +2141,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer |
 | <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -3703,7 +3703,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -3734,7 +3734,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -3765,7 +3765,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -3963,7 +3963,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer |
 | <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -4598,7 +4598,7 @@ Si lo desea, puede especificar un formato diferente con el parámetro <*format*>
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |

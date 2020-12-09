@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 11/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 0818d113b5475e847c009f979345e103d6e089bb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 44553d7b88d6b911769c7449d71d71418aaeba6e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938872"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434896"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -47,6 +47,7 @@ En esta sección se proporcionan referencias para las aplicaciones de Windows y 
 
 * [¿Quiere crear su propia instancia de Azure NFS? Cómo lidiar con los recursos compartidos de archivos Linux en la nube](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 * [Caché de archivos globales/implementación de Azure NetApp Files](https://youtu.be/91LKb1qsLIM)
+* [Cumplimiento de la nube para Azure NetApp Files](https://cloud.netapp.com/hubfs/Cloud%20Compliance%20for%20Azure%20NetApp%20Files%20-%20November%202020.pdf)
 
 ### <a name="sql-server"></a>SQL Server
 

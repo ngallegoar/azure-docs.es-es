@@ -1,14 +1,14 @@
 ---
 title: Establecimiento de contraseñas de las máquinas virtuales en Azure Lab Services | Microsoft Docs
-description: Aprenda a establecer y restablecer las contraseñas de las máquinas virtuales (VM) en laboratorios de clase de Azure Lab Services.
+description: Aprenda a establecer y restablecer las contraseñas de las máquinas virtuales (VM) en laboratorios de Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379696"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434233"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configuración y administración del grupo de máquinas virtuales 
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -20,7 +20,7 @@ En este artículo se muestra cómo realizar las tareas siguientes:
 ## <a name="update-the-lab-capacity"></a>Actualización de la capacidad del laboratorio
 Para aumentar o disminuir la capacidad del laboratorio (número de máquinas virtuales de un laboratorio), siga estos pasos:
 
-1. En la página **Grupo de máquinas virtuales** , seleccione **Lab capacity: &lt;número&gt; machines** (Capacidad del laboratorio <número> máquinas).
+1. En la página **Grupo de máquinas virtuales**, seleccione **Lab capacity: &lt;número&gt; machines** (Capacidad del laboratorio <número> máquinas).
 2. Escriba el nuevo **número de máquinas virtuales** que desea en el laboratorio. Este número debe ser mayor o igual que el número de usuarios registrados en el laboratorio. 
 3. Después, seleccione **Guardar**. 
 
@@ -102,4 +102,4 @@ El creador del laboratorio (formador) puede conectarse a la VM de un alumno si s
 ## <a name="next-steps"></a>Pasos siguientes
 Para conocer otras opciones de uso de alumnos que (como propietario del laboratorio) puede configurar, consulte el artículo siguiente: [Configuración del uso de alumnos](how-to-configure-student-usage.md).
 
-Para obtener más información sobre cómo los alumnos puedes restablecer las contraseñas de sus máquinas virtuales, consulte [Set or reset password for virtual machines in classroom labs (students)](how-to-set-virtual-machine-passwords-student.md) (Establecimiento o restablecimiento de contraseñas de las máquinas virtuales en laboratorios de clase [alumnos]).
+Para obtener más información sobre cómo los alumnos pueden restablecer las contraseñas de sus VM, consulte [Establecimiento o restablecimiento de contraseñas de las máquinas virtuales en laboratorios (alumnos)](how-to-set-virtual-machine-passwords-student.md).

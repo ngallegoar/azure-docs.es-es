@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: a80082ac524a4777b3b5ee32d946e9db8ec6e7f5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 85f0a42cdfcbea2223d202a9dc35f58746580e85
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681625"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350133"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,10 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Inicio del panel de Kubernetes
+
+> [!WARNING]
+> El complemento del panel de AKS está en desuso para las versiones 1.19 +. Use la [vista de recursos de Kubernetes en Azure Portal (versión preliminar)][kubernetes-portal] en su lugar. 
+> * El siguiente comando abrirá ahora la vista de recursos de Azure Portal en lugar del panel de Kubernetes para las versiones 1.19 y posteriores.
 
 Para iniciar el panel de Kubernetes en un clúster, use el comando [az aks browse][az-aks-browse]. Este comando requiere la instalación del complemento kube-dashboard en el clúster, que se incluye de forma predeterminada en los clústeres que ejecutan cualquier versión anterior a Kubernetes 1.18.
 

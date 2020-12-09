@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 635178999398287649d8630fc5262a385afc48b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96013467"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341791"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -435,7 +435,7 @@ La información de error se muestra de la manera siguiente:
 
 El certificado usa KSP (proveedor de almacenamiento de claves), que todavía no se admite. Por el momento, SHIR solo admite el certificado CSP (proveedor de servicios criptográficos).
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 En este caso, se recomienda el certificado CSP.
 
@@ -459,6 +459,22 @@ Antes y después de la conversión:
 
 ![Después del cambio de certificado](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
+### <a name="self-hosted-integration-runtime-version-5x"></a>Entorno de ejecución de integración autohospedado, versión 5.x
+Para la actualización a la versión 5.x del entorno de ejecución de integración autohospedado de Azure Data Factory, se requiere el **tiempo de ejecución de .NET Framework 4.7.2** o una versión posterior. En la página de descarga, habrá vínculos de descarga para la versión 4.x más reciente y las dos últimas versiones 5.x. 
+
+
+Para los clientes de ADF V2:
+- Si la actualización automática está activada y ya ha actualizado su entorno de tiempo de ejecución de .NET Framework a la versión 4.7.2 o posterior, el entorno de ejecución de integración autohospedado se actualizará automáticamente a la versión 5.x más reciente.
+- Si la actualización automática está activada y no ha actualizado su entorno de tiempo de ejecución de .NET Framework a la versión 4.7.2 o posterior, el entorno de ejecución de integración autohospedado no se actualizará automáticamente a la versión 5.x más reciente. El entorno de ejecución de integración autohospedado permanecerá en la versión 4.x actual. Verá una advertencia para la actualización del entorno de tiempo de ejecución de .NET Framework en el portal y en el cliente del entorno de ejecución de integración autohospedado.
+- Si la actualización automática está desactivada y ya ha actualizado el entorno de tiempo de ejecución de .NET Framework a la versión 4.7.2 o posterior, puede descargar manualmente la versión 5.x más reciente e instalarla en la máquina.
+- Si la actualización automática está desactivada y no ha actualizado el entorno de tiempo de ejecución de .NET Framework a la versión 4.7.2 o posterior, al intentar instalar manualmente SHIR 5. x y registrar la clave, se le pedirá que actualice primero el entorno de tiempo de ejecución de .NET Framework.
+
+
+Para los clientes de ADF V1:
+- El entorno de ejecución de integración autohospedado, versión 5.x, no admite ADF V1.
+- El entorno de ejecución de integración autohospedado se actualizará automáticamente a la versión 4.x más reciente. Y la última versión 4.x no expirará. 
+- Si intenta instalar manualmente el entorno de ejecución de integración autohospedado 5.x y registrar la clave, se le indicará que esta versión no admite V1.
+
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problemas de conectividad de IR autohospedado
 
@@ -472,7 +488,7 @@ Antes y después de la conversión:
 
 El entorno de ejecución de integración autohospedado no puede conectarse al servicio Data Factory (back-end). Este problema se debe normalmente a la configuración de red en el firewall.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 1. Compruebe si el servicio de entorno de ejecución de integración está en ejecución.
     
@@ -538,7 +554,7 @@ El nodo de tiempo de ejecución integrado autohospedado podría tener un estado 
 
 Este comportamiento se produce cuando los nodos no pueden comunicarse entre sí.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 1. Inicie sesión en la máquina virtual hospedada en el nodo. En **Registros de aplicaciones y servicios** > **Integration Runtime**, abra el visor de eventos y filtre todos los registros de errores.
 
@@ -731,12 +747,12 @@ Este problema se debe a dos motivos:
 - La entidad de certificación raíz del certificado de servidor del servicio ADF no es de confianza en el equipo donde está instalado SHIR. 
 - Usa un proxy en el entorno y el certificado de servidor del servicio ADF se sustituye por el proxy, mientras que el certificado de servidor reemplazado no es de confianza para el equipo en el que está instalado SHIR.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 - Para el motivo 1, asegúrese de que el certificado de servidor de ADF y su cadena de certificados son de confianza para el equipo en el que está instalado SHIR.
 - Para el motivo 2, confíe en la entidad de certificación raíz reemplazada en el equipo con SHIR, o bien configure el proxy para que no reemplace el certificado de servidor de ADF.
 
-Consulte [este artículo](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) para obtener más información sobre la confianza de un certificado en Windows.
+Consulte [este artículo](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) para obtener más información sobre la confianza de un certificado en Windows.
 
 #### <a name="additional-info"></a>Información adicional
 Se va a implementar un nuevo certificado SSL, que está firmado por DigiCert; compruebe si la raíz global de DigiCert G2 está en la CA raíz de confianza.
@@ -757,6 +773,7 @@ Es posible que observe otras fábricas de datos (en diferentes inquilinos) al in
 #### <a name="cause"></a>Causa
 
 El IR autohospedado no puede compartirse entre inquilinos.
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

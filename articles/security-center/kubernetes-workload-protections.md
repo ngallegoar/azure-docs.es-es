@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030856"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -47,23 +47,32 @@ Security Center ofrece más características de seguridad del contenedor si habi
 
 Azure Security Center incluye un conjunto de recomendaciones que están disponibles cuando ha instalado el **complemento de Azure Policy para Kubernetes**.
 
-1. Para configurar las recomendaciones, primero debe instalar el complemento:
+### <a name="step-1-deploy-the-add-on"></a>Paso 1: Implementación del complemento
 
-    1. En la página de recomendaciones, busque la recomendación llamada **Debe tener el complemento de Azure Policy para Kubernetes instalado y habilitado en sus clústeres**.
+Para configurar las recomendaciones, instale el **complemento de Azure Policy para Kubernetes**. 
+
+- Puede implementar automáticamente este complemento, tal y como se explica en [Habilitar el aprovisionamiento automático de extensiones](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Cuando el aprovisionamiento automático del complemento esté establecido en "activado", la extensión se habilitará de forma predeterminada en todos los clústeres existentes y futuros (que cumplan los requisitos de instalación del complemento).
+
+- Para implementar manualmente el complemento:
+
+    1. En la página de recomendaciones, busque la recomendación "**Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**" (El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres). 
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
 
         > [!TIP]
         > La recomendación se incluye en cinco controles de seguridad diferentes y no importa cuál seleccione en el siguiente paso.
 
-    1. En cualquiera de los controles de seguridad, seleccione la recomendación para ver los recursos en los que puede instalar el complemento y seleccione **Corregir**. 
+    1. En cualquiera de los controles de seguridad, seleccione la recomendación para ver los recursos en los que puede instalar el complemento.
+    1. Seleccione el clúster correspondiente y elija **Corregir**.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Página de detalles de recomendación para **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
+
+### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>Paso 2: Vista y configuración del conjunto de 13 recomendaciones
 
 1. Aproximadamente 30 minutos después de completarse la instalación del complemento, Security Center muestra el estado de mantenimiento de los clústeres de las siguientes recomendaciones, cada uno en el control de seguridad pertinente como se muestra a continuación:
 
     > [!TIP]
-    > Algunas recomendaciones tienen parámetros que deben personalizarse a través de Azure Policy para usarlos de forma eficaz. Por ejemplo, para beneficiarse de la recomendación **Las imágenes de contenedor solo deben implementarse desde registros de confianza** , tendrá que definir sus registros de confianza.
+    > Algunas recomendaciones tienen parámetros que deben personalizarse a través de Azure Policy para usarlos de forma eficaz. Por ejemplo, para beneficiarse de la recomendación **Las imágenes de contenedor solo deben implementarse desde registros de confianza**, tendrá que definir sus registros de confianza.
     > 
     > Si no especifica los parámetros necesarios para las recomendaciones que requieren configuración, las cargas de trabajo aparecerán como incorrectas.
 
@@ -82,13 +91,14 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
     | El uso de puertos y redes de hosts debe estar restringido.                     | Restricción de los accesos de red no autorizados     | **Sí**                |
     | La opción de reemplazar o deshabilitar el perfil de AppArmor de los contenedores debe estar restringida. | Corrección de configuraciones de seguridad        | **Sí**                |
     | Las imágenes de contenedor solo deben implementarse desde registros de confianza.            | Corrección de vulnerabilidades                | **Sí**                |
+    |||
 
 
 1. Para las recomendaciones con parámetros que deben personalizarse, establezca los parámetros:
 
     1. En el menú de Security Center, seleccione **Directiva de seguridad**.
     1. Seleccione la suscripción correspondiente.
-    1. En la sección **Directiva predeterminada de Security Center** , seleccione **Ver directiva efectiva**.
+    1. En la sección **Directiva predeterminada de Security Center**, seleccione **Ver directiva efectiva**.
     1. Seleccione "Valor predeterminado de ASC".
     1. Abra la pestaña **Parámetros** y modifique los valores según sea necesario.
     1. Seleccione **Revisar y guardar**.
@@ -97,7 +107,7 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
 
 1. Para aplicar cualquiera de las recomendaciones, 
 
-    1. abra la página de detalles de recomendaciones y haga clic en **Denegar** :
+    1. abra la página de detalles de recomendaciones y haga clic en **Denegar**:
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opción Denegar del parámetro de Azure Policy":::
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abc4529d6076496b34859eec2b931a8dcbd1ce93
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488986"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296597"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Preguntas más frecuentes sobre Azure Front Door
 
@@ -24,7 +24,7 @@ En este artículo se responden preguntas comunes sobre la funcionalidad y las ca
 
 1. La sección Comentarios de este artículo.
 2. [UserVoice de Azure Front Door](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Soporte técnico de Microsoft:** Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda** , seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico** .
+3. **Soporte técnico de Microsoft:** Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda**, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
 ## <a name="general"></a>General
 
@@ -97,7 +97,7 @@ Para que la aplicación solo acepte tráfico procedente su instancia específica
     > [!WARNING]
     > El espacio de back-end IP de Front Door puede cambiar más adelante; sin embargo, nos aseguraremos de que antes de que eso suceda nos hayamos integrado con los [intervalos de IP y etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que se suscriba a los [intervalos de IP y etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519) para conocer los cambios o actualizaciones.
 
--    Realice una operación GET en Front Door con la versión de API `2020-01-01` o superior. En la llamada API, busque el campo `frontdoorID`. Filtre por el encabezado entrante " **X-Azure-FDID** " que envió Front Door al back-end con el valor del campo `frontdoorID`. Encontrará el valor de `Front Door ID` también en la sección de información general de la página del portal de Front Door. 
+-    Realice una operación GET en Front Door con la versión de API `2020-01-01` o superior. En la llamada API, busque el campo `frontdoorID`. Filtre por el encabezado entrante "**X-Azure-FDID**" que envió Front Door al back-end con el valor del campo `frontdoorID`. Encontrará el valor de `Front Door ID` también en la sección de información general de la página del portal de Front Door. 
 
 - Aplique el filtrado de reglas en el servidor web back-end para restringir el tráfico basado en el valor del encabezado "X-Azure-FDID" resultante.
 
@@ -126,7 +126,7 @@ Para que la aplicación solo acepte tráfico procedente su instancia específica
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>¿Puede cambiar la dirección IP de difusión por proximidad durante la vigencia de mi instancia de Front Door?
 
-La dirección IP de difusión por proximidad de su instancia de Front Door normalmente no debería cambiar y es posible que permanezca estática durante la vigencia de Front Door. Sin embargo, esto no se puede **garantizar** . No asuma ninguna dependencia directa de la dirección IP.
+La dirección IP de difusión por proximidad de su instancia de Front Door normalmente no debería cambiar y es posible que permanezca estática durante la vigencia de Front Door. Sin embargo, esto no se puede **garantizar**. No asuma ninguna dependencia directa de la dirección IP.
 
 ### <a name="does-azure-front-door-support-static-or-dedicated-ips"></a>¿Azure Front Door admite direcciones IP estáticas o dedicadas?
 
@@ -235,22 +235,22 @@ Sí, de forma predeterminada, la asociación OCSP es compatible con Front Door y
 
 ### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>¿Admite Azure Front Door también volver a cifrar el tráfico dirigido al back-end?
 
-Sí, Azure Front Door admite la descarga de TLS/SSL y TLS de extremo a extremo, lo cual permite volver a cifrar el tráfico dirigido al back-end. De hecho, puesto que las conexiones con el back-end se producen a través de la dirección IP pública, se recomienda que configure Front Door para que use HTTPS como protocolo de reenvío.
+Sí, Azure Front Door admite la descarga de TLS/SSL y TLS de extremo a extremo, lo cual permite volver a cifrar el tráfico dirigido al back-end. De hecho, puesto que las conexiones con el back-end se producen a través de la dirección IP pública, se recomienda que configure Front Door para que use HTTPS como protocolo de reenvío.
 
 ### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>¿Admite Front Door los certificados autofirmados en el back-end para la conexión HTTPS?
 
 No, los certificados autofirmados no se admiten en Front Door y la restricción se aplica a ambos:
 
-1. **Back-ends** : No se pueden usar certificados autofirmados cuando se reenvía el tráfico como HTTPS o sondeos de estado HTTPS o se rellena la caché de origen para las reglas de enrutamiento con el almacenamiento en caché habilitado.
-2. **Frontend** : No se pueden usar certificados autofirmados al usar su propio certificado TLS/SSL personalizado para habilitar HTTPS en el dominio personalizado.
+1. **Back-ends**: No se pueden usar certificados autofirmados cuando se reenvía el tráfico como HTTPS o sondeos de estado HTTPS o se rellena la caché de origen para las reglas de enrutamiento con el almacenamiento en caché habilitado.
+2. **Frontend**: No se pueden usar certificados autofirmados al usar su propio certificado TLS/SSL personalizado para habilitar HTTPS en el dominio personalizado.
 
 ### <a name="why-is-https-traffic-to-my-backend-failing"></a>¿Por qué se produce un error del tráfico HTTPS al back-end?
 
 Para tener conexiones HTTPS correctas al back-end, ya sea para sondeos de estado o para reenviar solicitudes, hay dos motivos posibles por los que el tráfico HTTPS puede generar un error:
 
-1. **Error de coincidencia de nombre del firmante del certificado** : En el caso de las conexiones HTTPS, Front Door espera que el back-end presente el certificado de una entidad de certificación válida con nombres de firmante que coincidan con el nombre de host del back-end. Por ejemplo, si el nombre de host del back-end se establece en `myapp-centralus.contosonews.net` y el certificado que el back-end presenta durante el protocolo de enlace TLS no tiene `myapp-centralus.contosonews.net` ni `*myapp-centralus*.contosonews.net` en el nombre del firmante, Front Door rechazará la conexión y devolverá un error. 
-    1. **Solución** : Aunque no se recomienda desde el punto de vista del cumplimiento, una forma de evitar este error es deshabilitar la comprobación del nombre del firmante del certificado para Front Door. Está presente en Configuración, en Azure Portal, y en BackendPoolsSettings, en la API.
-2. **Certificado de hospedaje de back-end de CA no válida** : Solo se pueden usar certificados de [entidades de certificación válidas](./front-door-troubleshoot-allowed-ca.md) en el back-end con Front Door. No se permiten certificados de entidades de certificación internas ni certificados autofirmados.
+1. **Error de coincidencia de nombre del firmante del certificado**: En el caso de las conexiones HTTPS, Front Door espera que el back-end presente el certificado de una entidad de certificación válida con nombres de firmante que coincidan con el nombre de host del back-end. Por ejemplo, si el nombre de host del back-end se establece en `myapp-centralus.contosonews.net` y el certificado que el back-end presenta durante el protocolo de enlace TLS no tiene `myapp-centralus.contosonews.net` ni `*myapp-centralus*.contosonews.net` en el nombre del firmante, Front Door rechazará la conexión y devolverá un error. 
+    1. **Solución**: Aunque no se recomienda desde el punto de vista del cumplimiento, una forma de evitar este error es deshabilitar la comprobación del nombre del firmante del certificado para Front Door. Está presente en Configuración, en Azure Portal, y en BackendPoolsSettings, en la API.
+2. **Certificado de hospedaje de back-end de CA no válida**: Solo se pueden usar certificados de [entidades de certificación válidas](./front-door-troubleshoot-allowed-ca.md) en el back-end con Front Door. No se permiten certificados de entidades de certificación internas ni certificados autofirmados.
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>¿Puedo usar la autenticación mutua o de cliente con Azure Front Door?
 

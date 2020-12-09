@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674093"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343593"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicialización de aplicaciones cliente con MSAL.js
 
@@ -37,8 +37,8 @@ Después de registrar la aplicación, necesitará la totalidad o parte de los va
 | Value | Obligatorio | Descripción |
 |:----- | :------: | :---------- |
 | Id. de aplicación (cliente) | Obligatorio | GUID que identifica de forma única la aplicación en la Plataforma de identidad de Microsoft. |
-| Autoridad | Opcional | La URL del proveedor de identidades (la *instancia* ) y la *audiencia de inicio de sesión* para la aplicación. La instancia y la audiencia de inicio de sesión, cuando se concatenan, constituyen la *autoridad* . |
-| Id. de directorio (inquilino) | Opcional | Especifíquelo si va a compilar una aplicación de línea de negocio exclusivamente para su organización, en ocasiones denominada *aplicación de un único inquilino* . |
+| Autoridad | Opcional | La URL del proveedor de identidades (la *instancia*) y la *audiencia de inicio de sesión* para la aplicación. La instancia y la audiencia de inicio de sesión, cuando se concatenan, constituyen la *autoridad*. |
+| Id. de directorio (inquilino) | Opcional | Especifíquelo si va a compilar una aplicación de línea de negocio exclusivamente para su organización, en ocasiones denominada *aplicación de un único inquilino*. |
 | URI de redireccionamiento | Opcional | Si va a compilar una aplicación web, `redirectUri` especifica a dónde debe devolver el proveedor de identidades (la Plataforma de identidad de Microsoft) los tokens de seguridad que ha emitido. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>Inicialización de aplicaciones MSAL.js 2.x

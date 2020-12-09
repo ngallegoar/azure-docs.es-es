@@ -4,12 +4,12 @@ description: Obtenga información sobre las restricciones, los límites y las cu
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107545"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325982"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -23,15 +23,33 @@ Si planea ejecutar cargas de trabajo de producción en Batch, es posible que ten
 
 ## <a name="resource-quotas"></a>Cuotas de recursos
 
-Una cuota es un límite de crédito, no una garantía de capacidad. Si tiene necesidades de capacidad a gran escala, póngase en contacto con el soporte técnico de Azure.
+Una cuota es un límite, no una garantía de capacidad. Si tiene necesidades de capacidad a gran escala, póngase en contacto con el soporte técnico de Azure.
 
 Tenga en cuenta también que las cuotas no son valores garantizados. Las cuotas pueden variar a partir de los cambios del servicio Batch o una solicitud de usuario para cambiar un valor de cuota.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>Cuotas de núcleos
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Cuotas de núcleos en el modo de servicio de Batch
+
+Se está mejorando la aplicación de cuotas de núcleos dedicadas, con cambios que están disponibles por fases y que se completarán para todas las cuentas de Batch a finales de diciembre de 2020.
+
+Existen cuotas de núcleos para cada serie de máquinas virtuales admitidas por Batch, que se muestran en la página **Cuotas** del portal. Los límites de cuota de las series de máquinas virtuales se pueden actualizar mediante una solicitud de soporte técnico, tal como se detalla a continuación.
+
+El actual mecanismo está quedando desfasado, de modo que los límites de cuota de las series de máquinas virtuales no se comprueban; tan solo se aplica el límite de cuota total de la cuenta. Esto significa que es posible asignar más núcleos para una serie de máquinas virtuales de los que indica la cuota de la serie de máquinas virtuales, hasta el límite de cuota total de la cuenta.
+
+El mecanismo actualizado aplicará las cuotas de la serie de máquinas virtuales, además de la cuota total de la cuenta. Como parte de la transición al nuevo mecanismo, los valores de cuota de series de máquinas virtuales se pueden actualizar para evitar errores de asignación: la cuota de cualquier serie de máquinas virtuales que se haya usado en los últimos meses se actualizará para que coincida con la cuota total de la cuenta. Este cambio no permitirá el uso de más capacidad de la que ya había disponible.
+
+Es posible determinar si se ha habilitado la aplicación de cuotas de series de máquinas virtuales para una cuenta de Batch comprobando lo siguiente:
+
+* La propiedad de la API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) de la cuenta de Batch.
+
+* El texto de la página **Cuotas** del portal de la cuenta de Batch.
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Cuotas de núcleos en el modo de suscripción de usuario
 
-Si ha creado una [cuenta de Batch](accounts.md) con el modo de asignación de grupo establecido en **suscripción de usuario**, las cuotas se aplican de manera diferente. En este modo, las máquinas virtuales de Batch y otros recursos se crean directamente en la suscripción cuando se crea un grupo. Las cuotas de núcleos de Azure Batch no se aplican a las cuentas creadas en este modo. En su lugar, se aplican las cuotas en la suscripción para núcleos de proceso regionales y otros recursos.
+Si ha creado una [cuenta de Batch](accounts.md) con el modo de asignación de grupo establecido en **suscripción de usuario**, las máquinas virtuales y otros recursos de Batch se crean directamente en su suscripción cuando se crea un grupo. No se aplicarán las cuotas de núcleos de Azure Batch y sí se usarán y aplicarán las cuotas de la suscripción para los núcleos de proceso regionales, los núcleos de proceso por serie y otros recursos.
 
 Para más información sobre estas cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -73,7 +91,7 @@ Para ver las cuotas de la cuenta de Batch en [Azure Portal](https://portal.azur
 1. Seleccione **Cuotas** en el menú de la cuenta de Batch.
 1. Vea las cuotas aplicadas actualmente a la cuenta de Batch.
 
-    ![Cuotas de la cuenta de Batch][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Cuotas de la cuenta de Batch":::
 
 ## <a name="increase-a-quota"></a>Aumento de la cuota
 

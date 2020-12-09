@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340383"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433026"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de seguridad en Azure Security Center
 
@@ -25,7 +25,7 @@ Las alertas de seguridad se activan mediante detecciones avanzadas y solo están
 
 ## <a name="respond-to-todays-threats"></a>Respuesta a las amenazas actuales <a name="respond-threats"> </a>
 
-En los últimos 20 años, las amenazas han cambiado considerablemente. Por lo general, en el pasado, las compañías solo tenían que preocuparse por las alteraciones que atacantes individuales realizaban en sus sitios web, quienes normalmente solo pretendían comprobar “qué es lo que eran capaces de hacer”. Hoy en día, los atacantes son mucho más sofisticados y están más organizados. Normalmente, se mueven por un fin económico o estratégico. También disponen de más recursos, ya que a veces están financiados por estados o por el crimen organizado.
+En los últimos 20 años, las amenazas han cambiado considerablemente. Por lo general, en el pasado, las compañías solo tenían que preocuparse por las alteraciones que atacantes individuales realizaban en sus sitios web, quienes normalmente solo pretendían comprobar “qué es lo que eran capaces de hacer”. Hoy en día, los atacantes son mucho más sofisticados y están más organizados. Normalmente, se mueven por un fin económico o estratégico. También disponen de más recursos, ya que a veces podrían estar financiados por estados o por el crimen organizado.
 
 Estas realidades cambiantes han propiciado un nivel de profesionalidad entre los atacantes que no tiene precedentes. Ya no les interesa alterar los sitios web. Ahora, lo que buscan es robar información, cuentas financieras y datos privados, que pueden usar con fines lucrativos en el mercado libre o para sacar provecho de una determinada situación política, militar o empresarial. Si los atacantes con un objetivo financiero son motivo de preocupación, aún lo son más los que pretenden abrir una brecha en las redes para dañar la infraestructura o infligir daños personales.
 
@@ -67,12 +67,12 @@ Security Center asigna una gravedad a las alertas, que le ayudan a priorizar el 
 > La gravedad de las alertas aparece de manera diferente en el portal y en las versiones de la API REST anteriores a 01-01-2019. Si usa una versión anterior de la API, actualícela para conseguir la experiencia coherente que se describe a continuación.
 
 - **Alto:** hay una probabilidad elevada de que el recurso esté en peligro. Debe investigarse de inmediato. El grado de certeza de Security Center sobre la mala intención de la acción y los hallazgos utilizados para emitir la alerta es elevado. Una alerta de este tipo sería podría detectar la ejecución de una herramienta malintencionada conocida; por ejemplo, Mimikatz, una herramienta que se usa habitualmente para robar credenciales.
-- **Medio:** es probable que sea una actividad sospechosa que puede indicar que un recurso está en peligro.
+- **Medio:** es probable que sea una actividad sospechosa que podría indicar que un recurso está en peligro.
 El grado de certeza de Security Center sobre el análisis o los hallazgos es medio, mientras que el grado de certeza sobre la mala intención es medio o alto. Suelen tratarse de detecciones basadas en anomalías o aprendizaje automático. Por ejemplo, un intento de inicio de sesión desde una ubicación anómala.
 - **Bajo:** podría tratarse de un hallazgo benigno o de un ataque bloqueado.
-   * Security Center no tiene la certeza suficiente de que la intención fuera mala y la actividad podría ser inofensiva. Por ejemplo, borrar un registro es una acción que podría producirse si un atacante intenta ocultar sus huellas, pero en muchos casos es una operación rutinaria que realizan los administradores.
+   * Security Center no tiene la certeza suficiente de que la intención fuera mala y la actividad pudiera ser inofensiva. Por ejemplo, borrar un registro es una acción que podría producirse si un atacante intenta ocultar sus huellas, pero en muchos casos es una operación rutinaria que realizan los administradores.
    * Por lo general, Security Center no avisa cuando se bloquean ataques a menos que se considere un caso interesante que convenga examinar. 
-- **Informativo:** solo verá las alertas informativas cuando explore en profundidad un incidente de seguridad, o si usa la API REST con un determinado identificador de alerta. Normalmente, las incidencias se componen de varias alertas, algunas de las cuales pueden parecer meramente informativas, aunque a tenor de otras alertas puede ser conveniente investigarlas. 
+- **Informativo:** solo verá las alertas informativas cuando explore en profundidad un incidente de seguridad, o si usa la API REST con un determinado identificador de alerta. Normalmente, las incidencias se componen de varias alertas, algunas de las cuales podrían parecer meramente informativas, aunque a tenor de otras alertas podría ser conveniente investigarlas. 
 
 ## <a name="continuous-monitoring-and-assessments"></a>Supervisión y evaluaciones continuas
 
@@ -91,7 +91,7 @@ Tiene una variedad de opciones para ver las alertas fuera de Security Center, en
 
 - La **descarga del informe de CSV** en el panel de alertas proporciona una exportación única a CSV.
 - La **exportación continua** de los precios y la configuración permite configurar flujos de alertas de seguridad y recomendaciones a áreas de trabajo de Log Analytics y a Event Hubs. [Más información sobre la exportación continua](continuous-export.md)
-- El **conector de Azure Sentinel** transmite las alertas de Azure Defender de Azure Security Center a Azure Sentinel. [Más información sobre la conexión de Azure Security Center con Sentinel](../sentinel/connect-azure-security-center.md)
+- El **conector de Azure Sentinel** transmite las alertas de seguridad de Azure Security Center a Azure Sentinel. [Más información sobre la conexión de Azure Security Center con Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

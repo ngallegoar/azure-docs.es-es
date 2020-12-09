@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: e0af8e0674a15c98fadbedfa42f735d269b3de2b
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920498"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349963"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Incorporación de una API en la versión preliminar de Azure Static Web Apps con Azure Functions
 
@@ -32,7 +32,7 @@ Puede agregar API sin servidor a Azure Static Web Apps a través de la integraci
 
 En los pasos siguientes se muestra cómo crear un nuevo repositorio y clonar los archivos en el equipo.
 
-1. Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a https://github.com/staticwebdev/vanilla-basic/generate para crear un nuevo repositorio.
+1. Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) para crear un nuevo repositorio.
 1. En el cuadro _Nombre del repositorio_, escriba **my-vanilla-api**.
 1. Haga clic en **Create repository from template** (Crear repositorio a partir de plantilla).
 

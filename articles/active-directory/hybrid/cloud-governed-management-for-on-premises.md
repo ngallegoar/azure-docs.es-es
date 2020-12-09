@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1b4d1041b9d330227fadf31f6afc1804174ea2ad
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836468"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340856"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Cómo proporciona Azure AD administración regulada por la nube para cargas de trabajo locales
 
@@ -117,4 +117,4 @@ En los entornos híbridos, la estrategia de Microsoft consiste en habilitar impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo emprender este viaje, vea los planes de implementación de Azure AD, que encontrará en <https://aka.ms/deploymentplans>. Proporcionan instrucciones completas sobre cómo implementar funcionalidades de Azure Active Directory (Azure AD). En cada plan se explica el valor de negocio, las consideraciones de planificación, el diseño y los procedimientos operativos necesarios para implementar correctamente funcionalidades comunes de Azure AD. Microsoft actualiza continuamente los planes de implementación con procedimientos recomendados obtenidos de implementaciones de clientes y otros comentarios cuando se agregan funciones para la administración de la nube con Azure AD.
+Para más información sobre cómo emprender este viaje, consulte los planes de implementación de Azure AD que encontrará en <https://aka.ms/deploymentplans>. Proporcionan instrucciones completas sobre cómo implementar funcionalidades de Azure Active Directory (Azure AD). En cada plan se explica el valor de negocio, las consideraciones de planificación, el diseño y los procedimientos operativos necesarios para implementar correctamente funcionalidades comunes de Azure AD. Microsoft actualiza continuamente los planes de implementación con procedimientos recomendados obtenidos de implementaciones de clientes y otros comentarios cuando se agregan funciones para la administración de la nube con Azure AD.

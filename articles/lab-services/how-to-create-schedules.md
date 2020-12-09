@@ -1,16 +1,16 @@
 ---
-title: Creación de programaciones para laboratorios educativos en Azure Lab Services | Microsoft Docs
-description: Aprenda a crear programaciones para laboratorios educativos en Azure Lab Services de forma que las máquinas virtuales de los laboratorios se inicien y apaguen a una hora determinada.
+title: Creación de programaciones para laboratorios en Azure Lab Services | Microsoft Docs
+description: Aprenda a crear programaciones para laboratorios en Azure Lab Services de forma que las VM de los laboratorios se inicien y apaguen a una hora determinada.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326446"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434032"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creación y administración de programaciones para laboratorios educativos en Azure Lab Services 
+# <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Creación y administración de programaciones para laboratorios en Azure Lab Services 
 Las programaciones le permiten configurar un laboratorio educativo de forma que las máquinas virtuales que contiene se inicien y apaguen automáticamente a una hora determinada. Puede definir una programación puntual o periódica. Los procedimientos siguientes le proporcionan los pasos para crear y administrar programaciones para un laboratorio educativo: 
 
 > [!IMPORTANT]
@@ -77,4 +77,4 @@ Vea los artículos siguientes:
 - [Como administrador, crear y administrar cuentas de laboratorio](how-to-manage-lab-accounts.md)
 - [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)
 - [Como propietario del laboratorio, configurar y controlar el uso de un laboratorio](how-to-configure-student-usage.md)
-- [Como usuario del laboratorio, obtener acceso a laboratorios educativos](how-to-use-classroom-lab.md)
+- [Como usuario de laboratorio, obtener acceso a los laboratorios](how-to-use-classroom-lab.md)

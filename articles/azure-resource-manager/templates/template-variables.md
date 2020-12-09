@@ -1,18 +1,18 @@
 ---
 title: Variables en plantillas
-description: Se describe cómo definir variables en una plantilla de Azure Resource Manager.
+description: Se describe cómo definir variables en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916010"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353466"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variables en una plantilla de Azure Resource Manager
+# <a name="variables-in-arm-template"></a>Variables en la plantilla de ARM
 
-En este artículo se describe cómo definir y usar variables en una plantilla de Azure Resource Manager. Las variables se utilizan para simplificar la plantilla. En lugar de repetir expresiones complicadas en toda la plantilla, defina una variable que contenga la expresión complicada. A continuación, haga referencia a esa variable en toda la plantilla tanto como sea necesario.
+En este artículo se describe cómo definir y usar variables en una plantilla de Azure Resource Manager (plantilla de ARM). Las variables se utilizan para simplificar la plantilla. En lugar de repetir expresiones complicadas en toda la plantilla, defina una variable que contenga la expresión complicada. A continuación, haga referencia a esa variable en toda la plantilla tanto como sea necesario.
 
 Resource Manager resuelve las variables antes de iniciar las operaciones de implementación. Siempre que la variable se use en la plantilla, Resource Manager la reemplaza por el valor resuelto.
 
@@ -95,5 +95,5 @@ En los siguientes ejemplos se muestran escenarios para usar variables.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre las propiedades disponibles para variables, consulte [Información sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para más información sobre las propiedades disponibles para variables, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
 * Para obtener recomendaciones sobre cómo crear variables, consulte [Procedimientos recomendados: variables](template-best-practices.md#variables).

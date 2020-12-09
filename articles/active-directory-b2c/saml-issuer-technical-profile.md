@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 73c381624b69acb6fe7a6296a3153160812818bf
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b4fb7c6fb3bbf02e5f1aba25c868e4a44e8507dd
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886420"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309637"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico para un emisor de tokens de SAML en una directiva personalizada de Azure Active Directory B2C
 
@@ -60,6 +60,8 @@ Los elementos **InputClaims**, **OutputClaims** y **PersistClaims** están vací
 | IssuerUri | No | Nombre del emisor que aparece en la respuesta de SAML. El valor debe ser el mismo nombre que el configurado en la aplicación de usuario de confianza. |
 | XmlSignatureAlgorithm | No | El método que usa Azure AD B2C para firmar la aserción SAML. Valores posibles: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Asegúrese de configurar el algoritmo de firma en ambos lados con el mismo valor. Use solo el algoritmo que admite el certificado. Para configurar la respuesta SAML, consulte [Metadatos de SAML del usuario de confianza.](relyingparty.md#metadata)|
 |TokenNotBeforeSkewInSeconds| No| Especifica el sesgo, como un entero, para la marca de tiempo que marca el inicio del período de validez. Cuanto mayor sea este número, más remoto será el inicio del período de validez con respecto al momento en que se emiten las reclamaciones para el usuario de confianza. Por ejemplo, si el valor de TokenNotBeforeSkewInSeconds se establece en 60 segundos, si el token se emite a las 13:05:10 UTC, el token es válido a partir de 13:04:10 UTC. El valor predeterminado es 0. El valor máximo es 3600 (una hora). |
+|TokenLifeTimeInSeconds| No| Especifica la duración de la aserción SAML. Este valor se especifica en segundos desde el valor NotBefore al que se ha hecho referencia anteriormente. El valor predeterminado es de 300 segundos (5 minutos). |
+
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 

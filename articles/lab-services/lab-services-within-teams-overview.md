@@ -3,12 +3,12 @@ title: Azure Lab Services en Microsoft Teams
 description: Proporciona información general sobre el uso de Azure Lab Services en Microsoft Teams.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f39613427ed174dfca80d4a48be9473ab7025e79
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047835"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433924"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Azure Lab Services en Microsoft Teams
 
@@ -23,7 +23,7 @@ En este artículo se describen las ventajas de usar Azure Lab Services dentro de
 
 La integración de Azure Lab Services con Microsoft Teams ayudará a los educadores a configurar un entorno educativo y a proporcionar entornos de laboratorio virtuales dentro del equipo (clase): 
 
-* Los educadores pueden configurar laboratorios educativos para que los alumnos puedan acceder a sus máquinas virtuales desde Teams, sin salir de ahí y sin tener que ir al [sitio web de Azure Lab Services](https://labs.azure.com).
+* Los educadores pueden configurar laboratorios para que los alumnos puedan acceder a sus máquinas virtuales desde Teams, sin salir de ahí y sin tener que ir al [sitio web de Azure Lab Services](https://labs.azure.com).
 * Inicio de sesión único (SSO) desde Teams en Azure Lab Services.
 * Los propietarios de equipos y laboratorios no necesitan mantener las listas de clases en dos sistemas diferentes; la lista de usuarios de laboratorio se rellena automáticamente a partir de la pertenencia a un equipo y se realiza una sincronización cada 24 horas de forma automática. 
 * Después de la publicación inicial de la máquina virtual de plantilla, la capacidad del laboratorio (es decir, el número de máquinas virtuales en él) se ajustará automáticamente en función de si se agregan usuarios a la pertenencia al equipo o se eliminan de esta. 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989554"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121761"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Cargas de telemetría, propiedades y comandos
 
@@ -36,7 +36,7 @@ En cada ejemplo se muestra un fragmento de código del modelo de dispositivo que
 
 El archivo JSON que define el modelo de dispositivo usa el [Lenguaje de definición de gemelos digitales (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-Para consultar código de dispositivo de ejemplo que muestra algunas de estas cargas en uso, vea los tutoriales [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md) y [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Python)](tutorial-connect-device-python.md).
+Para código de dispositivo de ejemplo que muestra algunas de estas cargas en uso, consulte el tutorial [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](tutorial-connect-device.md).
 
 ## <a name="view-raw-data"></a>Visualización de datos sin procesar
 

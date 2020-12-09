@@ -3,12 +3,12 @@ title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e48a7df1e42591843c30b77026a4d8656773a57d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511384"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309671"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -19,6 +19,7 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
 - Noviembre de 2020
+  - [Plantilla de Azure Resource Manager para la copia de seguridad de recursos compartido de archivos de Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
   - [Copias de seguridad incrementales para bases de datos de SAP HANA en máquinas virtuales de Azure](#incremental-backups-for-sap-hana-databases)
 - Septiembre de 2020
   - [Centro de copia de seguridad](#backup-center)
@@ -30,6 +31,12 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
   - [Copia de seguridad de SAP HANA en máquinas virtuales de Azure de RHEL](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Almacenamiento con redundancia de zona para datos de copia de seguridad](#zone-redundant-storage-zrs-for-backup-data)
   - [Eliminación temporal de las cargas de trabajo de SQL Server y SAP HANA en máquinas virtuales de Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-resource-manager-template-for-afs-backup"></a>Plantilla de Azure Resource Manager para la copia de seguridad de AFS
+
+Azure Backup permite ahora configurar la copia de seguridad de recursos compartidos de archivos de Azure existentes mediante una plantilla de Azure Resource Manager (ARM). La plantilla configura la protección para un recurso compartido de archivos de Azure existente al especificar los detalles correspondientes para la directiva de copia de seguridad y el almacén de Recovery Services. Opcionalmente, crea una directiva de copia de seguridad y un almacén de Recovery Services nuevos, y registra la cuenta de almacenamiento que contiene el recurso compartido de archivos en el almacén de Recovery Services.
+
+Para más información, consulte [Plantillas de Azure Resource Manager para Azure Backup](backup-rm-template-samples.md).
 
 ## <a name="incremental-backups-for-sap-hana-databases"></a>Copias de seguridad incrementales para bases de datos SAP HANA
 

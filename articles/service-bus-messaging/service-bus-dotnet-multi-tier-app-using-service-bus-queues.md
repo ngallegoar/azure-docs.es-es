@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021789"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029902"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicación de niveles múltiples .NET con colas de Azure Service Bus
 
@@ -63,7 +63,7 @@ Después, va a agregar el código que envía elementos a una cola de Service Bus
 
 ### <a name="create-the-project"></a>Creación del proyecto
 
-1. Inicie Visual Studio con privilegios de administrador: haga clic con el botón derecho en el icono del programa **Visual Studio** y después haga clic en **Ejecutar como administrador**. El emulador de proceso de Azure, descrito posteriormente en este artículo, requiere que se inicie Visual Studio con privilegios de administrador.
+1. Inicie Visual Studio con privilegios de administrador: haga clic con el botón derecho en el icono del programa **Visual Studio** y después haga clic en **Ejecutar como administrador**. El Emulador de Azure Compute, descrito posteriormente en este artículo, requiere que se inicie Visual Studio con privilegios de administrador.
    
    En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
 2. En **Plantillas instaladas**, en **Visual C#** , haga clic en **Nube** y, a continuación, en **Azure Cloud Service**. Denomine el proyecto **MultiTierApp**. A continuación, haga clic en **Aceptar**.
@@ -172,7 +172,7 @@ En esta sección, creará las distintas páginas que va a mostrar la aplicación
    
    ![Captura de pantalla del cuadro de diálogo Agregar vista con las listas desplegables Plantilla y Clase de modelo con contorno en rojo.][15]
 7. Haga clic en **Agregar**.
-8. Ahora, cambie el nombre mostrado de la aplicación. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\Shared\\_Layout.cshtml**para abrirlo en el editor de Visual Studio.
+8. Ahora, cambie el nombre mostrado de la aplicación. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\Shared\\_Layout.cshtml** para abrirlo en el editor de Visual Studio.
 9. Reemplace todas las repeticiones de **Mi aplicación ASP.NET** por **Productos de Northwind Traders**.
 10. Quite los vínculos **Página principal**, **Acerca de** y **Contacto**. Elimine el código resaltado:
     

@@ -4,12 +4,12 @@ description: En este artículo, descubra las respuestas a preguntas comunes sobr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925584"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324795"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -83,15 +83,15 @@ Azure Backup crea un grupo de recursos independiente con el formato `AzureBackup
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>¿Admite Azure Backup los discos administrados SSD estándar?
 
-Sí, Azure Backup admite [discos administrados SSD estándar](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
+Sí, Azure Backup admite [discos administrados SSD estándar](../virtual-machines/disks-types.md#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>¿Podemos realizar copias de seguridad de una máquina virtual con un disco habilitado para el Acelerador de escritura?
 
-No se pueden tomar instantáneas en un disco habilitado para el Acelerador de escritura. No obstante, el servicio Azure Backup puede excluir este tipo de disco de la copia de seguridad.
+Solo se pueden realizar instantáneas en discos de datos habilitados para el Acelerador de escritura y no en discos del sistema operativo. Por tanto, solo se pueden proteger los discos de datos que están habilitados para el Acelerador de escritura.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tengo una máquina virtual con discos habilitados para el Acelerador de escritura (WA) y SAP HANA instalada. ¿Cómo puedo realizar la copia de seguridad?
 
-Azure Backup no puede realizar la copia de seguridad de un disco habilitado para el Acelerador de escritura pero puede excluirlo de la copia. Sin embargo, la copia de seguridad no proporcionará coherencia de base de datos ya que no se ha realizado la copia de seguridad de la información contenida en este disco. Puede realizar copias de seguridad de discos con esta configuración si desea realizar la copia de seguridad de un disco de sistema operativo y la copia de seguridad de aquellos discos que no estén habilitados para el Acelerador de escritura.
+Azure Backup puede hacer una copia de seguridad del disco de datos habilitado para el Acelerador de escritura. Sin embargo, la copia de seguridad no proporcionará coherencia de base de datos.
 
 Azure Backup proporciona una solución de copia de seguridad de streaming para las bases de datos de SAP HANA con un RPO de 15 minutos. Tiene la certificación Backint de SAP, para proporcionar compatibilidad con copias de seguridad nativas aprovechando las API nativas de SAP HANA. Obtenga más información [sobre la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](./sap-hana-db-about.md).
 

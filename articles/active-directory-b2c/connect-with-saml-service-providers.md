@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c6ba79a82fe3d291008f3317ddce7df4adcda0a
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949656"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309654"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -453,7 +453,7 @@ Un token SAML es un token de seguridad que emite Azure AD B2C después de un i
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |La entidad de seguridad sobre la que el token declara información, por ejemplo, el id. de objeto del usuario. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso. De manera predeterminada, la notificación del asunto se rellena con el identificador de objeto del usuario del directorio.|
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Referencia de URI que representa la clasificación de la información de identificador basada en cadenas. De manera predeterminada, esta propiedad se omite. Puede establecer el usuario de confianza [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) para especificar el formato `NameID`, como `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Hora a la que el token es válido. El valor de tiempo está codificado en UTC. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. Para cambiar la configuración de las vigencias de los tokens, establezca los [metadatos](saml-issuer-technical-profile.md#metadata) de `TokenNotBeforeSkewInSeconds` del perfil técnico de emisión del token SAML. |
-|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Hora a la que el token deja de ser válido. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. El valor es de 15 minutos después de `NotBefore` y no se puede cambiar.|
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Hora a la que el token deja de ser válido. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. El valor predeterminado es de 5 minutos después de `NotBefore`, y se puede actualizar agregando los `TokenLifeTimeInSeconds` [metadatos](saml-issuer-technical-profile.md#metadata) del perfil técnico de emisión del token SAML.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Referencia de URI que identifica una audiencia prevista. Identifica al destinatario previsto del token. El valor es idéntico a la solicitud de SAML `AssertionConsumerServiceURL`.|
 |Colección `<Response>` `<Assertion>` `<AttributeStatement>` de `<Attribute>` | | Colección de aserciones (notificaciones), tal y como están configuradas en las notificaciones de salida del [perfil técnico del usuario de confianza](relyingparty.md#technicalprofile). Para configurar el nombre de la aserción, puede establecer `PartnerClaimType` de la notificaciones de salida. |
 

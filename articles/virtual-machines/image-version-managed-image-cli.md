@@ -1,6 +1,6 @@
 ---
-title: Migración desde una imagen administrada a una versión de la imagen con la CLI de Azure
-description: Aprenda a migrar desde una imagen administrada a una versión de la imagen de Shared Image Gallery mediante la CLI de Azure.
+title: Clonación de una imagen administrada en una versión de la imagen con la CLI de Azure
+description: Aprenda a clonar una imagen administrada en una versión de la imagen de Shared Image Gallery mediante la CLI de Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,15 +10,15 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e53bebf9cdb8c0fc084d04550c7444c1c01be50
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502892"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352871"
 ---
-# <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migración desde una imagen administrada a una versión de la imagen mediante la CLI de Azure
-Si tiene una imagen administrada existente que desee migrar a Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente desde la imagen administrada. Una vez que haya probado la nueva imagen, puede eliminar la imagen administrada de origen. También puede migrar de una imagen administrada a Shared Image Gallery mediante [PowerShell](image-version-managed-image-powershell.md).
+# <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clonación de una imagen administrada en una versión de la imagen mediante la CLI de Azure
+Si tiene una imagen administrada existente que desee clonar en Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente desde la imagen administrada. Una vez que haya probado la nueva imagen, puede eliminar la imagen administrada de origen. También puede migrar de una imagen administrada a Shared Image Gallery mediante [PowerShell](image-version-managed-image-powershell.md).
 
 Las imágenes de una galería de imágenes tienen dos componentes, que se crearán durante este ejemplo:
 - Una **definición de imagen**, que contiene información sobre la imagen y los requisitos para usarla. Esto incluye si la imagen es Windows o Linux, si es generalizada o especializada, las notas de la versión y los requisitos de memoria mínima y máxima. Es una definición de un tipo de imagen. 

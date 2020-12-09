@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097471"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296546"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Puede aprovisionar el rendimiento en bases de datos o contenedores, y cada estra
 
 Las siguientes son algunas directrices para decidir una estrategia de rendimiento aprovisionado:
 
-**Considere la posibilidad de aprovisionar el rendimiento en una base de datos de Azure Cosmos (que contiene un conjunto de contenedores) si** :
+**Considere la posibilidad de aprovisionar el rendimiento en una base de datos de Azure Cosmos (que contiene un conjunto de contenedores) si**:
 
 1. Tiene algunas decenas de contenedores de Azure Cosmos y quiere compartir el rendimiento entre algunos o todos ellos. 
 
@@ -55,7 +55,7 @@ Las siguientes son algunas directrices para decidir una estrategia de rendimient
 
 Como se muestra en la tabla siguiente, según la elección de la API, puede aprovisionar el rendimiento con distintas granularidades.
 
-|API|Para rendimiento **compartido** , configure |Para rendimiento **dedicado** , configure |
+|API|Para rendimiento **compartido**, configure |Para rendimiento **dedicado**, configure |
 |----|----|----|
 |API DE SQL|Base de datos|Contenedor|
 |API de Azure Cosmos DB para MongoDB|Base de datos|Colección|
@@ -137,7 +137,7 @@ Puesto que se le cobrará el rendimiento aprovisionado, asociar el rendimiento a
 
 Para determinar el rendimiento aprovisionado para una nueva carga de trabajo, puede seguir los pasos a continuación: 
 
-1. Haga una evaluación inicial, aproximada mediante programador de capacidad y ajuste las estimaciones con la Ayuda del explorador de Azure Cosmos en Azure Portal. 
+1. Haga una evaluación inicial aproximada mediante el programador de capacidad y ajuste las estimaciones con la ayuda del explorador de Azure Cosmos DB en Azure Portal. 
 
 2. Se recomienda crear los contenedores con un rendimiento superior al esperado y, luego, reducir verticalmente según sea necesario. 
 

@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342134"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029883"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -23,20 +23,20 @@ Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan c
 
 Si cree que una alerta de métrica debe haberse desencadenado, pero no lo hizo y no se encuentra en Azure Portal, intente seguir los pasos siguientes:
 
-1. **Configuración** : revise la configuración de la regla de alerta de métricas para asegurarse de que se haya establecido correctamente:
-    - Compruebe que los valores **Tipo de agregación** , **Granularidad de agregación (período)** y **Valor de umbral** o **Confidencialidad** estén configurados según lo esperado.
+1. **Configuración**: revise la configuración de la regla de alerta de métricas para asegurarse de que se haya establecido correctamente:
+    - Compruebe que los valores **Tipo de agregación**, **Granularidad de agregación (período)** y **Valor de umbral** o **Confidencialidad** estén configurados según lo esperado.
     - Para una regla de alerta que usa umbrales dinámicos, compruebe si se ha establecido la configuración avanzada, ya que la opción **Número de infracciones** puede filtrar las alertas y la opción **Omitir los datos antes del** puede afectar a cómo se calculan los umbrales.
 
        > [!NOTE] 
        > Los umbrales dinámicos tardan al menos 3 días en estar activos y requieren 30 muestras de métricas como mínimo.
 
-2. **Se desencadena pero no genera ninguna notificación** : revise la [lista de alertas desencadenadas](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para ver si puede localizar la alerta desencadenada. Si puede ver la alerta en la lista, pero tiene un problema con algunas de sus acciones o notificaciones, consulte más información [aquí](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
+2. **Se desencadena pero no genera ninguna notificación**: revise la [lista de alertas desencadenadas](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para ver si puede localizar la alerta desencadenada. Si puede ver la alerta en la lista, pero tiene un problema con algunas de sus acciones o notificaciones, consulte más información [aquí](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
 
-3. **Ya está activa** : compruebe si ya hay una alerta desencadenada en la serie temporal de métricas para la que espera recibir una alerta. Las alertas de métricas tienen estado, lo que significa que, una vez que se desencadene una alerta en una serie temporal específica de métricas, no se activarán alertas adicionales en esa serie temporal hasta que ya no se observe el problema. Esta opción de diseño reduce el ruido. La alerta se resolverá automáticamente cuando no se cumpla la condición de alerta durante tres evaluaciones consecutivas.
+3. **Ya está activa**: compruebe si ya hay una alerta desencadenada en la serie temporal de métricas para la que espera recibir una alerta. Las alertas de métricas tienen estado, lo que significa que, una vez que se desencadene una alerta en una serie temporal específica de métricas, no se activarán alertas adicionales en esa serie temporal hasta que ya no se observe el problema. Esta opción de diseño reduce el ruido. La alerta se resolverá automáticamente cuando no se cumpla la condición de alerta durante tres evaluaciones consecutivas.
 
-4. **Dimensiones usadas** : si ha seleccionado varios [valores de dimensión para una métrica](./alerts-metric-overview.md#using-dimensions), la regla de alerta supervisará si las series temporales de métricas individuales (definidas por una combinación de valores de dimensión) superan un umbral. Si también quiere supervisar la serie temporal de métricas de agregado (sin ninguna dimensión seleccionada), configure una regla de alerta adicional en la métrica sin seleccionar las dimensiones.
+4. **Dimensiones usadas**: si ha seleccionado varios [valores de dimensión para una métrica](./alerts-metric-overview.md#using-dimensions), la regla de alerta supervisará si las series temporales de métricas individuales (definidas por una combinación de valores de dimensión) superan un umbral. Si también quiere supervisar la serie temporal de métricas de agregado (sin ninguna dimensión seleccionada), configure una regla de alerta adicional en la métrica sin seleccionar las dimensiones.
 
-5. **Agregación y granularidad de tiempo** : si visualiza la métrica mediante [gráficos de métricas](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), asegúrese de lo siguiente:
+5. **Agregación y granularidad de tiempo**: si visualiza la métrica mediante [gráficos de métricas](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), asegúrese de lo siguiente:
     * El valor **Agregación** seleccionado en el gráfico de métricas es igual que el de **Tipo de agregación** en la regla de alerta.
     * El valor **Granularidad de tiempo** es el mismo que el de **Granularidad de agregación (período)** en la regla de alerta (y no está establecido en "Automático").
 
@@ -52,7 +52,7 @@ Si cree que no se debería haber desencadenado una alerta de métricas y lo hizo
 2. Si seleccionó varios valores de dimensión para una métrica, la alerta se desencadenará cuando **cualquiera** de las series temporales de métricas (definidas por la combinación de valores de dimensión) supere el umbral. Para más información sobre el uso de las dimensiones en las alertas de métricas, consulte [este artículo](./alerts-metric-overview.md#using-dimensions).
 
 3. Revise la configuración de la regla de alerta para asegurarse de que se haya establecido correctamente:
-    - Compruebe que los valores **Tipo de agregación** , **Granularidad de agregación (período)** y **Valor de umbral** o **Confidencialidad** estén configurados según lo esperado.
+    - Compruebe que los valores **Tipo de agregación**, **Granularidad de agregación (período)** y **Valor de umbral** o **Confidencialidad** estén configurados según lo esperado.
     - Para una regla de alerta que usa umbrales dinámicos, compruebe si se ha establecido la configuración avanzada, ya que la opción **Número de infracciones** puede filtrar las alertas y la opción **Omitir los datos antes del** puede afectar a cómo se calculan los umbrales.
 
    > [!NOTE]
@@ -90,7 +90,7 @@ Si quiere alertar sobre una métrica específica pero no puede verla al crear un
 
 Si quiere generar una alerta sobre [valores de dimensión específicos de una métrica](./alerts-metric-overview.md#using-dimensions), pero no puede encontrar estos valores, tenga en cuenta lo siguiente:
 
-1. Los valores de dimensión pueden tardar unos minutos en aparecer en la lista de **valores de dimensión** .
+1. Los valores de dimensión pueden tardar unos minutos en aparecer en la lista de **valores de dimensión**.
 1. Los valores de dimensión mostrados se basan en los datos de métrica recopilados en los últimos tres días.
 1. Si aún no se ha emitido el valor de dimensión, haga clic en el signo "+" para agregar un valor personalizado.
 1. Si quiere generar alertas sobre todos los valores posibles de una dimensión (incluidos los valores futuros), active la casilla "Seleccionar*".
@@ -102,7 +102,7 @@ Al eliminar un recurso de Azure, las reglas de alertas de métricas asociadas no
 1. Abra el grupo de recursos en el que se ha definido el recurso eliminado.
 1. En la lista que muestra los recursos, active la casilla **Mostrar tipos ocultos**
 1. Filtre la lista por tipo = = **microsoft.insights/metricalerts**
-1. Seleccione las reglas de alertas pertinentes y seleccione **Eliminar** .
+1. Seleccione las reglas de alertas pertinentes y seleccione **Eliminar**.
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Generación de alertas de métricas cada vez que se cumple mi condición
 
@@ -139,10 +139,10 @@ Para evitar que se produzca un error en la implementación al intentar validar l
 
 La exportación de la plantilla de Resource Manager de una regla de alertas de métricas le ayuda a conocer su sintaxis y sus propiedades JSON, y se puede usar para automatizar implementaciones futuras.
 1. Vaya a la sección **Grupos de recursos** en el portal y seleccione el grupo de recursos que contenga la regla.
-2. En la sección de información general, active la casilla **Mostrar tipos ocultos** .
-3. En el filtro **Tipo** , seleccione *microsoft.insights/metricalerts* .
+2. En la sección de información general, active la casilla **Mostrar tipos ocultos**.
+3. En el filtro **Tipo**, seleccione *microsoft.insights/metricalerts*.
 4. Seleccione la regla de regla apropiada para ver sus detalles.
-5. En **Configuración** , seleccione **Exportar plantilla** .
+5. En **Configuración**, seleccione **Exportar plantilla**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>La cuota de las reglas de alertas de métricas es demasiado baja
 
@@ -166,10 +166,10 @@ Para comprobar el uso actual de las reglas de alertas de métricas, siga los pas
 ### <a name="from-the-azure-portal"></a>Desde Azure Portal
 
 1. Abra la pantalla **Alertas** y haga clic en **Administrar reglas de alertas.**
-2. Filtre la suscripción correspondiente mediante el control desplegable **Suscripción** .
+2. Filtre la suscripción correspondiente mediante el control desplegable **Suscripción**.
 3. Asegúrese de NO filtrar por un grupo de recursos, tipo de recurso o recurso específico.
-4. En el control desplegable **Tipo de señal** , seleccione **Métricas** .
-5. Verifique que el control desplegable **Estado** esté establecido en **Habilitado** .
+4. En el control desplegable **Tipo de señal**, seleccione **Métricas**.
+5. Verifique que el control desplegable **Estado** esté establecido en **Habilitado**.
 6. El número total de reglas de alertas de métricas se mostrará encima de la lista de reglas de alerta.
 
 ### <a name="from-api"></a>Desde la API
@@ -210,7 +210,7 @@ Asegúrese de usar los comandos de la CLI adecuados para las alertas de métrica
 
 - Si recibe un error `Metric not found`:
 
-   - Para una métrica de plataforma: asegúrese de usar el nombre de la **métrica** de [la página de métricas admitidas de Azure Monitor](./metrics-supported.md) y no el **nombre para mostrar de la métrica** .
+   - Para una métrica de plataforma: asegúrese de usar el nombre de la **métrica** de [la página de métricas admitidas de Azure Monitor](./metrics-supported.md) y no el **nombre para mostrar de la métrica**.
 
    - Para una métrica personalizada: asegúrese de que la métrica ya se esté generando (no puede crear una regla de alerta en una métrica personalizada que todavía no existe) y de que proporcione el espacio de nombres de la métrica personalizada (consulte [aquí](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric) un ejemplo de plantilla de Resource Manager).
 
@@ -241,6 +241,8 @@ Tenga en cuenta las siguientes restricciones para los nombres de las reglas de a
 - Los nombres de las reglas de alertas de métricas no pueden contener los siguientes caracteres: * # & +: < > ? @ % { } \ / 
 - Los nombres de las reglas de alertas de métricas no pueden terminar con un espacio o un punto.
 
+> [!NOTE] 
+> Si el nombre de la regla de alerta contiene caracteres que no sean alfabéticos o numéricos (por ejemplo, espacios, signos de puntuación o símbolos), estos caracteres se pueden codificar mediante URL cuando los recuperan determinados clientes.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restricciones al usar dimensiones en una regla de alertas de métricas con varias condiciones
 
@@ -255,11 +257,11 @@ Por ejemplo:
         * Suma total del valor de **Transactions** > 5
         * Media del valor de **SuccessE2ELatency** > 250 ms
     - Nos gustaría actualizar la primera condición y supervisar solo las transacciones en las que la dimensión **ApiName** sea igual a *"GetBlob"* .
-    - Dado que las métricas **Transactions** y **SuccessE2ELatency** admiten la dimensión **ApiName** , necesitaremos actualizar ambas condiciones y hacer que ambas especifiquen la dimensión **ApiName** con el valor *"GetBlob"* .
+    - Dado que las métricas **Transactions** y **SuccessE2ELatency** admiten la dimensión **ApiName**, necesitaremos actualizar ambas condiciones y hacer que ambas especifiquen la dimensión **ApiName** con el valor *"GetBlob"* .
 
 ## <a name="setting-the-alert-rules-period-and-frequency"></a>Establecimiento del período y la frecuencia de la regla de alerta
 
-Se recomienda elegir una *Granularidad de agregación (período)* mayor que la *Frecuencia de evaluación* , con el fin de reducir la probabilidad de que falte la primera evaluación de las series temporales agregadas en los casos siguientes:
+Se recomienda elegir una *Granularidad de agregación (período)* mayor que la *Frecuencia de evaluación*, con el fin de reducir la probabilidad de que falte la primera evaluación de las series temporales agregadas en los casos siguientes:
 -   Regla de alertas de métricas que supervisa varias dimensiones: Cuando se agrega una nueva combinación de valores de dimensión.
 -   Regla de alertas de métricas que supervisa varios recursos: Cuando se agrega un nuevo recurso al ámbito.
 -   Regla de alertas de métricas que supervisa una métrica que no se emite de manera continua (métrica dispersa): Cuando la métrica se emite después de un período de más de 24 horas en el que no se emitió.

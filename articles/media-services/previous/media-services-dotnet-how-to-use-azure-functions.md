@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 520ad8f68e0f995ea05456ebcf6de4c1ba3f9418
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913643"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030312"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-En este artículo se muestra cómo empezar a crear instancias de Azure Functions que usan Media Services. La función de Azure definida en este artículo supervisa un contenedor de la cuenta de almacenamiento llamado **input** para los nuevos archivos MP4. Una vez que un archivo se coloca en el contenedor de almacenamiento, el desencadenador de blobs ejecuta la función. Puede consultar las funciones de Azure en la [Introducción](../../azure-functions/functions-overview.md) y otros temas relacionados en la sección **Azure Functions**.
+En este artículo se muestra cómo empezar a crear instancias de Azure Functions que usan Media Services. La función de Azure definida en este artículo supervisa un contenedor de la cuenta de almacenamiento llamado **input** para los nuevos archivos MP4. Una vez que un archivo se coloca en el contenedor de almacenamiento, el desencadenador de blobs ejecuta la función. Para revisar Azure Functions, consulte [Introducción](../../azure-functions/functions-overview.md) y otros temas relacionados en la sección **Azure Functions**.
 
 Si desea explorar e implementar instancias de Azure Functions existentes que usan Azure Media Services, visite [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Este repositorio incluye ejemplos que usan Azure Media Services para mostrar flujos de trabajo relacionados con la ingesta directa de contenido desde Blob Storage, la codificación y la escritura de contenido de nuevo en Blob Storage. También incluye ejemplos de cómo supervisar las notificaciones de trabajo por medio de webhooks y colas de Azure. También puede desarrollar sus funciones a partir de los ejemplos del repositorio [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Para implementar las funciones, presione el botón **Implementar en Azure**.
 
@@ -49,15 +49,15 @@ Cuando desarrolle funciones de Media Services, es útil agregar variables de ent
 
 La función, definida en este artículo, da por hecho que tiene las siguientes variables de entorno en la configuración de la aplicación:
 
-**AMSAADTenantDomain** : Punto de conexión de inquilino de Azure AD. Para más información sobre cómo conectarse a la API de AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artículo.
+**AMSAADTenantDomain**: Punto de conexión de inquilino de Azure AD. Para más información sobre cómo conectarse a la API de AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artículo.
 
-**AMSRESTAPIEndpoint** :  identificador URI que representa el punto de conexión de API REST. 
+**AMSRESTAPIEndpoint**:  identificador URI que representa el punto de conexión de API REST. 
 
-**AMSClientId** : Identificador de cliente de la aplicación de Azure AD.
+**AMSClientId**: Identificador de cliente de la aplicación de Azure AD.
 
-**AMSClientSecret** : Secreto de cliente de la aplicación de Azure AD.
+**AMSClientSecret**: Secreto de cliente de la aplicación de Azure AD.
 
-**StorageConnection** : conexión de almacenamiento de la cuenta asociada a la cuenta de Media Services. Este valor se utiliza en los archivos **function.json** y **run.csx** (descritos a continuación).
+**StorageConnection**: conexión de almacenamiento de la cuenta asociada a la cuenta de Media Services. Este valor se utiliza en los archivos **function.json** y **run.csx** (descritos a continuación).
 
 ## <a name="create-a-function"></a>Creación de una función
 
@@ -69,7 +69,7 @@ Una vez implementada su instancia de Function App, puede encontrarla entre Azure
 
     ![Captura de pantalla en la que se muestra el cuadro de diálogo Elegir una plantilla con la opción BlobTrigger seleccionada.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. Una vez que seleccione **BlobTrigger** , aparecerán algunos controles más en la página.
+4. Una vez que seleccione **BlobTrigger**, aparecerán algunos controles más en la página.
 
     ![Captura de pantalla en la que se muestra el cuadro de diálogo Asigne un nombre a la función.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
@@ -83,7 +83,7 @@ La función de Azure está asociada a archivos de código y otros archivos que s
 
 ### <a name="functionjson"></a>function.json
 
-El archivo function.json define los enlaces de función y otras opciones de configuración. Este archivo se usa en tiempo de ejecución para determinar los eventos que se supervisarán y cómo pasar datos y devolverlos al ejecutarse una función. Para obtener más información, consulte [Enlaces HTTP y webhook en Azure Functions](../../azure-functions/functions-reference.md#function-code).
+El archivo function.json define los enlaces de función y otras opciones de configuración. Este archivo se usa en tiempo de ejecución para determinar los eventos que se supervisarán y cómo pasar datos y devolverlos al ejecutarse una función. Para obtener más información, vea [Enlaces HTTP y webhook en Azure Functions](../../azure-functions/functions-reference.md#function-code).
 
 >[!NOTE]
 >Establezca la propiedad **disabled** en **true** para impedir que se ejecute la función. 

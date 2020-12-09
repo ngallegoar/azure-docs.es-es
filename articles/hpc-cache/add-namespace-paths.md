@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657115"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339683"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configuración del espacio de nombres agregado
 
@@ -83,7 +83,7 @@ Esta lista muestra el número máximo de rutas de acceso de espacio de nombres p
   * Caché de 6 TB: 10 rutas de acceso de espacio de nombres
   * Caché de 23 TB: 20 rutas de acceso de espacio de nombres
 
-* Rendimiento de hasta 5 GB/s:
+* Rendimiento de hasta 4 GB/s:
 
   * Caché de 6 TB: 10 rutas de acceso de espacio de nombres
   * Caché de 12 TB: 10 rutas de acceso de espacio de nombres

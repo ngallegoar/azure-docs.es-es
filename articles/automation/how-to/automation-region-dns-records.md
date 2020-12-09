@@ -3,14 +3,14 @@ title: Registros DNS del centro de datos de Azure utilizados por Azure Automatio
 description: En este artículo se proporcionan los registros DNS requeridos por las características de Azure Automation al restringir la comunicación a una región específica de Azure que hospeda esa cuenta de Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117186"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183726"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registros DNS para regiones de Azure utilizados por Azure Automation
 
@@ -89,6 +89,9 @@ Reemplace `<accountId>` en el registro DNS por el GUID que representa el id. de 
 ![Página de clave principal de la cuenta de Automation](./media/automation-region-dns-records/automation-account-keys.png)
 
 Copie el valor después de *accounts/* desde el campo **URL**: `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
+> [!NOTE]
+> Todos los registros DNS de Webhook y agentservice se han actualizado con los registros DNS de estilo nuevo para admitir Private Link. En el caso de los registros DNS de JRDS, se admiten los registros DNS de estilo antiguo y nuevo. Si no usa Private Link, verá los registros DNS de estilo antiguo, mientras que los que utilizan Private Link verán los registros DNS de estilo nuevo.
 
 Se recomienda utilizar las direcciones mostradas al definir [excepciones](../automation-runbook-execution.md#exceptions). Para obtener una lista de direcciones IP de regiones en lugar de nombres de regiones, descargue el archivo JSON desde el Centro de descarga de Microsoft para los siguientes entornos de nube:
 

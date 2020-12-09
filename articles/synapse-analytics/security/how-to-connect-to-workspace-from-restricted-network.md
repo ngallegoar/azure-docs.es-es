@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024472"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296715"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conexión a los recursos de un área de trabajo desde una red restringida
 
@@ -46,14 +46,11 @@ Para más información, consulte la [información general sobre las etiquetas de
 
 Luego, cree centros de vínculos privados en Azure Portal. Para encontrar esta opción en el portal, busque *Azure Synapse Analytics (centros de vínculos privados)* y rellene la información necesaria para crearlo. 
 
-> [!Note]
-> Asegúrese de que el valor de **Región** sea el mismo que el de la región donde está el área de trabajo de Azure Synapse Analytics.
-
 ![Captura de pantalla de Crear un centro de vínculo privado de Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Paso 3: Creación de un punto de conexión privado para una puerta de enlace
+## <a name="step-3-create-a-private-endpoint-for-your-synapse-studio"></a>Paso 3: Creación de un punto de conexión privado para Synapse Studio
 
-Para acceder a la puerta de enlace de Azure Synapse Analytics Studio, debe crear un punto de conexión privado desde Azure Portal. Para encontrar esta opción en el portal, busque *Private Link*. En **Private Link Center**, seleccione **Crear punto de conexión privado** y rellene la información necesaria para crearlo. 
+Para acceder a Azure Synapse Analytics Studio, debe crear un punto de conexión privado desde Azure Portal. Para encontrar esta opción en el portal, busque *Private Link*. En **Private Link Center**, seleccione **Crear punto de conexión privado** y rellene la información necesaria para crearlo. 
 
 > [!Note]
 > Asegúrese de que el valor de **Región** sea el mismo que el de la región donde está el área de trabajo de Azure Synapse Analytics.
@@ -118,6 +115,43 @@ Si quiere que su cuaderno acceda a los recursos de almacenamiento vinculados con
 Después de crear este punto de conexión, el estado de aprobación muestra el estado **Pendiente**. Solicite la aprobación del propietario de esta cuenta de almacenamiento, en la pestaña **Conexiones de punto de conexión privado** de esta cuenta de almacenamiento en Azure Portal. Una vez aprobada, el cuaderno podrá acceder a los recursos de almacenamiento vinculado en esta cuenta de almacenamiento.
 
 Ahora, todo está listo. Puede acceder al recurso del área de trabajo de Azure Synapse Analytics Studio.
+
+## <a name="appendix-dns-registration-for-private-endpoint"></a>Apéndice: Registro DNS de un punto de conexión privado
+
+Si la opción "Integrar con la zona DNS privada" no está habilitada durante la creación del punto de conexión privado, como se muestra en la siguiente captura de pantalla, debe crear la "**zona DNS privada**" de cada uno de los puntos de conexión privados.
+![Captura de pantalla de creación de la zona DNS privada de Synapse 1](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-1.png).
+
+Para buscar la **zona DNS privada** en el portal, busque *Zona DNS privada*. En **Zona DNS privada**, rellene la siguiente información necesaria para crearla.
+
+* En **Nombre**, escriba el nombre dedicado de la zona DNS privada del punto de conexión privado específico, como se indica a continuación:
+  * **`privatelink.azuresynapse.net`** es para el punto de conexión privado de acceso a la puerta de enlace de Azure Synapse Analytics Studio. Consulte este tipo de creación de puntos de conexión privados en el paso 3.
+  * **`privatelink.sql.azuresynapse.net`** es para este tipo de punto de conexión privado de ejecución de consultas SQL en el grupo de SQL y el grupo integrado. Consulte la creación de puntos de conexión en el paso 4.
+  * **`privatelink.dev.azuresynapse.net`** es para este tipo de punto de conexión privado de acceso al resto de lo que contienen las áreas de trabajo de Azure Synapse Analytics Studio. Consulte este tipo de creación de puntos de conexión privados en el paso 4.
+  * **`privatelink.dfs.core.windows.net`** es para el punto de conexión privado de acceso al área de trabajo vinculada a Azure Data Lake Storage Gen2. Consulte este tipo de creación de puntos de conexión privados en el paso 5.
+  * **`privatelink.blob.core.windows.net`** es para el punto de conexión privado de acceso al área de trabajo vinculada a Azure Blob Storage. Consulte este tipo de creación de puntos de conexión privados en el paso 5.
+
+![Captura de pantalla de creación de una zona DNS privada de Synapse 2.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-2.png)
+
+Después de crear la **zona DNS privada**, especifique la zona DNS privada creada y seleccione los **vínculos de red virtual** para agregar el vínculo a la red virtual. 
+
+![Captura de pantalla de creación de una zona DNS privada de Synapse 3.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-3.png)
+
+Rellene los campos obligatorios como se indica a continuación:
+* En **Nombre de vínculo**, escriba el nombre del vínculo.
+* En **Red virtual**, seleccione la red virtual.
+
+![Captura de pantalla de creación de una zona DNS privada de Synapse 4.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-4.png)
+
+Después de agregar el vínculo de red virtual, debe agregar el conjunto de registros de DNS en la **zona DNS privada** que creó antes.
+
+* En **Nombre**, escriba las cadenas de nombre dedicadas de otro punto de conexión privado: 
+  * **web** es para el punto de conexión privado de acceso a Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName**_" es para el punto de conexión privado de ejecución de consultas SQL en un grupo de SQL y también para el punto de conexión privado de acceso al resto de lo que contienen las áreas de trabajo de Azure Synapse Analytics Studio. _ "*** YourWorkSpaceName*-ondemand**" es para el punto de conexión privado de ejecución de consultas SQL en un grupo integrado.
+* En **Tipo**, seleccione únicamente el tipo de registro DNS **D**. 
+* En **Dirección IP**, escriba la dirección IP correspondiente de cada punto de conexión privado. Puede obtener la dirección IP en **Interfaz de red** en la información general del punto de conexión privado.
+
+![Captura de pantalla de creación de una zona DNS privada de Synapse 5.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-5.png)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

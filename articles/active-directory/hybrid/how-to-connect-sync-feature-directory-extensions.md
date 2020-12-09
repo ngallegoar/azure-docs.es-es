@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662481"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172374"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
 Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones](/graph/extensibility-overview
@@ -70,6 +70,9 @@ Estos atributos ya están disponibles a través de Microsoft Graph API, mediante
 > En Microsoft Graph API, debe pedir que se devuelvan los atributos. Seleccione los atributos de forma explícita así: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
 > Para más información, consulte [Microsoft Graph: Usar parámetros de consulta](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> No se admite la sincronización de valores de atributo desde AADConnect con atributos de extensión que no han sido creados por AADConnect. Si lo hace, pueden producirse problemas de rendimiento y resultados inesperados. Solo se admiten para la sincronización los atributos de extensión creados como se ha mostrado anteriormente.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Uso de los atributos en grupos dinámicos
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95916225"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344029"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -105,7 +105,7 @@ Siga estos pasos para cambiar el administrador de servicios en Azure Portal.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
 
-1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
+1. Abra **Cost Management + Billing** y seleccione una suscripción.
 
 1. En el panel de navegación izquierdo, haga clic en **Propiedades**.
 
@@ -140,7 +140,7 @@ Siga estos pasos para ver el administrador de cuenta.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
+1. Abra **Cost Management + Billing** y seleccione una suscripción.
 
 1. En el panel de navegación izquierdo, haga clic en **Propiedades**.
 

@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f9ced3dfeccdbac5f0eb220cf0e104679f263aac
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841927"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186871"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 
@@ -29,7 +29,7 @@ Use los cuadros de lista desplegable en la parte superior de la pantalla para ca
 
 [![Captura de pantalla que muestra el menú de Azure Portal con soluciones seleccionadas y soluciones mostradas en el panel Soluciones.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-Las soluciones de supervisión pueden contener varios tipos de recursos de Azure; puede ver todos los recursos que incluyen las soluciones igual que cualquier otro recurso. Por ejemplo, las consultas de registro incluidas en la solución se enumeran en **Consultas de solución** de [Explorador de consultas](../log-query/get-started-portal.md#load-queries). Puede usar esas consultas al llevar a cabo análisis ad hoc con [consultas de registro](../log-query/log-query-overview.md).
+Las soluciones de supervisión pueden contener varios tipos de recursos de Azure; puede ver todos los recursos que incluyen las soluciones igual que cualquier otro recurso. Por ejemplo, las consultas de registro incluidas en la solución se muestran en **Consultas de la solución** en el [Explorador de consultas](../log-query/log-analytics-tutorial.md). Puede utilizar estas consultas al realizar un análisis ad hoc con [consultas de registros](../log-query/log-query-overview.md).
 
 ## <a name="list-installed-monitoring-solutions"></a>Lista de soluciones de supervisión instaladas
 

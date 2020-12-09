@@ -1,5 +1,5 @@
 ---
-title: Incorporación de sugerencias y de la función de autocompletar en un cuadro de búsqueda
+title: Incorporación de la función Autocompletar a un cuadro de búsqueda
 titleSuffix: Azure Cognitive Search
 description: Para habilitar acciones de consulta de búsqueda al escribir en Azure Cognitive Search, puede crear proveedores de sugerencias y formular solicitudes que rellenen automáticamente un cuadro de búsqueda con los términos o las frases completadas. También puede devolver las coincidencias sugeridas.
 manager: nitinme
@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426177"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339615"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Incorporación de sugerencias y de la función de autocompletar a las aplicaciones cliente
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Incorporación de sugerencias y de la función Autocompletar a las aplicaciones cliente mediante Azure Cognitive Search
 
-La búsqueda mientras se escribe es una técnica común para mejorar la productividad de las consultas iniciadas por el usuario. En Azure Cognitive Search, esta experiencia se admite a través de la función de *autocompletar*, que finaliza un término o frase según la entrada parcial (completa "micro" con "Microsoft"). Otra forma son las *sugerencias*: una breve lista de documentos coincidentes (se devuelven los títulos de libros con un id. que son vínculos a una página de detalles). Tanto la función de autocompletar como las sugerencias se declaran en una coincidencia en el índice. El servicio no ofrecerá consultas que devuelvan cero resultados.
+La búsqueda mientras se escribe es una técnica común para mejorar la productividad de las consultas iniciadas por el usuario. En Azure Cognitive Search, esta experiencia se admite a través de la función de *autocompletar*, que finaliza un término o frase según la entrada parcial (completa "micro" con "Microsoft"). Una segunda experiencia de usuario son las *sugerencias*, que son una breve lista de documentos coincidentes (se devuelven títulos de libros con un identificador que son vínculos a una página de detalles sobre ese libro). Tanto la función de autocompletar como las sugerencias se declaran en una coincidencia en el índice. El servicio no ofrecerá consultas que devuelvan cero resultados.
 
 Para implementar estas experiencias en Azure Cognitive Search, necesitará lo siguiente:
 
-+ Un *proveedor de sugerencias* en el back-end.
++ Una definición de *proveedor de sugerencias* que se inserta en el esquema de índice.
 + Una *consulta* que especifique la API de [Autocompletar](/rest/api/searchservice/autocomplete) o [Sugerencias](/rest/api/searchservice/suggestions) en la solicitud.
 + Un *control de interfaz de usuario* para controlar las interacciones de la búsqueda mientras se escribe en la aplicación cliente. Se recomienda usar una biblioteca de JavaScript existente para este fin.
 

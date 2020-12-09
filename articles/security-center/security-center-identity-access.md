@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967149"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187160"
 ---
 # <a name="monitor-identity-and-access"></a>Supervisión de la identidad y el acceso
 
@@ -52,7 +52,7 @@ Existen algunas limitaciones para las protecciones de acceso e identidad de Secu
 
 - Las recomendaciones de identidad no están disponibles para las suscripciones con más de 600 cuentas. En tales casos, estas recomendaciones se enumerarán en "evaluaciones no disponibles".
 - Las recomendaciones de identidad no están disponibles para los agentes de administración del asociado del Proveedor de soluciones en la nube (CSP).
-- Las recomendaciones de identidad no identifican las cuentas que se administran con un sistema de Privileged Identity Management (PIM). Si usa una herramienta de PIM, puede ver resultados inexactos en el control **Administrar el acceso y los permisos**.
+- Las recomendaciones de identidad no identifican las cuentas que se administran con un sistema de Privileged Identity Management (PIM). Si usa una herramienta PIM, podría observar resultados inexactos en el control **Manage access and permissions** (Administrar el acceso y los permisos).
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Multi-Factor Authentication (MFA) y Azure Active Directory 
 

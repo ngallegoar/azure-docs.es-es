@@ -4,12 +4,12 @@ description: Aprenda a crear una directiva de Configuración de invitado de Azur
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694249"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302703"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -89,6 +89,10 @@ DSC actúa como contenedor de InSpec para normalizar cómo se ejecuta, cómo se 
 #### <a name="configuration-requirements"></a>Requisitos de configuración
 
 El nombre de la configuración personalizada debe ser coherente en todas partes. El nombre del archivo .zip para el paquete de contenido, el nombre de la configuración en el archivo MOF y el nombre de la asignación de invitado en la plantilla de Azure Resource Manager (plantilla de ARM) deben ser el mismo.
+
+Los cmdlets de PowerShell ayudan en la creación del paquete.
+No se requiere ninguna carpeta de nivel raíz ni carpeta de versiones.
+El formato del paquete debe ser un archivo .zip. y no pueden superar un tamaño total de 100 MB sin comprimir.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Opciones personalizadas de la configuración de invitados en Linux
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: cdda14bb579fc94414f9da89b8b1f1aa04ec3bf5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: fd341a4f6e2402ce934bdffd4f024e0ef569eec1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628108"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340924"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -183,7 +183,7 @@ En Android, también debe especificar la actividad principal mediante `.WithPare
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-La interfaz de usuario es importante porque es interactiva. `AcquireTokenInteractive` tiene un parámetro opcional específico que permite determinar, en las plataformas que lo admiten, la interfaz de usuario principal. Cuando se usa en una aplicación de escritorio, `.WithParentActivityOrWindow` tiene un tipo diferente que depende de la plataforma. También, si no quiere controlar dónde aparece el cuadro de diálogo de inicio de sesión en la pantalla, puede omitir el parámetro opcional de ventana principal para crear una ventana. Esta opción sería aplicable a las aplicaciones basadas en línea de comandos que se usan para pasar llamadas a cualquier otro servicio back-end y no necesitan ventanas para la interacción del usuario.
+La interfaz de usuario es importante porque es interactiva. `AcquireTokenInteractive` tiene un parámetro opcional específico que permite determinar, en las plataformas que lo admiten, la interfaz de usuario principal. Cuando se usa en una aplicación de escritorio, `.WithParentActivityOrWindow` tiene un tipo diferente que depende de la plataforma. También, si no quiere controlar dónde aparece el cuadro de diálogo de inicio de sesión en la pantalla, puede omitir el parámetro opcional de ventana principal para crear una ventana. Esta opción sería aplicable a las aplicaciones basadas en línea de comandos que se usan para pasar llamadas a cualquier otro servicio de back-end y no necesitan ventanas para la interacción del usuario.
 
 ```csharp
 // net45

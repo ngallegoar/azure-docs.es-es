@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279302"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349946"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
@@ -149,7 +149,7 @@ Este cmdlet establecerá los siguientes permisos:
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurar los permisos de MS-DS-Consistency-Guid 
-Para establecer los permisos de la cuenta del conector de AD DS cuando se usa el atributo ms-Ds-Consistency-Guid como el delimitador de origen (también conocido como la opción "Let Azure manage the source anchor for me" [Permitir que Azure administre automáticamente el delimitador de origen]), ejecute lo siguiente: 
+Para establecer los permisos de la cuenta del conector de AD DS cuando se usa el atributo ms-Ds-Consistency-Guid como el delimitador de origen (también conocido como la opción "Let Azure manage the source anchor for me" [Permitir que Azure administre automáticamente el delimitador de origen]), ejecute lo siguiente: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

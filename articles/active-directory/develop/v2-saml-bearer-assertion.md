@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b036f558628d51242a78c00d2ee17332816d25
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227923"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348766"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidad de Microsoft y flujo de aserción de portador SAML de OAuth 2.0
 El flujo de aserción de portador SAML de OAuth 2.0 le permite solicitar un token de acceso de OAuth mediante una aserción SAML cuando un cliente tiene que usar una relación de confianza existente. La firma aplicada a la aserción SAML proporciona la autenticación de la aplicación autorizada. Una aserción SAML es un token de seguridad XML emitido por un proveedor de identidades y consumido por un proveedor de servicios. El proveedor de servicios se basa en su contenido para identificar el asunto de la aserción con fines relacionados con la seguridad.
@@ -73,7 +73,7 @@ En este paso, capture un token de OAuth2 mediante la respuesta de aserción de A
 1. Cree una solicitud POST como se muestra a continuación con los valores de encabezado:
 
     ![Solicitud POST](./media/v2-saml-bearer-assertion/5.png)
-1. En el cuerpo de la solicitud, reemplace **client_id**, **client_secret**y **assertion** (la aserción SAML codificada en base 64 que obtuvo en el paso anterior):
+1. En el cuerpo de la solicitud, reemplace **client_id**, **client_secret** y **assertion** (la aserción SAML codificada en base 64 que obtuvo en el paso anterior):
 
     ![Cuerpo de la solicitud](./media/v2-saml-bearer-assertion/6.png)
 1. Tras una solicitud correcta, recibirá un token de acceso de Azure Active Directory.

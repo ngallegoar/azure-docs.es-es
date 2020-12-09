@@ -16,12 +16,12 @@ ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449871"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029377"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -36,7 +36,7 @@ Por ejemplo, supongamos que trabaja en Woodgrove Bank y desea colaborar con dos 
 - Graphic Design Institute usa Azure AD y sus usuarios tienen un nombre principal de usuario que termina en *graphicdesigninstitute.com*.
 - Contoso todavía no usa Azure AD. Los usuarios de Contoso tienen un nombre principal de usuario que termina en *contoso.com*.
 
-En este caso, puede configurar dos organizaciones conectadas. Crea una organización conectada para Graphic Design Institute y otra para Contoso. Si después agrega las dos organizaciones conectadas a una directiva, los usuarios de cada organización con un nombre principal de usuario que coincida con la directiva podrán solicitar paquetes de acceso. Los usuarios con un nombre principal de usuario que tenga un dominio de *graphicdesigninstitute.com* coincidirían con la organización conectada con Graphic Design Institute y podrían enviar solicitudes. Los usuarios con un nombre principal de usuario que tenga un dominio de *contoso.com* coincidirían con la organización conectada con Contoso y también podrían solicitar paquetes. Además, dado que Graphic Design Institute usa Azure AD, cualquier usuario con un nombre principal que coincida con un [dominio comprobado](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) que se agregue al inquilino, como*graphicdesigninstitute.example*, también podría solicitar paquetes de acceso mediante la misma directiva.
+En este caso, puede configurar dos organizaciones conectadas. Crea una organización conectada para Graphic Design Institute y otra para Contoso. Si después agrega las dos organizaciones conectadas a una directiva, los usuarios de cada organización con un nombre principal de usuario que coincida con la directiva podrán solicitar paquetes de acceso. Los usuarios con un nombre principal de usuario que tenga un dominio de *graphicdesigninstitute.com* coincidirían con la organización conectada con Graphic Design Institute y podrían enviar solicitudes. Los usuarios con un nombre principal de usuario que tenga un dominio de *contoso.com* coincidirían con la organización conectada con Contoso y también podrían solicitar paquetes. Además, dado que Graphic Design Institute usa Azure AD, cualquier usuario con un nombre principal que coincida con un [dominio comprobado](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) que se agregue al inquilino, como *graphicdesigninstitute.example*, también podría solicitar paquetes de acceso mediante la misma directiva.
 
 ![Ejemplo de una organización conectada](./media/entitlement-management-organization/connected-organization-example.png)
 
@@ -148,9 +148,9 @@ Actualmente, existen dos tipos diferentes de propiedades de estado para las orga
 
 - Una organización conectada propuesta es una organización conectada que se ha creado automáticamente, pero que un administrador no ha creado ni aprobado la organización. Cuando un usuario se suscribe a un paquete de acceso fuera de una organización conectada configurada, todas las organizaciones conectadas creadas automáticamente estarán en estado **Propuesta**, ya que ningún administrador del inquilino ha configurado esa asociación. 
     
-    Las organizaciones conectadas propuestas no se mostrarán en los selectores de organizaciones conectadas configuradas y no estarán en el ámbito de la configuración "todas la organizaciones conectadas configuradas" de ninguna directiva. 
+    Las organizaciones conectadas propuestas no están en el ámbito de la configuración "todas la organizaciones conectadas configuradas" de ninguna directiva, pero se pueden utilizar en directivas solo para directivas que tienen como destino organizaciones específicas. 
 
-Solo los usuarios de las organizaciones conectadas configuradas pueden solicitar paquetes de acceso que estén disponibles para los usuarios de todas las organizaciones configuradas. Los usuarios de las organizaciones conectadas propuestas tendrán una experiencia como si no hubiera ninguna organización conectada para ese dominio y no tendrán acceso al paquete de acceso hasta que un administrador cambie el estado.
+Solo los usuarios de las organizaciones conectadas configuradas pueden solicitar paquetes de acceso que estén disponibles para los usuarios de todas las organizaciones configuradas. Los usuarios de las organizaciones conectadas propuestas tienen una experiencia como si no hubiera ninguna organización conectada para ese dominio; solo pueden ver y solicitar paquetes de acceso en el ámbito de su organización específica o en el ámbito de cualquier usuario.
 
 > [!NOTE]
 > Como parte de la implementación de esta nueva característica, todas las organizaciones conectadas creadas antes del 09/09/20 se consideran **configuradas**. Si tiene un paquete de acceso que permitía registrarse a los usuarios de cualquier organización, debe revisar la lista de las organizaciones conectadas que se crearon antes de esa fecha para asegurarse de que ninguna está clasificada de forma incorrecta como **Configurada**.  Un administrador puede actualizar la propiedad **Estado** según corresponda. Para obtener instrucciones, consulte [Actualización de una organización conectada](#update-a-connected-organization).

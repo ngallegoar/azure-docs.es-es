@@ -3,12 +3,12 @@ title: Administración de plantillas de laboratorios educativos en Azure Lab Ser
 description: Aprenda a crear y administrar plantillas de laboratorio educativo en Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0f7c74f75de3d24acd01330910bf6ee3f8f18533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be84a05fd8b278f5176cd768191d10a20fc719e6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445804"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434284"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creación y administración de plantillas educativas en Azure Lab Services
 En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Luego, publique la plantilla si desea que las instancias de la plantilla de máquina virtual estén disponibles para los usuarios del laboratorio. Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante la plantilla. El número de máquinas virtuales creadas en este proceso es igual al número máximo de usuarios permitidos en el laboratorio, que se puede establecer en la política de uso del laboratorio. Todas las máquinas virtuales tienen la misma configuración que la plantilla.
@@ -67,4 +67,4 @@ Vea los artículos siguientes:
 - [Como administrador, crear y administrar cuentas de laboratorio](how-to-manage-lab-accounts.md)
 - [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)
 - [Como propietario del laboratorio, configurar y controlar el uso de un laboratorio](how-to-configure-student-usage.md)
-- [Como usuario del laboratorio, obtener acceso a laboratorios educativos](how-to-use-classroom-lab.md)
+- [Como usuario de laboratorio, obtener acceso a los laboratorios](how-to-use-classroom-lab.md)

@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5322e5ce1bb124387931eac666cf9e5510cb2463
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237650"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348541"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalación del agente de aprovisionamiento en la nube de Azure AD Connect
 Este documento le guiará en el proceso de instalación del agente de aprovisionamiento de Azure Active Directory (Azure AD) Connect y en el modo de configurarlo inicialmente en Azure Portal.
@@ -32,7 +32,7 @@ La instalación y configuración del aprovisionamiento de Azure AD Connect se r
 
 
 ## <a name="group-managed-service-accounts"></a>Cuentas de servicio administradas de grupo
-Una cuenta de servicio administradas de grupo es una cuenta de dominio administrado que proporciona administración automática de contraseñas, administración simplificada del nombre de entidad de seguridad de servicio (SPN), la posibilidad de delegar la administración a otros administradores y, además, amplía esta funcionalidad a varios servidores.  La sincronización en la nube de Azure AD Connect admite y recomienda el uso de una cuenta de servicio administrada de grupo para ejecutar el agente.  Para obtener más información sobre gMSA, consulte [Cuentas de servicio administradas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). 
+Una cuenta de servicio administradas de grupo es una cuenta de dominio administrado que proporciona administración automática de contraseñas, administración simplificada del nombre de entidad de seguridad de servicio (SPN), la posibilidad de delegar la administración a otros administradores y, además, amplía esta funcionalidad a varios servidores.  La sincronización en la nube de Azure AD Connect admite y recomienda el uso de una cuenta de servicio administrada de grupo para ejecutar el agente.  Para obtener más información sobre gMSA, consulte [Cuentas de servicio administradas de grupo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). 
 
 
 ### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>Actualización de un agente existente para usar la cuenta gMSA
@@ -58,7 +58,7 @@ Para instalar el agente, siga estos pasos.
    ![Crear gMSA](media/how-to-install/install-12.png)</br>
  11. En la pantalla **Conectar Active Directory**, seleccione **Agregar directorio**. Después, inicie sesión con su cuenta de administrador de Active Directory. Esta operación permitirá agregar su directorio local. 
  12. De manera opcional, puede administrar la preferencia de los controladores de dominio que usará el agente; para ello, seleccione **Select domain controller priority** (Seleccionar prioridad del controlador de dominio) y ordene la lista de controladores de dominio.   Haga clic en **OK**.
-  ![Ordenar los controladores de dominio](media/how-to-install/install-2a.png)</br>
+  ![Solicitar controladores de dominio](media/how-to-install/install-2a.png)</br>
  13. Seleccione **Next** (Siguiente).
   ![Pantalla Conexión de Active Directory](media/how-to-install/install-3a.png)</br>
  14.  En la pantalla **Agent Installation** (Instalación del agente), confirme la configuración y la cuenta que se creará y haga clic en **Confirmar**.
@@ -107,4 +107,3 @@ Para comprobar que el agente se ejecuta, siga estos pasos.
 
 - [¿Qué es el aprovisionamiento?](what-is-provisioning.md)
 - [¿Qué es el aprovisionamiento en la nube de Azure AD Connect?](what-is-cloud-provisioning.md)
- 

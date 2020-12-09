@@ -8,19 +8,19 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3894bf046ed4ee3f068e43dbc5bc5b7f2a1002b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3212acd5015edbb639b8904b885c718d654e5b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81681051"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356268"
 ---
 En esta sección se describe cómo realizar las siguientes operaciones de modificación para el emparejamiento directo.
 
 ### <a name="add-direct-peering-connections"></a>Adición de conexiones de emparejamiento directo
 1. Seleccione el botón **+ Add connections** (+ Agregar conexiones) y configure una nueva conexión de emparejamiento.
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de emparejamiento](../media/setup-direct-modify-addconnection.png)
+    > ![La página AshburnPeering - Conexiones enumera las conexiones. El botón + Agregar conexiones texto está resaltado.](../media/setup-direct-modify-addconnection.png)
 
 1. Rellene el formulario de **conexión de emparejamiento directo** y seleccione **Save** (Guardar). Para obtener ayuda con la configuración de una conexión de emparejamiento, revise los pasos descritos en la sección anterior "Creación y aprovisionamiento de un emparejamiento directo".
     > [!div class="mx-imgBorder"]

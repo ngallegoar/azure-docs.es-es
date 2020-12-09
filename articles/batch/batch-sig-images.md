@@ -4,12 +4,12 @@ description: Los grupos de imágenes personalizadas son una manera eficaz de con
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917790"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327311"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
@@ -58,7 +58,7 @@ En Azure, puede preparar una imagen compartida a partir de una imagen administra
 - Un disco duro virtual local generalizado cargado en la nube
 
 > [!NOTE]
-> Actualmente, Batch solo admite imágenes compartidas generalizadas. En este momento no se puede crear un grupo de imágenes personalizado a partir de una imagen compartida especializada.
+> Batch solo admite imágenes compartidas generalizadas; no se puede usar una imagen compartida especializada para crear un grupo.
 
 Consulte los siguientes pasos para preparar la máquina virtual, tome una instantánea y cree una imagen a partir de ella.
 

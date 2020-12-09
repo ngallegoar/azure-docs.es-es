@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444884"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029700"
 ---
 # <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
 
@@ -30,6 +30,7 @@ Detalles específicos de los distintos servicios:
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](../../iot-dps/index.yml) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](../../storage/index.yml) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](../../azure-cache-for-redis/cache-whats-new.md).
+- Azure Instance Metadata Service permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > Es posible que los clientes necesiten actualizar sus aplicaciones después de este cambio, con el fin de evitar errores de conectividad al intentar conectarse a los servicios de Azure.

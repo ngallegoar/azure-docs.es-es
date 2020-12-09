@@ -7,12 +7,12 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: 23d9c6730857cf4ed7f8b8062d5529bedd8e2740
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 1825dd34855b356367722eefbfb5eb6dd9c78ae3
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95997178"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029207"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exportación de los certificados del emulador de Azure Cosmos DB para su uso con aplicaciones en Java, Python y Node.js
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -67,7 +67,7 @@ Debe exportar el certificado del emulador para usar correctamente el punto de co
 
 Al ejecutar aplicaciones de Java o MongoDB que utilizan un cliente basado en Java, es más fácil instalar el certificado en el almacén de certificados predeterminado de Java que pasar las marcas `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"`. Por ejemplo, la aplicación de demostración de Java (`https://localhost:8081/_explorer/index.html`) incluida depende del almacén de certificados predeterminado.
 
-Siga las instrucciones de la publicación [Incorporación de un certificado al almacén de certificados de Java](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) para importar el certificado X.509 en el almacén de certificados de Java. Tenga en cuenta que trabajará en el directorio *%JAVA_HOME%* al ejecutar keytool. Después de que el certificado se haya importado en el almacén de certificados, los clientes para las API de SQL y Azure Cosmos DB para MongoDB podrán conectarse al emulador de Azure Cosmos.
+Siga las instrucciones de la publicación [Incorporación de un certificado al almacén de certificados de Java](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) para importar el certificado X.509 en el almacén de certificados de Java. Tenga en cuenta que trabajará en el directorio *%JAVA_HOME%* al ejecutar keytool. Cuando el certificado se haya importado en el almacén de certificados, los clientes para la API SQL y la API de Azure Cosmos DB para MongoDB podrán conectarse al emulador de Azure Cosmos DB.
 
 Como alternativa, puede ejecutar el siguiente script de Bash para importar el certificado:
 

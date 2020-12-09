@@ -2,15 +2,15 @@
 title: 'Tutorial: Programación de una tarea de ACR'
 description: En este tutorial, aprenderá a ejecutar una tarea de Azure Container Registry según una programación definida mediante la configuración de uno o más desencadenadores de temporizador.
 ms.topic: article
-ms.date: 06/27/2019
-ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 13a4ccac4ea97538583c1c063a6dc61e4d25686a
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402883"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030618"
 ---
-# <a name="run-an-acr-task-on-a-defined-schedule"></a>Ejecución de una tarea de ACR según una programación definida
+# <a name="tutorial-run-an-acr-task-on-a-defined-schedule"></a>Tutorial: Ejecución de una tarea de ACR según una programación definida
 
 En este tutorial se muestra cómo ejecutar una [Tarea de ACR](container-registry-tasks-overview.md) según una programación. Para programar una tarea, configure uno o varios *desencadenadores de temporizador*. Los desencadenadores de temporizador se pueden usar solos o en combinación con otros desencadenadores de tareas.
 
@@ -25,8 +25,7 @@ La programación de tareas es útil para escenarios como los siguientes:
 * Ejecutar una carga de trabajo de contenedor para operaciones de mantenimiento programadas. Por ejemplo, ejecute una aplicación en contenedores para que elimine las imágenes innecesarias del registro.
 * Ejecutar un conjunto de pruebas en una imagen de producción durante el día de trabajo como parte de la supervisión del sitio activo.
 
-Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para ejecutar los ejemplos de este artículo. Si desea usarlo de forma local, se requiere la versión 2.0.68 o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="about-scheduling-a-task"></a>Acerca de la programación de tareas
 
@@ -37,19 +36,29 @@ Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para ej
     * Puede especificar varios desencadenadores de temporizador al crear la tarea o agregarlos más tarde.
     * Opcionalmente, dé un nombre a los desencadenadores para facilitar la administración; de lo contrario, ACR Tasks proporcionará nombres de desencadenador predeterminados.
     * Si las programaciones del temporizador se superponen en algún momento, ACR Tasks desencadena la tarea a la hora programada para cada temporizador.
-* **Otros desencadenadores de tarea**: en una tarea desencadenada por temporizadores, también puede habilitar desencadenadores en función de la [confirmación del código fuente](container-registry-tutorial-build-task.md) o las [actualizaciones de la imagen de base](container-registry-tutorial-base-image-update.md). Al igual que otras tareas de ACR, también puede [desencadenar manualmente][az-acr-task-run] una tarea programada.
+* **Otros desencadenadores de tarea**: en una tarea desencadenada por temporizadores, también puede habilitar desencadenadores en función de la [confirmación del código fuente](container-registry-tutorial-build-task.md) o las [actualizaciones de la imagen de base](container-registry-tutorial-base-image-update.md). Al igual que otras tareas de ACR, también puede [ejecutar manualmente][az-acr-task-run] una tarea programada.
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Creación de una tarea con un desencadenador de temporizador
 
+### <a name="task-command"></a>Comando de tarea
+
+Primero, rellene la variables de entorno de shell siguiente con un valor adecuado para el entorno. Este paso no es estrictamente necesario, pero hace que la ejecución de los comandos de varias líneas de la CLI de Azure en este tutorial sea un poco más fácil. Si no rellena esta variable, debe reemplazar manualmente cada valor siempre que aparezca en los comandos de ejemplo.
+
+[![Insertar inicio](https://shell.azure.com/images/launchcloudshell.png "Inicio de Azure Cloud Shell")](https://shell.azure.com)
+
+```console
+ACR_NAME=<registry-name>        # The name of your Azure container registry
+```
+
 Cuando crea una tarea con el comando [az acr task create][az-acr-task-create], opcionalmente puede agregar un desencadenador de temporizador. Agregue el parámetro `--schedule` y pase una expresión cron para el temporizador.
 
-A modo de ejemplo sencillo, el siguiente comando desencadena la ejecución de la imagen `hello-world` de Docker Hub todos los días a las 21:00 UTC. La tarea se ejecuta sin un contexto de código fuente.
+A modo de ejemplo sencillo, la siguiente tarea desencadena la ejecución de la imagen `hello-world` de Microsoft Container Registry todos los días a las 21:00 UTC. La tarea se ejecuta sin un contexto de código fuente.
 
 ```azurecli
 az acr task create \
-  --name mytask \
-  --registry myregistry \
-  --cmd hello-world \
+  --name timertask \
+  --registry $ACR_NAME \
+  --cmd mcr.microsoft.com/hello-world \
   --schedule "0 21 * * *" \
   --context /dev/null
 ```
@@ -57,30 +66,32 @@ az acr task create \
 Ejecute el comando [az acr task show][az-acr-task-show] para ver que el desencadenador de temporizador está configurado. De forma predeterminada, el desencadenador de actualización de la imagen de base también está habilitado.
 
 ```azurecli
-az acr task show --name mytask --registry registry --output table
+az acr task show --name timertask --registry $ACR_NAME --output table
 ```
 
 ```output
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
-mytask    linux       Enabled                           BASE_IMAGE, TIMER
+timertask linux       Enabled                           BASE_IMAGE, TIMER
 ```
+
+## <a name="trigger-the-task"></a>Desencadenar la tarea
 
 Desencadene la tarea manualmente con [az acr task run][az-acr-task-run] para asegurarse de que está configurado correctamente:
 
 ```azurecli
-az acr task run --name mytask --registry myregistry
+az acr task run --name timertask --registry $ACR_NAME
 ```
 
-Si el contenedor se ejecuta correctamente, el resultado es similar al siguiente:
+Si el contenedor se ejecuta correctamente, el resultado es similar al siguiente. La salida está condensada para mostrar los pasos principales.
 
 ```output
 Queued a run with ID: cf2a
 Waiting for an agent...
-2019/06/28 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
-2019/06/28 21:03:36 Creating Docker network: acb_default_network, driver: 'bridge'
+2020/11/20 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
+2020/11/20 21:03:36 Creating Docker network: acb_default_network, driver: 'bridge'
 [...]
-2019/06/28 21:03:38 Launching container with name: acb_step_0
+2020/11/20 21:03:38 Launching container with name: acb_step_0
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
@@ -90,17 +101,16 @@ This message shows that your installation appears to be working correctly.
 Después de la hora programada, ejecute el comando [az acr task list-runs][az-acr-task-list-runs] para comprobar que el temporizador desencadenó la tarea según lo esperado:
 
 ```azurecli
-az acr task list-runs --name mytask --registry myregistry --output table
+az acr task list-runs --name timertask --registry $ACR_NAME --output table
 ```
 
 Cuando el temporizador desencadena la tarea correctamente, el resultado es similar al siguiente:
 
 ```output
-RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
---------  -------- ----------  ---------  ---------  --------------------  ----------
-[...]
-cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
-cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
+RUN ID    TASK       PLATFORM    STATUS     TRIGGER    STARTED               DURATION
+--------  ---------  ----------  ---------  ---------  --------------------  ----------
+ca15      timertask  linux       Succeeded  Timer      2020-11-20T21:00:23Z  00:00:06
+ca14      timertask  linux       Succeeded  Manual     2020-11-20T20:53:35Z  00:00:06
 ```
 
 ## <a name="manage-timer-triggers"></a>Administración de desencadenadores de temporizador
@@ -109,12 +119,12 @@ Use los comandos [az acr task timer][az-acr-task-timer] para administrar los des
 
 ### <a name="add-or-update-a-timer-trigger"></a>Adición o actualización de un desencadenador de temporizador
 
-Una vez que se ha creado una tarea, tiene la opción de agregar un desencadenador de temporizador mediante el comando [az acr task timer add][az-acr-task-timer-add]. En el ejemplo siguiente se agrega un desencadenador de temporizador denominado *timer2* a *mytask* creada anteriormente. Este temporizador desencadena la tarea todos los días a las 10:30 UTC.
+Una vez que se ha creado una tarea, tiene la opción de agregar un desencadenador de temporizador mediante el comando [az acr task timer add][az-acr-task-timer-add]. En el ejemplo siguiente se agrega un desencadenador de temporizador denominado *timer2* a la tarea *timertask* creada anteriormente. Este temporizador desencadena la tarea todos los días a las 10:30 UTC.
 
 ```azurecli
 az acr task timer add \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2 \
   --schedule "30 10 * * *"
 ```
@@ -123,8 +133,8 @@ Actualice la programación de un desencadenador existente o cambie su estado med
 
 ```azurecli
 az acr task timer update \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2 \
   --schedule "30 11 * * *"
 ```
@@ -134,7 +144,7 @@ az acr task timer update \
 El comando [az acr task timer list][az-acr-task-timer-list] muestra los desencadenadores de temporizador configurados para una tarea:
 
 ```azurecli
-az acr task timer list --name mytask --registry myregistry
+az acr task timer list --name timertask --registry $ACR_NAME
 ```
 
 Salida de ejemplo:
@@ -156,12 +166,12 @@ Salida de ejemplo:
 
 ### <a name="remove-a-timer-trigger"></a>Eliminación de un desencadenador de temporizador
 
-Use el comando [az acr task timer remove][az-acr-task-timer-remove] para eliminar un desencadenador de temporizador de una tarea. En el ejemplo siguiente, se elimina el desencadenador *timer2* de *mytask*:
+Use el comando [az acr task timer remove][az-acr-task-timer-remove] para eliminar un desencadenador de temporizador de una tarea. En el ejemplo siguiente, se elimina el desencadenador *timer2* de *timertask*:
 
 ```azurecli
 az acr task timer remove \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2
 ```
 

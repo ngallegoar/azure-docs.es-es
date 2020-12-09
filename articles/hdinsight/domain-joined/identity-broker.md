@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917773"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338136"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Agente de identidad de Azure HDInsight (HIB)
 
@@ -140,13 +140,13 @@ Para utilizar Beeline y Livy, también puede seguir los códigos de ejemplo prop
 
 ## <a name="faq"></a>Preguntas más frecuentes
 ### <a name="what-app-is-created-by-hdinsight-in-aad"></a>¿Qué aplicación crea HDInsight en AAD?
-Para cada clúster, se registrará una aplicación de terceros en AAD con el URI del clúster como identifierUri (por ejemplo, https://clustername.azurehdinsight.net ).
+Para cada clúster, se registrará una aplicación de terceros en AAD con el URI del clúster como identifierUri (por ejemplo, `https://clustername.azurehdinsight.net`).
 
 ### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>¿Por qué se solicita consentimiento a los usuarios antes de usar los clústeres habilitados para HIB?
 En AAD, se requiere consentimiento para todas las aplicaciones de terceros a fin de que estas puedan autenticar a los usuarios o acceder a los datos.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>¿Se puede aprobar el consentimiento mediante programación?
-La API de Microsoft Graph le permite automatizar el consentimiento, consulte la [documentación de la API](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0). La secuencia para automatizar el consentimiento es la siguiente:
+La API de Microsoft Graph le permite automatizar el consentimiento, consulte la [documentación de la API](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0). La secuencia para automatizar el consentimiento es la siguiente:
 
 * Registre una aplicación y conceda permisos Application.ReadWrite.All a la aplicación para acceder a Microsoft Graph.
 * Una vez creado un clúster, consulte la aplicación de clúster basada en el URI del identificador.

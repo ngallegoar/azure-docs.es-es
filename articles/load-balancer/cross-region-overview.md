@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f0630599c7c52f11a4cf3153bae38ad2d515b6bc
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695068"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029768"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -35,7 +35,7 @@ Azure Standard Load Balancer admite el equilibrio de carga entre regiones que ha
 * [Compilación en la solución del equilibrador de carga existente](#build-cross-region-solution-on-existing-azure-load-balancer) sin curva de aprendizaje
 
 > [!IMPORTANT]
-> El equilibrador de carga entre regiones se encuentra actualmente en versión preliminar y no está disponible con carácter general.  Para tener acceso a la versión preliminar del equilibrador de carga entre regiones, póngase en contacto con: [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com). </br> </br>
+> El equilibrador de carga entre regiones se encuentra actualmente en versión preliminar y está oculto en el portal de versión preliminar. Inicie sesión en **https://preview.portal.azure.com/?feature.globallb=true** para ver e implementar la característica. </br> </br>
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El equilibrio de carga entre regiones ofrece las mismas ventajas de alto rendimiento y baja latencia que la instancia de Standard Load Balancer regional. 
@@ -149,6 +149,6 @@ El equilibrador de carga entre regiones comparte el [Acuerdo de Nivel de Servici
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el artículo sobre cómo [crear una instancia de Standard Load Balancer pública](quickstart-load-balancer-standard-public-portal.md) para empezar a usar un equilibrador de carga.
+- Consulte [Tutorial: Creación de un equilibrador de carga entre regiones mediante Azure Portal](tutorial-cross-region-portal.md) para crear un equilibrador de carga entre regiones.
+- Consulte [Creación de un equilibrador de carga estándar público](quickstart-load-balancer-standard-public-portal.md) para crear un equilibrador de carga regional estándar.
 - Más información sobre [Azure Load Balancer](load-balancer-overview.md).
-- [Preguntas frecuentes](load-balancer-faqs.md) sobre Load Balancer

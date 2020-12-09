@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8710e0cdd6c930338009fb2b7f3bd98fafcfad3e
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 2735aec0f95f5e282bb1dffba6e4f42f966cf117
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411570"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186548"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Consulta de datos exportados desde Azure Monitor mediante Azure Data Explorer (versión preliminar)
 Exportar datos de Azure Monitor a una cuenta de Azure Storage permite la retención a bajo costo y la capacidad de reasignar registros a regiones distintas. Use Azure Data Explorer para consultar datos exportados de las áreas de trabajo de Log Analytics. Una vez que se configuran, las tablas compatibles que se envían desde las áreas de trabajo hasta la cuenta de Azure Storage estarán disponibles como un origen de datos para Azure Data Explorer.
@@ -122,7 +122,7 @@ En la imagen siguiente se muestra un ejemplo de la salida.
 
 >[!TIP]
 >* Copie, pegue y ejecute la salida del script en la herramienta de cliente de Azure Data Explorer para crear la tabla y la asignación.
->* Si quiere usar todos los datos dentro del contenedor, puede modificar el script y cambiar la dirección URL para que sea "https://your.blob.core.windows.net/containername;SecKey".
+>* Para utilizar todos los datos dentro del contenedor, modifique el script y cambie la dirección URL para que sea 'https://your.blob.core.windows.net/containername;SecKey'
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Consulta de los datos exportados desde Azure Data Explorer 
 
@@ -136,4 +136,4 @@ external_table("HBTest","map") | take 10000
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [escribir consultas en Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Aprenda a [escribir consultas en Azure Data Explorer](/azure/data-explorer/write-queries)

@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115040"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348728"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación
 
@@ -65,7 +65,7 @@ Para obtener más información, consulte la [entrada de blog de Azure Government
 
 **Protocolo afectado**: Todos los flujos de usuario.
 
-Los usuarios con contraseñas de más de 256 caracteres que inicien sesión directamente en Azure AD (en lugar de en un IDP federado como ADFS) no podrán iniciar sesión a partir del 13 de marzo de 2020 y se les pedirá que restablezcan su contraseña.  Es posibles que los administradores reciban solicitudes de ayuda para restablecer la contraseña de los usuarios.
+Los usuarios con contraseñas de más de 256 caracteres que inicien sesión directamente en Azure AD (en lugar de en un IDP federado como ADFS) no podrán iniciar sesión a partir del 13 de marzo de 2020 y se les pedirá que restablezcan su contraseña.  Es posible que los administradores reciban solicitudes de ayuda para restablecer la contraseña de los usuarios.
 
 El error en los registros de inicio de sesión será AADSTS 50052: InvalidPasswordExceedsMaxLength
 

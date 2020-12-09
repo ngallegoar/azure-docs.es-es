@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 708ffce014f417f3794e59e1f79a3fcf9cba3f23
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639103"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325186"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisitos de ancho de banda del protocolo de escritorio remoto (RDP)
 
@@ -78,7 +78,7 @@ La siguiente tabla sirve de guía para calcular los datos que usan los distintos
 | Inactivo | 0,3 Kbps | 0,3 Kbps |:::image type="content" source="media/idle.png" alt-text="Captura de pantalla de la conexión inactiva":::| El usuario ha detenido su trabajo y no hay actualizaciones de pantalla activas |
 | Microsoft Word | 100-150 Kbps | 200-300 Kbps |:::image type="content" source="media/word.gif" alt-text="Animación de Microsoft Word":::| El usuario trabaja activamente con Microsoft Word, escribe, pega gráficos y cambia de un documento a otro |
 | Microsoft Excel | 150-200 Kbps | 400-500 Kbps |:::image type="content" source="media/excel.gif" alt-text="Animación de Microsoft Excel":::| El usuario trabaja activamente con Microsoft Excel, se actualizan al mismo tiempo varias celdas con fórmulas y gráficos |
-| Microsoft PowerPoint | 4-4,5 MBps | 1,6-1,8 MBps |:::image type="content" source="media/powerpoint.gif" alt-text="Animación de Microsoft PowerPoint":::| El usuario trabaja activamente con Microsoft PowerPoint, escribe y pega. El usuario también modifica gráficos con muchos elementos y usa efectos de transición de diapositivas |
+| Microsoft PowerPoint | 4-4,5 MBps | 1,6-1,8 MBps |:::image type="content" source="media/powerpoint.gif" alt-text="Animación de Microsoft PowerPoint":::| El usuario trabaja activamente con Microsoft PowerPoint, escribe y pega. El usuario también modifica gráficos enriquecidos y usa efectos de transición de diapositivas |
 | Exploración web | 6-6,5 MBps | 0,9-1 MBps |:::image type="content" source="media/web.gif" alt-text="Animación de exploración web":::| El usuario trabaja activamente con un sitio web con muchos gráficos que contiene varias imágenes, tanto estáticas como animadas. El usuario se desplaza por las páginas horizontal y verticalmente |
 | Galería de imágenes | 3,3-3,6 MBps | 0,7-0,8 MBps |:::image type="content" source="media/image-gallery.gif" alt-text="Animación de la galería de imágenes":::| El usuario trabaja activamente con la aplicación de la galería de imágenes. exploración, zoom, cambio de tamaño y rotación de imágenes |
 | Reproducción de vídeo | 8,5-9,5 MBps | 2,5-2,8 MBps |:::image type="content" source="media/video.gif" alt-text="Animación de reproducción de vídeo":::| El usuario ve un vídeo de 30 FPS que consume la mitad de la pantalla |
