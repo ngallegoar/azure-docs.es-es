@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123139"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862044"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets de Azure AD PowerShell para informes
 
@@ -36,7 +36,7 @@ Para instalar la versión preliminar pública, use lo siguiente.
 Install-module AzureADPreview
 ```
 
-Para más información sobre cómo conectarse a Azure AD con PowerShell, consulte el artículo [Azure AD PowerShell for Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Para más información sobre cómo conectarse a Azure AD con PowerShell, consulte el artículo [Azure AD PowerShell for Graph](/powershell/azure/active-directory/install-adv2).  
 
 Con los informes de Azure Active Directory (Azure AD), puede obtener detalles sobre las actividades de todas las operaciones de escritura en su dirección (registros de auditoría) y los datos de autenticación (registros de inicio de sesión). Aunque la información está disponible mediante MS Graph API, ahora puede recuperar los mismos datos usando los cmdlets de PowerShell de Azure AD para la generación de informes.
 
