@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183743"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855063"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -101,19 +101,19 @@ Las aplicaciones web existentes se pueden volver a implementar en Azure de la si
 1. **Repositorio de origen**: mantenga el código fuente en un repositorio adecuado como GitHub, que permite configurar la implementación continua más adelante en este proceso.
     1. El archivo *requirements.txt* debe estar en la raíz del repositorio para que App Service instale automáticamente los paquetes necesarios.    
 
-1. **Base de datos**: si la aplicación depende de una base de datos, aprovisione también los recursos necesarios en Azure. Consulte [Tutorial: Implementación de una aplicación web Django con PostgreSQL: creación de una base de datos](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) para ver un ejemplo.
+1. **Base de datos**: si la aplicación depende de una base de datos, aprovisione también los recursos necesarios en Azure. Consulte [Tutorial: Implementación de una aplicación web Django con PostgreSQL: creación de una base de datos](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) para ver un ejemplo.
 
-1. **Recursos de App Service**: cree un grupo de recursos, un plan de App Service y una aplicación web de App Service para hospedar la aplicación. Para ello, lo más sencillo es realizar una implementación inicial del código mediante el comando de la CLI de Azure `az webapp up`, tal como se muestra en [Tutorial: Implementación de una aplicación web Django con PostgreSQL: implementación del código](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Reemplace los nombres del grupo de recursos, el plan de App Service y la aplicación web para adaptarlos a su aplicación.
+1. **Recursos de App Service**: cree un grupo de recursos, un plan de App Service y una aplicación web de App Service para hospedar la aplicación. Para ello, lo más sencillo es realizar una implementación inicial del código mediante el comando de la CLI de Azure `az webapp up`, tal como se muestra en [Tutorial: Implementación de una aplicación web Django con PostgreSQL: implementación del código](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service). Reemplace los nombres del grupo de recursos, el plan de App Service y la aplicación web para adaptarlos a su aplicación.
 
 1. **Variables de entorno**: si la aplicación requiere alguna variable de entorno, cree una [configuración de aplicación de App Service](configure-common.md#configure-app-settings) equivalente. Esta configuración de App Service se muestra en el código como variables de entorno, como se describe en [Acceso a variables de entorno](#access-app-settings-as-environment-variables).
-    - Por ejemplo, las conexiones de base de datos se administran a menudo mediante esta configuración, como se muestra en [Tutorial: Implementación de una aplicación web Django con PostgreSQL: configuración de variables para conectar la base de datos](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - Por ejemplo, las conexiones de base de datos se administran a menudo mediante esta configuración, como se muestra en [Tutorial: Implementación de una aplicación web Django con PostgreSQL: configuración de variables para conectar la base de datos](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
     - Consulte [Configuración de producción para aplicaciones de Django](#production-settings-for-django-apps) para ver la configuración específica de las aplicaciones de Django típicas.
 
 1. **Inicio de la aplicación**: revise la sección [Proceso de inicio del contenedor](#container-startup-process) más adelante en este artículo para entender cómo App Service intenta ejecutar la aplicación. App Service usa el servidor web Gunicorn de forma predeterminada, que debe poder encontrar el objeto de aplicación o la carpeta *wsgi.py*. También puede [personalizar el comando de inicio](#customize-startup-command) si es necesario.
 
 1. **Implementación continua**: configure la implementación continua, como se describe en [Implementación continua en Azure App Service](deploy-continuous-deployment.md) si usa la implementación de Azure Pipelines o Kudu, o [Implementación de App Service con Acciones de GitHub](deploy-github-actions.md) si usa acciones de GitHub.
 
-1. **Acciones personalizadas**: para realizar acciones en el contenedor de App Service que hospeda la aplicación, como migraciones de base de datos de Django, puede [conectarse al contenedor mediante SSH](configure-linux-open-ssh-session.md). Para obtener un ejemplo de cómo ejecutar migraciones de base de datos de Django, consulte [Tutorial: Implementación de una aplicación web Django con PostgreSQL: ejecución de migraciones de base de datos](tutorial-python-postgresql-app.md#run-django-database-migrations).
+1. **Acciones personalizadas**: para realizar acciones en el contenedor de App Service que hospeda la aplicación, como migraciones de base de datos de Django, puede [conectarse al contenedor mediante SSH](configure-linux-open-ssh-session.md). Para obtener un ejemplo de cómo ejecutar migraciones de base de datos de Django, consulte [Tutorial: Implementación de una aplicación web Django con PostgreSQL: ejecución de migraciones de base de datos](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - Al usar la implementación continua, puede realizar esas acciones con comandos posteriores a la compilación, como se ha descrito anteriormente en [Personalización de la automatización de compilaciones](#customize-build-automation).
 
 Una vez realizados estos pasos, debe poder confirmar los cambios en el repositorio de origen y hacer que dichas actualizaciones se implementen automáticamente en App Service.

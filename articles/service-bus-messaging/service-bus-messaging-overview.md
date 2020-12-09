@@ -3,12 +3,12 @@ title: Información general sobre la mensajería de Azure Service Bus | Microsof
 description: En este artículo se proporciona información general de alto nivel sobre Azure Service Bus, un agente de mensajes de integración empresarial totalmente administrado.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: ca04b4a41489fba61e7c0ee2bb3f4f7f0b8b80f4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b795d0c5b429a812d90e0759fbcde3d348b86e22
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489486"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602723"
 ---
 # <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 Microsoft Azure Service Bus es un agente de mensajes empresarial totalmente administrado que incluye colas de mensajes y temas de suscripción pública. Service Bus se usa para desacoplar aplicaciones de servicios, lo que proporciona las siguientes ventajas:
@@ -32,7 +32,7 @@ Algunos escenarios de mensajería comunes son:
     2. Publicar resultados de procesamiento en una o varias colas diferentes.
     3. Mover el mensaje de entrada desde la cola original. 
     
-    Los resultados se hacen visibles para los consumidores de nivel inferior solo si son correctos, incluida la liquidación correcta del mensaje de entrada, lo que permite una semántica de procesamiento de una sola vez. Este modelo de transacción es una base sólida para el patrón de [transacciones de compensación](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction.md) en el contexto de una solución mayor. 
+    Los resultados se hacen visibles para los consumidores de nivel inferior solo si son correctos, incluida la liquidación correcta del mensaje de entrada, lo que permite una semántica de procesamiento de una sola vez. Este modelo de transacción es una base sólida para el patrón de [transacciones de compensación](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) en el contexto de una solución mayor. 
 * *Sesiones de mensajes*. Implemente la coordinación a gran escala de flujos de trabajo y transferencias multiplexadas que requieran un ordenamiento o un aplazamiento de mensajes estricto.
 
 Si está familiarizado con otros agentes de mensajes, como Apache ActiveMQ, los conceptos de Service Bus son parecidos a los que ya conoce. Como Service Bus es una oferta de plataforma como servicio (PaaS), una diferencia clave es que no es necesario preocuparse por las siguientes acciones. Azure se encarga de esas tareas. 

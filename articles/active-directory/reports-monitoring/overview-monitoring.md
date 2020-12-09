@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa4b625afb641209d3920c8663ed810ee27e1ad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89228654"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778502"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>¿Qué es la supervisión de Azure Active Directory?
 
@@ -39,6 +39,22 @@ Actualmente, puede enrutar los registros a:
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licencias y requisitos previos para los informes y la supervisión de Azure AD
+
+Necesitará una licencia de Azure AD Premium para acceder a los registros de inicio de sesión de Azure AD.
+
+Para más información acerca de las características y licencias, consulte la [guía de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Para implementar la supervisión y los informes de Azure AD, necesitará un usuario que sea administrador global o administrador de seguridad del inquilino de Azure AD.
+
+Según el destino final de los datos de registro, necesitará una de las opciones siguientes:
+
+* Una cuenta de almacenamiento de Azure, para la que tenga permisos ListKeys. Le recomendamos utilizar una cuenta de almacenamiento general y no de almacenamiento de blobs. Para más información sobre precios de almacenamiento, consulte la [Calculadora de precios de Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage).
+
+* Un espacio de nombres de Azure Event Hubs para la integración con soluciones SIEM de terceros.
+
+* Un área de trabajo de Azure Log Analytics para enviar registros a registros de Azure Monitor.
 
 ## <a name="diagnostic-settings-configuration"></a>Configuración de opciones de diagnóstico
 

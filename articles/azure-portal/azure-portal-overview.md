@@ -1,20 +1,15 @@
 ---
-title: Introducción a Azure Portal | Microsoft Docs
+title: Introducción a Azure Portal
 description: Azure Portal es una interfaz gráfica de usuario que puede usarse para administrar los servicios de Azure. Aprenda a navegar y buscar recursos en Azure Portal.
-services: azure-portal
 keywords: portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: overview
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147052"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745934"
 ---
 # <a name="azure-portal-overview"></a>Introducción a Azure Portal
 

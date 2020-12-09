@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/27/2020
-ms.openlocfilehash: 1301af3bd17ce44720d77aa1b812b78bbe57ffc9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ff195f7a0071c06d5309f95f77e32ae75f584f82
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101398"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749171"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
@@ -37,7 +37,7 @@ En este inicio rápido, crea la misma aplicación lógica que en el inicio rápi
     > [!IMPORTANT]
     > Al instalar Visual Studio de 2019 o 2017, asegúrese de que selecciona la carga de trabajo **desarrollo de Azure**.
 
-  * [Microsoft Azure SDK para .NET (2.9.1 o una versión posterior)](https://azure.microsoft.com/downloads/). Más información sobre [Azure SDK for .NET](/dotnet/azure/dotnet-tools?tabs=vs).
+  * [Microsoft Azure SDK para .NET (2.9.1 o una versión posterior)](https://azure.microsoft.com/downloads/). Más información sobre [Azure SDK for .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -70,7 +70,7 @@ Puede usar la [extensión Azure Environment Selector de Visual Studio](https://
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-Para trabajar con suscripciones Azure Government en Azure Logic Apps, tiene que [agregar un punto de conexión de detección para la nube de Azure Government a Visual Studio](../azure-government/documentation-government-connect-vs.md). De todas formas, *antes de iniciar sesión en Visual Studio con la cuenta de Azure Government* , tiene que cambiar el nombre del archivo JSON que se genera después de agregar el punto de conexión de detección siguiendo estos pasos:
+Para trabajar con suscripciones Azure Government en Azure Logic Apps, tiene que [agregar un punto de conexión de detección para la nube de Azure Government a Visual Studio](../azure-government/documentation-government-connect-vs.md). De todas formas, *antes de iniciar sesión en Visual Studio con la cuenta de Azure Government*, tiene que cambiar el nombre del archivo JSON que se genera después de agregar el punto de conexión de detección siguiendo estos pasos:
 
 1. Cierre Visual Studio.
 
@@ -96,11 +96,11 @@ Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource
 
 1. Inicie Visual Studio. Inicie sesión con su cuenta de Azure.
 
-1. En el menú **Archivo** , seleccione **Nuevo** > **Proyecto**. (Teclado: CTRL + Mayús + N)
+1. En el menú **Archivo**, seleccione **Nuevo** > **Proyecto**. (Teclado: CTRL + Mayús + N)
 
    ![En el menú "Archivo", seleccione "Nuevo" > "Proyecto"](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
-1. En **Instalado** , seleccione **Visual C#** o **Visual Basic**. Seleccione **Nube** > **Grupo de recursos de Azure**. Asigne un nombre al proyecto, por ejemplo:
+1. En **Instalado**, seleccione **Visual C#** o **Visual Basic**. Seleccione **Nube** > **Grupo de recursos de Azure**. Asigne un nombre al proyecto, por ejemplo:
 
    ![Creación de un proyecto de grupo de recursos de Azure](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
@@ -111,7 +111,7 @@ Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource
 
    Si usa Visual Studio 2019, siga estos pasos:
 
-   1. En el cuadro **Crear un proyecto** , seleccione el proyecto **Grupo de recursos de Azure** para Visual C# o Visual Basic. Seleccione **Next** (Siguiente).
+   1. En el cuadro **Crear un proyecto**, seleccione el proyecto **Grupo de recursos de Azure** para Visual C# o Visual Basic. Seleccione **Next** (Siguiente).
 
    1. Proporcione el nombre del grupo de recursos de Azure que desea usar y otra información adicional sobre el proyecto. Seleccione **Crear**.
 
@@ -136,7 +136,7 @@ Cuando tenga el proyecto del grupo de recursos de Azure, cree la aplicación ló
 
    Visual Studio necesita su suscripción de Azure y un grupo de recursos para crear e implementar recursos de la aplicación lógica y las conexiones.
 
-1. En **Suscripción** , seleccione su suscripción de Azure. En **Grupo de recursos** , seleccione **Crear nuevo** para generar otro grupo de recursos de Azure.
+1. En **Suscripción**, seleccione su suscripción de Azure. En **Grupo de recursos**, seleccione **Crear nuevo** para generar otro grupo de recursos de Azure.
 
    ![Selección de una suscripción de Azure, un grupo de recursos y una ubicación de recursos](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -145,7 +145,7 @@ Cuando tenga el proyecto del grupo de recursos de Azure, cree la aplicación ló
    | Cuenta de usuario | Fabrikam <br> sophia-owen@fabrikam.com | Cuenta que usó al iniciar sesión en Visual Studio |
    | **Suscripción** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | Nombre de la suscripción de Azure y cuenta asociada |
    | **Grupo de recursos** | MyLogicApp-RG <br> (Oeste de EE. UU.) | Grupo de recursos de Azure y ubicación para almacenar e implementar recursos de la aplicación lógica |
-   | **Ubicación** | **Same as Resource Group** (Igual que el grupo de recursos) | El tipo de ubicación y la ubicación específica para implementar la aplicación lógica. El tipo de ubicación puede ser una región de Azure o un [entorno del servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment.md) existente. <p>En esta guía de inicio rápido, mantenga el tipo de ubicación establecido en **Región** y la ubicación establecida en **Same as Resource Group** (Igual que el grupo de recursos). <p>**Nota** : Después de crear el proyecto del grupo de recursos, puede [cambiar el tipo de ubicación y la ubicación](manage-logic-apps-with-visual-studio.md#change-location), pero un tipo de ubicación diferente afecta a la aplicación lógica de varias maneras. |
+   | **Ubicación** | **Same as Resource Group** (Igual que el grupo de recursos) | El tipo de ubicación y la ubicación específica para implementar la aplicación lógica. El tipo de ubicación puede ser una región de Azure o un [entorno del servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment.md) existente. <p>En esta guía de inicio rápido, mantenga el tipo de ubicación establecido en **Región** y la ubicación establecida en **Same as Resource Group** (Igual que el grupo de recursos). <p>**Nota**: Después de crear el proyecto del grupo de recursos, puede [cambiar el tipo de ubicación y la ubicación](manage-logic-apps-with-visual-studio.md#change-location), pero un tipo de ubicación diferente afecta a la aplicación lógica de varias maneras. |
    ||||
 
 1. El Diseñador de aplicación lógica se abre y muestra un vídeo de introducción y desencadenadores utilizados frecuentemente. Desplácese hacia abajo más allá del vídeo y de los desencadenadores hasta **Plantillas** y seleccione **Blank Logic App**.
@@ -206,13 +206,13 @@ Si tiene un proyecto de grupo de recursos de Azure existente, puede agregar una 
 
 1. En el Explorador de soluciones, abra el archivo `<logic-app-name>.json`.
 
-1. En el menú **Vista** , seleccione **Otras ventanas** > **Esquema JSON**.
+1. En el menú **Vista**, seleccione **Otras ventanas** > **Esquema JSON**.
 
 1. Para agregar un recurso al archivo de plantilla, seleccione **Agregar recurso** en la parte superior de la ventana Esquema JSON. O, en la ventana Esquema de JSON, abra el menú contextual **recursos** y seleccione **Agregar nuevo recurso**.
 
    ![Ventana Esquema JSON](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
-1. En el cuadro de diálogo **Agregar recurso** , en el cuadro de búsqueda, busque `logic app` y seleccione **Aplicación lógica**. Asigne un nombre a la aplicación lógica y seleccione **Agregar**.
+1. En el cuadro de diálogo **Agregar recurso**, en el cuadro de búsqueda, busque `logic app` y seleccione **Aplicación lógica**. Asigne un nombre a la aplicación lógica y seleccione **Agregar**.
 
    ![Agregar recurso](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
@@ -224,7 +224,7 @@ Cuando ya no necesite la aplicación lógica, elimine el grupo de recursos que c
 
 1. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione **Grupos de recursos** en cualquier página. Seleccione el grupo de recursos de la aplicación lógica.
 
-1. En la página **Información general** , elija **Eliminar grupo de recursos**. Escriba el nombre del grupo de recursos como confirmación y seleccione **Eliminar**.
+1. En la página **Información general**, elija **Eliminar grupo de recursos**. Escriba el nombre del grupo de recursos como confirmación y seleccione **Eliminar**.
 
    !["Grupos de recursos" > "Introducción" > "Eliminar grupo de recursos"](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 
