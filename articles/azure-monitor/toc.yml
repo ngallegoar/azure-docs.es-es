@@ -29,10 +29,6 @@
           href: learn/quick-collect-windows-computer.md
     - name: Supervisión de aplicaciones
       items:
-        - name: Aplicación .NET
-          href: learn/quick-monitor-portal.md
-        - name: Aplicación .NET Core
-          href: learn/dotnetcore-quick-start.md
         - name: Aplicación Node.js
           href: learn/nodejs-quick-start.md
         - name: Aplicación para dispositivos móviles
@@ -680,8 +676,10 @@
                       href: app/java-standalone-telemetry-processors.md
                     - name: Configuración de argumentos de JVM
                       href: app/java-standalone-arguments.md
-                    - name: "Actualización desde la versión\_2.x"
+                    - name: "Actualización desde la versión\_2.x del SDK"
                       href: app/java-standalone-upgrade-from-2x.md
+                    - name: Solución de problemas
+                      href: app/java-standalone-troubleshoot.md
             - name: Servidores locales
               items:
                 - name: ASP.NET
@@ -1014,6 +1012,8 @@
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: Supervisión de volúmenes persistentes (PV)
           href: insights/container-insights-persistent-volumes.md
+        - name: Pestaña Informes
+          href: insights/container-insights-reports.md
         - name: Visualización de datos en directo
           items:
             - name: Introducción a los datos en directo (versión preliminar)
@@ -1058,7 +1058,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md

@@ -346,6 +346,8 @@
           href: monitor-logic-apps.md
         - name: Supervisión de aplicaciones lógicas con los registros de Azure Monitor
           href: monitor-logic-apps-log-analytics.md
+        - name: Supervisión de aplicaciones lógicas en Azure Security Center
+          href: healthy-unhealthy-resource.md
         - name: Supervisión de mensajes B2B con los registros de Azure Monitor
           href: monitor-b2b-messages-log-analytics.md
         - name: Creación de consultas de supervisión y seguimiento

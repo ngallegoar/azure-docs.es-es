@@ -25,7 +25,7 @@ ms.locfileid: "91812712"
    * **Nombre**: escriba el nombre que quiere asignar al centro de conectividad virtual.
    * **Espacio de direcciones privadas del centro de conectividad**: intervalo de direcciones del centro de conectividad en la notación CIDR.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="Nuevo centro de conectividad":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="Crear centro de conectividad virtual":::
 
 1. En la pestaña "De punto a sitio", rellene los siguientes campos:
 
@@ -34,7 +34,7 @@ ms.locfileid: "91812712"
    * **Grupo de direcciones de clientes**: para los usuarios remotos.
    * **Dirección IP de servidor DNS personalizado**.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="Nuevo centro de conectividad":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="centro de conectividad con configuración de punto a sitio":::
 
 1. Seleccione **Revisar + crear**.
 1. En la página **Validación superada**, seleccione **Crear**.

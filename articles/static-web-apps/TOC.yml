@@ -66,9 +66,13 @@
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn
       items:
-        - name: 'Publicación de una aplicación y una API de JavaScript con Angular, React, Svelte o Vue'
+        - name: 'Publicación de una aplicación de Angular, React, Svelte o Vue JavaScript'
           href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Publicación de una API
+          href: /learn/modules/publish-static-web-app-api-preview-url
         - name: Creación y publicación de una aplicación web estática con Gatsby
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+        - name: Creación y publicación de una aplicación web estática con Blazor
+          href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: Cuotas
       href: quotas.md
