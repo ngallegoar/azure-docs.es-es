@@ -2,20 +2,20 @@
 title: 'Tutorial: Creación de un conjunto de réplicas en Azure AD Domain Services | Microsoft Docs'
 description: Aprenda a crear y usar conjuntos de réplicas en Azure Portal para mejorar la resistencia de los servicios con Azure AD Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.author: joflore
-ms.openlocfilehash: 8cd78a98e47468f103459fd7aa40b145d53db4fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967042"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618117"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutorial: Creación y uso de conjuntos de réplicas para soluciones de resistencia o ubicación geográfica en Azure Active Directory Domain Services (versión preliminar)
 

@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a configurar una tarea de Azure Contain
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 32b4dbe2563731664030dbc32c2b570ccc3e1d12
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 342f7fc37edb3a1623b72c57e8766b1a484d0e8d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030652"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559157"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatización de compilaciones de imágenes de contenedor al actualizarse una imagen base en una instancia de Azure Container Registry 
 
@@ -32,10 +32,10 @@ En este tutorial, aprenderá a:
 
 En este tutorial se da por supuesto que ya ha configurado el entorno y ha completado los pasos de los dos primeros tutoriales de la serie, en los que ha realizado las siguientes tareas:
 
-* Creación de una instancia de Azure Container Registry
-* Bifurcación del repositorio de ejemplo
-* Clonación del repositorio de ejemplo
-* Creación de un token de acceso personal de GitHub
+- Creación de una instancia de Azure Container Registry
+- Bifurcación del repositorio de ejemplo
+- Clonación del repositorio de ejemplo
+- Creación de un token de acceso personal de GitHub
 
 Si aún no lo ha hecho, complete los primeros tutoriales antes de continuar:
 
@@ -44,6 +44,9 @@ Si aún no lo ha hecho, complete los primeros tutoriales antes de continuar:
 [Automatización de compilaciones de imágenes de contenedor con Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Configuración del entorno
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- En este artículo se necesita la versión 2.0.46 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 Rellene estas variables de entorno de shell con valores adecuados para el entorno. Este paso no es estrictamente necesario, pero hace que la ejecución de los comandos de varias líneas de la CLI de Azure en este tutorial sea un poco más fácil. Si no rellena estas variables de entorno, debe reemplazar manualmente cada valor siempre que aparezca en los comandos de ejemplo.
 
@@ -127,7 +130,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 Vaya a `http://localhost:8080` en el explorador, allí verá el número de versión de Node.js representado en la página web de manera parecida a la siguiente. En un paso posterior, cambiará la versión agregando una "a" a la cadena de versión.
 
-:::image type="content" source="media/container-registry-tutorial-base-image-update/base-update-01.png" alt-text="Captura de pantalla que muestra una aplicación de ejemplo en el explorador.":::
+:::image type="content" source="media/container-registry-tutorial-base-image-update/base-update-01.png" alt-text="Captura de pantalla que muestra una aplicación de ejemplo en el explorador":::
 
 Ejecute el siguiente comando para detener y eliminar el contenedor:
 
@@ -206,7 +209,7 @@ docker run -d -p 8081:80 --name updatedapp --rm $ACR_NAME.azurecr.io/helloworld:
 
 Vaya a http://localhost:8081 en el explorador, allí verá el número de versión de Node.js actualizado (con la "a") en la página web:
 
-:::image type="content" source="media/container-registry-tutorial-base-image-update/base-update-02.png" alt-text="Captura de pantalla que muestra la aplicación de ejemplo actualizada en el explorador.":::
+:::image type="content" source="media/container-registry-tutorial-base-image-update/base-update-02.png" alt-text="Captura de pantalla que muestra la aplicación de ejemplo actualizada en el explorador":::
 
 
 Es importante observar que ha actualizado la imagen **base** con un nuevo número de versión, pero que también la imagen de **aplicación** recién compilada muestra la nueva versión. ACR Tasks recopiló el cambio en la imagen base y recompiló automáticamente la imagen de aplicación.

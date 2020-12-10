@@ -12,19 +12,19 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10e2b0aa5c7e178ae6b58805703fcb1b0ff3e2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8b0955e67c5a35cbea96490a0395522fa145dad1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352497"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858372"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Ejemplos de Azure AD PowerShell para Azure AD Application Proxy
 
-En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell para Azure AD Application Proxy. Estos ejemplos requieren el [módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) o la [versión preliminar del módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), a menos que se indique lo contrario.
+En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell para Azure AD Application Proxy. Estos ejemplos requieren el [módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2) o la [versión preliminar del módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), a menos que se indique lo contrario.
 
 
-Para obtener más información sobre los cmdlets que se usan en estos ejemplos, consulte [Administración de aplicaciones de Application Proxy](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) y [Administración de conectores de Application Proxy](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
+Para obtener más información sobre los cmdlets que se usan en estos ejemplos, consulte [Administración de aplicaciones de Application Proxy](/powershell/module/azuread/#application_proxy_application_management) y [Administración de conectores de Application Proxy](/powershell/module/azuread/#application_proxy_connector_management).
 
 | Vínculo | Descripción |
 |---|---|

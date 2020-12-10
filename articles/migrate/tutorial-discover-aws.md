@@ -1,15 +1,18 @@
 ---
 title: Detección de instancias de AWS con Azure Migrate Server Assessment
 description: Obtenga información sobre cómo detectar instancias de AWS con Azure Migrate Server Assessment.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dda6f6e37a42d4ee55a32fc8e1c05916c6be4367
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311276"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753134"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Detección de instancias de AWS con Server Assessment
 
@@ -153,13 +156,13 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 3.  Compruebe las versiones más recientes del dispositivo y los valores hash:
     - Para la nube pública:
 
-        **Escenario** | **Descargar*** | **Valor del código hash**
+        **Escenario** | **Descargar*** | *Valor hash**
         --- | --- | ---
         Físico (85 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
 
     - Para Azure Government:
 
-        **Escenario** | **Descargar*** | **Valor del código hash**
+        **Escenario** | **Descargar*** | *Valor hash**
         --- | --- | ---
         Físico (85 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
  

@@ -15,18 +15,18 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748525"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572344"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementación de un proceso de actualización de firmware de dispositivos
 
 Puede que tenga que actualizar el firmware de los dispositivos conectados a IoT Hub. Por ejemplo, puede que desee agregar nuevas características al firmware o aplicar revisiones de seguridad. En muchos escenarios de IoT, resulta poco práctico visitar físicamente y, después, aplicar manualmente las actualizaciones de firmware en los dispositivos. En este tutorial se muestra cómo puede iniciar y supervisar el proceso de actualización del firmware de forma remota mediante una aplicación back-end conectada al centro.
 
-Para crear y supervisar el proceso de actualización del firmware, la aplicación back-end de este tutorial crea una _configuración_ en IoT Hub. La [administración automática de dispositivos](./iot-hub-automatic-device-management.md) de IoT Hub usa esta configuración para actualizar un conjunto de _propiedades deseadas de los dispositivos gemelos_ en todos los dispositivos de refrigerador. Las propiedades deseadas especifican los detalles de la actualización del firmware que se necesitan. Mientras se ejecuta en los dispositivos de refrigerador el proceso de actualización del firmware, estos notifican su estado a la aplicación back-end mediante las _propiedades notificadas de los dispositivos gemelos_ . La aplicación de back-end puede usar la configuración para supervisar las propiedades notificadas enviadas desde el dispositivo y seguir el proceso de actualización del firmware hasta su finalización:
+Para crear y supervisar el proceso de actualización del firmware, la aplicación back-end de este tutorial crea una _configuración_ en IoT Hub. La [administración automática de dispositivos](./iot-hub-automatic-device-management.md) de IoT Hub usa esta configuración para actualizar un conjunto de _propiedades deseadas de los dispositivos gemelos_ en todos los dispositivos de refrigerador. Las propiedades deseadas especifican los detalles de la actualización del firmware que se necesitan. Mientras se ejecuta en los dispositivos de refrigerador el proceso de actualización del firmware, estos notifican su estado a la aplicación back-end mediante las _propiedades notificadas de los dispositivos gemelos_. La aplicación de back-end puede usar la configuración para supervisar las propiedades notificadas enviadas desde el dispositivo y seguir el proceso de actualización del firmware hasta su finalización:
 
 ![Proceso de actualización del firmware](media/tutorial-firmware-update/Process.png)
 
@@ -38,11 +38,9 @@ En este tutorial, va a completar las siguientes tareas:
 > * Simulación del proceso de actualización del firmware en un dispositivo.
 > * Recepción de las actualizaciones de estado del dispositivo a medida que avanza la actualización del firmware.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo.
 
@@ -82,7 +80,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Este tutorial usa un dispositivo simulado llamado **MyFirmwareUpdateDevice** . El siguiente script agrega este dispositivo al registro de identidades de dispositivo, establece un valor de etiqueta y recupera su cadena de conexión:
+Este tutorial usa un dispositivo simulado llamado **MyFirmwareUpdateDevice**. El siguiente script agrega este dispositivo al registro de identidades de dispositivo, establece un valor de etiqueta y recupera su cadena de conexión:
 
 ```azurecli-interactive
 # Set the name of your IoT hub
@@ -199,7 +197,7 @@ Debido a que las configuraciones automáticas de los dispositivos se ejecutan en
 
 Si tiene pensado completar el siguiente tutorial, deje el centro de IoT y el grupo de recursos y vuelva a usarlos más adelante.
 
-Si ya no los va a necesitar más, elimínelos en el portal. Para ello, seleccione el grupo de recursos **tutorial-iot-hub-rg** que contiene el centro de IoT y haga clic en **Eliminar** .
+Si ya no los va a necesitar más, elimínelos en el portal. Para ello, seleccione el grupo de recursos **tutorial-iot-hub-rg** que contiene el centro de IoT y haga clic en **Eliminar**.
 
 Como alternativa, use la CLI:
 

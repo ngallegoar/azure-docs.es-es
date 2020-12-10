@@ -1,20 +1,20 @@
 ---
 title: Habilitación de la sincronización de hash de contraseñas para Azure AD Domain Services | Microsoft Docs
 description: En este tutorial, aprenderá a habilitar la sincronización de hash de contraseñas con Azure AD Connect en un dominio administrado Azure Active Directory Domain Services.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 4daad0d0739bb3407be13f717572c8aa99947d1a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: e83d8941d1be7fd36f53a881a21716252ad01954
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967297"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618355"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Habilitación de la sincronización de contraseñas en Azure Active Directory Domain Services para entornos híbridos
 

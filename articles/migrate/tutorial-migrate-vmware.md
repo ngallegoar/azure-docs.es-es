@@ -1,15 +1,18 @@
 ---
 title: Migración de máquinas virtuales de VMware sin agente mediante la migración de servidores de Azure Migrate
 description: Aprenda a ejecutar una migración de máquinas virtuales de VMware sin agentes con Azure Migrate.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 202886bc0a7738f8211cfea6d90a380c7bac82b8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 88b3879a648117329f2485012542b48d6a7a7755
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492954"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752692"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 

@@ -1,15 +1,18 @@
 ---
 title: Detección de instancias de máquinas virtuales de GCP con Azure Migrate Server Assessment
 description: Obtenga información sobre cómo detectar instancias de máquinas virtuales de GCP con Azure Migrate Server Assessment.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c445bc06983aeb72d13f2bea5e2f39e73374d93a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9053246ef747236d9efbc9239ced46b0c421f5bb
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716477"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753101"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutorial: Detección de instancias de Google Cloud Platform (GCP) con Server Assessment
 

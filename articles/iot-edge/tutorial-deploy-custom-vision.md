@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4854e61b646c0ca2a2070d676e3efc5cfbac6b9b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044588"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621287"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
 
@@ -449,9 +449,7 @@ En caso contrario, para evitar gastos, puede eliminar las configuraciones locale
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha entrenado un modelo de Custom Vision y lo ha implementado como un módulo en un dispositivo IoT Edge. A continuación, ha creado un módulo que puede consultar el servicio del clasificador de imágenes y notificar sus resultados a IoT Hub. 
-
-Si desea probar una versión más detallada de este escenario con una fuente de cámara en directo, consulte el proyecto de GitHub [Custom Vision y Azure IoT Edge en un dispositivo Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi). 
+En este tutorial, ha entrenado un modelo de Custom Vision y lo ha implementado como un módulo en un dispositivo IoT Edge. A continuación, ha creado un módulo que puede consultar el servicio del clasificador de imágenes y notificar sus resultados a IoT Hub.
 
 Puede continuar con los siguientes tutoriales para aprender otras formas en las que Azure IoT Edge puede ayudarle a convertir los datos en información empresarial en el perímetro.
 
