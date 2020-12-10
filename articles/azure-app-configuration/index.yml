@@ -4,17 +4,17 @@ summary: Aprenda a usar Azure App Configuration, un servicio administrado que ay
 metadata:
   title: Documentación sobre Azure App Configuration
   description: Aprenda a usar Azure App Configuration, un servicio administrado que ayuda a los desarrolladores a centralizar la configuración de sus aplicaciones y características de forma sencilla y segura.
-  author: lisaguthrie
-  ms.author: lcozzens
+  author: AlexandraKemperMS
+  ms.author: alkemper
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: be59fa95c92fc5913360b967a338ef108946dd02
-  ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+  ms.openlocfilehash: 45b249dbe8e95a063cdeb30c3b7389eb1dcf2001
+  ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/06/2020
-  ms.locfileid: "93422287"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96929538"
 landingContent:
 - title: Acerca de Azure App Configuration
   linkLists:

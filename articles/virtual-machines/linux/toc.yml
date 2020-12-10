@@ -91,7 +91,7 @@
         - name: Disponibilidad
           href: ../availability.md
         - name: Colocalización
-          href: co-location.md
+          href: ../co-location.md
         - name: Rendimiento de la red
           href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Tamaños y tipos de máquinas virtuales
