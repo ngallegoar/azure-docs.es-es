@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a3eefdb742d847950819fccfd87b9b5501cbefd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f43a890185fcd69967fd2a035c27e1cf92798f04
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079247"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548161"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -49,7 +49,7 @@ En Visual Studio, cree una nueva aplicación de consola de .NET. Los siguientes 
 
 1. Elija **Aplicación de consola (.NET Core)** y, a continuación, seleccione **Siguiente**.
 
-1. En el campo **Nombre del proyecto** , escriba un nombre para la aplicación, como **CosmosTableSamples**. (Puede proporcionar un nombre diferente para adaptarse a sus necesidades).
+1. En el campo **Nombre del proyecto**, escriba un nombre para la aplicación, como **CosmosTableSamples**. (Puede proporcionar un nombre diferente para adaptarse a sus necesidades).
 
 1. Seleccione **Crear**.
 
@@ -59,7 +59,7 @@ Todos los ejemplos de código de este ejemplo se pueden agregar al método Main(
 
 Para obtener el paquete NuGet, siga estos pasos:
 
-1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones** , y elija **Administrar paquetes NuGet**.
+1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones**, y elija **Administrar paquetes NuGet**.
 
 1. Busque en línea [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json) y [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) y seleccione **Instalar** para instalar Microsoft Azure Cosmos DB Table Library.
 
@@ -83,7 +83,7 @@ Para obtener el paquete NuGet, siga estos pasos:
    }
    ```
 
-1. Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar** , **Nuevo elemento** y agregue una clase denominada **AppSettings.cs**.
+1. Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar**, **Nuevo elemento** y agregue una clase denominada **AppSettings.cs**.
 
 1. Agregue el siguiente código al archivo AppSettings.cs. Este archivo lee la cadena de conexión del archivo Settings.json y la asigna al parámetro de configuración:
 
@@ -91,7 +91,7 @@ Para obtener el paquete NuGet, siga estos pasos:
 
 ## <a name="parse-and-validate-the-connection-details"></a>Análisis y validación de los detalles de conexión
 
-1. Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar** , **Nuevo elemento** y agregue una clase denominada **Common.cs**. Escribirá código para validar los detalles de conexión y crear una tabla dentro de esta clase.
+1. Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar**, **Nuevo elemento** y agregue una clase denominada **Common.cs**. Escribirá código para validar los detalles de conexión y crear una tabla dentro de esta clase.
 
 1. Defina un método `CreateStorageAccountFromConnectionString` tal como se muestra a continuación. Este método analizará los detalles de la cadena de conexión y comprobará que el nombre de la cuenta y los detalles de la clave de cuenta proporcionados en el archivo "Settings.json" son válidos.
 
@@ -113,7 +113,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 Las entidades se asignan a objetos C# utilizando una clase personalizada derivada de [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity). Para agregar una entidad a una tabla, cree una clase que defina las propiedades de la entidad.
 
-Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar** , **Nueva carpeta** y asígnele el nombre **Model**. En la carpeta Model, agregue una clase llamada **CustomerEntity.cs** y agréguele el código siguiente.
+Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar**, **Nueva carpeta** y asígnele el nombre **Model**. En la carpeta Model, agregue una clase llamada **CustomerEntity.cs** y agréguele el código siguiente.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
@@ -123,25 +123,25 @@ El código define una clase de entidad que utiliza el nombre de pila del cliente
 
 En el ejemplo de código siguiente se crea un objeto de entidad y se agrega a la tabla. El método InsertOrMerge dentro de la clase [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) se utiliza para insertar o combinar una entidad. Se llama al método [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) para ejecutar la operación. 
 
-Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar** , **Nuevo elemento** y agregue una clase denominada **SamplesUtils.cs**. Esta clase almacena todo el código necesario para realizar operaciones CRUD en las entidades. 
+Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar**, **Nuevo elemento** y agregue una clase denominada **SamplesUtils.cs**. Esta clase almacena todo el código necesario para realizar operaciones CRUD en las entidades. 
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
 
 ## <a name="get-an-entity-from-a-partition"></a>Obtención de una entidad de una partición
 
-Puede obtener la entidad de una partición mediante el método Retrieve de la clase [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation). En el ejemplo de código siguiente se obtiene la clave de fila de la clave de partición, el correo electrónico y el número de teléfono de una entidad de cliente. Este ejemplo también imprime las unidades de solicitud utilizadas para consultar la entidad. Para consultar una entidad, anexe el código siguiente al archivo **SamplesUtils.cs** :
+Puede obtener la entidad de una partición mediante el método Retrieve de la clase [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation). En el ejemplo de código siguiente se obtiene la clave de fila de la clave de partición, el correo electrónico y el número de teléfono de una entidad de cliente. Este ejemplo también imprime las unidades de solicitud utilizadas para consultar la entidad. Para consultar una entidad, anexe el código siguiente al archivo **SamplesUtils.cs**:
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 
 ## <a name="delete-an-entity"></a>Eliminación de una entidad
 
-Puede eliminar fácilmente una entidad una vez recuperada utilizando el mismo patrón mostrado para actualizar una entidad. El código siguiente recupera y elimina una entidad de cliente. Para eliminar una entidad, anexe el código siguiente al archivo **SamplesUtils.cs** : 
+Puede eliminar fácilmente una entidad una vez recuperada utilizando el mismo patrón mostrado para actualizar una entidad. El código siguiente recupera y elimina una entidad de cliente. Para eliminar una entidad, anexe el código siguiente al archivo **SamplesUtils.cs**: 
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>Ejecución de operaciones CRUD en datos de ejemplo
 
-Después de definir los métodos para crear una tabla e insertar o combinar entidades, ejecute estos métodos en los datos de ejemplo. Para ello, haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar** , **Nuevo elemento** , agregue una clase denominada **BasicSamples.cs** y agréguele el código siguiente. Este código crea una tabla y le agrega las entidades.
+Después de definir los métodos para crear una tabla e insertar o combinar entidades, ejecute estos métodos en los datos de ejemplo. Para ello, haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar**, **Nuevo elemento**, agregue una clase denominada **BasicSamples.cs** y agréguele el código siguiente. Este código crea una tabla y le agrega las entidades.
 
 Si no desea eliminar la entidad y la tabla al final del proyecto, comente los métodos `await table.DeleteIfExistsAsync()` y `SamplesUtils.DeleteEntityAsync(table, customer)` del código siguiente. Es mejor comentar estos métodos y validar los datos antes de eliminar la tabla.
 
@@ -149,7 +149,7 @@ Si no desea eliminar la entidad y la tabla al final del proyecto, comente los m�
 
 El código anterior crea una tabla que empieza por "demo" y el GUID generado se anexa al nombre de la tabla. A continuación, agrega una entidad de cliente con nombre y apellido como "Walter Harp" y más tarde actualiza el número de teléfono de este usuario. 
 
-En este tutorial, ha compilado código para realizar operaciones CRUD básicas en los datos almacenados en la cuenta de Table API. También puede realizar operaciones avanzadas, como insertar datos por lotes, consultar todos los datos de una partición, consultar un intervalo de datos de una partición y enumerar tablas en la cuenta cuyos nombres comiencen por el prefijo especificado. Puede descargar el ejemplo completo del repositorio de GitHub [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started). La clase [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) tiene más operaciones que puede realizar en los datos.  
+En este tutorial, ha compilado código para realizar operaciones CRUD básicas en los datos almacenados en la cuenta de Table API. También puede realizar operaciones avanzadas, como insertar datos por lotes, consultar todos los datos de una partición, consultar un intervalo de datos de una partición y enumerar tablas en la cuenta cuyos nombres comiencen por el prefijo especificado. Puede descargar el ejemplo completo del repositorio de GitHub [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started). La clase [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/main/CosmosTableSamples/AdvancedSamples.cs) tiene más operaciones que puede realizar en los datos.  
 
 ## <a name="run-the-project"></a>Ejecución del proyecto
 

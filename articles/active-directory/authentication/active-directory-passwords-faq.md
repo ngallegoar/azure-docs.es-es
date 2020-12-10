@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0874f6aeb74b028e92e10d972757cc5971735e39
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840107"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744319"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Preguntas frecuentes sobre el autoservicio de restablecimiento de contraseña
 
@@ -263,7 +263,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Para qué tipos de cuentas funciona la escritura diferida de contraseñas?**
 
-  > **R:** La escritura diferida de contraseñas funciona con cuentas de usuario que están sincronizadas entre Active Directory local y Azure AD, lo que incluye hash de contraseña federado sincronizado y usuarios de autenticación de paso a través.
+  > **R:** La escritura diferida de contraseñas funciona con cuentas de usuario que están sincronizadas entre Active Directory local y Azure AD, lo que incluye hash de contraseña federado sincronizado y usuarios de autenticación de tránsito.
   >
   >
 * **P:  ¿La escritura diferida de contraseñas aplica las directivas de contraseñas de mi dominio?**
@@ -289,4 +289,4 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](./tutorial-enable-sspr-writeback.md)
 * [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
-* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
+* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](./troubleshoot-sspr.md)

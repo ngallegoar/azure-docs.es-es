@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377741"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861942"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solución de problemas de roles asignados a grupos en la nube
 
@@ -40,8 +40,8 @@ Estas son algunas preguntas y sugerencias para solucionar problemas comunes para
 
 **R:** el usuario podría ser propietario de un grupo al que se pueden asignar roles. Protegemos a los propietarios de grupos a los que se pueden asignar roles para evitar la elevación de privilegios. Un ejemplo podría ser si se asigna un grupo Contoso_Security_Admins al rol Administrador de seguridad, donde Bob es el propietario del grupo y Alice es el administrador de contraseñas de la organización. Si no estuviera presente esta protección, Alice podría restablecer las credenciales de Bob y asumir su identidad. A continuación, Alice podría agregarse a sí misma o a cualquier persona al grupo Contoso_Security_Admins para convertirse en Administrador de seguridad de la organización. Para averiguar si un usuario es el propietario de un grupo, obtenga la lista de objetos pertenecientes a dicho usuario y compruebe si alguno de los grupos tiene isAssignableToRole establecido en true. En caso afirmativo, ese usuario está protegido y el comportamiento es por diseño. Consulte estos documentos para obtener objetos en propiedad:
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Enumeración de ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [Enumeración de ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)
 
 **P:** ¿puedo crear una revisión de acceso en grupos que puedan asignarse a roles de Azure AD (en concreto, grupos con la propiedad isAssignableToRole establecida en true)?  
 

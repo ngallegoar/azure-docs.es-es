@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492121"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842720"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -114,23 +114,6 @@ Para más información, consulte [Advanced Threat Protection para Azure Storage]
 
 ## <a name="storage-tiers"></a>Niveles de almacenamiento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-En general, las características de Azure Files y la interoperabilidad con otros servicios coinciden en los recursos compartidos de archivos prémium y los recursos compartidos de archivos estándar (lo que incluye los recursos compartidos de archivos frecuentes, esporádicos y optimizados de transacciones). Sin embargo, hay algunas diferencias importantes:
-- **Modelo de facturación**
-    - Los recursos compartidos de archivos Premium se facturan con un modelo de facturación aprovisionado, lo que significa que se paga un precio fijo por la cantidad de almacenamiento que se aprovisiona en lugar de por la cantidad de almacenamiento que se usa. No existen costos adicionales por las transacciones ni los metadatos en reposo.
-    - Los recursos compartidos de archivos estándar se facturan con un modelo de pago por uso, que incluye un costo básico de almacenamiento para la cantidad de almacenamiento que realmente se consume y, a continuación, un costo de transacción adicional basado en el uso del recurso compartido. Con los recursos compartidos de archivos estándar, su factura aumentará si usa (lee, escribe o monta) más el recurso compartido de archivos de Azure.
-- **Opciones de redundancia**
-    - Los recursos compartidos de archivos prémium solo están disponibles para el almacenamiento con redundancia local (LRS) y redundancia de zona (ZRS).
-    - Los recursos compartidos de archivos estándar están disponibles para el almacenamiento con redundancia local, redundancia de zona, redundancia geográfica (GRS) y redundancia de zona geográfica (GZRS).
-- **Tamaño máximo de un recurso compartido de archivos**
-    - Los recursos compartidos de archivos prémium se pueden aprovisionar hasta 100 TiB sin ningún trabajo adicional.
-    - De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, aunque se puede aumentar el límite de recursos compartidos hasta 100 TiB al optar por recibir la marca de la característica de cuenta de almacenamiento de *recurso compartido de archivos de gran tamaño*. Los recursos compartidos de archivos estándar solo pueden abarcar hasta 100 TiB para las cuentas de almacenamiento con redundancia local o redundancia de zona. Para más información sobre cómo aumentar los tamaños de los recursos compartidos de archivos, vea [Habilitación y creación de recursos compartidos de archivos grandes](./storage-files-how-to-create-large-file-share.md).
-- **Disponibilidad regional**
-    - Los recursos compartidos de archivos Premium están disponibles en la mayoría de las regiones de Azure, exceptuando algunas de ellas. La compatibilidad con la redundancia de zona está disponible en un subconjunto de regiones. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para averiguar qué regiones admiten ZRS, vea [Almacenamiento con redundancia de zona](../common/storage-redundancy.md#zone-redundant-storage). Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características del nivel Premium, rellene esta [encuesta](https://aka.ms/pfsfeedback).
-    - Los recursos compartidos de archivos estándar están disponibles en todas las regiones de Azure.
-- Azure Kubernetes Service (AKS) admite recursos compartidos de archivos prémium en la versión 1.13 y posteriores.
-
-Una vez que se crea un recurso compartido de archivos prémium o estándar, este no se puede convertir automáticamente al otro nivel. Para cambiar al otro nivel, debe crear un nuevo recurso compartido de archivos en ese nivel y copiar manualmente los datos del recurso compartido original en el nuevo que acaba de crear. Para realizar esta copia, se recomienda usar `robocopy` para Windows o `rsync` para macOS y Linux.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Descripción del aprovisionamiento de recursos compartidos de archivos prémium
 Los recursos compartidos de archivos Premium se aprovisionan en función de una relación fija de GiB/IOPS/rendimiento. Todos los tamaños de recursos compartido de archivos ofrecen una línea base y un rendimiento mínimo, y se les permite aumentar. Por cada GiB aprovisionado, se generarán un IOPS y un rendimiento mínimos, y un IOPS y un rendimiento de 0,1 MiB por segundo en el recurso compartido hasta los límites máximos por recurso compartido. El aprovisionamiento mínimo que se permite es 100 GiB con un IOPS y un rendimiento mínimos. 

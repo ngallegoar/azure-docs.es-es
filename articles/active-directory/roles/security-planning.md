@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834462"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861993"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -93,7 +93,7 @@ Después de activar Azure AD Privileged Identity Management, puede ver los usua
 * Administrador de Exchange
 * Administrador de SharePoint
 
-Si no dispone de Azure AD Privileged Identity Management en la organización, puede usar la [API de PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comience por el rol de administrador global, ya que un administrador global tiene los mismos permisos en todos los servicios en la nube a los que la organización se ha suscrito. Estos permisos se conceden independientemente de dónde se hayan asignado: en el centro de administración de Microsoft 365, en Azure Portal o en el módulo de Azure AD para Microsoft PowerShell.
+Si no dispone de Azure AD Privileged Identity Management en la organización, puede usar la [API de PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Comience por el rol de administrador global, ya que un administrador global tiene los mismos permisos en todos los servicios en la nube a los que la organización se ha suscrito. Estos permisos se conceden independientemente de dónde se hayan asignado: en el centro de administración de Microsoft 365, en Azure Portal o en el módulo de Azure AD para Microsoft PowerShell.
 
 Quite las cuentas que ya no sean necesarias en esos roles. A continuación, clasifique las restantes que están asignadas a roles de administrador:
 

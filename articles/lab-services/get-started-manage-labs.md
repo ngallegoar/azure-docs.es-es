@@ -3,12 +3,12 @@ title: Introducción a Azure Lab Services
 description: En este artículo se describe cómo empezar a usar Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917110"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602672"
 ---
 # <a name="get-started-with-lab-services"></a>Introducción a Lab Services 
 
@@ -48,7 +48,7 @@ Lo más importante que se debe recordar al administrar las máquinas virtuales e
 
 ### <a name="overview"></a>Información general
 
-Los paneles de los laboratorios educativos de Azure Lab Services proporcionan una instantánea de los diferentes aspectos de un laboratorio determinado, como la información de la máquina virtual, el número de máquinas virtuales asignadas y sin asignar, el número de usuarios registrados y sin registrar, e información sobre las programaciones de laboratorio. 
+Los paneles de los laboratorios de Azure Lab Services proporcionan una instantánea de los diferentes aspectos de un laboratorio determinado, como la información de la VM, el número de VM asignadas y sin asignar, el número de usuarios registrados y sin registrar, e información sobre las programaciones de laboratorio. 
 
 > [!NOTE]
 > Aunque la mayoría de los aspectos administrativos del panel y del [sitio web de Azure Lab Services](https://labs.azure.com/) estarán visibles para los profesores, los permisos específicos de su rol pueden afectar a su capacidad para modificar algunos de sus criterios. Si encuentra algún problema con su configuración de laboratorio en particular, póngase en contacto con el administrador de CTE.
@@ -115,12 +115,8 @@ Los profesores pueden agregar alumnos a un laboratorio y supervisar sus cuotas d
 
 1. En el [sitio web de Azure Lab Services](https://labs.azure.com/), haga clic en **Usuarios** en la parte izquierda de la ventana.
 1. En la parte superior de la ventana, haga clic en **Agregar usuarios** y seleccione **Agregar por dirección de correo electrónico**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="El botón &quot;Agregar usuarios&quot;":::
 1. En el panel **Agregar usuarios** que aparece a la derecha, escriba las direcciones de correo electrónico de los alumnos en varias líneas o en una sola, separadas por punto y coma.
 1. Haga clic en **Save**(Guardar).
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Adición de alumnos al laboratorio":::
 1. La lista de usuarios ahora se actualizará con los correos electrónicos, el estado, la invitación y las horas de cuota.
 
     Una vez que los alumnos están registrados en un laboratorio, sus nombres se actualizarán con el nombre y los apellidos de Azure Active Directory.

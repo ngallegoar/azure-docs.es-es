@@ -3,12 +3,12 @@ title: Uso de Azure Lab Services para hackathon
 description: En este artículo se describe cómo usar Azure Lab Services para crear laboratorios que puede usar para ejecutar hackathons.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445889"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602587"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Uso de Azure Lab Services para su próximo hackathon
 Azure Lab Services está diseñado para ser ligero y fácil de usar, por lo que puede poner en marcha rápidamente un laboratorio de máquinas virtuales (VM) nuevo para el hackathon.  Use la lista de comprobación siguiente para asegurarse de que el hackathon se desarrolle lo más fluidamente posible. Esta lista de comprobación la debe completar el departamento de TI o los profesores responsables de crear y administrar el laboratorio para el hackathon. 
@@ -39,7 +39,7 @@ A fin de usar Lab Services para el hackathon, asegúrese de que tanto la cuenta 
 
 - **Decida si quiere restringir el acceso al laboratorio**. 
 
-    Al agregar usuarios al laboratorio, hay una opción para restringir el acceso que está habilitada de manera predeterminada. Esta característica requiere que agregue todos los correos electrónicos de los participantes del hackathon a la lista para que puedan registrarse y acceder al laboratorio con el vínculo de registro. Si tiene un hackathon en el que no sabe quiénes serán los participantes antes del evento, puede optar por deshabilitar la opción para restringir acceso, lo que permitirá a cualquier persona registrarse en el laboratorio mediante el vínculo de registro. Para más información, consulte la [guía paso a paso sobre cómo agregar usuarios](how-to-configure-student-usage.md#add-users-to-a-lab).
+    Al agregar usuarios al laboratorio, hay una opción para restringir el acceso que está habilitada de manera predeterminada. Esta característica requiere que agregue todos los correos electrónicos de los participantes del hackathon a la lista para que puedan registrarse y acceder al laboratorio con el vínculo de registro. Si tiene un hackathon en el que no sabe quiénes serán los participantes antes del evento, puede optar por deshabilitar la opción para restringir acceso, lo que permitirá a cualquier persona registrarse en el laboratorio mediante el vínculo de registro. Para más información, consulte la [guía paso a paso sobre cómo agregar usuarios](how-to-configure-student-usage.md).
 
 - **Compruebe la configuración de la programación, la cuota y el apagado automático**. 
 
@@ -86,4 +86,4 @@ En esta sección se describen los pasos necesarios para completar el día del ha
         Para más información, consulte la [guía paso a paso sobre cómo enviar invitaciones a los usuarios](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) y cómo [conectarse a máquinas virtuales Linux](how-to-use-remote-desktop-linux-student.md?branch=master). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Empiece por crear una cuenta de laboratorio en laboratorios educativos siguiendo las instrucciones del artículo: [Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services](tutorial-setup-lab-account.md).
+Empiece por crear una cuenta de laboratorio en los laboratorios, siguiendo las instrucciones del artículo: [Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services](tutorial-setup-lab-account.md).

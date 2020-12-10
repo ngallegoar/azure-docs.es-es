@@ -6,18 +6,18 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 12/08/2020
 ms.author: memildin
-ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289231"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862469"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportación continua de alertas y recomendaciones de seguridad
 
-Azure Security Center genera alertas y recomendaciones de seguridad detalladas. Puede verlas en el portal o mediante herramientas de programación. También puede exportar parte o la totalidad de esta información para realizar el seguimiento con otras herramientas de supervisión de su entorno. 
+Azure Security Center genera alertas y recomendaciones de seguridad detalladas. Puede verlas en el portal o mediante herramientas de programación. También puede que deba exportar parte o la totalidad de esta información para realizar el seguimiento con otras herramientas de supervisión de su entorno. 
 
 La **exportación continua** le permite personalizar completamente *qué* se exportará y *a dónde* irá. Por ejemplo, puede configurarla para que:
 
@@ -61,13 +61,18 @@ Los pasos siguientes son necesarios si va a configurar una exportación continua
 1. En la barra lateral de Security Center, seleccione **Precios y configuración**.
 1. Seleccione la suscripción específica para la que quiere configurar la exportación de datos.
 1. En la barra lateral de la página de configuración de esa suscripción, seleccione **Exportación continua**.
-    [![Opciones de exportación en Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox): aquí se ven las opciones de exportación. Hay una pestaña para cada destino de exportación disponible. 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Opciones de exportación en Azure Security Center":::
+
+    Aquí verá las opciones de exportación. Hay una pestaña para cada destino de exportación disponible. 
+
 1. Seleccione el tipo de datos que quiere exportar y elija los filtros que quiera de cada tipo (por ejemplo, exportar solo alertas de gravedad alta).
 1. Opcionalmente, si la selección incluye una de estas cuatro recomendaciones, puede incluir los resultados de la evaluación de vulnerabilidades junto con ellas:
     - Se deben corregir las conclusiones de la evaluación de vulnerabilidades de las bases de datos SQL
     - Es necesario corregir las conclusiones de la evaluación de vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)
     - Es necesario corregir las vulnerabilidades de las imágenes de Azure Container Registry (con tecnología de Qualys)
     - Es necesario corregir las vulnerabilidades de las máquinas virtuales
+    - Se deben instalar actualizaciones del sistema en las máquinas
 
     Para incluir los resultados con estas recomendaciones, habilite la opción de **incluir resultados de seguridad**.
 
@@ -88,11 +93,11 @@ La exportación continua se puede configurar y administrar mediante las [API de 
 
 La API proporciona funcionalidad adicional que no está disponible en Azure Portal, por ejemplo:
 
-* **Mayor volumen** : la API permite crear varias configuraciones de exportación en una suscripción única. La página **Exportación continua** de la interfaz de usuario del portal de Security Center solo admite una configuración de exportación por suscripción.
+* **Mayor volumen**: la API permite crear varias configuraciones de exportación en una suscripción única. La página **Exportación continua** de la interfaz de usuario del portal de Security Center solo admite una configuración de exportación por suscripción.
 
-* **Características adicionales** : la API ofrece parámetros adicionales que no se muestran en la interfaz de usuario. Por ejemplo, puede agregar etiquetas a su recurso de automatización, así como definir su exportación en función de un mayor conjunto de alertas y propiedades recomendadas que las que se ofrecen en la página **Exportación continua** de la interfaz de usuario del portal de Security Center.
+* **Características adicionales**: la API ofrece parámetros adicionales que no se muestran en la interfaz de usuario. Por ejemplo, puede agregar etiquetas a su recurso de automatización, así como definir su exportación en función de un mayor conjunto de alertas y propiedades recomendadas que las que se ofrecen en la página **Exportación continua** de la interfaz de usuario del portal de Security Center.
 
-* **Ámbito más centrado** : la API proporciona un nivel más detallado del ámbito de sus configuraciones de exportación. Cuando se define una exportación con la API, se puede hacer a nivel de grupo de recursos. Si va a usar la página **Exportación continua** en la interfaz de usuario del portal de Security Center, tiene que definirla en el nivel de suscripción.
+* **Ámbito más centrado**: la API proporciona un nivel más detallado del ámbito de sus configuraciones de exportación. Cuando se define una exportación con la API, se puede hacer a nivel de grupo de recursos. Si va a usar la página **Exportación continua** en la interfaz de usuario del portal de Security Center, tiene que definirla en el nivel de suscripción.
 
     > [!TIP]
     > Si ha configurado la exportación múltiple mediante la API o si ha usado parámetros que son solo de la API, esas características adicionales no se mostrarán en la interfaz de usuario de Security Center. En su lugar, habrá un banner que le informará de que existen otras configuraciones.
@@ -131,8 +136,8 @@ Para implementar las configuraciones de la exportación continua en la organizac
     :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Asignación de Azure Policy":::
 
 1. Abra cada pestaña y establezca los parámetros como quiera:
-    1. En la pestaña **Aspectos básicos** , establezca el ámbito de la directiva. Para usar la administración centralizada, asigne la directiva al grupo de administración que contiene las suscripciones que usarán la configuración de la exportación continua. 
-    1. En la pestaña **Parámetros** , establezca el grupo de recursos y los detalles del tipo de datos. 
+    1. En la pestaña **Aspectos básicos**, establezca el ámbito de la directiva. Para usar la administración centralizada, asigne la directiva al grupo de administración que contiene las suscripciones que usarán la configuración de la exportación continua. 
+    1. En la pestaña **Parámetros**, establezca el grupo de recursos y los detalles del tipo de datos. 
         > [!TIP]
         > Cada parámetro tiene información sobre herramientas que explica las opciones disponibles.
         >
@@ -163,7 +168,7 @@ Para ver los esquemas de eventos de los tipos de datos exportados, visite el art
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Visualización de las recomendaciones y alertas exportadas en Azure Monitor
 
-En algunos casos, puede elegir ver las alertas de seguridad exportadas o las recomendaciones en [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
+También puede elegir ver las alertas o las recomendaciones de seguridad exportadas en [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
 
 Azure Monitor proporciona un conjunto de alertas unificadas que consta de varias alertas de Azure, como el registro de diagnóstico, las alertas de métricas y las alertas personalizadas basadas en las consultas del área de trabajo de Log Analytics.
 
@@ -175,9 +180,9 @@ Para ver las alertas y recomendaciones de Security Center en Azure Monitor, conf
 
 1. En la página de creación de reglas, configure la nueva regla (de la misma manera que configuraría una [regla de alertas de registro en Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)):
 
-    * En **Recurso** , seleccione el área de trabajo de Log Analytics a la que exportó las recomendaciones y las alertas de seguridad.
+    * En **Recurso**, seleccione el área de trabajo de Log Analytics a la que exportó las recomendaciones y las alertas de seguridad.
 
-    * En **Condición** , seleccione **Custom log search** (Búsqueda de registros personalizada). En la página que aparece, configure la consulta, el período de retrospectiva y el período de frecuencia. En la consulta de búsqueda, puede escribir *SecurityAlert* o *SecurityRecommendation* para consultar los tipos de datos que Security Center exporta continuamente al habilitar la característica de exportación continua a Log Analytics. 
+    * En **Condición**, seleccione **Custom log search** (Búsqueda de registros personalizada). En la página que aparece, configure la consulta, el período de retrospectiva y el período de frecuencia. En la consulta de búsqueda, puede escribir *SecurityAlert* o *SecurityRecommendation* para consultar los tipos de datos que Security Center exporta continuamente al habilitar la característica de exportación continua a Log Analytics. 
     
     * Opcionalmente, en [Grupo de acciones](../azure-monitor/platform/action-groups.md), configure el grupo de acciones que desea desencadenar. Los grupos de acciones pueden desencadenar el envío de correo electrónico, los vales de ITSM, los webhooks, etc.
     ![Regla de alerta de Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)
@@ -207,7 +212,7 @@ Obtenga más información sobre los [precios de Azure Event Hubs](https://azure.
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>¿La exportación incluye datos sobre el estado actual de todos los recursos?
 
-No. La exportación continua se creó para la transmisión de **eventos** :
+No. La exportación continua se creó para la transmisión de **eventos**:
 
 - Las **alertas** recibidas antes de habilitar la exportación no se exportarán.
 - Se envían **recomendaciones** cuando cambia el estado de cumplimiento de un recurso. Por ejemplo, cuando un recurso pasa de un estado correcto a otro incorrecto. Por lo tanto, como sucede con las alertas, no se exportarán las recomendaciones para los recursos que no hayan cambiado de estado desde que se habilitó la exportación.
