@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b0413eabcfae7e3a4b28243caf2a708260ccae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360844"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932224"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de implementación para Azure Kubernetes
 
@@ -56,7 +56,7 @@ En este tutorial, aprenderá lo siguiente:
 
    ![La captura de pantalla muestra Azure Portal con una flecha que apunta al centro de implementación.](media/deployment-center-launcher/settings.png)
 
-1. Elija la ubicación del código y seleccione **Siguiente**. A continuación, seleccione uno de los repositorios admitidos actualmente: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** o **GitHub**.
+1. Elija la ubicación del código y seleccione **Siguiente**. A continuación, seleccione uno de los repositorios admitidos actualmente: **[Azure Repos](/azure/devops/repos/index)** o **GitHub**.
 
     Azure Repos es un conjunto de herramientas de control de versiones que ayuda a administrar el código. Independientemente de que el proyecto de software sea grande o pequeño, se recomienda usar el control de versiones lo antes posible.
 
@@ -77,7 +77,7 @@ En este tutorial, aprenderá lo siguiente:
 
     ![La captura de pantalla muestra el centro de implementación con un mensaje que indica que no se encontró Dockerfile en el repositorio.](media/deployment-center-launcher/dockerfile.png)
 
-1. Seleccione un registro de contenedor existente o cree uno y, a continuación, seleccione **Finalizar**. La canalización se crea automáticamente y pone en cola una compilación en [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
+1. Seleccione un registro de contenedor existente o cree uno y, a continuación, seleccione **Finalizar**. La canalización se crea automáticamente y pone en cola una compilación en [Azure Pipelines](/azure/devops/pipelines/index).
 
     Azure Pipelines es un servicio en la nube que puede usar para compilar y probar automáticamente el proyecto del código y hacer que esté disponible para otros usuarios. Azure Pipelines combina la integración continua y la entrega continua para probar y compilar el código de forma constante y coherente, y enviarlo a cualquier destino.
 

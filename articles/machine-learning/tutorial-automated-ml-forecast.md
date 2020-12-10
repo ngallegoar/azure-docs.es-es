@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356508"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921849"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsión de la demanda con aprendizaje automático automatizado
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá las siguientes tareas:
 > * Exploración de los resultados del experimento.
 > * Implementación del mejor modelo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md). 
 
@@ -145,7 +145,7 @@ Complete la configuración del experimento de ML automatizado especificando el t
     Métrica principal| Métrica de evaluación por la que se medirá el algoritmo de aprendizaje automático.|Error cuadrático medio normalizado
     Explicación del mejor modelo| Muestra automáticamente la posible explicación relativa al mejor modelo creado mediante ML automatizado.| Habilitar
     Algoritmos bloqueados | Algoritmos que desea excluir del trabajo de entrenamiento.| Árboles aleatorios extremos
-    Configuración adicional de la previsión| Esta configuración ayuda a mejorar la precisión del modelo. <br><br> _**Forecast target lags**_ (Retrasos de objetivo de previsión): cuánto quiere retroceder en el tiempo para construir los retrasos de la variable de destino. <br> _**Periodos acumulados de destino**_ : especifica la duración de los periodos acumulados en la que se generarán características como *max, min* (máx., mín.) y *sum* (suma). | <br><br>Retardos de&nbsp;destino&nbsp;para la previsión: None <br> Periodos&nbsp;acumulados&nbsp;de destino&nbsp;: None
+    Configuración adicional de la previsión| Esta configuración ayuda a mejorar la precisión del modelo. <br><br> _**Forecast target lags**_ (Retrasos de objetivo de previsión): cuánto quiere retroceder en el tiempo para construir los retrasos de la variable de destino. <br> _**Periodos acumulados de destino**_: especifica la duración de los periodos acumulados en la que se generarán características como *max, min* (máx., mín.) y *sum* (suma). | <br><br>Retardos de&nbsp;destino&nbsp;para la previsión: None <br> Periodos&nbsp;acumulados&nbsp;de destino&nbsp;: None
     Criterios de exclusión| Si se cumplen los criterios, se detiene el trabajo de entrenamiento. |Tiempo del&nbsp;trabajo de&nbsp;entrenamiento (en horas): 3 <br> Umbral de&nbsp;puntuación&nbsp;de métrica: None
     Validación | Elija un tipo de validación cruzada y un número de pruebas.|Tipo de validación:<br>validación cruzada de&nbsp;k iteraciones&nbsp; <br> <br> Número de validaciones: 5
     Simultaneidad| Número máximo de iteraciones paralelas ejecutadas por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 6
@@ -235,7 +235,7 @@ Consulte este artículo para conocer los pasos de creación de un esquema que ad
 > [Consumo de un servicio web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
-+ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification).
++ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 + Más información sobre la [caracterización](how-to-configure-auto-features.md#featurization).
 + Más información acerca de la [generación de perfiles de datos](how-to-connect-data-ui.md#profile).
 

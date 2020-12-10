@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 866be6a2449f3b10d200968782b90653e1363906
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359806"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921896"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 
@@ -102,7 +102,7 @@ Antes de configurar el experimento, cargue el archivo de datos en el área de tr
         Encabezados de columna| Indica cómo se tratarán los encabezados del conjunto de datos, si existen.| Todos los archivos tienen los mismos encabezados
         Omitir filas | Indica el número de filas, si hay alguna, que se omiten en el conjunto de datos.| None
 
-    1. El formulario **Scheme** (Esquema) permite una configuración adicional de los datos para este experimento. En este ejemplo, seleccione el modificador de alternancia de la característica **day_of_week** , de modo que no se incluya para este experimento. Seleccione **Next** (Siguiente).
+    1. El formulario **Scheme** (Esquema) permite una configuración adicional de los datos para este experimento. En este ejemplo, seleccione el modificador de alternancia de la característica **day_of_week**, de modo que no se incluya para este experimento. Seleccione **Next** (Siguiente).
 
         ![Configuración de la pestaña Preview (Versión preliminar)](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -241,7 +241,7 @@ En este tutorial ha usado la interfaz de aprendizaje automático automatizado de
 > [Consumo de un servicio web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
-+ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification).
++ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 + Más información sobre la [caracterización](how-to-configure-auto-features.md#featurization).
 + Más información acerca de la [generación de perfiles de datos](how-to-connect-data-ui.md#profile).
 

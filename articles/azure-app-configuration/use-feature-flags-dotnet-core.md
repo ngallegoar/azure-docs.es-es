@@ -3,8 +3,7 @@ title: Tutorial para usar las marcas de características en una aplicación de .
 description: En este tutorial, aprenderá a implementar las marcas de características en aplicaciones de .NET Core.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746131"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929198"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -227,7 +226,7 @@ public IActionResult Index()
 }
 ```
 
-Cuando una acción o controlador MVC está bloqueado porque la marca de característica de control está *desactivada* , se llama a una interfaz `IDisabledFeaturesHandler` registrada. La interfaz predeterminada `IDisabledFeaturesHandler` devuelve un código de estado 404 al cliente sin cuerpo de respuesta.
+Cuando una acción o controlador MVC está bloqueado porque la marca de característica de control está *desactivada*, se llama a una interfaz `IDisabledFeaturesHandler` registrada. La interfaz predeterminada `IDisabledFeaturesHandler` devuelve un código de estado 404 al cliente sin cuerpo de respuesta.
 
 ## <a name="mvc-views"></a>Vistas de MVC
 
