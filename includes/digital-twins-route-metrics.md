@@ -16,7 +16,7 @@ ms.locfileid: "87809055"
 
 Las métricas de enrutamiento, como el recuento, la latencia y la tasa de errores, se pueden ver en [Azure Portal](https://portal.azure.com/). 
 
-En la página principal del portal, busque la instancia de Azure Digital Twins para ver sus detalles. Seleccione la opción **Métricas** en el menú de navegación de la instancia de Azure Digital Twins para abrir la página *Métricas* .
+En la página principal del portal, busque la instancia de Azure Digital Twins para ver sus detalles. Seleccione la opción **Métricas** en el menú de navegación de la instancia de Azure Digital Twins para abrir la página *Métricas*.
 
 :::image type="content" source="../articles/digital-twins/media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Captura de pantalla que muestra la página de métricas de Azure Digital Twins":::
 
