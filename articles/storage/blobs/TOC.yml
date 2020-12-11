@@ -303,6 +303,8 @@
               href: storage-blob-create-account-block-blob.md
             - name: Actualización de una cuenta de almacenamiento
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: recuperar una cuenta de almacenamiento eliminada
+              href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Obtener el tipo de cuenta y el nombre de la SKU (.NET)
               href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Creación y administración de contenedores
