@@ -90,6 +90,8 @@
               href: data-box-local-web-ui-admin.md
             - name: Uso del envío autoadministrado
               href: data-box-portal-customer-managed-shipping.md
+            - name: Aportación de sus propios certificados
+              href: data-box-bring-your-own-certificates.md
             - name: Habilitación de clave administrada por el cliente
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Uso de la caja de seguridad del cliente

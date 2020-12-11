@@ -192,9 +192,9 @@
     - name: Línea de base de seguridad de Logic Apps
       href: ../../logic-apps/security-baseline.md
     - name: Línea base de Microsoft Cloud App Security
-      href: /cloud-app-security/security-baseline.md
+      href: 'https://docs.microsoft.com/cloud-app-security/security-baseline'
     - name: Línea base de seguridad de Microsoft Defender for Identity
-      href: /defender-for-identity/security-baseline.md
+      href: 'https://docs.microsoft.com/defender-for-identity/security-baseline'
     - name: Línea base de seguridad de Network Watcher
       href: ../../network-watcher/security-baseline.md
     - name: "Línea base de Power\_BI"
