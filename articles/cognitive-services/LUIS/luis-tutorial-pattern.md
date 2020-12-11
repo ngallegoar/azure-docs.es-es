@@ -479,10 +479,10 @@ La sintaxis del patrón proporciona la sintaxis de delimitador de inicio y final
 
     |Expresión de ejemplo|Nombre de formulario|
     |--|--|
-    |¿Dónde está el formulario **What to do when a fire breaks out in the Lab** y quién tiene que firmarlo después de que yo lo lea?|What to do when a fire breaks out in the Lab
-    |¿Dónde está el formulario **Request relocation from employee new to the company** en el servidor?|Request relocation from employee new to the company|
-    |¿Quién creó el formulario "**Health and wellness requests on the main campus**" y cuál es la versión más actual?|Health and wellness requests on the main campus|
-    |Estoy buscando el formulario "**Office move request including physical assets**". |Office move request including physical assets|
+    |Where is the form **What to do when a fire breaks out in the Lab** and who needs to sign it after I read it? (¿Dónde está el formulario "Procedimientos en caso de incendio en el laboratorio" y quién tiene que firmarlo después de que yo lo lea?)|What to do when a fire breaks out in the Lab (Procedimientos en caso de incendio en el laboratorio)
+    |Where is **Request relocation from employee new to the company** on the server? (¿Dónde está el formulario "Solicitud de reubicación de un empleado nuevo en la empresa" en el servidor?)|Request relocation from employee new to the company (Solicitud de reubicación de un empleado nuevo en la empresa)|
+    |Who authored "**Health and wellness requests on the main campus**" and what is the most current version? (¿Quién creó el formulario "Solicitudes de salud y bienestar en el complejo principal" y cuál es la versión más actual?)|Health and wellness requests on the main campus (Solicitudes de salud y bienestar en el complejo principal)|
+    |I'm looking for the form named "**Office move request including physical assets**" (Estoy buscando el formulario "Solicitud de traslado de oficina, incluidos activos físicos") |Office move request including physical assets (Solicitud de traslado de oficina, incluidos activos físicos)|
 
     Sin una entidad Pattern.any, sería difícil que LUIS entendiera dónde finaliza el título del formulario debido a las muchas variaciones de nombres de formulario.
 

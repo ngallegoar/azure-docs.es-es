@@ -155,7 +155,7 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 | Ubicación (Location) de esta regla de alerta |Este de EE. UU. |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
+| Nombre de la métrica (MetricName) de la alerta que se crea |\Disco físico(_Total)\Escrituras de disco/s. Consulte el cmdlet `Get-MetricDefinitions` acerca de cómo recuperar los nombres exactos de las métricas |
 | operator |GreaterThan |
 | Valor de umbral (número por segundo para esta métrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |

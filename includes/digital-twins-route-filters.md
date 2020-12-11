@@ -3,31 +3,43 @@ author: baanders
 description: archivo de inclusión para opciones de filtro de ruta de Azure Digital Twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 8/3/2020
+ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5eafac1c1bc2e7dd28e0cae544dc178e5bdc601e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "91779275"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96748222"
 ---
 | Nombre de filtro | Descripción | Esquema de texto de filtro | Valores admitidos | 
 | --- | --- | --- | --- |
 | True o False | Permite crear una ruta sin filtrado o deshabilitar una ruta para que no se envíen eventos. | `<true/false>` | `true`: la ruta está habilitada sin filtrado. <br> `false`: la ruta está deshabilitada. |
 | Tipo | [Tipo de evento](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) que fluye a través de la instancia de Digital Twins. | `type = '<eventType>'` | Estos son los posibles valores de tipo de evento: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
-| Source | Nombre de la instancia de Azure Digital Twins. | `source = '<hostname>'`| Estos son los posibles valores de nombre de host: <br> **Para notificaciones** : `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetría** : `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
-| Asunto | Descripción del evento en el contexto del origen del evento anterior. | `subject = '<subject>'` | Estos son los posibles valores para el asunto: <br>**Para notificaciones** : el asunto es `<twinid>` <br> o un formato de URI para los asuntos, que se identifican de forma única mediante varias partes o id.:<br>`<twinid>/relationships/<relationshipid>`<br> **Para telemetría** : el asunto es la ruta de acceso del componente (si la telemetría se emite desde un componente gemelo), como `comp1.comp2`. Si no se emite la telemetría desde un componente, el campo de asunto está vacío. |
-| Esquema de datos | Id. del modelo de DTDL. | `dataschema = '<model-dtmi-ID>'` | **Para telemetría** : el esquema de datos es el identificador del modelo del gemelo o el componente que emite la telemetría. Por ejemplo: `dtmi:example:com:floor4;2` <br>**Para notificaciones** : Se puede acceder al esquema de datos en el cuerpo de la notificación en `$body.$metadata.$model`|
+| Source | Nombre de la instancia de Azure Digital Twins. | `source = '<hostname>'`| Estos son los posibles valores de nombre de host: <br> **Para notificaciones**: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net` <br> **Para telemetría**: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>`|
+| Asunto | Descripción del evento en el contexto del origen del evento anterior. | `subject = '<subject>'` | Estos son los posibles valores para el asunto: <br>**Para notificaciones**: el asunto es `<twinid>` <br> o un formato de URI para los asuntos, que se identifican de forma única mediante varias partes o id.:<br>`<twinid>/relationships/<relationshipid>`<br> **Para telemetría**: el asunto es la ruta de acceso del componente (si la telemetría se emite desde un componente gemelo), como `comp1.comp2`. Si no se emite la telemetría desde un componente, el campo de asunto está vacío. |
+| Esquema de datos | Id. del modelo de DTDL. | `dataschema = '<model-dtmi-ID>'` | **Para telemetría**: el esquema de datos es el identificador del modelo del gemelo o el componente que emite la telemetría. Por ejemplo: `dtmi:example:com:floor4;2` <br>**Para notificaciones (crear o eliminar)** : se puede acceder al esquema de datos en el cuerpo de la notificación en `$body.$metadata.$model`. <br>**Para notificaciones (actualizar)** : Se puede acceder al esquema de datos en el cuerpo de la notificación en `$body.modelId`|
 | Tipo de contenido | Tipo de contenido del valor de datos. | `datacontenttype = '<contentType>'` | El tipo de contenido es `application/json`. |
 | Versión de especificación | Versión del esquema de evento que se usa. | `specversion = '<version>'` | La versión debe ser `1.0`. Esto indica la versión de esquema de CloudEvents es la 1.0. |
-| Cuerpo de la notificación | Referencia a cualquier propiedad en el campo `data` de una notificación | `$body.<property>` | Consulte [*Procedimientos: Descripción de los datos de eventos*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) para obtener ejemplos de notificaciones. Se puede hacer referencia a cualquier propiedad del campo `data` mediante `$body`
+| Cuerpo de la notificación | Referencia a cualquier propiedad en el campo `data` de una notificación | `$body.<property>` | Consulte [*Procedimientos: Descripción de los datos de eventos*](../articles/digital-twins/how-to-interpret-event-data.md) para obtener ejemplos de notificaciones. Se puede hacer referencia a cualquier propiedad del campo `data` mediante `$body`
+
+Tenga en cuenta que puede agregar varios filtros a una solicitud como esta: 
+
+```json  
+{
+    "endpointName": "dt-endpoint", 
+    "filter": "true", 
+    "filter": "source = 'ADT-resource.api.wus2.digitaltwins.azure.net/myFloorID'", 
+    "filter": "type = 'Microsoft.DigitalTwins.Twin.Delete'", 
+    "filter": "specversion = '1.0'"
+}
+```
 
 Los siguientes tipos de datos se admiten como valores devueltos por las referencias a los datos anteriores:
 
 | Tipo de datos | Ejemplo |
 |-|-|-|
-|**String**| `STARTS_WITH($body.$metadate.$model, 'dtmi:example:com:floor')` <br> `CONTAINS(subject, '<twinID>')`|
+|**String**| `STARTS_WITH($body.$metadata.$model, 'dtmi:example:com:floor')` <br> `CONTAINS(subject, '<twinID>')`|
 |**Entero**|`$body.errorCode > 200`|
 |**Double**|`$body.temperature <= 5.5`|
 |**Bool**|`$body.poweredOn = true`|
